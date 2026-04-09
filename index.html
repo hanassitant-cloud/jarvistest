@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Agent 學習平台</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Arial', sans-serif; background: #f0f4f8; color: #333; }
+
+  /* Nav */
+  nav {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white; padding: 0 30px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px; position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+  nav .logo { font-size: 20px; font-weight: bold; color: #4fc3f7; }
+  nav .nav-links { display: flex; gap: 20px; }
+  nav .nav-links a {
+    color: #ccc; text-decoration: none; font-size: 14px;
+    padding: 6px 12px; border-radius: 6px; cursor: pointer;
+    transition: all 0.2s;
+  }
+  nav .nav-links a:hover, nav .nav-links a.active {
+    background: #4fc3f7; color: #1a1a2e;
+  }
+  nav .user-info { font-size: 13px; color: #aaa; }
+
+  /* Layout */
+  .container { max-width: 1000px; margin: 0 auto; padding: 30px 20px; }
+
+  /* Page sections */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    color: white; border-radius: 16px; padding: 50px 40px;
+    margin-bottom: 30px; text-align: center;
+  }
+  .hero h1 { font-size: 32px; margin-bottom: 12px; }
+  .hero p { font-size: 16px; color: #aad4ff; margin-bottom: 24px; }
+  .hero .btn-primary {
+    background: #4fc3f7; color: #1a1a2e;
+    border: none; border-radius: 8px;
+    padding: 12px 28px; font-size: 16px; font-weight: bold;
+    cursor: pointer; transition: transform 0.2s;
+  }
+  .hero .btn-primary:hover { transform: scale(1.05); }
+
+  /* Course cards */
+  .section-title { font-size: 22px; font-weight: bold; margin-bottom: 16px; color: #1a1a2e; }
+  .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px; }
+  .course-card {
+    background: white; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .course-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .course-card .card-header {
+    height: 100px; display: flex; align-items: center; justify-content: center;
+    font-size: 40px;
+  }
+  .card-w1 { background: linear-gradient(135deg, #667eea, #764ba2); }
+  .card-w2 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+  .card-w3 { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+  .card-w4 { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+  .course-card .card-body { padding: 16px; }
+  .course-card .card-title { font-weight: bold; margin-bottom: 6px; font-size: 15px; }
+  .course-card .card-desc { font-size: 13px; color: #666; margin-bottom: 10px; }
+  .card-meta { display: flex; justify-content: space-between; font-size: 12px; color: #999; }
+  .progress-bar { height: 4px; background: #eee; border-radius: 2px; margin-top: 10px; }
+  .progress-fill { height: 100%; border-radius: 2px; background: #4fc3f7; }
+
+  /* Lesson */
+  .lesson-header {
+    background: white; border-radius: 12px; padding: 24px;
+    margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .back-btn {
+    background: none; border: 1px solid #ddd; border-radius: 6px;
+    padding: 6px 14px; cursor: pointer; font-size: 13px;
+    margin-bottom: 16px; color: #555;
+  }
+  .back-btn:hover { background: #f5f5f5; }
+  .lesson-title { font-size: 24px; font-weight: bold; color: #1a1a2e; margin-bottom: 8px; }
+  .lesson-meta { font-size: 13px; color: #888; }
+
+  .lesson-content {
+    background: white; border-radius: 12px; padding: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 20px;
+    line-height: 1.8;
+  }
+  .lesson-content h3 { color: #1a1a2e; margin: 20px 0 10px; font-size: 18px; }
+  .lesson-content p { margin-bottom: 12px; color: #444; }
+  .lesson-content ul { margin: 10px 0 16px 20px; color: #444; }
+  .lesson-content li { margin-bottom: 6px; }
+  .concept-box {
+    background: #f0f9ff; border-left: 4px solid #4fc3f7;
+    padding: 16px 20px; border-radius: 0 8px 8px 0; margin: 16px 0;
+  }
+  .concept-box strong { color: #0277bd; }
+  .code-block {
+    background: #1e1e2e; color: #cdd6f4; padding: 20px;
+    border-radius: 8px; font-family: monospace; font-size: 13px;
+    margin: 16px 0; overflow-x: auto; line-height: 1.6;
+  }
+  .code-block .c-green { color: #a6e3a1; }
+  .code-block .c-blue { color: #89dceb; }
+  .code-block .c-yellow { color: #f9e2af; }
+  .code-block .c-pink { color: #f38ba8; }
+  .code-block .c-gray { color: #6c7086; }
+
+  /* Exam */
+  .exam-intro {
+    background: white; border-radius: 12px; padding: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 20px; text-align: center;
+  }
+  .exam-intro .exam-icon { font-size: 56px; margin-bottom: 16px; }
+  .exam-intro h2 { font-size: 24px; color: #1a1a2e; margin-bottom: 8px; }
+  .exam-intro p { color: #666; margin-bottom: 20px; }
+  .exam-stats { display: flex; justify-content: center; gap: 40px; margin: 20px 0; }
+  .exam-stat { text-align: center; }
+  .exam-stat .num { font-size: 28px; font-weight: bold; color: #4fc3f7; }
+  .exam-stat .label { font-size: 12px; color: #888; }
+  .btn-exam {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white; border: none; border-radius: 10px;
+    padding: 14px 36px; font-size: 16px; font-weight: bold;
+    cursor: pointer; transition: transform 0.2s;
+  }
+  .btn-exam:hover { transform: scale(1.03); }
+
+  .question-card {
+    background: white; border-radius: 12px; padding: 28px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 16px;
+  }
+  .q-num { font-size: 12px; color: #888; margin-bottom: 8px; }
+  .q-text { font-size: 16px; font-weight: bold; color: #1a1a2e; margin-bottom: 16px; line-height: 1.5; }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; border: 2px solid #e8ecf0;
+    border-radius: 8px; cursor: pointer; transition: all 0.2s;
+    font-size: 14px;
+  }
+  .option:hover { border-color: #4fc3f7; background: #f0f9ff; }
+  .option.selected { border-color: #667eea; background: #f0f0ff; }
+  .option.correct { border-color: #43e97b; background: #f0fff4; }
+  .option.wrong { border-color: #f5576c; background: #fff0f2; }
+  .option input { accent-color: #667eea; }
+
+  .short-ans textarea {
+    width: 100%; border: 2px solid #e8ecf0; border-radius: 8px;
+    padding: 12px; font-size: 14px; resize: vertical; min-height: 80px;
+    font-family: Arial; transition: border-color 0.2s;
+  }
+  .short-ans textarea:focus { outline: none; border-color: #667eea; }
+
+  .submit-btn {
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    color: #1a1a2e; border: none; border-radius: 10px;
+    padding: 14px 40px; font-size: 16px; font-weight: bold;
+    cursor: pointer; display: block; margin: 20px auto;
+    transition: transform 0.2s;
+  }
+  .submit-btn:hover { transform: scale(1.03); }
+
+  /* Result */
+  .result-card {
+    background: white; border-radius: 16px; padding: 36px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.1); text-align: center; margin-bottom: 20px;
+  }
+  .score-circle {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: white; margin: 0 auto 20px;
+  }
+  .score-circle .score-num { font-size: 36px; font-weight: bold; }
+  .score-circle .score-label { font-size: 12px; opacity: 0.8; }
+  .result-stats { display: flex; justify-content: center; gap: 30px; margin: 20px 0; }
+  .result-stat { text-align: center; }
+  .result-stat .r-num { font-size: 22px; font-weight: bold; }
+  .result-stat .correct-n { color: #43e97b; }
+  .result-stat .wrong-n { color: #f5576c; }
+  .result-stat .r-label { font-size: 12px; color: #888; }
+
+  .ai-analysis {
+    background: linear-gradient(135deg, #f0f0ff, #f0f9ff);
+    border-radius: 12px; padding: 24px; margin: 20px 0; text-align: left;
+  }
+  .ai-analysis h3 { color: #667eea; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .ai-analysis p { font-size: 14px; line-height: 1.8; color: #444; }
+  .tag {
+    display: inline-block; padding: 4px 10px; border-radius: 20px;
+    font-size: 12px; margin: 4px;
+  }
+  .tag-strong { background: #e8fff0; color: #2e7d32; border: 1px solid #a5d6a7; }
+  .tag-weak   { background: #fff0f0; color: #c62828; border: 1px solid #ef9a9a; }
+
+  .loading {
+    text-align: center; padding: 30px;
+    color: #667eea; font-size: 16px;
+  }
+  .spinner {
+    width: 40px; height: 40px; border: 4px solid #e8ecf0;
+    border-top-color: #667eea; border-radius: 50%;
+    animation: spin 0.8s linear infinite; margin: 0 auto 12px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">🤖 AI Agent 學習平台</div>
+  <div class="nav-links">
+    <a onclick="showPage('home')" class="active" id="nav-home">課程首頁</a>
+    <a onclick="showPage('lesson')" id="nav-lesson">第一週課程</a>
+    <a onclick="showPage('exam')" id="nav-exam">線上考試</a>
+  </div>
+  <div class="user-info">👤 學生帳號</div>
+</nav>
+
+<!-- HOME PAGE -->
+<div class="page active" id="page-home">
+<div class="container">
+  <div class="hero">
+    <h1>AI Agent 開發課程</h1>
+    <p>從零開始學習 AI Agent 技術，掌握未來最重要的開發能力</p>
+    <button class="btn-primary" onclick="showPage('lesson')">開始學習 第一週 →</button>
+  </div>
+
+  <div class="section-title">📚 課程列表</div>
+  <div class="course-grid">
+    <div class="course-card" onclick="showPage('lesson')">
+      <div class="card-header card-w1">🧠</div>
+      <div class="card-body">
+        <div class="card-title">第一週：AI 概念入門</div>
+        <div class="card-desc">LLM 原理、API 使用、Prompt Engineering 基礎</div>
+        <div class="card-meta"><span>⏱ 3小時</span><span>🟢 進行中</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:60%"></div></div>
+      </div>
+    </div>
+    <div class="course-card">
+      <div class="card-header card-w2">🤖</div>
+      <div class="card-body">
+        <div class="card-title">第二週：認識 AI Agent</div>
+        <div class="card-desc">Agent 架構、工具呼叫、ReAct 框架</div>
+        <div class="card-meta"><span>⏱ 3小時</span><span>🔒 未解鎖</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+      </div>
+    </div>
+    <div class="course-card">
+      <div class="card-header card-w3">🔧</div>
+      <div class="card-body">
+        <div class="card-title">第三週：Agent 開發框架</div>
+        <div class="card-desc">LangChain、Memory 設計、API 串接</div>
+        <div class="card-meta"><span>⏱ 4小時</span><span>🔒 未解鎖</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+      </div>
+    </div>
+    <div class="course-card">
+      <div class="card-header card-w4">🚀</div>
+      <div class="card-body">
+        <div class="card-title">第四週：多工具 Agent</div>
+        <div class="card-desc">多步驟規劃、錯誤處理、人機協作</div>
+        <div class="card-meta"><span>⏱ 4小時</span><span>🔒 未解鎖</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- LESSON PAGE -->
+<div class="page" id="page-lesson">
+<div class="container">
+  <div class="lesson-header">
+    <button class="back-btn" onclick="showPage('home')">← 返回課程列表</button>
+    <div class="lesson-title">第一週：AI 概念入門</div>
+    <div class="lesson-meta">⏱ 預計學習時間：3小時 ｜ 📝 包含實作練習</div>
+  </div>
+
+  <div class="lesson-content">
+    <h3>🧠 單元1：什麼是 LLM？</h3>
+    <p>大型語言模型（LLM, Large Language Model）是一種透過大量文本資料訓練的 AI 模型。它學會了語言的規律，能夠理解並生成自然語言。</p>
+
+    <div class="concept-box">
+      <strong>核心概念：Token 預測</strong><br>
+      LLM 的本質是「根據前面的文字，預測下一個最可能出現的 Token」。透過數十億個參數，它學會了語言的統計規律。
+    </div>
+
+    <p>常見的 LLM 包括：OpenAI 的 GPT 系列、Anthropic 的 Claude、Google 的 Gemini。</p>
+
+    <h3>🤖 單元2：什麼是 AI Agent？</h3>
+    <p>AI Agent 比一般的問答 AI 更進一步。它能夠：</p>
+    <ul>
+      <li><strong>規劃</strong>：把複雜目標拆解成多個步驟</li>
+      <li><strong>使用工具</strong>：呼叫搜尋、計算、寫程式等外部工具</li>
+      <li><strong>記憶</strong>：記住對話歷史和重要資訊</li>
+      <li><strong>自主行動</strong>：不需要人類每一步指令</li>
+    </ul>
+
+    <div class="concept-box">
+      <strong>ReAct 框架</strong><br>
+      Reason（推理）→ Act（行動）→ Observe（觀察）→ 反覆循環，直到完成目標
+    </div>
+
+    <h3>💻 單元3：第一個 Claude API 程式</h3>
+    <p>以下是用 Python 呼叫 Claude API 的基本範例：</p>
+
+    <div class="code-block">
+<span class="c-green"># 安裝套件</span>
+<span class="c-gray"># pip install anthropic</span>
+
+<span class="c-blue">import</span> anthropic
+
+<span class="c-green"># 建立客戶端</span>
+client = anthropic.Anthropic(
+    api_key=<span class="c-yellow">"your-api-key-here"</span>
+)
+
+<span class="c-green"># 發送訊息</span>
+message = client.messages.create(
+    model=<span class="c-yellow">"claude-opus-4-6"</span>,
+    max_tokens=<span class="c-pink">1024</span>,
+    messages=[
+        {<span class="c-yellow">"role"</span>: <span class="c-yellow">"user"</span>, <span class="c-yellow">"content"</span>: <span class="c-yellow">"什麼是 AI Agent？"</span>}
+    ]
+)
+
+<span class="c-blue">print</span>(message.content[<span class="c-pink">0</span>].text)
+    </div>
+
+    <h3>🛠 單元4：Prompt Engineering</h3>
+    <p>好的 Prompt 包含三個要素：</p>
+    <ul>
+      <li><strong>角色</strong>：告訴 AI 它是誰（System Prompt）</li>
+      <li><strong>任務</strong>：清楚說明要做什麼</li>
+      <li><strong>格式</strong>：指定輸出的格式</li>
+    </ul>
+
+    <div class="code-block">
+<span class="c-green"># 帶有 System Prompt 的範例</span>
+message = client.messages.create(
+    model=<span class="c-yellow">"claude-opus-4-6"</span>,
+    max_tokens=<span class="c-pink">1024</span>,
+    system=<span class="c-yellow">"你是一位專業的 Python 老師，用繁體中文回答，解釋要簡單易懂。"</span>,
+    messages=[
+        {<span class="c-yellow">"role"</span>: <span class="c-yellow">"user"</span>, <span class="c-yellow">"content"</span>: <span class="c-yellow">"解釋什麼是 for 迴圈，給初學者聽"</span>}
+    ]
+)
+    </div>
+  </div>
+
+  <div style="text-align:center">
+    <button class="btn-exam" onclick="showPage('exam')">📝 進行本週測驗 →</button>
+  </div>
+</div>
+</div>
+
+<!-- EXAM PAGE -->
+<div class="page" id="page-exam">
+<div class="container" id="exam-container">
+  <!-- intro / questions / loading / result injected here -->
+</div>
+</div>
+
+<script>
+// ─── Navigation ───────────────────────────────────────
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  document.getElementById('nav-' + name).classList.add('active');
+  if (name === 'exam') showExamIntro();
+  window.scrollTo(0,0);
+}
+
+// ─── Exam Data ─────────────────────────────────────────
+const questions = [
+  {
+    type: 'mc',
+    text: 'LLM（大型語言模型）的基本運作原理是什麼？',
+    options: [
+      '根據規則庫查詢最符合的答案',
+      '根據前面的文字，預測下一個最可能出現的 Token',
+      '透過搜尋引擎即時查找資料',
+      '使用資料庫儲存所有可能的問答對'
+    ],
+    answer: 1
+  },
+  {
+    type: 'mc',
+    text: 'AI Agent 與一般問答 AI 最主要的差別是什麼？',
+    options: [
+      'AI Agent 回答速度更快',
+      'AI Agent 能夠使用工具並自主完成多步驟任務',
+      'AI Agent 只能回答英文問題',
+      'AI Agent 需要更少的訓練資料'
+    ],
+    answer: 1
+  },
+  {
+    type: 'mc',
+    text: 'ReAct 框架中，三個步驟的正確順序是？',
+    options: [
+      '行動 → 推理 → 觀察',
+      '觀察 → 行動 → 推理',
+      '推理 → 行動 → 觀察',
+      '推理 → 觀察 → 行動'
+    ],
+    answer: 2
+  },
+  {
+    type: 'mc',
+    text: '在 Prompt Engineering 中，System Prompt 的主要作用是？',
+    options: [
+      '設定 API 的連線參數',
+      '定義 AI 的角色和行為準則',
+      '儲存對話的歷史紀錄',
+      '控制 AI 的回應速度'
+    ],
+    answer: 1
+  },
+  {
+    type: 'short',
+    text: '請用自己的話解釋「AI Agent 使用工具（Tool Use）」是什麼意思，並舉一個實際例子。'
+  }
+];
+
+let userAnswers = {};
+let examStarted = false;
+
+// ─── Exam UI ───────────────────────────────────────────
+function showExamIntro() {
+  const c = document.getElementById('exam-container');
+  c.innerHTML = `
+    <div class="exam-intro">
+      <div class="exam-icon">📝</div>
+      <h2>第一週隨堂測驗</h2>
+      <p>測試你對本週學習內容的理解程度</p>
+      <div class="exam-stats">
+        <div class="exam-stat"><div class="num">5</div><div class="label">題目數量</div></div>
+        <div class="exam-stat"><div class="num">15</div><div class="label">建議時間（分鐘）</div></div>
+        <div class="exam-stat"><div class="num">100</div><div class="label">滿分</div></div>
+      </div>
+      <p style="font-size:13px;color:#888;margin-bottom:20px;">4題選擇題（每題20分）＋ 1題簡答題（20分）</p>
+      <button class="btn-exam" onclick="startExam()">開始測驗</button>
+    </div>`;
+  userAnswers = {};
+  examStarted = false;
+}
+
+function startExam() {
+  examStarted = true;
+  renderQuestions();
+}
+
+function renderQuestions() {
+  const c = document.getElementById('exam-container');
+  let html = '';
+  questions.forEach((q, i) => {
+    html += `<div class="question-card" id="qcard-${i}">
+      <div class="q-num">第 ${i+1} 題 / 共 ${questions.length} 題 — ${q.type === 'mc' ? '選擇題' : '簡答題'}</div>
+      <div class="q-text">${q.text}</div>`;
+    if (q.type === 'mc') {
+      html += `<div class="options">`;
+      q.options.forEach((opt, j) => {
+        html += `<label class="option" id="opt-${i}-${j}" onclick="selectOption(${i},${j})">
+          <input type="radio" name="q${i}" value="${j}"> ${opt}
+        </label>`;
+      });
+      html += `</div>`;
+    } else {
+      html += `<div class="short-ans">
+        <textarea id="short-${i}" placeholder="請在此輸入你的答案..." oninput="saveShort(${i})"></textarea>
+      </div>`;
+    }
+    html += `</div>`;
+  });
+  html += `<button class="submit-btn" onclick="submitExam()">🚀 提交答案並獲得 AI 分析</button>`;
+  c.innerHTML = html;
+}
+
+function selectOption(qi, oi) {
+  userAnswers[qi] = oi;
+  document.querySelectorAll(`[id^="opt-${qi}-"]`).forEach(el => el.classList.remove('selected'));
+  document.getElementById(`opt-${qi}-${oi}`).classList.add('selected');
+}
+
+function saveShort(qi) {
+  userAnswers[qi] = document.getElementById(`short-${qi}`).value;
+}
+
+function submitExam() {
+  // Check all answered
+  for (let i = 0; i < questions.length; i++) {
+    if (userAnswers[i] === undefined || userAnswers[i] === '') {
+      alert(`請作答第 ${i+1} 題！`); return;
+    }
+  }
+  showLoading();
+  // Simulate AI grading delay
+  setTimeout(() => showResult(), 2500);
+}
+
+function showLoading() {
+  document.getElementById('exam-container').innerHTML = `
+    <div class="loading">
+      <div class="spinner"></div>
+      <div>AI 正在分析你的答題結果...</div>
+      <div style="font-size:13px;color:#aaa;margin-top:8px">正在評估答題模式，生成個人化學習建議</div>
+    </div>`;
+}
+
+function showResult() {
+  // Grade MC
+  let correct = 0, wrong = [];
+  for (let i = 0; i < 4; i++) {
+    if (userAnswers[i] === questions[i].answer) correct++;
+    else wrong.push(i + 1);
+  }
+  const mcScore = correct * 20;
+  const shortScore = 20; // simulated AI score
+  const total = mcScore + shortScore;
+
+  const shortAns = userAnswers[4] || '';
+  const aiAnalysis = generateAnalysis(correct, wrong, shortAns, total);
+
+  // Show answer review
+  let reviewHtml = '';
+  for (let i = 0; i < 4; i++) {
+    const isCorrect = userAnswers[i] === questions[i].answer;
+    reviewHtml += `<div class="question-card">
+      <div class="q-num">第 ${i+1} 題 ${isCorrect ? '✅ 答對' : '❌ 答錯'}</div>
+      <div class="q-text">${questions[i].text}</div>
+      <div class="options">`;
+    questions[i].options.forEach((opt, j) => {
+      let cls = 'option';
+      if (j === questions[i].answer) cls += ' correct';
+      else if (j === userAnswers[i] && !isCorrect) cls += ' wrong';
+      reviewHtml += `<div class="${cls}">${opt}</div>`;
+    });
+    reviewHtml += `</div></div>`;
+  }
+  // Short answer review
+  reviewHtml += `<div class="question-card">
+    <div class="q-num">第 5 題 — 簡答題（AI 評分：${shortScore}/20）</div>
+    <div class="q-text">${questions[4].text}</div>
+    <div style="background:#f9f9f9;padding:14px;border-radius:8px;font-size:14px;color:#444;margin-top:8px">
+      <strong>你的回答：</strong><br>${shortAns}
+    </div>
+  </div>`;
+
+  document.getElementById('exam-container').innerHTML = `
+    <div class="result-card">
+      <div class="score-circle">
+        <div class="score-num">${total}</div>
+        <div class="score-label">總分 / 100</div>
+      </div>
+      <h2 style="margin-bottom:8px">${total >= 80 ? '🎉 優秀！' : total >= 60 ? '👍 及格！' : '💪 繼續加油！'}</h2>
+      <div class="result-stats">
+        <div class="result-stat"><div class="r-num correct-n">${correct}</div><div class="r-label">選擇題答對</div></div>
+        <div class="result-stat"><div class="r-num wrong-n">${4-correct}</div><div class="r-label">選擇題答錯</div></div>
+        <div class="result-stat"><div class="r-num" style="color:#667eea">${total}</div><div class="r-label">總分</div></div>
+      </div>
+      <div class="ai-analysis">
+        <h3>🤖 AI 學習分析報告</h3>
+        <p>${aiAnalysis}</p>
+      </div>
+      <button class="btn-exam" onclick="showExamIntro()" style="margin-top:10px">重新測驗</button>
+      <button onclick="showPage('lesson')" style="background:#eee;border:none;border-radius:10px;padding:14px 24px;font-size:14px;cursor:pointer;margin-left:10px">📚 回到課程</button>
+    </div>
+    <div class="section-title" style="margin-top:30px">📋 詳細解答</div>
+    ${reviewHtml}`;
+}
+
+function generateAnalysis(correct, wrong, shortAns, total) {
+  const topics = ['LLM 原理', 'AI Agent 概念', 'ReAct 框架', 'Prompt Engineering'];
+  const strongTopics = [];
+  const weakTopics = [];
+  for (let i = 0; i < 4; i++) {
+    if (!wrong.includes(i+1)) strongTopics.push(topics[i]);
+    else weakTopics.push(topics[i]);
+  }
+
+  let analysis = `根據本次測驗結果（總分 ${total}/100），以下是你的個人化學習分析：\n\n`;
+
+  if (strongTopics.length > 0)
+    analysis += `✅ 掌握良好的概念：${strongTopics.map(t=>`<span class="tag tag-strong">${t}</span>`).join('')}\n\n`;
+
+  if (weakTopics.length > 0)
+    analysis += `⚠️ 需要加強的概念：${weakTopics.map(t=>`<span class="tag tag-weak">${t}</span>`).join('')}\n\n建議重新複習對應的課程單元。\n\n`;
+
+  if (shortAns.length < 30)
+    analysis += `📝 簡答題：回答內容較簡短，建議用更多細節說明並補充實際例子。\n\n`;
+  else
+    analysis += `📝 簡答題：回答有一定深度，繼續保持！\n\n`;
+
+  if (total >= 80) analysis += `整體表現優秀，可以繼續學習第二週的內容！`;
+  else if (total >= 60) analysis += `建議複習本週弱點後，再進行第二週學習。`;
+  else analysis += `建議完整重新閱讀本週課程內容後，再次測驗。`;
+
+  return analysis;
+}
+</script>
+</body>
+</html>
