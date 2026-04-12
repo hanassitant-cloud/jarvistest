@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>stephen - 俄羅斯方塊</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Press Start 2P',monospace;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:url('bg_image.jpg') center/cover no-repeat fixed;
+  position:relative;
+  overflow:hidden;
+}
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background:rgba(255,255,255,0.45);
+  backdrop-filter:brightness(1.3) saturate(1.2);
+}
+.game-container{
+  position:relative;
+  z-index:10;
+  display:flex;
+  gap:24px;
+  align-items:flex-start;
+  padding:20px;
+}
+.panel{
+  background:rgba(255,255,255,0.85);
+  border:3px solid #333;
+  border-radius:12px;
+  padding:16px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.3);
+}
+h1{
+  font-size:14px;
+  text-align:center;
+  margin-bottom:16px;
+  color:#d00;
+  text-shadow:2px 2px 0 #faa;
+  letter-spacing:2px;
+}
+canvas{
+  display:block;
+  border:2px solid #333;
+  background:rgba(255,255,255,0.6);
+}
+.side-panel{
+  width:140px;
+}
+.info-box{
+  margin-bottom:14px;
+}
+.info-label{
+  font-size:7px;
+  color:#666;
+  margin-bottom:6px;
+  letter-spacing:1px;
+}
+.info-val{
+  font-size:12px;
+  color:#222;
+}
+#nextCanvas{
+  border:2px solid #aaa;
+  background:rgba(255,255,255,0.5);
+  margin-top:6px;
+}
+.btn{
+  width:100%;
+  padding:8px 4px;
+  font-family:'Press Start 2P',monospace;
+  font-size:8px;
+  cursor:pointer;
+  border:2px solid #333;
+  border-radius:6px;
+  margin-bottom:8px;
+  background:rgba(220,50,50,0.85);
+  color:white;
+  transition:all 0.1s;
+}
+.btn:hover{background:rgba(180,20,20,0.9);transform:scale(1.03)}
+.btn:active{transform:scale(0.97)}
+.controls{font-size:6px;color:#555;line-height:2.2;margin-top:10px}
+.controls div{margin-bottom:2px}
+#gameOver{
+  display:none;
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  color:white;
+  font-size:14px;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  border-radius:10px;
+  z-index:20;
+}
+.canvas-wrap{position:relative}
+</style>
+</head>
+<body>
+<div class="game-container">
+  <div class="panel">
+    <h1>STEPHEN</h1>
+    <div class="canvas-wrap">
+      <canvas id="board" width="240" height="480"></canvas>
+      <div id="gameOver">
+        <div>GAME OVER</div>
+        <button class="btn" onclick="startGame()">再玩一次</button>
+      </div>
+    </div>
+  </div>
+  <div class="panel side-panel">
+    <div class="info-box">
+      <div class="info-label">SCORE</div>
+      <div class="info-val" id="score">0</div>
+    </div>
+    <div class="info-box">
+      <div class="info-label">LEVEL</div>
+      <div class="info-val" id="level">1</div>
+    </div>
+    <div class="info-box">
+      <div class="info-label">LINES</div>
+      <div class="info-val" id="lines">0</div>
+    </div>
+    <div class="info-box">
+      <div class="info-label">NEXT</div>
+      <canvas id="nextCanvas" width="120" height="120"></canvas>
+    </div>
+    <button class="btn" id="startBtn" onclick="startGame()">開始</button>
+    <button class="btn" onclick="togglePause()">暫停/繼續</button>
+    <div class="controls">
+      <div>← → 移動</div>
+      <div>↑ 旋轉</div>
+      <div>↓ 加速</div>
+      <div>空白 直落</div>
+    </div>
+  </div>
+</div>
+<script>
+const COLS=12,ROWS=20,BLOCK=24;
+const canvas=document.getElementById('board');
+const ctx=canvas.getContext('2d');
+const nextCanvas=document.getElementById('nextCanvas');
+const nctx=nextCanvas.getContext('2d');
+canvas.width=COLS*BLOCK; canvas.height=ROWS*BLOCK;
+
+const COLORS=['','#e74c3c','#e67e22','#f1c40f','#2ecc71','#3498db','#9b59b6','#1abc9c'];
+const SHAPES=[
+  [],
+  [[1,1,1,1]],
+  [[1,1],[1,1]],
+  [[0,1,0],[1,1,1]],
+  [[1,0,0],[1,1,1]],
+  [[0,0,1],[1,1,1]],
+  [[0,1,1],[1,1,0]],
+  [[1,1,0],[0,1,1]]
+];
+
+let board,piece,next,score,level,lines,gameRunning,paused,timer;
+
+function newBoard(){return Array.from({length:ROWS},()=>Array(COLS).fill(0));}
+function randPiece(){
+  const t=Math.floor(Math.random()*7)+1;
+  const s=SHAPES[t].map(r=>[...r]);
+  return{type:t,shape:s,x:Math.floor(COLS/2)-Math.floor(s[0].length/2),y:0};
+}
+function rotate(s){return s[0].map((_,i)=>s.map(r=>r[i]).reverse());}
+function valid(b,p,ox=0,oy=0){
+  return p.shape.every((row,dy)=>row.every((v,dx)=>!v||((p.y+dy+oy>=0)&&(p.y+dy+oy<ROWS)&&(p.x+dx+ox>=0)&&(p.x+dx+ox<COLS)&&!b[p.y+dy+oy][p.x+dx+ox])));
+}
+function place(b,p){p.shape.forEach((row,dy)=>row.forEach((v,dx)=>{if(v)b[p.y+dy][p.x+dx]=p.type;}));}
+function clearLines(b){
+  let cleared=0;
+  for(let r=ROWS-1;r>=0;r--){
+    if(b[r].every(v=>v)){b.splice(r,1);b.unshift(Array(COLS).fill(0));cleared++;r++;}
+  }
+  return cleared;
+}
+function drawBlock(c,x,y,color,size=BLOCK){
+  c.fillStyle=color;
+  c.fillRect(x*size+1,y*size+1,size-2,size-2);
+  c.fillStyle='rgba(255,255,255,0.3)';
+  c.fillRect(x*size+2,y*size+2,size/3,size/3);
+}
+function drawBoard(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle='rgba(255,255,255,0.15)';
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+  for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++){
+    if(board[r][c])drawBlock(ctx,c,r,COLORS[board[r][c]]);
+    else{ctx.strokeStyle='rgba(0,0,0,0.06)';ctx.strokeRect(c*BLOCK,r*BLOCK,BLOCK,BLOCK);}
+  }
+  // ghost
+  let ghost={...piece,shape:piece.shape.map(r=>[...r])};
+  while(valid(board,ghost,0,1))ghost.y++;
+  ghost.shape.forEach((row,dy)=>row.forEach((v,dx)=>{
+    if(v){ctx.strokeStyle=COLORS[piece.type];ctx.strokeRect(ghost.x*BLOCK+dx*BLOCK+1,ghost.y*BLOCK+dy*BLOCK+1,BLOCK-2,BLOCK-2);}
+  }));
+  // piece
+  piece.shape.forEach((row,dy)=>row.forEach((v,dx)=>{if(v)drawBlock(ctx,piece.x+dx,piece.y+dy,COLORS[piece.type]);}));
+}
+function drawNext(){
+  nctx.clearRect(0,0,120,120);
+  nctx.fillStyle='rgba(255,255,255,0.3)';nctx.fillRect(0,0,120,120);
+  const s=24,ox=Math.floor((5-next.shape[0].length)/2),oy=Math.floor((5-next.shape.length)/2);
+  next.shape.forEach((row,dy)=>row.forEach((v,dx)=>{if(v)drawBlock(nctx,ox+dx,oy+dy,COLORS[next.type],s);}));
+}
+function updateInfo(){
+  document.getElementById('score').textContent=score;
+  document.getElementById('level').textContent=level;
+  document.getElementById('lines').textContent=lines;
+}
+function drop(){
+  if(!gameRunning||paused)return;
+  if(valid(board,piece,0,1)){piece.y++;}
+  else{
+    place(board,piece);
+    const c=clearLines(board);
+    if(c){lines+=c;score+=c===1?100:c===2?300:c===3?700:1500;score*=level;level=Math.floor(lines/10)+1;}
+    piece=next;next=randPiece();
+    if(!valid(board,piece)){endGame();return;}
+    updateInfo();drawNext();
+  }
+  drawBoard();
+}
+function startGame(){
+  board=newBoard();score=0;level=1;lines=0;paused=false;gameRunning=true;
+  piece=randPiece();next=randPiece();
+  document.getElementById('gameOver').style.display='none';
+  clearInterval(timer);
+  updateInfo();drawNext();drawBoard();
+  timer=setInterval(()=>{level=Math.floor(lines/10)+1;drop();},Math.max(100,600-level*50));
+}
+function endGame(){gameRunning=false;clearInterval(timer);document.getElementById('gameOver').style.display='flex';}
+function togglePause(){if(!gameRunning)return;paused=!paused;}
+document.addEventListener('keydown',e=>{
+  if(!gameRunning||paused)return;
+  if(e.key==='ArrowLeft'&&valid(board,piece,-1,0))piece.x--;
+  else if(e.key==='ArrowRight'&&valid(board,piece,1,0))piece.x++;
+  else if(e.key==='ArrowDown')drop();
+  else if(e.key==='ArrowUp'){const r=rotate(piece.shape);if(valid(board,{...piece,shape:r}))piece.shape=r;}
+  else if(e.key===' '){while(valid(board,piece,0,1))piece.y++;drop();return;}
+  else return;
+  e.preventDefault();drawBoard();
+});
+startGame();
+</script>
+</body>
+</html>

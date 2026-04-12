@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>stephen - 俄羅斯方塊</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Press Start 2P',monospace;
+  background:#000;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  padding:10px;
+  color:white;
+}
+.top-bar{
+  display:flex;
+  gap:16px;
+  margin-bottom:10px;
+  width:100%;
+  max-width:500px;
+  justify-content:center;
+}
+.info-box{
+  background:rgba(40,40,40,0.9);
+  border:2px solid #555;
+  border-radius:8px;
+  padding:6px 14px;
+  text-align:center;
+  min-width:80px;
+}
+.info-label{font-size:7px;color:#aaa;margin-bottom:4px;letter-spacing:1px;}
+.info-val{font-size:13px;color:white;}
+.game-area{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+}
+.canvas-wrap{
+  position:relative;
+  border:3px solid #555;
+}
+canvas#board{
+  display:block;
+}
+.side{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  width:100px;
+}
+.side-box{
+  background:rgba(40,40,40,0.9);
+  border:2px solid #555;
+  border-radius:8px;
+  padding:8px;
+  text-align:center;
+}
+.side-label{font-size:7px;color:#aaa;margin-bottom:6px;letter-spacing:1px;}
+canvas#nextCanvas{display:block;margin:0 auto;}
+.btn{
+  width:100%;padding:8px 4px;
+  font-family:'Press Start 2P',monospace;font-size:7px;
+  cursor:pointer;border:2px solid #555;border-radius:6px;margin-bottom:6px;
+  background:rgba(200,50,50,0.85);color:white;transition:all 0.1s;
+}
+.btn:hover{background:rgba(180,20,20,0.9);}
+.controls{font-size:6px;color:#888;line-height:2.2;}
+#gameOver{
+  display:none;position:absolute;inset:0;
+  background:rgba(0,0,0,0.75);color:white;font-size:13px;
+  flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  z-index:20;
+}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <div class="info-box"><div class="info-label">分數</div><div class="info-val" id="score">0</div></div>
+  <div class="info-box"><div class="info-label">等級</div><div class="info-val" id="level">1</div></div>
+  <div class="info-box"><div class="info-label">消行</div><div class="info-val" id="lines">0</div></div>
+</div>
+<div class="game-area">
+  <div class="canvas-wrap">
+    <canvas id="board"></canvas>
+    <div id="gameOver">
+      <div>GAME OVER</div>
+      <button class="btn" style="width:auto;padding:8px 16px;margin-top:8px" onclick="startGame()">再玩一次</button>
+    </div>
+  </div>
+  <div class="side">
+    <div class="side-box">
+      <div class="side-label">下一個</div>
+      <canvas id="nextCanvas" width="80" height="80"></canvas>
+    </div>
+    <div class="side-box">
+      <button class="btn" onclick="startGame()">開始</button>
+      <button class="btn" onclick="togglePause()">暫停</button>
+      <div class="controls">
+        <div>← → 移動</div>
+        <div>↑ 旋轉</div>
+        <div>↓ 加速</div>
+        <div>空白 落底</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const COLS=12, ROWS=20, BLOCK=28;
+const canvas=document.getElementById('board');
+const ctx=canvas.getContext('2d');
+canvas.width=COLS*BLOCK; canvas.height=ROWS*BLOCK;
+const ncanvas=document.getElementById('nextCanvas');
+const nctx=ncanvas.getContext('2d');
+
+// 照片背景
+const bg=new Image();
+bg.src='bg_image.jpg';
+
+const COLORS=['','#00f5ff','#ffd700','#ff6b6b','#51cf66','#ff922b','#cc5de8','#74c0fc'];
+const SHAPES=[
+  [],
+  [[1,1,1,1]],
+  [[1,1],[1,1]],
+  [[0,1,0],[1,1,1]],
+  [[1,0,0],[1,1,1]],
+  [[0,0,1],[1,1,1]],
+  [[0,1,1],[1,1,0]],
+  [[1,1,0],[0,1,1]]
+];
+
+let board,piece,next,score,level,lines,gameRunning,paused,timer;
+
+function newBoard(){return Array.from({length:ROWS},()=>Array(COLS).fill(0));}
+function randPiece(){
+  const t=Math.floor(Math.random()*7)+1;
+  const s=SHAPES[t].map(r=>[...r]);
+  return{type:t,shape:s,x:Math.floor(COLS/2)-Math.floor(s[0].length/2),y:0};
+}
+function rotate(s){return s[0].map((_,i)=>s.map(r=>r[i]).reverse());}
+function valid(b,p,ox=0,oy=0){
+  return p.shape.every((row,dy)=>row.every((v,dx)=>
+    !v||((p.y+dy+oy>=0)&&(p.y+dy+oy<ROWS)&&(p.x+dx+ox>=0)&&(p.x+dx+ox<COLS)&&!b[p.y+dy+oy][p.x+dx+ox])));
+}
+function place(b,p){p.shape.forEach((row,dy)=>row.forEach((v,dx)=>{if(v)b[p.y+dy][p.x+dx]=p.type;}));}
+function clearLines(b){
+  let cleared=0;
+  for(let r=ROWS-1;r>=0;r--){
+    if(b[r].every(v=>v)){b.splice(r,1);b.unshift(Array(COLS).fill(0));cleared++;r++;}
+  }
+  return cleared;
+}
+
+function drawBlock(c,x,y,color,size=BLOCK){
+  c.fillStyle=color;
+  c.fillRect(x*size+1,y*size+1,size-2,size-2);
+  c.fillStyle='rgba(255,255,255,0.35)';
+  c.fillRect(x*size+2,y*size+2,size/3,4);
+  c.fillStyle='rgba(0,0,0,0.2)';
+  c.fillRect(x*size+1,y*size+size-4,size-2,3);
+}
+
+function drawBoard(){
+  // 照片背景填滿棋盤
+  if(bg.complete&&bg.naturalWidth>0){
+    ctx.drawImage(bg,0,0,canvas.width,canvas.height);
+    ctx.fillStyle='rgba(0,0,0,0.15)';
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+  } else {
+    ctx.fillStyle='#111';
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+  }
+  // 格線
+  ctx.strokeStyle='rgba(255,255,255,0.08)';
+  for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++) ctx.strokeRect(c*BLOCK,r*BLOCK,BLOCK,BLOCK);
+  // 已落方塊
+  for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++){
+    if(board[r][c]) drawBlock(ctx,c,r,COLORS[board[r][c]]);
+  }
+  // 鬼影
+  let ghost={...piece,shape:piece.shape.map(r=>[...r])};
+  while(valid(board,ghost,0,1)) ghost.y++;
+  ghost.shape.forEach((row,dy)=>row.forEach((v,dx)=>{
+    if(v){
+      ctx.strokeStyle=COLORS[piece.type];
+      ctx.lineWidth=2;
+      ctx.strokeRect(ghost.x*BLOCK+dx*BLOCK+2,ghost.y*BLOCK+dy*BLOCK+2,BLOCK-4,BLOCK-4);
+      ctx.lineWidth=1;
+    }
+  }));
+  // 當前方塊
+  piece.shape.forEach((row,dy)=>row.forEach((v,dx)=>{
+    if(v) drawBlock(ctx,piece.x+dx,piece.y+dy,COLORS[piece.type]);
+  }));
+}
+
+function drawNext(){
+  nctx.fillStyle='rgba(30,30,30,0.8)';
+  nctx.fillRect(0,0,80,80);
+  const s=18,ox=Math.floor((4-next.shape[0].length)/2),oy=Math.floor((4-next.shape.length)/2);
+  next.shape.forEach((row,dy)=>row.forEach((v,dx)=>{
+    if(v){
+      nctx.fillStyle=COLORS[next.type];
+      nctx.fillRect((ox+dx)*s+1,(oy+dy)*s+1,s-2,s-2);
+      nctx.fillStyle='rgba(255,255,255,0.3)';
+      nctx.fillRect((ox+dx)*s+2,(oy+dy)*s+2,s/3,4);
+    }
+  }));
+}
+
+function updateInfo(){
+  document.getElementById('score').textContent=score;
+  document.getElementById('level').textContent=level;
+  document.getElementById('lines').textContent=lines;
+}
+
+function drop(){
+  if(!gameRunning||paused)return;
+  if(valid(board,piece,0,1)){piece.y++;}
+  else{
+    place(board,piece);
+    const c=clearLines(board);
+    if(c){lines+=c;score+=[0,100,300,700,1500][c]*level;level=Math.floor(lines/10)+1;}
+    piece=next;next=randPiece();
+    if(!valid(board,piece)){endGame();return;}
+    updateInfo();drawNext();
+  }
+  drawBoard();
+}
+
+function startGame(){
+  board=newBoard();score=0;level=1;lines=0;paused=false;gameRunning=true;
+  piece=randPiece();next=randPiece();
+  document.getElementById('gameOver').style.display='none';
+  clearInterval(timer);
+  updateInfo();drawNext();drawBoard();
+  timer=setInterval(()=>{level=Math.floor(lines/10)+1;drop();},Math.max(80,600-level*50));
+}
+function endGame(){gameRunning=false;clearInterval(timer);document.getElementById('gameOver').style.display='flex';}
+function togglePause(){if(!gameRunning)return;paused=!paused;}
+
+document.addEventListener('keydown',e=>{
+  if(!gameRunning||paused)return;
+  if(e.key==='ArrowLeft'&&valid(board,piece,-1,0)){piece.x--;drawBoard();}
+  else if(e.key==='ArrowRight'&&valid(board,piece,1,0)){piece.x++;drawBoard();}
+  else if(e.key==='ArrowDown'){drop();}
+  else if(e.key==='ArrowUp'){const r=rotate(piece.shape);if(valid(board,{...piece,shape:r})){piece.shape=r;drawBoard();}}
+  else if(e.key===' '){while(valid(board,piece,0,1))piece.y++;drop();}
+  else return;
+  e.preventDefault();
+});
+
+bg.onload=()=>startGame();
+if(bg.complete) startGame();
+</script>
+</body>
+</html>
