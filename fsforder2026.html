@@ -426,15 +426,15 @@ h1{font-size:24px;font-weight:600;text-align:center;margin-bottom:1.5rem;padding
 </div>
 
 <div class="btn-row">
-  <button class="btn-contact" onclick="callService()">
+  <a class="btn-contact" href="https://line.me/R/ti/p/@113ampil" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63 19.79 19.79 0 01.18 1.05 2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.54 6.54l1.47-1.47a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
     </svg>
     諮詢客服
-  </button>
+  </a>
   <button class="btn-submit" id="submitBtn" onclick="submitForm()">提交需求單</button>
 </div>
-<div class="success-msg" id="successMsg">✅ 表單已成功提交！資料已寄送至 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b2dad3dcd3c1c1dbc6d3dcc6f2d5dfd3dbde9cd1dddf">[email&#160;protected]</a>，我們將盡快與您聯繫。</div>
+<div class="success-msg" id="successMsg">✅ 表單已成功提交！資料已寄送至 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b5ddd4dbd4c6c6dcc1d4dbc1f5d2d8d4dcd99bd6dad8">[email&#160;protected]</a>，我們將盡快與您聯繫。</div>
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
@@ -573,4 +573,11 @@ async function submitForm(){
     document.getElementById('successMsg').classList.add('show');
     document.getElementById('successMsg').scrollIntoView({behavior:'smooth'});
   }catch(err){
-    o
+    overlay.classList.remove('show');
+    btn.disabled=false;btn.textContent='提交需求單';
+    alert('寄送失敗，請稍後再試或直接聯繫我們。\n錯誤：'+err.text);
+  }
+}
+</script>
+</body>
+</html>
