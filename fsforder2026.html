@@ -62,6 +62,7 @@ h1{font-size:24px;font-weight:600;text-align:center;margin-bottom:1.5rem;padding
 
 <div class="form-wrap">
 <h1>富盛豐客戶產品需求單 2026</h1>
+<p style="color:#e24b4a;font-size:12px;font-weight:500;text-align:center;margin-bottom:0.75rem;">標紅色＊欄位為必填欄位</p>
 <div class="progress"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
 <div class="progress-label" id="progressLabel">完成度 0%</div>
 
@@ -73,12 +74,12 @@ h1{font-size:24px;font-weight:600;text-align:center;margin-bottom:1.5rem;padding
   <span class="section-title">產品資料</span>
   <div class="row row-3">
     <div class="field">
-      <label class="flabel">客戶名稱 <span class="req">*</span></label>
+      <label class="flabel"><span style="color:#e24b4a">客戶名稱</span> <span class="req">*</span></label>
       <input type="text" id="clientName" placeholder="請填入客戶名稱">
       <div class="err-msg" id="clientName-err">此欄位為必填</div>
     </div>
     <div class="field">
-      <label class="flabel">開單日期 <span class="req">*</span></label>
+      <label class="flabel"><span style="color:#e24b4a">開單日期</span> <span class="req">*</span></label>
       <input type="date" id="orderDate">
       <div class="err-msg" id="orderDate-err">此欄位為必填</div>
     </div>
@@ -103,7 +104,7 @@ h1{font-size:24px;font-weight:600;text-align:center;margin-bottom:1.5rem;padding
   </div>
   <div class="row row-3">
     <div class="field">
-      <label class="flabel">產品品名 <span class="req">*</span></label>
+      <label class="flabel"><span style="color:#e24b4a">產品品名</span> <span class="req">*</span></label>
       <input type="text" id="productName" placeholder="請填入產品品名">
       <div class="err-msg" id="productName-err">此欄位為必填</div>
     </div>
@@ -118,7 +119,7 @@ h1{font-size:24px;font-weight:600;text-align:center;margin-bottom:1.5rem;padding
   </div>
   <div class="row row-2">
     <div class="field">
-      <label class="flabel">聯絡電話 <span class="req">*</span></label>
+      <label class="flabel"><span style="color:#e24b4a">聯絡電話</span> <span class="req">*</span></label>
       <input type="tel" id="phone" placeholder="例：0912-345-678 或 02-2345-6789">
       <div class="err-msg" id="phone-err">請輸入正確的電話格式</div>
     </div>
@@ -233,7 +234,7 @@ h1{font-size:24px;font-weight:600;text-align:center;margin-bottom:1.5rem;padding
   <span class="section-title">產品分類／開發目標</span>
   <div class="row">
     <div class="field">
-      <label class="flabel">產品用途 <span class="req">*</span></label>
+      <label class="flabel"><span style="color:#e24b4a">產品用途</span> <span class="req">*</span></label>
       <div style="margin-bottom:12px">
         <strong style="font-size:13px;color:#0F6E56">1. 寵物</strong>
         <div class="checkgroup" style="margin-top:6px">
@@ -433,10 +434,10 @@ h1{font-size:24px;font-weight:600;text-align:center;margin-bottom:1.5rem;padding
   </button>
   <button class="btn-submit" id="submitBtn" onclick="submitForm()">提交需求單</button>
 </div>
-<div class="success-msg" id="successMsg">✅ 表單已成功提交！資料已寄送至 hanassitant@gmail.com，我們將盡快與您聯繫。</div>
+<div class="success-msg" id="successMsg">✅ 表單已成功提交！資料已寄送至 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b2dad3dcd3c1c1dbc6d3dcc6f2d5dfd3dbde9cd1dddf">[email&#160;protected]</a>，我們將盡快與您聯繫。</div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 emailjs.init('F0gur8UT0PhFlYORK');
 
 // 自動帶入今天日期到開單日期
@@ -489,7 +490,7 @@ document.getElementById('mobile').addEventListener('blur',function(){
   else{this.classList.remove('error');e.classList.remove('show');}
 });
 
-function callService(){window.open('tel:+886-2-0000-0000');}
+function callService(){window.open('https://line.me/R/ti/p/@113ampil','_blank');}
 
 async function submitForm(){
   var missing=[],hasError=false;
@@ -572,12 +573,4 @@ async function submitForm(){
     document.getElementById('successMsg').classList.add('show');
     document.getElementById('successMsg').scrollIntoView({behavior:'smooth'});
   }catch(err){
-    overlay.classList.remove('show');
-    btn.disabled=false;
-    btn.textContent='提交需求單';
-    alert('寄送失敗，請稍後再試。\n錯誤：'+(err.text||err.message||JSON.stringify(err)));
-  }
-}
-</script>
-</body>
-</html>
+    o
