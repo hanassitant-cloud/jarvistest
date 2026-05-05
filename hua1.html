@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>俄羅斯方塊</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background-image: url('bg_image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+  }
+  .overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.45);
+    z-index: 0;
+  }
+  .container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  canvas {
+    border: 3px solid rgba(255,255,255,0.8);
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.5);
+    display: block;
+  }
+  .panel {
+    background: rgba(0,0,0,0.65);
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    padding: 20px;
+    color: #fff;
+    min-width: 140px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+  .panel h2 {
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 16px;
+    color: #ffe066;
+    text-shadow: 0 0 10px #ffaa00;
+    letter-spacing: 2px;
+  }
+  .panel .label {
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 14px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .panel .value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffe066;
+    text-align: center;
+  }
+  #nextCanvas {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 3px;
+    background: rgba(0,0,0,0.4);
+  }
+  .controls {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #bbb;
+    line-height: 1.8;
+  }
+  .controls div { margin: 2px 0; }
+  .controls span { color: #ffe066; font-weight: bold; }
+  #messageBox {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  #messageBox .msg {
+    background: rgba(20,20,40,0.95);
+    border: 2px solid #ffe066;
+    border-radius: 12px;
+    padding: 40px 60px;
+    text-align: center;
+    color: #fff;
+  }
+  #messageBox .msg h1 {
+    font-size: 36px;
+    color: #ffe066;
+    margin-bottom: 12px;
+  }
+  #messageBox .msg p { font-size: 16px; color: #ccc; margin-bottom: 24px; }
+  #messageBox .msg button {
+    background: #ffe066;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 32px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  #messageBox .msg button:hover { background: #ffd700; }
+</style>
+</head>
+<body>
+<div class="overlay"></div>
+<div id="messageBox">
+  <div class="msg">
+    <h1>俄羅斯方塊</h1>
+    <p>使用方向鍵移動，↑旋轉，空白鍵直落</p>
+    <button onclick="startGame()">開始遊戲</button>
+  </div>
+</div>
+<div class="container">
+  <canvas id="gameCanvas" width="300" height="600"></canvas>
+  <div class="panel">
+    <h2>TETRIS</h2>
+    <div class="label">分數</div>
+    <div class="value" id="score">0</div>
+    <div class="label">等級</div>
+    <div class="value" id="level">1</div>
+    <div class="label">消行</div>
+    <div class="value" id="lines">0</div>
+    <div class="label">下一個</div>
+    <canvas id="nextCanvas" width="120" height="100"></canvas>
+    <div class="controls">
+      <div><span>←→</span> 移動</div>
+      <div><span>↑</span> 旋轉</div>
+      <div><span>↓</span> 加速</div>
+      <div><span>空白</span> 直落</div>
+      <div><span>P</span> 暫停</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+const nextCanvas = document.getElementById('nextCanvas');
+const nCtx = nextCanvas.getContext('2d');
+
+const COLS = 10, ROWS = 20, BLOCK = 30;
+
+const COLORS = [
+  null,
+  '#00f5ff', // I - cyan
+  '#0000ff', // J - blue
+  '#ff8800', // L - orange
+  '#ffff00', // O - yellow
+  '#00ff00', // S - green
+  '#aa00ff', // T - purple
+  '#ff0000', // Z - red
+];
+
+const SHAPES = [
+  null,
+  [[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]], // I
+  [[1,0,0],[1,1,1],[0,0,0]],                  // J
+  [[0,0,1],[1,1,1],[0,0,0]],                  // L
+  [[1,1],[1,1]],                              // O
+  [[0,1,1],[1,1,0],[0,0,0]],                  // S
+  [[0,1,0],[1,1,1],[0,0,0]],                  // T
+  [[1,1,0],[0,1,1],[0,0,0]],                  // Z
+];
+
+let board, score, level, lines, currentPiece, nextPiece, gameLoop, isPaused, gameOver;
+
+function createBoard() {
+  return Array.from({length: ROWS}, () => Array(COLS).fill(0));
+}
+
+function randomPiece() {
+  const type = Math.floor(Math.random() * 7) + 1;
+  return {
+    type,
+    shape: SHAPES[type].map(r => [...r]),
+    x: Math.floor(COLS / 2) - Math.floor(SHAPES[type][0].length / 2),
+    y: 0
+  };
+}
+
+function rotate(shape) {
+  const n = shape.length;
+  return shape[0].map((_, i) => shape.map(r => r[i]).reverse());
+}
+
+function isValid(shape, ox, oy) {
+  for (let r = 0; r < shape.length; r++) {
+    for (let c = 0; c < shape[r].length; c++) {
+      if (!shape[r][c]) continue;
+      const nx = ox + c, ny = oy + r;
+      if (nx < 0 || nx >= COLS || ny >= ROWS) return false;
+      if (ny >= 0 && board[ny][nx]) return false;
+    }
+  }
+  return true;
+}
+
+function lockPiece() {
+  for (let r = 0; r < currentPiece.shape.length; r++) {
+    for (let c = 0; c < currentPiece.shape[r].length; c++) {
+      if (!currentPiece.shape[r][c]) continue;
+      const ny = currentPiece.y + r;
+      if (ny < 0) { endGame(); return; }
+      board[ny][currentPiece.x + c] = currentPiece.type;
+    }
+  }
+  clearLines();
+  currentPiece = nextPiece;
+  nextPiece = randomPiece();
+  if (!isValid(currentPiece.shape, currentPiece.x, currentPiece.y)) {
+    endGame();
+  }
+}
+
+function clearLines() {
+  let cleared = 0;
+  for (let r = ROWS - 1; r >= 0; r--) {
+    if (board[r].every(c => c !== 0)) {
+      board.splice(r, 1);
+      board.unshift(Array(COLS).fill(0));
+      cleared++;
+      r++;
+    }
+  }
+  if (cleared > 0) {
+    const pts = [0, 100, 300, 500, 800];
+    score += (pts[cleared] || 800) * level;
+    lines += cleared;
+    level = Math.floor(lines / 10) + 1;
+    document.getElementById('score').textContent = score;
+    document.getElementById('level').textContent = level;
+    document.getElementById('lines').textContent = lines;
+  }
+}
+
+function drawBlock(context, x, y, type, size) {
+  size = size || BLOCK;
+  const color = COLORS[type];
+  context.fillStyle = color;
+  context.fillRect(x * size + 1, y * size + 1, size - 2, size - 2);
+  context.fillStyle = 'rgba(255,255,255,0.3)';
+  context.fillRect(x * size + 1, y * size + 1, size - 2, 4);
+  context.fillRect(x * size + 1, y * size + 1, 4, size - 2);
+  context.fillStyle = 'rgba(0,0,0,0.2)';
+  context.fillRect(x * size + size - 5, y * size + 1, 4, size - 2);
+  context.fillRect(x * size + 1, y * size + size - 5, size - 2, 4);
+}
+
+function drawGhost() {
+  let ghostY = currentPiece.y;
+  while (isValid(currentPiece.shape, currentPiece.x, ghostY + 1)) ghostY++;
+  if (ghostY === currentPiece.y) return;
+  ctx.globalAlpha = 0.2;
+  for (let r = 0; r < currentPiece.shape.length; r++) {
+    for (let c = 0; c < currentPiece.shape[r].length; c++) {
+      if (currentPiece.shape[r][c]) {
+        ctx.fillStyle = COLORS[currentPiece.type];
+        ctx.fillRect((currentPiece.x + c) * BLOCK + 1, (ghostY + r) * BLOCK + 1, BLOCK - 2, BLOCK - 2);
+      }
+    }
+  }
+  ctx.globalAlpha = 1;
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // grid lines
+  ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+  ctx.lineWidth = 1;
+  for (let c = 0; c <= COLS; c++) { ctx.beginPath(); ctx.moveTo(c*BLOCK, 0); ctx.lineTo(c*BLOCK, canvas.height); ctx.stroke(); }
+  for (let r = 0; r <= ROWS; r++) { ctx.beginPath(); ctx.moveTo(0, r*BLOCK); ctx.lineTo(canvas.width, r*BLOCK); ctx.stroke(); }
+  // board
+  for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) if (board[r][c]) drawBlock(ctx, c, r, board[r][c]);
+  // ghost
+  drawGhost();
+  // current
+  for (let r = 0; r < currentPiece.shape.length; r++) for (let c = 0; c < currentPiece.shape[r].length; c++)
+    if (currentPiece.shape[r][c]) drawBlock(ctx, currentPiece.x + c, currentPiece.y + r, currentPiece.type);
+
+  if (isPaused) {
+    ctx.fillStyle = 'rgba(0,0,0,0.6)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#ffe066';
+    ctx.font = 'bold 36px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('暫停', canvas.width / 2, canvas.height / 2);
+  }
+  // next piece
+  nCtx.clearRect(0, 0, nextCanvas.width, nextCanvas.height);
+  const shape = SHAPES[nextPiece.type];
+  const ns = 24;
+  const offX = Math.floor((nextCanvas.width / ns - shape[0].length) / 2);
+  const offY = Math.floor((nextCanvas.height / ns - shape.length) / 2);
+  for (let r = 0; r < shape.length; r++) for (let c = 0; c < shape[r].length; c++)
+    if (shape[r][c]) {
+      nCtx.fillStyle = COLORS[nextPiece.type];
+      nCtx.fillRect((offX + c) * ns + 1, (offY + r) * ns + 1, ns - 2, ns - 2);
+    }
+}
+
+function drop() {
+  if (isPaused || gameOver) return;
+  if (isValid(currentPiece.shape, currentPiece.x, currentPiece.y + 1)) {
+    currentPiece.y++;
+  } else {
+    lockPiece();
+  }
+  draw();
+}
+
+function getSpeed() { return Math.max(80, 800 - (level - 1) * 80); }
+
+function startLoop() {
+  clearInterval(gameLoop);
+  gameLoop = setInterval(drop, getSpeed());
+}
+
+function startGame() {
+  document.getElementById('messageBox').style.display = 'none';
+  board = createBoard();
+  score = 0; level = 1; lines = 0; isPaused = false; gameOver = false;
+  document.getElementById('score').textContent = 0;
+  document.getElementById('level').textContent = 1;
+  document.getElementById('lines').textContent = 0;
+  currentPiece = randomPiece();
+  nextPiece = randomPiece();
+  startLoop();
+  draw();
+}
+
+function endGame() {
+  gameOver = true;
+  clearInterval(gameLoop);
+  const box = document.getElementById('messageBox');
+  box.innerHTML = `<div class="msg"><h1>遊戲結束</h1><p>分數：${score}</p><button onclick="startGame()">再玩一次</button></div>`;
+  box.style.display = 'flex';
+}
+
+document.addEventListener('keydown', e => {
+  if (gameOver) return;
+  if (e.key === 'p' || e.key === 'P') { isPaused = !isPaused; if (!isPaused) startLoop(); else clearInterval(gameLoop); draw(); return; }
+  if (isPaused) return;
+  switch(e.key) {
+    case 'ArrowLeft':
+      if (isValid(currentPiece.shape, currentPiece.x - 1, currentPiece.y)) currentPiece.x--;
+      break;
+    case 'ArrowRight':
+      if (isValid(currentPiece.shape, currentPiece.x + 1, currentPiece.y)) currentPiece.x++;
+      break;
+    case 'ArrowDown':
+      if (isValid(currentPiece.shape, currentPiece.x, currentPiece.y + 1)) currentPiece.y++;
+      else lockPiece();
+      break;
+    case 'ArrowUp':
+      const rotated = rotate(currentPiece.shape);
+      if (isValid(rotated, currentPiece.x, currentPiece.y)) currentPiece.shape = rotated;
+      else if (isValid(rotated, currentPiece.x - 1, currentPiece.y)) { currentPiece.shape = rotated; currentPiece.x--; }
+      else if (isValid(rotated, currentPiece.x + 1, currentPiece.y)) { currentPiece.shape = rotated; currentPiece.x++; }
+      break;
+    case ' ':
+      e.preventDefault();
+      while (isValid(currentPiece.shape, currentPiece.x, currentPiece.y + 1)) currentPiece.y++;
+      lockPiece();
+      break;
+  }
+  draw();
+});
+</script>
+</body>
+</html>
