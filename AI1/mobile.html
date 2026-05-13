@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AI 智慧服務平台｜手機版</title>
+<style>
+:root{--bg:#f8fafc;--ink:#0f172a;--muted:#475569;--line:#e2e8f0;--blue:#2563eb;--cyan:#06b6d4;--purple:#7c3aed;--green:#10b981;--amber:#f59e0b;--red:#ef4444}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;line-height:1.55;overflow-x:hidden;padding-bottom:76px}a{color:inherit;text-decoration:none}.hero{background:radial-gradient(circle at 85% 0,rgba(34,211,238,.28),transparent 36%),linear-gradient(135deg,#020617,#0f172a 62%,#111827);color:#fff;padding:34px 20px 28px}.kicker{display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#bfdbfe;font-weight:900;margin-bottom:14px}.hero h1{font-size:34px;line-height:1.08;letter-spacing:-.04em;margin:0 0 14px;font-weight:950}.accent{background:linear-gradient(90deg,#60a5fa,#22d3ee,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{font-size:17px;color:#dbeafe;margin:0}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}.stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:14px}.stat b{display:block;font-size:30px;line-height:1;color:#7dd3fc}.stat span{font-size:13px;color:#cbd5e1;font-weight:700}.nav{position:sticky;top:0;z-index:10;background:rgba(248,250,252,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px 12px}.nav a{flex:0 0 auto;font-size:13px;font-weight:850;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:#334155}section{padding:28px 18px;border-bottom:1px solid #e5e7eb}.eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:900;color:#2563eb;margin-bottom:8px}h2{font-size:26px;line-height:1.15;letter-spacing:-.025em;margin:0 0 12px;font-weight:930}p{font-size:16px;color:var(--muted);margin:0 0 12px}.grid{display:grid;gap:12px;margin-top:16px}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;box-shadow:0 12px 30px rgba(15,23,42,.06);border-top:5px solid var(--blue)}.card:nth-child(2){border-top-color:var(--green)}.card:nth-child(3){border-top-color:var(--amber)}.card:nth-child(4){border-top-color:var(--purple)}.card:nth-child(5){border-top-color:var(--cyan)}.card:nth-child(6){border-top-color:var(--red)}.card h3{font-size:18px;margin:0 0 6px;font-weight:900}.card p,.card li{font-size:15px;color:#475569}.dark{background:linear-gradient(135deg,#020617,#0f172a);color:#fff}.dark h2,.dark h3{color:#fff}.dark p,.dark li{color:#cbd5e1}.dark .card{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14)}ul{margin:8px 0 0;padding-left:20px}.modules{display:grid;grid-template-columns:1fr;gap:12px}.module-tag{font-size:12px;font-weight:900;color:#2563eb;letter-spacing:.08em}.flow{counter-reset:step}.step{display:grid;grid-template-columns:46px 1fr;gap:12px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;margin-top:10px}.step:before{counter-increment:step;content:counter(step);width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#2563eb,#06b6d4);display:grid;place-items:center;color:#fff;font-weight:950;font-size:20px}.step b{display:block;font-size:17px}.step span{font-size:14px;color:#64748b}.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}.tab{border:1px solid var(--line);background:#fff;border-radius:14px;padding:11px 8px;text-align:center;font-weight:900;color:#334155}.tab.active{background:linear-gradient(135deg,#2563eb,#06b6d4);color:#fff;border:0}.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px}.bottom{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(15,23,42,.9);backdrop-filter:blur(14px);display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;padding:8px}.bottom a,.bottom button{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.1);color:#fff;border-radius:14px;padding:10px 6px;font-size:12px;font-weight:900;text-align:center}.bottom .primary{background:linear-gradient(135deg,#2563eb,#06b6d4);border:0}.note{font-size:13px;color:#64748b;margin-top:12px}@media(min-width:700px){body{max-width:700px;margin:0 auto;background:#e2e8f0}.nav,.bottom{max-width:700px;margin:0 auto}.hero,section{background-clip:padding-box}}
+</style>
+
+<style>
+@media(max-width:760px){
+  *,*::before,*::after{box-sizing:border-box!important;max-width:100%!important;min-width:0!important;}
+  html,body{width:100%!important;max-width:100%!important;overflow-x:hidden!important;}
+  body{position:relative!important;}
+  .hero,section,.nav,.bottom{width:100%!important;max-width:100%!important;overflow-x:hidden!important;}
+  .hero{padding-left:16px!important;padding-right:16px!important;}
+  section{padding-left:16px!important;padding-right:16px!important;}
+  h1,h2,h3,p,li,span,b,div,a,button{overflow-wrap:anywhere!important;word-break:break-word!important;}
+  .hero h1{font-size:30px!important;line-height:1.12!important;letter-spacing:-.025em!important;}
+  h2{font-size:24px!important;}
+  .stats{grid-template-columns:1fr 1fr!important;width:100%!important;}
+  .stat{padding:12px!important;}
+  .bottom{grid-template-columns:repeat(3,minmax(0,1fr))!important;padding:8px 6px!important;gap:5px!important;}
+  .bottom a,.bottom button{font-size:11px!important;padding:10px 4px!important;white-space:normal!important;width:100%!important;overflow:hidden!important;}
+  .nav a{font-size:12px!important;padding:8px 10px!important;}
+}
+@media(max-width:360px){.hero h1{font-size:27px!important}.stats{grid-template-columns:1fr!important}.bottom{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+</style>
+
+<style>
+/* Final mobile safety frame: avoid wide layout viewport cropping in mobile webviews */
+@media(max-width:1200px){
+  body{width:390px!important;max-width:100vw!important;margin:0!important;overflow-x:hidden!important;}
+  .hero,section,.nav,.bottom{width:390px!important;max-width:100vw!important;left:0!important;right:auto!important;}
+  .stats,.grid,.modules,.flow{grid-template-columns:1fr!important;}
+  .bottom{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+</style>
+</head>
+<body>
+<header class="hero" id="top"><span class="kicker">Mobile HTML Edition</span><h1>AI 智慧服務平台<br><span class="accent">把 AI 放進真正的業務流程</span></h1><p class="lead">整合客服、行銷、知識管理、決策支援與營運流程，讓 AI 從單一工具升級為企業可落地、可治理、可擴充的智慧營運系統。</p><div class="stats"><div class="stat"><b>17</b><span>能力模組</span></div><div class="stat"><b>5</b><span>導入階段</span></div><div class="stat"><b>3</b><span>部署型態</span></div><div class="stat"><b>1</b><span>AI 營運中樞</span></div></div></header>
+<nav class="nav"><a href="#pain">痛點</a><a href="#arch">架構</a><a href="#map">能力</a><a href="#service">客服</a><a href="#growth">行銷</a><a href="#deploy">導入</a><a href="#govern">治理</a></nav>
+<section id="pain"><div class="eyebrow">WHY NOW</div><h2>企業不是缺 AI 工具，而是缺一套能運作的 AI 系統</h2><p>導入 AI 失敗，多半不是模型不夠強，而是資料、流程、權限、治理與日常使用場景沒有被整理好。</p><div class="grid"><div class="card"><h3>客服重複</h3><p>問題重複、回覆口徑不一致，新人訓練成本高。</p></div><div class="card"><h3>資料分散</h3><p>產品、品牌、網站、行銷與文件各自為政。</p></div><div class="card"><h3>決策很慢</h3><p>廣告、銷售、市場與網站資料難以交叉判斷。</p></div><div class="card"><h3>風險擔憂</h3><p>怕 AI 亂答、越界、資料外流或無法追蹤。</p></div></div></section>
+<section id="arch"><div class="eyebrow">SYSTEM DESIGN</div><h2>資料、模型、流程、通路與治理一起設計</h2><div class="grid"><div class="card"><h3>應用層</h3><ul><li>AI 客服與官方帳號</li><li>廣告決策與文案系統</li><li>報告、簡報與決策文件</li><li>真人語音客服與通話助理</li></ul></div><div class="card"><h3>能力層</h3><ul><li>多模型任務分工</li><li>知識庫與標準話術</li><li>SOP 與自動化監控</li><li>市場調查與競品分析</li></ul></div><div class="card"><h3>治理層</h3><ul><li>資料邊界與權限控管</li><li>人在迴路確認機制</li><li>操作紀錄與稽核</li><li>本地、私有或雲端部署</li></ul></div></div></section>
+<section class="dark" id="map"><div class="eyebrow">CAPABILITY MAP</div><h2>17 大能力，不是功能清單，而是企業 AI 作業系統</h2><div class="modules"><div class="card"><div class="module-tag">A｜客服互動</div><p>AI 客服、官方帳號、知識庫、多渠道、語音客服。</p></div><div class="card"><div class="module-tag">B｜行銷成長</div><p>廣告決策、合規文案、內容轉換、市場與競品分析。</p></div><div class="card"><div class="module-tag">C｜知識流程</div><p>文件系統化、SOP、例行監控、報告與簡報生成。</p></div><div class="card"><div class="module-tag">D｜決策助理</div><p>投資研究、商業診斷、多模型分工、行程與法務輔助。</p></div></div></section>
+<section id="service"><div class="eyebrow">CUSTOMER SERVICE</div><h2>客服從人工重複回答，變成 AI 協同服務中樞</h2><div class="tabs"><button class="tab active" data-mtab="service">接待分流</button><button class="tab" data-mtab="kb">知識回覆</button><button class="tab" data-mtab="handoff">人工轉接</button><button class="tab" data-mtab="summary">摘要追蹤</button></div><div class="panel" id="mobilePanel"><h3>接待與分流</h3><p>客戶進線後，AI 先判斷需求類型、急迫程度與是否需要人工介入。一般問題直接回覆，特殊需求收集資料後建立待辦。</p></div></section>
+<section id="growth"><div class="eyebrow">GROWTH LOOP</div><h2>行銷從憑感覺投放，變成資料驅動成長循環</h2><div class="flow"><div class="step"><div><b>蒐集</b><span>搜尋需求、網站內容、電商銷售與廣告資料。</span></div></div><div class="step"><div><b>判斷</b><span>找出高潛力關鍵字、異常成效與預算方向。</span></div></div><div class="step"><div><b>產出</b><span>生成官網、產品頁、社群、廣告與客服內容。</span></div></div><div class="step"><div><b>檢查</b><span>內建禁用詞、替代表達與合規檢查機制。</span></div></div><div class="step"><div><b>優化</b><span>人類保留決策權，AI 持續整理成效與建議。</span></div></div></div></section>
+<section id="deploy"><div class="eyebrow">IMPLEMENTATION</div><h2>先從一個高價值場景開始，再逐步擴充成平台</h2><div class="flow"><div class="step"><div><b>盤點</b><span>資料、流程、通路與優先場景。</span></div></div><div class="step"><div><b>建庫</b><span>建立知識庫、回答邊界與標準口徑。</span></div></div><div class="step"><div><b>試行</b><span>導入 AI 助手、儀表板或自動化流程。</span></div></div><div class="step"><div><b>監督</b><span>由人工確認，持續優化資料與提示。</span></div></div><div class="step"><div><b>擴充</b><span>擴展到更多部門、渠道與管理場景。</span></div></div></div></section>
+<section id="govern"><div class="eyebrow">GOVERNANCE</div><h2>讓 AI 有能力，也有邊界</h2><div class="grid"><div class="card"><h3>指定資料優先</h3><p>回答以企業指定資料、文件與知識庫為優先來源。</p></div><div class="card"><h3>不亂編機制</h3><p>未涵蓋問題不任意編造，改為轉人工或要求補充資料。</p></div><div class="card"><h3>人在迴路</h3><p>重要決策由人類確認後才執行，AI 提供建議不取代責任。</p></div><div class="card"><h3>紀錄與部署</h3><p>保留建議、操作與修改紀錄，依敏感度選擇本機、私有或雲端部署。</p></div></div><p class="note">手機版以可讀性優先；桌機請開 index.html 使用 16:9 互動簡報。</p></section>
+<div class="bottom"><a href="index.html">桌機版</a><a class="primary" href="#top">回頂部</a><button onclick="navigator.share?navigator.share({title:document.title,url:location.href}):alert(location.href)">分享</button></div>
+<script>
+const data={service:['接待與分流','客戶進線後，AI 先判斷需求類型、急迫程度與是否需要人工介入。一般問題直接回覆，特殊需求收集資料後建立待辦。'],kb:['知識庫回覆','AI 以企業指定客服手冊、產品文件、服務流程與 FAQ 為優先來源；未知問題不任意編造，改為補問、標記缺口或轉人工。'],handoff:['人工轉接','遇到客訴、特殊折扣、合約與需要判斷責任的場景，自動轉交真人，並保留完整上下文。'],summary:['摘要與追蹤','通話或文字對話結束後，自動生成摘要、需求紀錄與後續待辦，整理成 CRM 紀錄、週報與改善線索。']};
+document.querySelectorAll('[data-mtab]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-mtab]').forEach(x=>x.classList.remove('active'));b.classList.add('active');const d=data[b.dataset.mtab];mobilePanel.innerHTML='<h3>'+d[0]+'</h3><p>'+d[1]+'</p>'});
+</script>
+</body></html>

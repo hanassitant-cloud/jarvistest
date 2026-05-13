@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh-Hant" data-theme="aurora">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI 智慧服務平台｜互動式 HTML 展示簡報版</title>
+<link rel="stylesheet" href="assets/base.css" />
+<link rel="stylesheet" id="theme-link" href="assets/themes/aurora.css" />
+<link rel="stylesheet" href="assets/animations/animations.css" />
+<style>
+:root{
+  --ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--blue:#2563eb;--cyan:#06b6d4;--green:#10b981;--purple:#7c3aed;--amber:#f59e0b;--red:#ef4444;
+  --glass:rgba(255,255,255,.72);--darkglass:rgba(15,23,42,.66);
+}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;background:#020617;color:var(--ink)}
+.deck{background:#020617}.slide{padding:58px 76px 54px;background:radial-gradient(circle at 86% 8%,rgba(37,99,235,.15),transparent 30%),linear-gradient(135deg,#f8fafc,#eef6ff);overflow:hidden}.slide.dark{background:radial-gradient(circle at 78% 16%,rgba(34,211,238,.26),transparent 28%),radial-gradient(circle at 18% 88%,rgba(124,58,237,.22),transparent 34%),linear-gradient(135deg,#020617,#0f172a 58%,#111827);color:white}.slide.dark h1,.slide.dark h2,.slide.dark h3{color:white}.slide.dark p,.slide.dark li{color:#cbd5e1}
+.bg-orb{position:absolute;border-radius:999px;filter:blur(20px);opacity:.75;pointer-events:none}.orb-a{right:-120px;top:-120px;width:430px;height:430px;background:linear-gradient(135deg,#22d3ee,#2563eb)}.orb-b{left:-100px;bottom:-150px;width:360px;height:360px;background:linear-gradient(135deg,#7c3aed,#ec4899)}
+.eyebrow{font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:900;color:#64748b;margin-bottom:16px}.dark .eyebrow{color:#93c5fd}.kicker{display:inline-flex;gap:8px;align-items:center;padding:7px 12px;border:1px solid rgba(37,99,235,.18);border-radius:999px;background:rgba(37,99,235,.08);font-weight:850;color:#2563eb;margin-bottom:18px}.dark .kicker{color:#bfdbfe;background:rgba(59,130,246,.14);border-color:rgba(147,197,253,.22)}
+h1{font-size:70px;line-height:1.02;letter-spacing:-.06em;margin:0 0 20px;font-weight:950;max-width:970px}h2{font-size:47px;line-height:1.08;letter-spacing:-.04em;margin:0 0 18px;font-weight:930;color:#0f172a}h3{font-size:22px;line-height:1.2;margin:0 0 10px;font-weight:900;color:#0f172a}p.lead{font-size:24px;line-height:1.45;color:#475569;max-width:960px;margin:0}.accent{background:linear-gradient(90deg,#60a5fa,#22d3ee,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}.footer{position:absolute;left:76px;right:76px;bottom:28px;display:flex;justify-content:space-between;align-items:center;color:#475569;font-size:13px}.dark .footer{color:#cbd5e1}.slide-no{font-weight:800;color:#2563eb}.dark .slide-no{color:#7dd3fc}
+.hero-wrap{display:grid;grid-template-columns:1.04fr .96fr;gap:36px;align-items:center;height:100%}.hero-visual{position:relative;height:520px}.core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:230px;height:230px;border-radius:42px;background:linear-gradient(135deg,#2563eb,#06b6d4);box-shadow:0 30px 90px rgba(37,99,235,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;text-align:center}.core b{font-size:36px;letter-spacing:-.04em}.core span{font-size:15px;color:#dbeafe}.node{position:absolute;width:138px;height:92px;border-radius:24px;background:rgba(15,23,42,.62);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;text-align:center;font-weight:900;color:white;box-shadow:0 20px 55px rgba(0,0,0,.18)}.node.n1{left:18px;top:72px}.node.n2{right:24px;top:60px}.node.n3{left:0;bottom:92px}.node.n4{right:12px;bottom:88px}.node.n5{left:50%;top:0;transform:translateX(-50%)}.node.n6{left:50%;bottom:0;transform:translateX(-50%)}.ring{position:absolute;inset:54px;border:1px dashed rgba(148,163,184,.42);border-radius:999px}.ring.r2{inset:92px;opacity:.55}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}.metric{background:var(--glass);border:1px solid #e2e8f0;border-radius:24px;padding:22px;box-shadow:0 18px 50px rgba(15,23,42,.07)}.metric b{display:block;font-size:44px;line-height:1;font-weight:950;letter-spacing:-.06em;color:#2563eb}.metric span{font-size:15px;color:#64748b;font-weight:750}.dark .metric{background:var(--darkglass);border-color:rgba(148,163,184,.22)}.dark .metric b{color:#38bdf8}.dark .metric span{color:#cbd5e1}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}.problem{background:white;border:1px solid #e2e8f0;border-radius:24px;padding:24px;min-height:138px;box-shadow:0 18px 45px rgba(15,23,42,.06);position:relative;overflow:hidden}.problem:before{content:"";position:absolute;left:0;top:0;width:7px;height:100%;background:var(--blue)}.problem:nth-child(2):before{background:var(--green)}.problem:nth-child(3):before{background:var(--amber)}.problem:nth-child(4):before{background:var(--purple)}.problem:nth-child(5):before{background:var(--cyan)}.problem:nth-child(6):before{background:var(--red)}.problem p{font-size:17px;line-height:1.45;color:#475569;margin:0}
+.arch{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:34px}.layer{background:rgba(255,255,255,.9);border:1px solid #dbeafe;border-radius:28px;padding:26px;box-shadow:0 22px 60px rgba(15,23,42,.07)}.layer ul{margin:12px 0 0;padding-left:20px}.layer li{font-size:17px;line-height:1.55;color:#475569}.layer.top{border-top:8px solid #2563eb}.layer.mid{border-top:8px solid #06b6d4}.layer.base{border-top:8px solid #7c3aed}
+.capability-map{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:stretch;margin-top:26px}.map-left{background:white;border:1px solid #e2e8f0;border-radius:30px;padding:28px;box-shadow:0 22px 60px rgba(15,23,42,.07)}.map-right{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.bucket{border-radius:24px;padding:22px;background:#fff;border:1px solid #e2e8f0;box-shadow:0 16px 44px rgba(15,23,42,.05)}.bucket small{font-weight:900;color:#2563eb;letter-spacing:.08em}.bucket p{font-size:16px;line-height:1.45;color:#334155!important;margin:8px 0 0}.big17{font-size:128px;font-weight:950;letter-spacing:-.08em;line-height:.86;background:linear-gradient(135deg,#2563eb,#06b6d4,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}.map-left p{font-size:23px;line-height:1.45;color:#334155!important;margin:18px 0 0}
+.scenario{display:grid;grid-template-columns:240px 1fr;gap:24px;margin-top:26px}.scenario-nav{display:grid;gap:12px}.tab{padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);font-weight:850;color:#dbeafe}.tab.active{background:linear-gradient(135deg,#2563eb,#06b6d4);color:white;border:0}.scenario-panel{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:30px;padding:30px}.scenario-panel h3{font-size:34px}.scenario-panel ul{margin:18px 0 0;padding-left:24px}.scenario-panel li{font-size:21px;line-height:1.55;margin:8px 0}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:38px}.step{background:white;border:1px solid #dbeafe;border-radius:26px;padding:23px 18px;min-height:185px;box-shadow:0 18px 50px rgba(15,23,42,.06)}.step b{display:block;font-size:46px;line-height:1;color:#2563eb;font-weight:950;letter-spacing:-.06em;margin-bottom:14px}.step span{display:block;font-size:19px;font-weight:900;color:#0f172a}.step p{font-size:15.5px;line-height:1.45;color:#64748b;margin:10px 0 0}
+.gov-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}.gov{background:white;border:1px solid #e2e8f0;border-radius:26px;padding:24px 26px;box-shadow:0 18px 50px rgba(15,23,42,.06)}.gov p{font-size:19px;line-height:1.5;color:#475569;margin:0}.gov b{color:#0f172a}.dark .gov{background:var(--darkglass);border-color:rgba(148,163,184,.22)}.dark .gov p{color:#cbd5e1}.dark .gov b{color:white}
+.quote{font-size:43px;line-height:1.18;letter-spacing:-.035em;font-weight:950;max-width:1080px}.cta-row{display:flex;gap:16px;margin-top:34px}.cta{border-radius:999px;padding:14px 20px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#e0f2fe;font-weight:850}
+
+.interactive-controls{position:fixed;right:22px;bottom:22px;z-index:80;display:flex;gap:8px;align-items:center;padding:10px;border-radius:999px;background:rgba(15,23,42,.72);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(14px);box-shadow:0 18px 60px rgba(0,0,0,.28)}
+.interactive-controls button{appearance:none;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.12);color:#fff;border-radius:999px;padding:10px 13px;font-weight:900;font-size:13px;cursor:pointer;line-height:1;transition:transform .16s ease,background .16s ease,border-color .16s ease}.interactive-controls button:hover{transform:translateY(-1px);background:rgba(56,189,248,.28);border-color:rgba(125,211,252,.5)}
+.interactive-controls .primary{background:linear-gradient(135deg,#2563eb,#06b6d4);border:0}.interactive-hint{position:fixed;left:24px;bottom:24px;z-index:70;color:rgba(255,255,255,.76);font-size:12px;background:rgba(15,23,42,.58);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:8px 12px;backdrop-filter:blur(10px)}
+.tab{cursor:pointer;transition:transform .16s ease,background .16s ease}.tab:hover{transform:translateX(4px);background:rgba(56,189,248,.20)}
+.scenario-panel{transition:opacity .18s ease,transform .18s ease}.scenario-panel.switching{opacity:.25;transform:translateY(4px)}
+@media print{.interactive-controls,.interactive-hint{display:none!important}}
+
+/* ===== Mobile responsive mode =====
+   Desktop keeps the 16:9 presentation look. On phones, each active slide becomes
+   a scrollable single-column card so text does not overflow or overlap. */
+@media (max-width: 760px){
+  html,body{background:#020617;overflow:hidden;}
+  .deck{width:100vw;height:100dvh;overflow:hidden;background:#020617;}
+  .slide{padding:28px 18px 92px!important;overflow-y:auto!important;overflow-x:hidden!important;-webkit-overflow-scrolling:touch;justify-content:flex-start!important;background:linear-gradient(135deg,#f8fafc,#eef6ff)!important;}
+  .slide.dark{background:radial-gradient(circle at 80% 4%,rgba(34,211,238,.22),transparent 30%),linear-gradient(135deg,#020617,#0f172a 68%,#111827)!important;}
+  .eyebrow{font-size:10px!important;letter-spacing:.12em;margin-bottom:10px!important;}
+  .kicker{font-size:12px!important;padding:6px 10px;margin-bottom:12px!important;}
+  h1{font-size:clamp(34px,10vw,46px)!important;line-height:1.05!important;letter-spacing:-.045em!important;margin-bottom:14px!important;max-width:100%!important;}
+  h2{font-size:clamp(27px,7.4vw,34px)!important;line-height:1.12!important;margin-bottom:12px!important;}
+  h3{font-size:19px!important;line-height:1.22!important;}
+  p.lead{font-size:17px!important;line-height:1.45!important;max-width:100%!important;}
+  .hero-wrap,.capability-map,.scenario,.arch,.gov-grid{display:block!important;height:auto!important;}
+  .hero-visual{height:250px!important;margin-top:18px!important;transform:scale(.78);transform-origin:center top;}
+  .core{width:150px!important;height:150px!important;border-radius:28px!important;}
+  .core b{font-size:25px!important}.core span{font-size:12px!important}
+  .node{width:96px!important;height:62px!important;border-radius:16px!important;font-size:12px!important;padding:6px!important;}
+  .ring{inset:38px!important}.ring.r2{inset:66px!important}
+  .metrics,.problem-grid,.map-right,.flow{display:grid!important;grid-template-columns:1fr!important;gap:12px!important;margin-top:18px!important;}
+  .metric,.problem,.layer,.bucket,.step,.gov,.map-left,.scenario-panel{border-radius:18px!important;padding:16px!important;min-height:auto!important;box-shadow:0 12px 30px rgba(15,23,42,.08)!important;}
+  .metric b{font-size:34px!important}.metric span{font-size:13px!important}
+  .problem p,.mini-card p,.bucket p,.map-left p,.gov p{font-size:15px!important;line-height:1.45!important;}
+  .layer{margin-bottom:12px!important}.layer li,.scenario-panel li{font-size:15.5px!important;line-height:1.48!important;margin:7px 0!important;}
+  .big17{font-size:76px!important;}
+  .scenario-nav{display:grid!important;grid-template-columns:repeat(2,1fr)!important;gap:8px!important;margin-bottom:12px!important;}
+  .tab{font-size:13px!important;padding:11px 10px!important;text-align:center!important;border-radius:14px!important;}
+  .scenario-panel h3{font-size:24px!important;}
+  .step b{font-size:32px!important;margin-bottom:8px!important}.step span{font-size:17px!important}.step p{font-size:14px!important;}
+  .quote{font-size:clamp(26px,7.5vw,34px)!important;line-height:1.22!important;max-width:100%!important;}
+  .cta-row{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important;margin-top:20px!important}.cta{font-size:13px!important;text-align:center!important;padding:11px 10px!important;}
+  .footer{left:18px!important;right:18px!important;bottom:70px!important;font-size:10px!important;opacity:.85;}
+  .interactive-hint{display:none!important;}
+  .interactive-controls{left:8px!important;right:8px!important;bottom:8px!important;justify-content:flex-start!important;overflow-x:auto!important;border-radius:18px!important;padding:8px!important;gap:6px!important;}
+  .interactive-controls button{font-size:12px!important;padding:10px 11px!important;white-space:nowrap!important;flex:0 0 auto!important;}
+}
+@media (max-width: 420px){
+  .hero-visual{transform:scale(.68);height:220px!important;margin-left:-8px!important;}
+  .cta-row{grid-template-columns:1fr!important;}
+  .footer{display:none!important;}
+}
+
+
+/* ===== Mobile hardening pass: readability first ===== */
+@media (max-width: 760px){
+  *,*::before,*::after{max-width:100vw;box-sizing:border-box;}
+  html,body,.deck{width:100vw!important;max-width:100vw!important;overflow-x:hidden!important;}
+  .slide{width:100vw!important;max-width:100vw!important;left:0!important;right:0!important;padding:24px 16px 112px!important;}
+  h1,h2,h3,p,li,span,div{overflow-wrap:anywhere!important;word-break:break-word!important;}
+  h1{font-size:34px!important;line-height:1.12!important;letter-spacing:-.035em!important;}
+  h2{font-size:27px!important;line-height:1.16!important;letter-spacing:-.025em!important;}
+  p.lead{font-size:16px!important;line-height:1.48!important;}
+  .hero-wrap{display:block!important;}
+  .hero-visual{display:none!important;}
+  .metrics{grid-template-columns:repeat(2,1fr)!important;}
+  .metric{padding:14px!important;}
+  .metric b{font-size:30px!important;}
+  .problem-grid,.arch,.capability-map,.map-right,.scenario,.gov-grid,.flow{display:grid!important;grid-template-columns:1fr!important;gap:12px!important;}
+  .layer,.problem,.bucket,.step,.gov,.map-left,.scenario-panel{width:100%!important;max-width:100%!important;}
+  .scenario-nav{display:grid!important;grid-template-columns:1fr 1fr!important;width:100%!important;}
+  .tab{width:100%!important;max-width:100%!important;}
+  .cta-row{display:grid!important;grid-template-columns:1fr!important;width:100%!important;}
+  .cta{width:100%!important;max-width:100%!important;white-space:normal!important;}
+  .interactive-controls{left:8px!important;right:8px!important;bottom:8px!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;border-radius:16px!important;overflow:visible!important;}
+  .interactive-controls button{min-width:0!important;width:100%!important;padding:9px 6px!important;font-size:11px!important;white-space:normal!important;}
+  .footer{display:none!important;}
+}
+@media (max-width: 420px){
+  h1{font-size:31px!important;}
+  h2{font-size:25px!important;}
+  .metrics{grid-template-columns:1fr 1fr!important;}
+  .scenario-nav{grid-template-columns:1fr!important;}
+  .interactive-controls{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+}
+
+</style>
+<script>
+(function(){if(innerWidth<=760&&!/mobile=0/.test(location.search)&&!location.pathname.endsWith('/mobile.html')) location.replace('mobile.html');})();
+</script>
+</head>
+<body>
+<div class="deck">
+  <section class="slide dark">
+    <div class="bg-orb orb-a"></div><div class="bg-orb orb-b"></div>
+    <div class="hero-wrap">
+      <div>
+        <div class="kicker anim-fade-up">企業級 AI 應用平台</div>
+        <h1 class="anim-fade-up">AI 智慧服務平台<br><span class="accent">把 AI 放進真正的業務流程</span></h1>
+        <p class="lead anim-fade-up">整合客服、行銷、知識管理、決策支援與營運流程，讓 AI 從單一工具升級為企業可落地、可治理、可擴充的智慧營運系統。</p>
+        <div class="metrics anim-stagger-list"><div class="metric"><b>17</b><span>能力模組</span></div><div class="metric"><b>5</b><span>導入階段</span></div><div class="metric"><b>3</b><span>部署型態</span></div><div class="metric"><b>1</b><span>AI 營運中樞</span></div></div>
+      </div>
+      <div class="hero-visual anim-fade-up"><div class="ring"></div><div class="ring r2"></div><div class="core"><b>AI Core</b><span>資料 × 模型 × 流程</span></div><div class="node n1">客服入口</div><div class="node n2">行銷成長</div><div class="node n3">知識庫</div><div class="node n4">決策支援</div><div class="node n5">語音客服</div><div class="node n6">治理稽核</div></div>
+    </div>
+    <div class="footer"><span>AI 智慧服務平台｜互動式 HTML 展示簡報</span><span class="slide-no">01 / 12</span></div>
+    <div class="notes">開場重點：這不是一套聊天機器人，而是把 AI 放進企業流程的整合平台。</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">WHY NOW</div><h2>企業不是缺 AI 工具，而是缺一套能運作的 AI 系統</h2><p class="lead">導入 AI 失敗，多半不是模型不夠強，而是資料、流程、權限、治理與日常使用場景沒有被整理好。</p>
+    <div class="problem-grid anim-stagger-list"><div class="problem"><h3>客服重複</h3><p>問題重複、回覆口徑不一致，新人訓練成本高。</p></div><div class="problem"><h3>資料分散</h3><p>產品、品牌、網站、行銷與文件各自為政。</p></div><div class="problem"><h3>決策很慢</h3><p>廣告、銷售、市場與網站資料難以交叉判斷。</p></div><div class="problem"><h3>流程靠人</h3><p>內部經驗難交接，SOP 不完整，例外處理靠記憶。</p></div><div class="problem"><h3>想法模糊</h3><p>老闆與團隊想法多，但難以轉成可執行方案。</p></div><div class="problem"><h3>風險擔憂</h3><p>怕 AI 亂答、越界、資料外流或無法追蹤。</p></div></div>
+    <div class="footer"><span>企業常見痛點</span><span class="slide-no">02 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">SYSTEM DESIGN</div><h2>平台架構：資料、模型、流程、通路與治理一起設計</h2><p class="lead">讓 AI 不只是回答問題，而是能在企業指定資料與規則下，協助完成客服、行銷、文件、流程與決策任務。</p>
+    <div class="arch anim-stagger-list"><div class="layer top"><h3>應用層</h3><ul><li>AI 客服與官方帳號</li><li>廣告決策與文案系統</li><li>報告、簡報與決策文件</li><li>真人語音客服與通話助理</li></ul></div><div class="layer mid"><h3>能力層</h3><ul><li>多模型任務分工</li><li>知識庫與標準話術</li><li>SOP 與自動化監控</li><li>市場調查與競品分析</li></ul></div><div class="layer base"><h3>治理層</h3><ul><li>資料邊界與權限控管</li><li>人在迴路確認機制</li><li>操作紀錄與稽核</li><li>本地、私有或雲端部署</li></ul></div></div>
+    <div class="footer"><span>平台架構</span><span class="slide-no">03 / 12</span></div>
+  </section>
+
+  <section class="slide dark">
+    <div class="eyebrow">CAPABILITY MAP</div><h2>17 大能力，不是功能清單，而是企業 AI 作業系統</h2>
+    <div class="capability-map"><div class="map-left"><div class="big17">17</div><h3>能力模組可依企業階段逐步啟用</h3><p>從最有感的客服或知識庫開始，再擴充到行銷、流程、決策、高階助理與語音服務。</p></div><div class="map-right anim-stagger-list"><div class="bucket"><small>A｜客服互動</small><p>AI 客服、官方帳號、知識庫、多渠道、語音客服。</p></div><div class="bucket"><small>B｜行銷成長</small><p>廣告決策、合規文案、內容轉換、市場與競品分析。</p></div><div class="bucket"><small>C｜知識流程</small><p>文件系統化、SOP、例行監控、報告與簡報生成。</p></div><div class="bucket"><small>D｜決策助理</small><p>投資研究、商業診斷、多模型分工、行程與法務輔助。</p></div></div></div>
+    <div class="footer"><span>17 大功能地圖</span><span class="slide-no">04 / 12</span></div>
+  </section>
+
+  <section class="slide dark">
+    <div class="eyebrow">SCENARIO WALKTHROUGH</div><h2>情境一：客服從「人工重複回答」變成「AI 協同服務中樞」</h2>
+    <div class="scenario"><div class="scenario-nav"><div class="tab active" data-scenario="service">接待與分流</div><div class="tab" data-scenario="kb">知識庫回覆</div><div class="tab" data-scenario="handoff">人工轉接</div><div class="tab" data-scenario="summary">摘要與追蹤</div></div><div class="scenario-panel"><h3>AI 客服與真人語音客服</h3><ul><li>讀取客服手冊、產品文件、服務流程與常見問題。</li><li>依企業品牌語氣回覆，未知問題不亂答，改為補問或轉人工。</li><li>支援電話、語音通話或線上會議形式互動。</li><li>保留完整上下文，產生通話摘要、需求紀錄與後續待辦。</li></ul></div></div>
+    <div class="footer"><span>客服與互動場景</span><span class="slide-no">05 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">GROWTH LOOP</div><h2>情境二：行銷從「憑感覺投放」變成「資料驅動成長循環」</h2>
+    <div class="flow anim-stagger-list"><div class="step"><b>1</b><span>蒐集</span><p>搜尋需求、網站內容、電商銷售與廣告資料。</p></div><div class="step"><b>2</b><span>判斷</span><p>找出高潛力關鍵字、異常成效與預算方向。</p></div><div class="step"><b>3</b><span>產出</span><p>生成官網、產品頁、社群、廣告與客服內容。</p></div><div class="step"><b>4</b><span>檢查</span><p>內建禁用詞、替代表達與合規檢查機制。</p></div><div class="step"><b>5</b><span>優化</span><p>人類保留決策權，AI 持續整理成效與建議。</p></div></div>
+    <div class="footer"><span>行銷與成長場景</span><span class="slide-no">06 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">KNOWLEDGE OPS</div><h2>情境三：把散亂文件、會議與經驗整理成企業可累積的知識資產</h2>
+    <div class="arch anim-stagger-list"><div class="layer top"><h3>輸入來源</h3><ul><li>舊文件與產品資料</li><li>會議討論與專案內容</li><li>客服問答與實際案例</li></ul></div><div class="layer mid"><h3>整理輸出</h3><ul><li>標準文件與 FAQ</li><li>執行清單與 SOP</li><li>專案記憶與知識庫</li></ul></div><div class="layer base"><h3>營運價值</h3><ul><li>降低新人訓練成本</li><li>改善交接與查找效率</li><li>讓 AI 能使用企業資料</li></ul></div></div>
+    <div class="footer"><span>知識與流程場景</span><span class="slide-no">07 / 12</span></div>
+  </section>
+
+  <section class="slide dark">
+    <div class="eyebrow">EXECUTIVE COPILOT</div><h2>情境四：管理者的研究、策略、文件與決策輔助</h2>
+    <div class="gov-grid anim-stagger-list"><div class="gov"><p><b>投資研究：</b>整理財務、市場、新聞、產業趨勢與估值邏輯，作為決策輔助。</p></div><div class="gov"><p><b>商業診斷：</b>從產品、品牌、網站、行銷到營運流程找出斷點。</p></div><div class="gov"><p><b>決策文件：</b>把複雜資料轉成市場分析、營運報告、會議摘要與提案簡報。</p></div><div class="gov"><p><b>高階助理：</b>延伸到商務出行、家庭旅遊、重要拜訪與複雜日程安排。</p></div></div>
+    <div class="footer"><span>決策與高階助理場景</span><span class="slide-no">08 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">IMPLEMENTATION</div><h2>導入方式：先從一個高價值場景開始，再逐步擴充成平台</h2>
+    <div class="flow anim-stagger-list"><div class="step"><b>01</b><span>盤點</span><p>資料、流程、通路與優先場景。</p></div><div class="step"><b>02</b><span>建庫</span><p>建立知識庫、回答邊界與標準口徑。</p></div><div class="step"><b>03</b><span>試行</span><p>導入 AI 助手、儀表板或自動化流程。</p></div><div class="step"><b>04</b><span>監督</span><p>由人工確認，持續優化資料與提示。</p></div><div class="step"><b>05</b><span>擴充</span><p>擴展到更多部門、渠道與管理場景。</p></div></div>
+    <div class="footer"><span>導入路線</span><span class="slide-no">09 / 12</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">GOVERNANCE</div><h2>風險控管：讓 AI 有能力，也有邊界</h2>
+    <div class="gov-grid anim-stagger-list"><div class="gov"><p><b>指定資料優先：</b>回答以企業指定資料、文件與知識庫為優先來源。</p></div><div class="gov"><p><b>不亂編機制：</b>未涵蓋問題可設定不任意編造，改為轉人工或要求補充資料。</p></div><div class="gov"><p><b>人在迴路：</b>重要決策由人類確認後才執行，AI 提供建議不取代責任。</p></div><div class="gov"><p><b>紀錄與部署：</b>保留建議、操作與修改紀錄，依敏感度選擇本機、私有或雲端部署。</p></div></div>
+    <div class="footer"><span>治理與安全</span><span class="slide-no">10 / 12</span></div>
+  </section>
+
+  <section class="slide dark">
+    <div class="eyebrow">VALUE PROPOSITION</div><h2>最終價值：建立可落地、可管理、可持續成長的智慧營運能力</h2>
+    <div class="metrics anim-stagger-list"><div class="metric"><b>快</b><span>縮短資料整理與回覆時間</span></div><div class="metric"><b>穩</b><span>統一口徑與流程標準</span></div><div class="metric"><b>省</b><span>降低重複追蹤與訓練成本</span></div><div class="metric"><b>長</b><span>累積企業知識與 AI 能力</span></div></div>
+    <p class="quote" style="margin-top:52px">AI 的價值不是多回答幾句話，而是讓企業每天的客服、行銷、知識、流程與決策，開始變得更快、更穩、更可累積。</p>
+    <div class="footer"><span>平台價值</span><span class="slide-no">11 / 12</span></div>
+  </section>
+
+  <section class="slide dark">
+    <div class="bg-orb orb-a"></div><div class="bg-orb orb-b"></div>
+    <div class="eyebrow">NEXT STEP</div><h1>從第一個 AI 場景開始，<br><span class="accent">建立企業自己的智慧服務平台</span></h1><p class="lead">建議先選擇最有感、資料最容易整理、能快速驗證價值的場景：客服知識庫、AI 客服、廣告文案或內部文件系統化。</p>
+    <div class="cta-row"><div class="cta">盤點資料</div><div class="cta">選定 MVP 場景</div><div class="cta">建立知識庫</div><div class="cta">導入 AI 助手</div></div>
+    <div class="footer"><span>AI 智慧服務平台｜對外展示版</span><span class="slide-no">12 / 12</span></div>
+  </section>
+</div>
+<script src="assets/runtime.js"></script>
+
+<div class="interactive-hint">可點右下角按鈕操作｜鍵盤 ← → 換頁，F 全螢幕，S 講者模式</div>
+<div class="interactive-controls" aria-label="簡報控制列">
+  <button type="button" data-action="home">首頁</button>
+  <button type="button" data-action="prev">上一頁</button>
+  <button type="button" class="primary" data-action="next">下一頁</button>
+  <button type="button" data-action="fullscreen">全螢幕</button>
+  <button type="button" data-action="speaker">講者模式</button>
+</div>
+
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.deck .slide'));
+  var current = 0;
+  function clamp(n){ return Math.max(0, Math.min(slides.length-1, n)); }
+  function currentFromHash(){
+    var m = /^#\/(\d+)/.exec(location.hash || '');
+    return m ? clamp(parseInt(m[1],10)-1) : 0;
+  }
+  function show(n, updateHash){
+    current = clamp(n);
+    slides.forEach(function(slide, i){
+      slide.classList.toggle('is-active', i === current);
+      slide.classList.toggle('is-prev', i < current);
+      slide.style.opacity = (i === current) ? '1' : '0';
+      slide.style.pointerEvents = (i === current) ? 'auto' : 'none';
+      slide.style.transform = (i === current) ? 'translateX(0)' : (i < current ? 'translateX(-30px)' : 'translateX(30px)');
+    });
+    var bar = document.querySelector('.progress-bar > span');
+    if (bar) bar.style.width = ((current+1)/slides.length*100)+'%';
+    if (updateHash !== false) {
+      var h = '#/' + (current+1);
+      if (location.hash !== h) history.replaceState(null, '', h);
+    }
+  }
+  window.aiDeckGo = show;
+  show(currentFromHash(), false);
+  window.addEventListener('hashchange', function(){ show(currentFromHash(), false); });
+  document.addEventListener('click', function(e){
+    var b=e.target.closest('[data-action]'); if(!b) return;
+    e.preventDefault(); e.stopPropagation();
+    var a=b.getAttribute('data-action');
+    if(a==='next') show(current+1, true);
+    if(a==='prev') show(current-1, true);
+    if(a==='home') show(0, true);
+    if(a==='fullscreen') { var el=document.documentElement; if(!document.fullscreenElement && el.requestFullscreen) el.requestFullscreen(); else if(document.exitFullscreen) document.exitFullscreen(); }
+    if(a==='speaker') document.dispatchEvent(new KeyboardEvent('keydown',{key:'S',bubbles:true}));
+  }, true);
+  document.addEventListener('keydown', function(e){
+    if(e.metaKey||e.ctrlKey||e.altKey) return;
+    if(e.key==='ArrowRight' || e.key==='PageDown') { show(current+1,true); e.preventDefault(); }
+    if(e.key==='ArrowLeft' || e.key==='PageUp') { show(current-1,true); e.preventDefault(); }
+    if(e.key==='Home') { show(0,true); e.preventDefault(); }
+    if(e.key==='End') { show(slides.length-1,true); e.preventDefault(); }
+  }, true);
+  var scenarios={
+    service:{title:'接待與分流',items:['客戶進線後，AI 先判斷需求類型、急迫程度與是否需要人工介入。','一般問題直接回覆；特殊需求收集資料後建立待辦。','讓第一線接待更快、更穩，也減少漏接。']},
+    kb:{title:'知識庫回覆',items:['AI 以企業指定客服手冊、產品文件、服務流程與 FAQ 為優先來源。','未知問題不任意編造，改為補問、標記缺口或轉人工。','每次問答都能反向累積知識庫。']},
+    handoff:{title:'人工轉接',items:['遇到客訴、特殊折扣、合約與需要判斷責任的場景，自動轉交真人。','轉交時保留完整上下文、客戶需求、已問過問題與建議處理方式。','真人客服接手更快，不必重新問一次。']},
+    summary:{title:'摘要與追蹤',items:['通話或文字對話結束後，自動生成摘要、需求紀錄與後續待辦。','可整理成 CRM 紀錄、客服週報、常見問題與產品改善線索。','讓客服互動變成可分析、可追蹤的營運資料。']}
+  };
+  document.querySelectorAll('.scenario-nav .tab').forEach(function(tab){
+    tab.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      var keyName=tab.getAttribute('data-scenario'); var data=scenarios[keyName]; if(!data) return;
+      document.querySelectorAll('.scenario-nav .tab').forEach(function(x){x.classList.remove('active')});
+      tab.classList.add('active');
+      var panel=document.querySelector('.scenario-panel'); if(!panel) return;
+      panel.classList.add('switching');
+      setTimeout(function(){
+        panel.innerHTML='<h3>'+data.title+'</h3><ul>'+data.items.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>';
+        panel.classList.remove('switching');
+      },120);
+    }, true);
+  });
+})();
+</script>
+
+</body>
+</html>
