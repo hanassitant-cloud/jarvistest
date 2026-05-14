@@ -1,0 +1,2 @@
+本包應包含完整網頁交付檔：index.html、mobile.html、pdf-pages.html、PDF、assets/css、assets/js、assets/images、docs、README、manifest.json。
+index.html 應含 10 頁投影片、10 組講者備註，關鍵字：空間智慧、李飛飛、World Labs、Autodesk。

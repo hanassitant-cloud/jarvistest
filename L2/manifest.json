@@ -1,0 +1,9 @@
+{
+  "name": "space-intelligence-deck-v8-full-handoff",
+  "version": "8.0.0",
+  "entry": "index.html",
+  "mobile": "mobile.html",
+  "pdf": "space-intelligence-deck-v8.pdf",
+  "source": "https://www.bnext.com.tw/article/90913/fei-fei-lee-space-intelligence",
+  "verified": true
+}

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>空間智慧互動式投影片｜v6 Safe</title>
+<style>
+:root{--bg:#07111f;--panel:#101c31;--panel2:#152641;--text:#f7fbff;--muted:#b9c6dd;--line:rgba(255,255,255,.16);--accent:#73e7ff;--accent2:#b594ff;--hot:#ffd27a;--ok:#88f0ba;--shadow:0 18px 50px rgba(0,0,0,.32);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 20% 5%,rgba(115,231,255,.2),transparent 34%),radial-gradient(circle at 90% 20%,rgba(181,148,255,.18),transparent 32%),var(--bg);color:var(--text);line-height:1.55}.deck{max-width:1180px;margin:0 auto;padding:28px 18px 110px}.topbar{position:sticky;top:0;z-index:20;display:flex;gap:10px;align-items:center;justify-content:space-between;padding:12px 0 16px;background:linear-gradient(to bottom,var(--bg) 70%,transparent);backdrop-filter:blur(10px)}.brand{font-size:13px;letter-spacing:.16em;color:var(--accent);font-weight:800}.hint{font-size:13px;color:var(--muted)}.slide{min-height:calc(100vh - 150px);margin:0 0 28px;padding:42px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.045));box-shadow:var(--shadow);display:flex;flex-direction:column;gap:24px;scroll-margin-top:76px}.kicker{letter-spacing:.18em;color:var(--accent);font-size:13px;font-weight:900}.title{font-size:clamp(34px,5.6vw,72px);line-height:1.05;margin:8px 0 14px}.subtitle{font-size:clamp(18px,2.2vw,26px);color:var(--muted);max-width:920px}.grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:stretch}.card,.note{background:rgba(7,17,31,.55);border:1px solid var(--line);border-radius:24px;padding:24px}.points{display:grid;gap:14px;margin:0;padding:0;list-style:none}.points li{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);font-size:18px}.points li::before{content:'✦';color:var(--hot);margin-right:10px}.note{color:var(--muted)}.note strong{color:var(--ok)}.source{font-size:14px;color:var(--muted)}.controls{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;display:flex;gap:8px;align-items:center;padding:9px;border:1px solid var(--line);border-radius:999px;background:rgba(5,10,20,.82);backdrop-filter:blur(14px);box-shadow:var(--shadow)}button,a.ctrl{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);color:var(--text);border-radius:999px;padding:10px 14px;text-decoration:none;font-weight:800;cursor:pointer}.pageno{color:var(--muted);min-width:70px;text-align:center;font-size:13px}.toc{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 20px}.toc a{font-size:13px;color:var(--text);text-decoration:none;padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--line)}details{margin-top:auto}summary{cursor:pointer;color:var(--accent);font-weight:800}.notes{margin-top:12px;color:var(--muted);background:rgba(0,0,0,.22);border-radius:18px;padding:16px}@media(max-width:760px){.deck{padding:14px 12px 100px}.topbar{align-items:flex-start;flex-direction:column}.slide{min-height:auto;padding:24px 18px;border-radius:22px}.grid{grid-template-columns:1fr}.points li{font-size:16px}.controls{width:calc(100% - 18px);justify-content:space-between;gap:4px}button,a.ctrl{padding:9px 10px;font-size:13px}.pageno{min-width:48px}.hint{font-size:12px}}
+@media print{.controls,.topbar{display:none}.slide{min-height:auto;break-after:page;background:#fff;color:#111}.subtitle,.note,.source{color:#333}}
+</style>
+</head>
+<body>
+<main class="deck">
+  <div class="topbar"><div><div class="brand">HTML-PPT · SAFE RENDER v6</div><div class="hint">這版不使用隱藏式投影片；即使 JavaScript 失效，內容也會直接顯示。</div></div><div class="hint">← → / Space 換頁 · S 展開講稿</div></div>
+  <nav class="toc" aria-label="目錄">
+    <a href="#s1">1. 空間智慧：AI 下一個被低估的主戰場</a>
+    <a href="#s2">2. 為什麼現在重要</a>
+    <a href="#s3">3. 什麼是空間智慧</a>
+    <a href="#s4">4. World Labs 與大型世界模型</a>
+    <a href="#s5">5. 產業衝擊：從視覺到營運</a>
+    <a href="#s6">6. Autodesk 合作：進入設計與工程流程</a>
+    <a href="#s7">7. 企業導入：人類經驗 × AI 效率</a>
+    <a href="#s8">8. 管理者要先準備什麼</a>
+    <a href="#s9">9. 三個 Takeaways</a>
+    <a href="#s10">10. 討論問題</a>
+  </nav>
+  <section class="slide" id="s1" data-title="空間智慧：AI 下一個被低估的主戰場">
+    <header><div class="kicker">SPACE INTELLIGENCE</div><h1 class="title">空間智慧：AI 下一個被低估的主戰場</h1><p class="subtitle">根據《數位時代》文章整理：李飛飛認為，AI 若真正讀懂視覺空間，零售、物流、醫療、設計與企業營運都可能被重新設計。</p></header>
+    <div class="grid"><div class="card"><ul class="points"><li>AI 不只會說話，下一步是理解真實世界。</li><li>空間智慧把視覺、幾何、物理與決策串起來。</li><li>企業價值在於讓 AI 參與觀察、模擬與行動。</li></ul></div><div class="note"><strong>本頁重點</strong><p>開場可以先說：過去一年大家最熟的是文字 AI，但企業現場真正難的問題，往往不是文字，而是空間、物體、動線、人與決策。這就是空間智慧的重要性。</p></div></div>
+    <details><summary>講者備註 / Speaker Notes</summary><aside class="notes">開場可以先說：過去一年大家最熟的是文字 AI，但企業現場真正難的問題，往往不是文字，而是空間、物體、動線、人與決策。這就是空間智慧的重要性。</aside></details>
+    <div class="source">01/10 · Source: 數位時代 Fei-Fei Li 空間智慧文章</div>
+  </section>
+  <section class="slide" id="s2" data-title="為什麼現在重要">
+    <header><div class="kicker">WHY NOW</div><h1 class="title">為什麼現在重要</h1><p class="subtitle">大型語言模型已證明 AI 能理解語言；下一個瓶頸，是讓 AI 理解「三維世界如何運作」。</p></header>
+    <div class="grid"><div class="card"><ul class="points"><li>從看懂圖片，進一步到理解場景與因果。</li><li>從回答問題，進一步到預測與模擬。</li><li>從螢幕內工具，進一步到物理世界助手。</li></ul></div><div class="note"><strong>本頁重點</strong><p>這頁要把聽眾從 ChatGPT 的語境帶到真實世界。重點是：AI 不是只在文件或客服裡產生價值，它如果能理解空間，才會真正進到產業流程。</p></div></div>
+    <details><summary>講者備註 / Speaker Notes</summary><aside class="notes">這頁要把聽眾從 ChatGPT 的語境帶到真實世界。重點是：AI 不是只在文件或客服裡產生價值，它如果能理解空間，才會真正進到產業流程。</aside></details>
+    <div class="source">02/10 · Source: 數位時代 Fei-Fei Li 空間智慧文章</div>
+  </section>
+  <section class="slide" id="s3" data-title="什麼是空間智慧">
+    <header><div class="kicker">DEFINITION</div><h1 class="title">什麼是空間智慧</h1><p class="subtitle">空間智慧是 AI 對環境、物體位置、距離、遮擋、動線、物理互動與未來狀態的理解能力。</p></header>
+    <div class="grid"><div class="card"><ul class="points"><li>理解：辨識場景、物件、位置與關係。</li><li>生成：建立可互動的 3D 世界或場景。</li><li>推理：判斷下一步可能發生什麼。</li><li>行動：協助人類或機器做出更好的決策。</li></ul></div><div class="note"><strong>本頁重點</strong><p>可以用人類小孩學走路做比喻：我們不是只看見椅子，而是知道椅子可以坐、會擋路、推了會移動。AI 若具備這種常識，應用會完全不同。</p></div></div>
+    <details><summary>講者備註 / Speaker Notes</summary><aside class="notes">可以用人類小孩學走路做比喻：我們不是只看見椅子，而是知道椅子可以坐、會擋路、推了會移動。AI 若具備這種常識，應用會完全不同。</aside></details>
+    <div class="source">03/10 · Source: 數位時代 Fei-Fei Li 空間智慧文章</div>
+  </section>
+  <section class="slide" id="s4" data-title="World Labs 與大型世界模型">
+    <header><div class="kicker">WORLD LABS</div><h1 class="title">World Labs 與大型世界模型</h1><p class="subtitle">李飛飛創辦的 World Labs 把方向放在 Large World Model，目標是讓 AI 能生成、理解並操作互動式 3D 世界。</p></header>
+    <div class="grid"><div class="card"><ul class="points"><li>Marble：把文字、圖片、影片轉成可探索 3D 世界。</li><li>核心不只是漂亮畫面，而是可互動、可模擬的世界模型。</li><li>從內容生成走向「環境生成」與「場景理解」。</li></ul></div><div class="note"><strong>本頁重點</strong><p>這頁要避免講成單純 3D 特效。World Labs 的價值在於讓 AI 有世界模型，未來可用於訓練、設計、機器人、模擬與決策。</p></div></div>
+    <details><summary>講者備註 / Speaker Notes</summary><aside class="notes">這頁要避免講成單純 3D 特效。World Labs 的價值在於讓 AI 有世界模型，未來可用於訓練、設計、機器人、模擬與決策。</aside></details>
+    <div class="source">04/10 · Source: 數位時代 Fei-Fei Li 空間智慧文章</div>
+  </section>
+  <section class="slide" id="s5" data-title="產業衝擊：從視覺到營運">
+    <header><div class="kicker">INDUSTRY</div><h1 class="title">產業衝擊：從視覺到營運</h1><p class="subtitle">空間智慧可能影響所有需要理解現場、物體、動線與風險的產業。</p></header>
+    <div class="grid"><div class="card"><ul class="points"><li>零售：理解貨架、陳列、客流與缺貨。</li><li>物流：分析倉儲路線、搬運效率與安全。</li><li>醫療：支援影像判讀、手術規劃與照護場景。</li><li>能源/保險/農業：把空間資料轉成風險與決策。</li></ul></div><div class="note"><strong>本頁重點</strong><p>這頁可以提醒：真正的價值不是「看得懂照片」，而是把視覺資料變成流程改善、風險降低與決策速度。</p></div></div>
+    <details><summary>講者備註 / Speaker Notes</summary><aside class="notes">這頁可以提醒：真正的價值不是「看得懂照片」，而是把視覺資料變成流程改善、風險降低與決策速度。</aside></details>
+    <div class="source">05/10 · Source: 數位時代 Fei-Fei Li 空間智慧文章</div>
+  </section>
+  <section class="slide" id="s6" data-title="Autodesk 合作：進入設計與工程流程">
+    <header><div class="kicker">AUTODESK</div><h1 class="title">Autodesk 合作：進入設計與工程流程</h1><p class="subtitle">World Labs 與 Autodesk 合作，象徵空間智慧正在走進建築、製造、工程與創意設計工具鏈。</p></header>
+    <div class="grid"><div class="card"><ul class="points"><li>設計早期即可快速生成空間概念。</li><li>工程團隊可用 AI 模擬方案與衝突。</li><li>從 2D/3D 工具，演進成可推理的設計夥伴。</li></ul></div><div class="note"><strong>本頁重點</strong><p>這頁可連到企業應用：當 AI 能理解空間，設計工具就不只是畫圖，而是能協助生成方案、檢查限制、加速溝通。</p></div></div>
+    <details><summary>講者備註 / Speaker Notes</summary><aside class="notes">這頁可連到企業應用：當 AI 能理解空間，設計工具就不只是畫圖，而是能協助生成方案、檢查限制、加速溝通。</aside></details>
+    <div class="source">06/10 · Source: 數位時代 Fei-Fei Li 空間智慧文章</div>
+  </section>
+  <section class="slide" id="s7" data-title="企業導入：人類經驗 × AI 效率">
+    <header><div class="kicker">ENTERPRISE</div><h1 class="title">企業導入：人類經驗 × AI 效率</h1><p class="subtitle">李飛飛強調，AI 不該取代人的專業，而是讓人的經驗被放大、被自動化支援。</p></header>
+    <div class="grid"><div class="card"><ul class="points"><li>先從資料可取得、風險可控的場景開始。</li><li>把 AI 放在輔助判斷，而非一開始就全自動決策。</li><li>保留人類審核，逐步累積可信流程。</li></ul></div><div class="note"><strong>本頁重點</strong><p>這頁是給管理者的務實建議。不要一開始喊全面取代，而是找出視覺/空間資料最多、流程痛點清楚、驗收指標明確的地方。</p></div></div>
+    <details><summary>講者備註 / Speaker Notes</summary><aside class="notes">這頁是給管理者的務實建議。不要一開始喊全面取代，而是找出視覺/空間資料最多、流程痛點清楚、驗收指標明確的地方。</aside></details>
+    <div class="source">07/10 · Source: 數位時代 Fei-Fei Li 空間智慧文章</div>
+  </section>
+  <section class="slide" id="s8" data-title="管理者要先準備什麼">
+    <header><div class="kicker">MANAGEMENT</div><h1 class="title">管理者要先準備什麼</h1><p class="subtitle">空間智慧不是單一工具採購，而是資料、流程、權限與人員技能的整合。</p></header>
+    <div class="grid"><div class="card"><ul class="points"><li>盤點：哪些現場流程依賴「看見」與「判斷空間」？</li><li>資料：影像、影片、3D、感測器資料是否可用？</li><li>風險：哪些判斷必須保留人工覆核？</li><li>人才：讓現場人員參與訓練與回饋。</li></ul></div><div class="note"><strong>本頁重點</strong><p>這頁可以提醒 Jason 團隊對外提案時的語氣：務實，不誇大。AI 導入不是魔法，前期要整理資料與流程，後期才會有效果。</p></div></div>
+    <details><summary>講者備註 / Speaker Notes</summary><aside class="notes">這頁可以提醒 Jason 團隊對外提案時的語氣：務實，不誇大。AI 導入不是魔法，前期要整理資料與流程，後期才會有效果。</aside></details>
+    <div class="source">08/10 · Source: 數位時代 Fei-Fei Li 空間智慧文章</div>
+  </section>
+  <section class="slide" id="s9" data-title="三個 Takeaways">
+    <header><div class="kicker">TAKEAWAYS</div><h1 class="title">三個 Takeaways</h1><p class="subtitle">空間智慧的重點，不在於更炫的 AI，而是 AI 開始理解企業真正所在的物理世界。</p></header>
+    <div class="grid"><div class="card"><ul class="points"><li>1. 文字 AI 是入口，空間 AI 是下一階段。</li><li>2. 真正價值來自場景理解、模擬與決策。</li><li>3. 企業應先找高頻、可量化、低風險的導入場景。</li></ul></div><div class="note"><strong>本頁重點</strong><p>收斂時可以用三句話帶走：不是每家公司都要做大型世界模型，但每家公司都會遇到空間、流程與現場判斷。這就是商業機會。</p></div></div>
+    <details><summary>講者備註 / Speaker Notes</summary><aside class="notes">收斂時可以用三句話帶走：不是每家公司都要做大型世界模型，但每家公司都會遇到空間、流程與現場判斷。這就是商業機會。</aside></details>
+    <div class="source">09/10 · Source: 數位時代 Fei-Fei Li 空間智慧文章</div>
+  </section>
+  <section class="slide" id="s10" data-title="討論問題">
+    <header><div class="kicker">DISCUSSION</div><h1 class="title">討論問題</h1><p class="subtitle">如果要把空間智慧放進企業服務平台，最值得先做的是哪一個場景？</p></header>
+    <div class="grid"><div class="card"><ul class="points"><li>客服/門市：看懂現場與商品狀況。</li><li>物流/倉儲：優化動線、庫存與安全。</li><li>設計/提案：快速生成空間概念與展示。</li><li>營運/稽核：把影像資料轉為報告與異常提醒。</li></ul></div><div class="note"><strong>本頁重點</strong><p>最後用問題收尾，讓聽眾把概念連回自己的業務。也可以補充來源為《數位時代》Fei-Fei Li 空間智慧文章。</p></div></div>
+    <details><summary>講者備註 / Speaker Notes</summary><aside class="notes">最後用問題收尾，讓聽眾把概念連回自己的業務。也可以補充來源為《數位時代》Fei-Fei Li 空間智慧文章。</aside></details>
+    <div class="source">10/10 · Source: 數位時代 Fei-Fei Li 空間智慧文章</div>
+  </section>
+</main>
+<div class="controls"><button id="prev">上一頁</button><a class="ctrl" href="#s1">目錄</a><button id="notes">講稿 S</button><span class="pageno" id="pageno">1 / 10</span><button id="next">下一頁</button></div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];let index=0;
+function goto(i){index=Math.max(0,Math.min(slides.length-1,i));slides[index].scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'','#s'+(index+1));update();}
+function update(){document.getElementById('pageno').textContent=(index+1)+' / '+slides.length;}
+function nearest(){let best=0,dist=1e9;slides.forEach((s,i)=>{const d=Math.abs(s.getBoundingClientRect().top-80);if(d<dist){dist=d;best=i}});index=best;update();}
+document.getElementById('prev').onclick=()=>goto(index-1);document.getElementById('next').onclick=()=>goto(index+1);
+document.getElementById('notes').onclick=()=>{document.querySelectorAll('details').forEach(d=>d.open=!d.open)};
+addEventListener('scroll',()=>requestAnimationFrame(nearest));addEventListener('keydown',e=>{if(['ArrowRight',' '].includes(e.key)){e.preventDefault();goto(index+1)}if(e.key==='ArrowLeft'){e.preventDefault();goto(index-1)}if(e.key.toLowerCase()==='s'){document.getElementById('notes').click()}if(e.key==='Home')goto(0);if(e.key==='End')goto(slides.length-1)});
+const m=location.hash.match(/s(\d+)/);if(m) index=Number(m[1])-1;update();
+</script>
+</body></html>
