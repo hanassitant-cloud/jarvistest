@@ -44,6 +44,53 @@
 @media(max-width:640px){.control-dock{bottom:10px;padding:.42rem;gap:.35rem}.control-title{min-width:34vw;max-width:34vw;font-size:.74rem}.control-btn{width:34px;height:32px;border-radius:12px}.hint{display:none!important}}
 @media(max-height:560px){.control-dock{scale:.86;bottom:6px}.hint{display:none!important}}
 
+
+/* Jason-visible mobile PPT control dock v2 */
+.control-dock{
+  position:fixed!important;
+  left:50%!important;
+  bottom:calc(env(safe-area-inset-bottom, 0px) + 74px)!important;
+  transform:translateX(-50%)!important;
+  z-index:2147483647!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:.55rem!important;
+  width:min(94vw,820px)!important;
+  max-width:820px!important;
+  padding:.62rem .68rem!important;
+  border-radius:24px!important;
+  background:rgba(255,255,255,.97)!important;
+  box-shadow:0 18px 55px rgba(0,0,0,.35)!important;
+  backdrop-filter:blur(18px)!important;
+  border:2px solid rgba(15,39,64,.12)!important;
+  pointer-events:auto!important;
+}
+.control-title{
+  flex:1 1 auto!important;
+  min-width:0!important;
+  overflow:hidden!important;
+  text-overflow:ellipsis!important;
+  white-space:nowrap!important;
+  font-weight:900!important;
+  color:#12324a!important;
+  font-size:clamp(.82rem,2.4vw,1.05rem)!important;
+}
+.control-buttons{display:flex!important;gap:.42rem!important;flex:0 0 auto!important}.control-btn{
+  min-width:46px!important;height:42px!important;padding:0 .72rem!important;
+  border:0!important;border-radius:15px!important;background:#0f2740!important;color:#fff!important;
+  font-weight:900!important;font-size:1rem!important;box-shadow:0 8px 18px rgba(15,39,64,.28)!important;
+  cursor:pointer!important;display:inline-grid!important;place-items:center!important;line-height:1!important;
+}.control-btn:hover{background:#1b4b74!important}.control-btn:active{transform:translateY(1px)!important}
+.control-btn .label{display:inline!important;margin-left:.22rem;font-size:.78rem;font-weight:800!important}.control-btn.symbol-only .label{display:none!important}
+.overview-panel{z-index:2147483646!important}.nav,.hint{display:none!important}
+@media(max-width:720px){
+  .control-dock{bottom:calc(env(safe-area-inset-bottom, 0px) + 82px)!important;width:94vw!important;border-radius:22px!important;padding:.58rem!important;gap:.38rem!important}
+  .control-title{font-size:.82rem!important;max-width:30vw!important}
+  .control-btn{min-width:42px!important;height:42px!important;padding:0 .55rem!important;border-radius:14px!important;font-size:1rem!important}
+  .control-btn .label{display:none!important}
+}
+@media(max-height:560px){.control-dock{bottom:calc(env(safe-area-inset-bottom, 0px) + 42px)!important;scale:.92!important}}
+
 </style>
 </head>
 <body>
@@ -213,11 +260,11 @@ print(sum(new_scores) / len(new_scores))</code></pre>
 <div class="control-dock" role="toolbar" aria-label="簡報控制列">
   <div class="control-title" id="controlTitle">簡報控制</div>
   <div class="control-buttons">
-    <button class="control-btn" id="btnPrev" title="上一頁" aria-label="上一頁">←</button>
-    <button class="control-btn" id="btnNext" title="下一頁" aria-label="下一頁">→</button>
-    <button class="control-btn" id="btnOverview" title="總覽" aria-label="總覽">O</button>
-    <button class="control-btn" id="btnText" title="文字/重點模式" aria-label="文字模式">T</button>
-    <button class="control-btn" id="btnFull" title="全螢幕" aria-label="全螢幕">F</button>
+    <button class="control-btn" id="btnPrev" title="上一頁" aria-label="上一頁"><span>←</span><span class="label">上一頁</span></button>
+    <button class="control-btn" id="btnNext" title="下一頁" aria-label="下一頁"><span>→</span><span class="label">下一頁</span></button>
+    <button class="control-btn" id="btnOverview" title="總覽" aria-label="總覽"><span>O</span><span class="label">總覽</span></button>
+    <button class="control-btn" id="btnText" title="文字/重點模式" aria-label="文字模式"><span>T</span><span class="label">重點</span></button>
+    <button class="control-btn" id="btnFull" title="全螢幕" aria-label="全螢幕"><span>F</span><span class="label">全螢幕</span></button>
   </div>
 </div>
 <div class="overview-panel" id="overviewPanel" aria-label="投影片總覽"><div class="overview-grid" id="overviewGrid"></div></div>
