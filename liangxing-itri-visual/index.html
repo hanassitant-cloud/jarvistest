@@ -87,6 +87,35 @@ h1,h2,h3,p{margin:0}h1{font-size:var(--title-size);line-height:.92;letter-spacin
 /* PPT controls v4: working Focus and Immersive modes */
 .ppt-focus-v4{position:fixed!important;inset:0!important;z-index:2147483645!important;background:rgba(5,15,20,.88)!important;backdrop-filter:blur(16px)!important;display:none!important;overflow:auto!important;padding:24px!important}.ppt-focus-v4.show{display:block!important}.ppt-focus-box-v4{max-width:880px!important;margin:0 auto!important;background:rgba(255,255,255,.96)!important;border-radius:24px!important;padding:22px!important;color:#12324a!important;box-shadow:0 20px 70px rgba(0,0,0,.35)!important}.ppt-focus-box-v4 h2{font-size:28px!important;margin:0 0 14px!important;color:#12324a!important}.ppt-focus-box-v4 ol{margin:0!important;padding-left:1.4rem!important}.ppt-focus-box-v4 li{font-size:18px!important;line-height:1.55!important;margin:.55rem 0!important;color:#12324a!important;font-weight:800!important}.ppt-focus-close-v4{position:sticky!important;top:0!important;float:right!important;border:0!important;background:#0f2740!important;color:#fff!important;border-radius:999px!important;padding:10px 14px!important;font-weight:900!important}.immersive-v4 .ppt-remote{bottom:calc(env(safe-area-inset-bottom,0px) + 18px)!important}.immersive-v4 .slide-content{transform:scale(1.035)!important;transform-origin:center!important}.immersive-v4 .slide:after{display:none!important}.immersive-v4 .progress{height:7px!important}.immersive-v4 .ppt-remote-title:before{content:'沉浸模式｜'!important;color:#0f7a5b!important}.ppt-toast-v4{position:fixed!important;left:50%!important;top:18px!important;transform:translateX(-50%) translateY(-12px)!important;z-index:2147483647!important;background:rgba(15,39,64,.94)!important;color:#fff!important;border-radius:999px!important;padding:10px 16px!important;font-weight:900!important;opacity:0!important;transition:.25s!important;pointer-events:none!important}.ppt-toast-v4.show{opacity:1!important;transform:translateX(-50%) translateY(0)!important}
 
+
+/* PPT controls v5: lower dock + reserve content space */
+.ppt-remote{
+  bottom:calc(env(safe-area-inset-bottom,0px) + 18px)!important;
+  transform:translateX(-50%) scale(.92)!important;
+  transform-origin:bottom center!important;
+}
+.slide-content{
+  padding-bottom:calc(var(--slide-padding, 2rem) + 52px)!important;
+}
+.immersive-v4 .ppt-remote{
+  bottom:calc(env(safe-area-inset-bottom,0px) + 8px)!important;
+  transform:translateX(-50%) scale(.86)!important;
+}
+@media(max-width:640px){
+  .ppt-remote{
+    bottom:calc(env(safe-area-inset-bottom,0px) + 14px)!important;
+    width:92vw!important;
+    transform:translateX(-50%) scale(.9)!important;
+  }
+  .slide-content{
+    padding-bottom:calc(var(--slide-padding, 1rem) + 62px)!important;
+  }
+}
+@media(max-height:560px){
+  .ppt-remote{bottom:calc(env(safe-area-inset-bottom,0px) + 4px)!important;transform:translateX(-50%) scale(.78)!important;}
+  .slide-content{padding-bottom:calc(var(--slide-padding, .8rem) + 46px)!important;}
+}
+
 </style>
 </head>
 <body>
