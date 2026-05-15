@@ -79,6 +79,10 @@ h1,h2,h3,p{margin:0}h1{font-size:var(--title-size);line-height:.92;letter-spacin
 }
 @media(max-height:560px){.control-dock{bottom:calc(env(safe-area-inset-bottom, 0px) + 42px)!important;scale:.92!important}}
 
+
+/* Emergency robust PPT controls v3: always visible + direct onclick */
+.ppt-remote{position:fixed!important;left:50%!important;bottom:calc(env(safe-area-inset-bottom,0px) + 78px)!important;transform:translateX(-50%)!important;z-index:2147483647!important;width:min(94vw,820px)!important;display:flex!important;align-items:center!important;gap:8px!important;padding:10px!important;border-radius:22px!important;background:rgba(255,255,255,.98)!important;border:2px solid rgba(0,0,0,.1)!important;box-shadow:0 18px 60px rgba(0,0,0,.38)!important;backdrop-filter:blur(18px)!important}.ppt-remote-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#12324a!important;font-weight:900!important;font-size:14px!important}.ppt-remote button{appearance:none!important;border:0!important;border-radius:14px!important;background:#0f2740!important;color:white!important;min-width:54px!important;height:46px!important;padding:0 10px!important;font-size:15px!important;font-weight:900!important;box-shadow:0 8px 18px rgba(15,39,64,.3)!important}.ppt-remote button:active{transform:translateY(1px)!important;background:#1d5c8d!important}.ppt-remote-small{font-size:11px!important;display:block!important;margin-top:2px!important;font-weight:800!important;opacity:.92!important}.ppt-overview-v3{position:fixed!important;inset:0!important;z-index:2147483646!important;background:rgba(5,15,20,.82)!important;backdrop-filter:blur(16px)!important;display:none!important;overflow:auto!important;padding:24px!important}.ppt-overview-v3.show{display:block!important}.ppt-overview-grid-v3{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))!important;gap:12px!important;max-width:1100px!important;margin:0 auto!important}.ppt-overview-card-v3{background:rgba(255,255,255,.14)!important;color:#fff!important;border:1px solid rgba(255,255,255,.25)!important;border-radius:18px!important;padding:14px!important;min-height:108px!important;font-weight:900!important}.ppt-overview-card-v3 b{display:block!important;color:#bde7c8!important;margin-bottom:8px!important}.nav,.hint,.control-dock{display:none!important}@media(max-width:640px){.ppt-remote{bottom:calc(env(safe-area-inset-bottom,0px) + 86px)!important;width:95vw!important;padding:8px!important;gap:6px!important}.ppt-remote-title{max-width:25vw!important;font-size:12px!important}.ppt-remote button{min-width:43px!important;height:44px!important;padding:0 6px!important;font-size:14px!important}.ppt-remote-small{display:none!important}}@media(max-height:560px){.ppt-remote{bottom:calc(env(safe-area-inset-bottom,0px) + 26px)!important;transform:translateX(-50%) scale(.9)!important}}
+
 </style>
 </head>
 <body>
@@ -188,6 +192,33 @@ new Deck();
   const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){current=slides.indexOf(e.target);update();}})},{threshold:.55});slides.forEach(s=>io.observe(s));
   document.addEventListener('keydown',e=>{if(e.key==='Escape')overview.classList.remove('show');});
   update();
+})();
+</script>
+
+
+<div class="ppt-remote" id="pptRemote">
+  <div class="ppt-remote-title" id="pptRemoteTitle">簡報控制</div>
+  <button onclick="PPT_REMOTE.prev()">←<span class="ppt-remote-small">上一頁</span></button>
+  <button onclick="PPT_REMOTE.next()">→<span class="ppt-remote-small">下一頁</span></button>
+  <button onclick="PPT_REMOTE.overview()">O<span class="ppt-remote-small">總覽</span></button>
+  <button onclick="PPT_REMOTE.focus()">T<span class="ppt-remote-small">重點</span></button>
+  <button onclick="PPT_REMOTE.full()">F<span class="ppt-remote-small">全螢幕</span></button>
+</div>
+<div class="ppt-overview-v3" id="pptOverviewV3" onclick="if(event.target===this)this.classList.remove('show')"><div class="ppt-overview-grid-v3" id="pptOverviewGridV3"></div></div>
+
+
+<script>
+window.PPT_REMOTE=(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  let idx=0;
+  const titleEl=()=>document.getElementById('pptRemoteTitle');
+  const title=s=>{const h=s?.querySelector('h1,h2,.quote');return h?h.textContent.trim().replace(/\s+/g,' ').slice(0,28):'簡報控制'};
+  function update(){const t=titleEl(); if(t&&slides[idx]) t.textContent=title(slides[idx]);}
+  function go(i){idx=Math.max(0,Math.min(slides.length-1,i)); slides[idx]?.scrollIntoView({behavior:'smooth',block:'start'}); update();}
+  function build(){const g=document.getElementById('pptOverviewGridV3'); if(!g||g.children.length)return; slides.forEach((s,i)=>{const c=document.createElement('div');c.className='ppt-overview-card-v3';c.innerHTML='<b>'+String(i+1).padStart(2,'0')+'</b>'+title(s);c.onclick=function(e){e.stopPropagation();document.getElementById('pptOverviewV3')?.classList.remove('show');go(i)};g.appendChild(c);});}
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){idx=slides.indexOf(e.target);update();}})},{threshold:.5});slides.forEach(s=>io.observe(s));
+  setTimeout(()=>{build();update();},100);
+  return {next:()=>go(idx+1),prev:()=>go(idx-1),overview:()=>{build();document.getElementById('pptOverviewV3')?.classList.toggle('show')},focus:()=>document.body.classList.toggle('text-focus'),full:()=>{if(!document.fullscreenElement){document.documentElement.requestFullscreen?.()}else{document.exitFullscreen?.()}},go};
 })();
 </script>
 
