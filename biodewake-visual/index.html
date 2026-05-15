@@ -98,6 +98,24 @@
 /* PPT controls v6: O/T/F guaranteed mobile panels */
 .ppt-modal-v6{position:fixed!important;inset:0!important;z-index:2147483647!important;background:rgba(3,12,16,.88)!important;backdrop-filter:blur(16px)!important;display:none!important;overflow:auto!important;padding:22px!important}.ppt-modal-v6.show{display:block!important}.ppt-modal-card-v6{max-width:920px!important;margin:0 auto!important;background:#fff!important;color:#12324a!important;border-radius:24px!important;padding:20px!important;box-shadow:0 24px 80px rgba(0,0,0,.42)!important}.ppt-modal-head-v6{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;margin-bottom:14px!important}.ppt-modal-head-v6 h2{margin:0!important;color:#12324a!important;font-size:26px!important;line-height:1.15!important}.ppt-close-v6{border:0!important;background:#0f2740!important;color:#fff!important;border-radius:999px!important;padding:11px 15px!important;font-weight:900!important;font-size:15px!important}.ppt-list-v6{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))!important;gap:10px!important}.ppt-card-v6{border:1px solid rgba(18,50,74,.18)!important;border-radius:18px!important;padding:13px!important;background:#f4f7f4!important;color:#12324a!important;font-weight:900!important;min-height:92px!important}.ppt-card-v6 b{display:block!important;color:#13815e!important;margin-bottom:6px!important}.ppt-points-v6{margin:0!important;padding-left:1.3rem!important}.ppt-points-v6 li{color:#12324a!important;font-size:18px!important;line-height:1.55!important;margin:.6rem 0!important;font-weight:850!important}.ppt-immersive-on .slide-content{transform:scale(1.04)!important;transform-origin:center!important}.ppt-immersive-on .slide:after{display:none!important}.ppt-immersive-on .progress{height:8px!important}.ppt-immersive-on .ppt-remote{outline:4px solid rgba(19,129,94,.35)!important}.ppt-remote button:nth-of-type(3),.ppt-remote button:nth-of-type(4),.ppt-remote button:nth-of-type(5){background:#13815e!important}.ppt-remote button:nth-of-type(3):active,.ppt-remote button:nth-of-type(4):active,.ppt-remote button:nth-of-type(5):active{background:#0b5d44!important}.ppt-toast-v6{position:fixed!important;left:50%!important;top:18px!important;transform:translateX(-50%)!important;z-index:2147483647!important;background:#0f2740!important;color:white!important;border-radius:999px!important;padding:11px 16px!important;font-weight:900!important;display:none!important}.ppt-toast-v6.show{display:block!important}
 
+
+
+/* OPENCLAW_CONTROL_GUIDE_STYLE */
+.slide.oc-control-guide-slide{background:radial-gradient(circle at 10% 14%,rgba(14,165,233,.16),transparent 30%),radial-gradient(circle at 88% 78%,rgba(20,184,166,.18),transparent 32%),linear-gradient(135deg,#fff,#eefaff 70%,#f8fbff)!important;color:#102033!important;overflow:hidden!important;position:relative!important;}
+.ocg-wrap{height:100%;width:100%;display:flex;flex-direction:column;justify-content:center;gap:clamp(14px,2vw,24px);padding:clamp(28px,5vw,72px);padding-bottom:clamp(110px,13vh,150px);box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",Arial,sans-serif;}
+.ocg-kicker{font-size:clamp(12px,1.3vw,16px);letter-spacing:.15em;text-transform:uppercase;font-weight:950;color:#0ea5e9;}
+.ocg-title{font-size:clamp(34px,5.2vw,74px);line-height:.98;letter-spacing:-.06em;font-weight:1000;margin:0;color:#102033!important;}
+.ocg-sub{font-size:clamp(16px,2vw,26px);line-height:1.45;color:#536273!important;margin:0;max-width:980px;}
+.ocg-demo{border-radius:32px;background:rgba(255,255,255,.88);border:1px solid rgba(15,23,42,.13);box-shadow:0 24px 70px rgba(15,23,42,.16);padding:clamp(16px,2vw,28px);}
+.ocg-bar{display:flex;align-items:center;gap:10px;border-radius:24px;background:#fff;border:2px solid rgba(15,23,42,.1);box-shadow:0 16px 45px rgba(15,23,42,.14);padding:12px;max-width:860px;margin:0 auto;}
+.ocg-bar-title{flex:1;font-weight:950;color:#102033;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ocg-btn{min-width:92px;height:58px;border-radius:16px;background:#102033;color:white;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:950;line-height:1.05;}
+.ocg-btn.blue{background:#0ea5e9}.ocg-btn b{font-size:22px}.ocg-btn span{font-size:13px;margin-top:3px;white-space:nowrap}.ocg-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(8px,1.2vw,14px);}
+.ocg-card{background:rgba(255,255,255,.88);border:1px solid rgba(15,23,42,.12);border-radius:22px;padding:clamp(12px,1.5vw,18px);box-shadow:0 14px 38px rgba(15,23,42,.09);}
+.ocg-card h3{margin:0 0 8px;font-size:clamp(18px,2vw,28px);line-height:1.1;color:#0ea5e9!important;}.ocg-card p{margin:0;font-size:clamp(12px,1.2vw,17px);line-height:1.45;color:#536273!important;}
+.ocg-rule{border-left:5px solid #0ea5e9;padding:10px 0 10px 16px;color:#102033!important;font-size:clamp(14px,1.5vw,20px);font-weight:850;}
+.oc-ppt-remote{position:fixed!important;left:50%!important;bottom:calc(env(safe-area-inset-bottom,0px) + 18px)!important;transform:translateX(-50%) scale(.92)!important;z-index:2147483647!important;width:min(94vw,820px)!important;display:flex!important;align-items:center!important;gap:8px!important;padding:10px!important;border-radius:22px!important;background:rgba(255,255,255,.98)!important;border:2px solid rgba(0,0,0,.1)!important;box-shadow:0 18px 60px rgba(0,0,0,.34)!important;backdrop-filter:blur(18px)!important;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",Arial,sans-serif!important;}.oc-ppt-remote-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#102033!important;font-weight:900!important;font-size:14px!important}.oc-ppt-remote button{border:0!important;border-radius:14px!important;background:#102033!important;color:white!important;min-width:54px!important;height:46px!important;padding:0 10px!important;font-size:15px!important;font-weight:900!important}.oc-ppt-remote button:nth-of-type(3),.oc-ppt-remote button:nth-of-type(4),.oc-ppt-remote button:nth-of-type(5){background:#0ea5e9!important}.oc-ppt-remote-small{font-size:11px!important;display:block!important;margin-top:2px!important}
+@media(max-width:760px){.ocg-wrap{padding:24px 18px 120px}.ocg-bar{gap:6px;padding:8px}.ocg-bar-title{display:none}.ocg-btn{min-width:48px;height:48px;border-radius:14px}.ocg-btn b{font-size:18px}.ocg-btn span{font-size:9px}.ocg-grid{grid-template-columns:1fr 1fr}.ocg-card:last-child{grid-column:1/-1}.oc-ppt-remote{bottom:calc(env(safe-area-inset-bottom,0px) + 14px)!important;width:96vw!important;transform:translateX(-50%) scale(.88)!important;padding:8px!important;gap:6px!important}.oc-ppt-remote-title{display:none!important}.oc-ppt-remote button{min-width:48px!important;height:48px!important;padding:0 5px!important;font-size:14px!important;line-height:1.05!important}.oc-ppt-remote-small{display:block!important;font-size:9px!important;line-height:1.05!important;margin-top:2px!important;white-space:nowrap!important}}
 </style>
 </head>
 <body>
@@ -170,6 +188,33 @@
   <div class="stack"><div class="kicker reveal">Strategic Summary</div><p class="quote reveal">碧睿生醫最有價值的不是單一產品，而是「台灣自有原料」到「科技實證保養」的完整故事。</p><p class="subtitle reveal">下一步若要做 AI 化，應把品牌故事、產品知識、愛用者回饋與銷售場景整理成可重複使用的 AI Skills。</p><p class="source reveal">資料來源：biodewake.com 官方網站；簡報整理與圖文設計：文文</p></div>
   <div class="visual reveal"><img src="assets/mission_02.webp" alt="品牌願景示意圖"><span class="caption">理念願景</span></div>
 </main></section>
+
+<section class="slide oc-control-guide-slide" data-openclaw-control-guide="true">
+  <div class="ocg-wrap">
+    <div class="ocg-kicker">How to use this HTML PPT</div>
+    <h2 class="ocg-title">底部控制列怎麼用？</h2>
+    <p class="ocg-sub">每份簡報底部都有五個固定按鍵。按鍵會顯示「符號 + 中文小字」，手機與桌面都可以直接點選。</p>
+    <div class="ocg-demo">
+      <div class="ocg-bar">
+        <div class="ocg-bar-title">簡報控制</div>
+        <div class="ocg-btn"><b>←</b><span>上一頁</span></div>
+        <div class="ocg-btn"><b>→</b><span>下一頁</span></div>
+        <div class="ocg-btn blue"><b>O</b><span>總覽</span></div>
+        <div class="ocg-btn blue"><b>T</b><span>重點</span></div>
+        <div class="ocg-btn blue"><b>F</b><span>沉浸</span></div>
+      </div>
+    </div>
+    <div class="ocg-grid">
+      <div class="ocg-card"><h3>上一頁</h3><p>回到前一張投影片。</p></div>
+      <div class="ocg-card"><h3>下一頁</h3><p>前往下一張投影片。</p></div>
+      <div class="ocg-card"><h3>總覽</h3><p>打開全部投影片目錄。</p></div>
+      <div class="ocg-card"><h3>重點</h3><p>顯示本頁重點摘要。</p></div>
+      <div class="ocg-card"><h3>沉浸</h3><p>切換沉浸/專注模式。</p></div>
+    </div>
+    <div class="ocg-rule">標準規則：五個按鍵都要有中文小字，不能只顯示符號或英文字母。</div>
+  </div>
+</section>
+
 
 <div class="control-dock" role="toolbar" aria-label="簡報控制列"><div class="control-title" id="controlTitle">簡報控制</div><div class="control-buttons"><button class="control-btn" id="btnPrev" title="上一頁" aria-label="上一頁"><span>←</span><span class="label">上一頁</span></button><button class="control-btn" id="btnNext" title="下一頁" aria-label="下一頁"><span>→</span><span class="label">下一頁</span></button><button class="control-btn" id="btnOverview" title="總覽" aria-label="總覽"><span>O</span><span class="label">總覽</span></button><button class="control-btn" id="btnText" title="文字/重點模式" aria-label="文字模式"><span>T</span><span class="label">重點</span></button><button class="control-btn" id="btnFull" title="全螢幕" aria-label="全螢幕"><span>F</span><span class="label">全螢幕</span></button></div></div><div class="overview-panel" id="overviewPanel" aria-label="投影片總覽"><div class="overview-grid" id="overviewGrid"></div></div>
 <script>
