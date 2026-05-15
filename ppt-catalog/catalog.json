@@ -142,5 +142,17 @@
     "date": "2026-05-15",
     "category": "文學導讀",
     "zip_url": "https://drive.google.com/open?id=1eLptLtv_8NCZnxCUP1UVXmGeGV-Oomw-"
+  },
+  {
+    "slug": "tong-beauty-ai-diagnosis",
+    "name": "彤美人美容美體莊園｜AI 商業診斷與成長提案",
+    "desc": "以公開資料與前次調研整理彤美人的品牌定位、服務/產品收入線、競品缺口、Google 商家與社群優化、會員回訪漏斗，以及 AI LINE 客服與預約前諮詢導入路線圖。",
+    "source": "彤美人官網公開資料 + Jason 前次指定商業診斷調研 + 文文 AI 顧問分析",
+    "date": "2026-05-16",
+    "category": "顧問提案",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/tong-beauty-ai-diagnosis/",
+    "backup": "/Volumes/B21/文文/GitHubPages交付/tong-beauty-ai-diagnosis/",
+    "zip_url": "https://drive.google.com/open?id=1MkQX61PjeIDrEnbsY7JlCbiX0szWcDvM",
+    "notes": "健康/能量檢測相關內容僅作行銷與客服資訊整理，不替代醫療診斷。"
   }
 ]
