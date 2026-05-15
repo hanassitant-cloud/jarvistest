@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>良興全通路轉型個案｜精美圖文 HTML PPT</title>
+<meta name="description" content="依工研院產業學習網文章改編：良興全通路轉型、資料整合、KPI重設與AI Skills延伸。" />
+<style>
+:root{
+  --bg:#071114;--ink:#f7f2df;--muted:#b5c2bd;--green:#9bf55a;--mint:#58f4d4;--amber:#ffb45c;--red:#ff6b6b;--blue:#71b7ff;
+  --panel:rgba(255,255,255,.085);--panel2:rgba(8,22,27,.78);--line:rgba(255,255,255,.18);--shadow:0 28px 90px rgba(0,0,0,.42);
+  --title-size:clamp(2rem,6vw,5.5rem);--h2-size:clamp(1.45rem,3.7vw,3.15rem);--body-size:clamp(.82rem,1.34vw,1.12rem);
+  --slide-padding:clamp(1rem,4vw,4rem);--gap:clamp(.75rem,2vw,1.5rem)
+}
+*{box-sizing:border-box}html,body{height:100%;margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC",Arial,sans-serif;overflow-x:hidden}html{scroll-snap-type:y mandatory;scroll-behavior:smooth}body{counter-reset:slide}
+.slide{width:100vw;height:100vh;height:100dvh;overflow:hidden;position:relative;display:flex;flex-direction:column;scroll-snap-align:start;isolation:isolate;background:radial-gradient(circle at 12% 16%,rgba(88,244,212,.18),transparent 28%),radial-gradient(circle at 88% 78%,rgba(155,245,90,.15),transparent 30%),linear-gradient(135deg,#071114,#10242a 55%,#071114)}
+.slide:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.7),transparent 80%);z-index:-2}.slide:after{counter-increment:slide;content:counter(slide,decimal-leading-zero);position:absolute;right:clamp(1rem,3vw,2.4rem);bottom:clamp(.7rem,2vw,1.4rem);color:rgba(255,255,255,.25);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9rem}.slide-content{flex:1;display:flex;flex-direction:column;justify-content:center;gap:var(--gap);padding:var(--slide-padding);max-height:100%;overflow:hidden;max-width:1220px;width:100%;margin:auto}
+h1,h2,h3,p{margin:0}h1{font-size:var(--title-size);line-height:.92;letter-spacing:-.065em}h2{font-size:var(--h2-size);line-height:1.02;letter-spacing:-.045em}h3{font-size:clamp(1rem,1.8vw,1.45rem)}p,li{font-size:var(--body-size);line-height:1.55;color:var(--muted)}strong{color:var(--ink)}.accent{color:var(--mint)}.warm{color:var(--amber)}.danger{color:var(--red)}
+.kicker{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.15em;color:var(--green);font-size:clamp(.7rem,1vw,.92rem)}.subtitle{font-size:clamp(1rem,2vw,1.45rem);max-width:850px}.source{font-size:clamp(.7rem,1vw,.9rem);opacity:.76}.source a{color:var(--mint)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:clamp(.65rem,1.45vw,1rem)}.two{display:grid;grid-template-columns:.95fr 1.05fr;align-items:center;gap:clamp(1rem,3vw,2rem)}.two.flip{grid-template-columns:1.1fr .9fr}.stack{display:flex;flex-direction:column;gap:.8rem}.card{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:clamp(.85rem,1.8vw,1.35rem);box-shadow:var(--shadow);backdrop-filter:blur(16px)}.card p{font-size:clamp(.78rem,1.15vw,1rem)}
+.metric{display:flex;flex-direction:column;gap:.2rem}.metric b{font-size:clamp(1.8rem,4vw,3.4rem);line-height:1;color:var(--ink);letter-spacing:-.05em}.metric span{font-size:clamp(.75rem,1.15vw,1rem);color:var(--muted)}
+.visual{background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04));border:1px solid var(--line);border-radius:28px;padding:clamp(.6rem,1.5vw,1rem);box-shadow:var(--shadow);position:relative;overflow:hidden}.visual img{width:100%;height:100%;max-height:min(58vh,520px);object-fit:contain;display:block;border-radius:18px;background:#fff}.visual.tall img{max-height:min(64vh,610px)}.caption{position:absolute;left:1rem;top:1rem;background:rgba(7,17,20,.78);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.42rem .7rem;color:var(--ink);font-size:.78rem;backdrop-filter:blur(10px)}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;position:relative}.timeline:before{content:"";position:absolute;left:5%;right:5%;top:32px;height:2px;background:linear-gradient(90deg,var(--mint),var(--green),var(--amber));opacity:.55}.phase{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:1rem;min-height:150px}.phase:before{content:"";display:block;width:18px;height:18px;border-radius:50%;background:var(--mint);box-shadow:0 0 22px var(--mint);margin-bottom:.75rem}.phase small{color:var(--green);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:.7rem}.node{background:var(--panel2);border:1px solid var(--line);border-radius:24px;padding:1.15rem;min-height:160px}.arrow{font-size:2rem;color:var(--mint)}.quote{font-size:clamp(1.35rem,3.1vw,2.75rem);line-height:1.18;letter-spacing:-.035em;color:var(--ink);max-width:980px}.note{border-left:4px solid var(--mint);padding-left:1rem}.pillrow{display:flex;flex-wrap:wrap;gap:.55rem}.pill{border:1px solid var(--line);border-radius:999px;padding:.48rem .75rem;background:rgba(255,255,255,.08);color:var(--ink);font-size:clamp(.75rem,1.05vw,.95rem)}
+.progress{position:fixed;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--mint),var(--green),var(--amber));z-index:10}.nav{position:fixed;right:15px;top:50%;translate:0 -50%;display:flex;flex-direction:column;gap:8px;z-index:9}.nav button{width:9px;height:9px;border:0;border-radius:99px;background:rgba(255,255,255,.26);cursor:pointer}.nav button.active{height:24px;background:var(--mint)}.hint{position:fixed;left:18px;bottom:14px;color:rgba(255,255,255,.45);font-size:.78rem;z-index:9}.reveal{opacity:0;transform:translateY(18px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.8,.2,1)}.visible .reveal{opacity:1;transform:none}.visible .reveal:nth-child(2){transition-delay:.08s}.visible .reveal:nth-child(3){transition-delay:.16s}.visible .reveal:nth-child(4){transition-delay:.24s}.visible .reveal:nth-child(5){transition-delay:.32s}
+@media(max-width:880px){.two,.two.flip{grid-template-columns:1fr}.timeline{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.arrow{rotate:90deg;justify-self:center}.nav{display:none}.visual img{max-height:38vh}.grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.grid,.timeline{grid-template-columns:1fr}.hint{display:none}}@media(max-height:700px){:root{--slide-padding:clamp(.65rem,3vw,2rem);--title-size:clamp(1.6rem,5vw,3.6rem);--h2-size:clamp(1.2rem,3vw,2.25rem);--body-size:clamp(.7rem,1.15vw,.95rem)}.visual img{max-height:45vh}.card{padding:.8rem}.phase{min-height:120px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition-duration:.2s!important;animation-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="progress"></div><nav class="nav" aria-label="投影片導覽"></nav><div class="hint">← → / Space 換頁・可滑動</div>
+
+<section class="slide"><main class="slide-content">
+  <div class="kicker reveal">ITRI Case Study → AI Consultant Deck</div>
+  <h1 class="reveal">良興全通路轉型<br><span class="accent">從 3C 老店到數據營運公司</span></h1>
+  <p class="subtitle reveal">把工研院個案中的圖表、流程與管理洞察，重製成可用於企業 AI 顧問討論的精美圖文 PPT。</p>
+  <p class="source reveal">資料來源：工研院產業學習網〈良興全通路轉型個案〉</p>
+</main></section>
+
+<section class="slide"><main class="slide-content two">
+  <div class="stack"><div class="kicker reveal">Core Tension</div><h2 class="reveal">真正的問題不是做不做電商，而是門市願不願意一起轉型</h2><p class="quote reveal">「外面還沒打仗，裡面先打一仗。」</p><p class="note reveal">全通路專案的第一道阻力，常常不是技術，而是業績歸屬、工作分配與組織信任。</p></div>
+  <div class="grid reveal"><div class="card"><h3>門市擔心</h3><p>電商搶業績、APP 推廣增加負擔、資源被線上部門拿走。</p></div><div class="card"><h3>總部壓力</h3><p>資訊系統投資大，短期效益不明顯，董事會重視成本控管。</p></div><div class="card"><h3>管理解法</h3><p>重設 KPI 與分潤，讓門市推會員與線上成交也能共享成果。</p></div></div>
+</main></section>
+
+<section class="slide"><main class="slide-content">
+  <div class="kicker reveal">Best Original Visual #1</div><h2 class="reveal">重要資訊專案關聯圖：轉型不是單點專案，是多年堆疊</h2>
+  <div class="visual reveal"><span class="caption">原文圖 1｜資訊專案關聯</span><img src="assets/20221205192258.png" alt="良興公司近年推動的重要資訊專案關聯圖"></div>
+</main></section>
+
+<section class="slide"><main class="slide-content">
+  <div class="kicker reveal">Transformation Timeline</div><h2 class="reveal">把圖 1 抽象成四段轉型路徑</h2>
+  <div class="timeline reveal"><div class="phase"><small>2005–2010</small><h3>電商起步</h3><p>良興購物網、供應商入口、商品上網與庫存協同。</p></div><div class="phase"><small>2011–2013</small><h3>數位行銷</h3><p>社群分享、行動購物、行動支付與會員經營。</p></div><div class="phase"><small>2014–2016</small><h3>全通路整合</h3><p>O2M、APP、門市 POS、Web、會員與大數據平台串接。</p></div><div class="phase"><small>Next</small><h3>AI Skills 化</h3><p>把客服、推薦、庫存、促銷與主管報告變成可複用能力。</p></div></div>
+</main></section>
+
+<section class="slide"><main class="slide-content">
+  <div class="kicker reveal">Best Original Visual #2</div><h2 class="reveal">全通路營運服務模式：最適合變成 AI 導入架構圖</h2>
+  <div class="visual reveal"><span class="caption">原文圖 2｜全通路服務模式</span><img src="assets/20221205192308.png" alt="全通路營運服務模式示意圖"></div>
+</main></section>
+
+<section class="slide"><main class="slide-content">
+  <div class="kicker reveal">Visual Reframe</div><h2 class="reveal">沒有資料整合，AI 只能聊天；有資料整合，AI 才能進營運</h2>
+  <div class="flow reveal"><div class="node"><h3>接觸點</h3><p>門市、Web、APP、POS、電話諮詢、社群互動。</p></div><div class="arrow">→</div><div class="node"><h3>資料底座</h3><p>會員、庫存、瀏覽軌跡、購買紀錄、售後服務、活動反應。</p></div><div class="arrow">→</div><div class="node"><h3>AI Skills</h3><p>客服摘要、商品推薦、促銷企劃、庫存預警、主管報告。</p></div></div>
+</main></section>
+
+<section class="slide"><main class="slide-content two flip">
+  <div class="visual reveal"><span class="caption">原文附錄｜組織比較</span><img src="assets/20221205192429.png" alt="2014 與 2016 年組織架構比較"></div>
+  <div class="stack"><div class="kicker reveal">Organization</div><h2 class="reveal">組織也要跟著轉：產品力 + 通路力</h2><p class="reveal">2016 年開始，產品規劃處被拉高為成長動能角色，網路像「空軍」先行，門市像「陸軍」後發。</p><div class="card reveal"><h3>AI 導入啟示</h3><p>不要只建 Bot；要設計誰使用、誰審核、誰負責、誰分享成果。</p></div></div>
+</main></section>
+
+<section class="slide"><main class="slide-content">
+  <div class="kicker reveal">Business Metrics</div><h2 class="reveal">個案裡最值得放大的數字</h2>
+  <div class="grid reveal"><div class="card metric"><b>40%</b><span>線上達人諮詢成交率，高於一般網購轉換。</span></div><div class="card metric"><b>40萬</b><span>會員資料，支撐分眾經營與精準行銷。</span></div><div class="card metric"><b>13億</b><span>2016 年營業額，轉型後穩定成長。</span></div><div class="card metric"><b>19%</b><span>2016 年毛利率，優於多數 3C 通路平均。</span></div></div>
+</main></section>
+
+<section class="slide"><main class="slide-content two">
+  <div class="stack"><div class="kicker reveal">Best Original Visual #3</div><h2 class="reveal">財務表格太密，簡報要萃取成 KPI 儀表板</h2><p class="reveal">原始表格適合附錄；對外簡報要改成 4–6 個決策數字，讓聽眾一眼抓到轉型回報。</p></div>
+  <div class="visual reveal"><span class="caption">原文附錄｜營運與財務概況</span><img src="assets/20221205192435.png" alt="良興公司營運與財務概況"></div>
+</main></section>
+
+<section class="slide"><main class="slide-content">
+  <div class="kicker reveal">Service Design</div><h2 class="reveal">把門市專業搬到線上，不是用 AI 取代門市</h2>
+  <div class="grid reveal"><div class="card"><h3>10 分鐘專人回電</h3><p>讓網購會員也感覺像親臨門市，線上導流到人。</p></div><div class="card"><h3>虛擬二樓</h3><p>門市無庫存時，由 POS 下單宅配到家，提高坪效。</p></div><div class="card"><h3>AI 版延伸</h3><p>AI 先釐清需求、比對商品、產生摘要；高價值案件交給門市達人。</p></div></div>
+</main></section>
+
+<section class="slide"><main class="slide-content two flip">
+  <div class="visual tall reveal"><span class="caption">附錄圖｜部門配置</span><img src="assets/20221205192417.png" alt="2016 年部門人力配置"></div>
+  <div class="stack"><div class="kicker reveal">Implementation</div><h2 class="reveal">AI 專案落地，也要像全通路一樣設計權責</h2><div class="pillrow reveal"><span class="pill">資料來源</span><span class="pill">人員角色</span><span class="pill">審核流程</span><span class="pill">KPI 分潤</span><span class="pill">權限邊界</span><span class="pill">錯誤回報</span></div><p class="note reveal">越接近營運核心，越不能只有模型能力；必須有流程、制度與可追蹤責任。</p></div>
+</main></section>
+
+<section class="slide"><main class="slide-content">
+  <div class="kicker reveal">AI Consultant Takeaway</div><h2 class="reveal">給企業 AI 顧問的 5 個結論</h2>
+  <div class="grid reveal"><div class="card"><h3>1. 先盤點資料</h3><p>會員、商品、庫存、交易、客服、活動反應。</p></div><div class="card"><h3>2. 先解衝突</h3><p>門市、電商、客服、行銷的 KPI 不能互打。</p></div><div class="card"><h3>3. 先做場景</h3><p>推薦、客服、庫存、促銷、主管報告比泛聊天更有價值。</p></div><div class="card"><h3>4. 要保留人</h3><p>AI 做前處理，專家做判斷與高價值互動。</p></div><div class="card"><h3>5. 要可驗收</h3><p>成交率、毛利率、回購率、服務時間、庫存週轉。</p></div></div>
+</main></section>
+
+<section class="slide"><main class="slide-content">
+  <div class="kicker reveal">Final Message</div><p class="quote reveal">良興做的不是「開一個電商網站」，而是把門市、會員、商品、服務與資料變成同一套營運能力。</p><p class="subtitle reveal">這也是企業 AI 導入的方向：不是多一個聊天機器人，而是把企業 Know-how 變成可運作、可追蹤、可擴充的 AI Skills。</p><p class="source reveal">改編與圖文重製：文文｜原始文章與圖表：工研院產業學習網</p>
+</main></section>
+
+<script>
+class Deck{constructor(){this.s=[...document.querySelectorAll('.slide')];this.i=0;this.nav=document.querySelector('.nav');this.bar=document.querySelector('.progress');this.lock=false;this.build();this.observe();this.bind();this.update()}build(){this.s.forEach((_,i)=>{const b=document.createElement('button');b.setAttribute('aria-label',`第 ${i+1} 張`);b.onclick=()=>this.go(i);this.nav.appendChild(b)})}observe(){const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');this.i=this.s.indexOf(e.target);this.update()}})},{threshold:.55});this.s.forEach(x=>io.observe(x))}bind(){document.addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' '].includes(e.key)){e.preventDefault();this.next()}if(['ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();this.prev()}if(e.key==='Home')this.go(0);if(e.key==='End')this.go(this.s.length-1)});let y=0;document.addEventListener('touchstart',e=>y=e.touches[0].clientY,{passive:true});document.addEventListener('touchend',e=>{const d=y-e.changedTouches[0].clientY;if(Math.abs(d)>45)d>0?this.next():this.prev()},{passive:true});window.addEventListener('wheel',e=>{if(this.lock)return;this.lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>this.lock=false,650)},{passive:true})}go(i){this.i=Math.max(0,Math.min(this.s.length-1,i));this.s[this.i].scrollIntoView({behavior:'smooth'});this.update()}next(){this.go(this.i+1)}prev(){this.go(this.i-1)}update(){this.bar.style.width=((this.i+1)/this.s.length*100)+'%';[...this.nav.children].forEach((b,i)=>b.classList.toggle('active',i===this.i))}}
+new Deck();
+</script>
+</body>
+</html>
