@@ -94,6 +94,10 @@
   .slide-content{padding-bottom:calc(var(--slide-padding, .8rem) + 46px)!important;}
 }
 
+
+/* PPT controls v6: O/T/F guaranteed mobile panels */
+.ppt-modal-v6{position:fixed!important;inset:0!important;z-index:2147483647!important;background:rgba(3,12,16,.88)!important;backdrop-filter:blur(16px)!important;display:none!important;overflow:auto!important;padding:22px!important}.ppt-modal-v6.show{display:block!important}.ppt-modal-card-v6{max-width:920px!important;margin:0 auto!important;background:#fff!important;color:#12324a!important;border-radius:24px!important;padding:20px!important;box-shadow:0 24px 80px rgba(0,0,0,.42)!important}.ppt-modal-head-v6{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;margin-bottom:14px!important}.ppt-modal-head-v6 h2{margin:0!important;color:#12324a!important;font-size:26px!important;line-height:1.15!important}.ppt-close-v6{border:0!important;background:#0f2740!important;color:#fff!important;border-radius:999px!important;padding:11px 15px!important;font-weight:900!important;font-size:15px!important}.ppt-list-v6{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))!important;gap:10px!important}.ppt-card-v6{border:1px solid rgba(18,50,74,.18)!important;border-radius:18px!important;padding:13px!important;background:#f4f7f4!important;color:#12324a!important;font-weight:900!important;min-height:92px!important}.ppt-card-v6 b{display:block!important;color:#13815e!important;margin-bottom:6px!important}.ppt-points-v6{margin:0!important;padding-left:1.3rem!important}.ppt-points-v6 li{color:#12324a!important;font-size:18px!important;line-height:1.55!important;margin:.6rem 0!important;font-weight:850!important}.ppt-immersive-on .slide-content{transform:scale(1.04)!important;transform-origin:center!important}.ppt-immersive-on .slide:after{display:none!important}.ppt-immersive-on .progress{height:8px!important}.ppt-immersive-on .ppt-remote{outline:4px solid rgba(19,129,94,.35)!important}.ppt-remote button:nth-of-type(3),.ppt-remote button:nth-of-type(4),.ppt-remote button:nth-of-type(5){background:#13815e!important}.ppt-remote button:nth-of-type(3):active,.ppt-remote button:nth-of-type(4):active,.ppt-remote button:nth-of-type(5):active{background:#0b5d44!important}.ppt-toast-v6{position:fixed!important;left:50%!important;top:18px!important;transform:translateX(-50%)!important;z-index:2147483647!important;background:#0f2740!important;color:white!important;border-radius:999px!important;padding:11px 16px!important;font-weight:900!important;display:none!important}.ppt-toast-v6.show{display:block!important}
+
 </style>
 </head>
 <body>
@@ -178,9 +182,9 @@ new Deck();
   <div class="ppt-remote-title" id="pptRemoteTitle">簡報控制</div>
   <button onclick="PPT_REMOTE.prev()">←<span class="ppt-remote-small">上一頁</span></button>
   <button onclick="PPT_REMOTE.next()">→<span class="ppt-remote-small">下一頁</span></button>
-  <button onclick="PPT_REMOTE.overview()">O<span class="ppt-remote-small">總覽</span></button>
-  <button onclick="PPT_REMOTE.focus()">T<span class="ppt-remote-small">重點</span></button>
-  <button onclick="PPT_REMOTE.full()">F<span class="ppt-remote-small">全螢幕</span></button>
+  <button onclick="PPT_V6_OVERVIEW()">O<span class="ppt-remote-small">總覽</span></button>
+  <button onclick="PPT_V6_FOCUS()">T<span class="ppt-remote-small">重點</span></button>
+  <button onclick="PPT_V6_IMMERSIVE()">F<span class="ppt-remote-small">全螢幕</span></button>
 </div>
 <div class="ppt-overview-v3" id="pptOverviewV3" onclick="if(event.target===this)this.classList.remove('show')"><div class="ppt-overview-grid-v3" id="pptOverviewGridV3"></div></div>
 
@@ -212,6 +216,25 @@ window.PPT_REMOTE=(function(){
   function immersive(){document.body.classList.toggle('immersive-v4'); toast(document.body.classList.contains('immersive-v4')?'已開啟沉浸模式':'已關閉沉浸模式');}
   const patch=()=>{ if(!window.PPT_REMOTE)return false; window.PPT_REMOTE.focus=makeFocus; window.PPT_REMOTE.full=immersive; return true; };
   if(!patch()){let n=0; const id=setInterval(()=>{if(patch()||++n>20)clearInterval(id)},100);}
+})();
+</script>
+
+
+<div class="ppt-modal-v6" id="pptModalV6"><div class="ppt-modal-card-v6"><div class="ppt-modal-head-v6"><h2 id="pptModalTitleV6">簡報面板</h2><button class="ppt-close-v6" onclick="PPT_V6_CLOSE()">關閉</button></div><div id="pptModalBodyV6"></div></div></div><div class="ppt-toast-v6" id="pptToastV6">已切換</div>
+
+
+<script>
+(function(){
+  function slides(){return Array.from(document.querySelectorAll('.slide'))}
+  function currentIndex(){let best=0,score=-999999,mid=innerHeight/2;slides().forEach((s,i)=>{let r=s.getBoundingClientRect();let sc=-Math.abs((r.top+r.bottom)/2-mid);if(sc>score){score=sc;best=i}});return best}
+  function titleOf(s){let h=s&&s.querySelector('h1,h2,.quote');return h?h.textContent.trim().replace(/\s+/g,' ').slice(0,42):'投影片'}
+  function showToast(msg){let t=document.getElementById('pptToastV6');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1200)}
+  window.PPT_V6_CLOSE=function(){document.getElementById('pptModalV6')?.classList.remove('show')}
+  window.PPT_V6_OVERVIEW=function(){let ss=slides();let body=document.getElementById('pptModalBodyV6');document.getElementById('pptModalTitleV6').textContent='投影片總覽';body.innerHTML='<div class="ppt-list-v6"></div>';let g=body.firstChild;ss.forEach((s,i)=>{let c=document.createElement('div');c.className='ppt-card-v6';c.innerHTML='<b>'+String(i+1).padStart(2,'0')+'</b>'+titleOf(s);c.onclick=function(){PPT_V6_CLOSE();ss[i].scrollIntoView({behavior:'smooth',block:'start'});};g.appendChild(c)});document.getElementById('pptModalV6').classList.add('show');showToast('已開啟總覽')}
+  window.PPT_V6_FOCUS=function(){let s=slides()[currentIndex()];let body=document.getElementById('pptModalBodyV6');document.getElementById('pptModalTitleV6').textContent='本頁重點';let texts=Array.from(s.querySelectorAll('h1,h2,h3,.quote,.note,.card p,p')).map(x=>x.textContent.trim().replace(/\s+/g,' ')).filter(x=>x.length>8).slice(0,8);body.innerHTML='<ol class="ppt-points-v6"></ol>';let ol=body.firstChild;texts.forEach(x=>{let li=document.createElement('li');li.textContent=x;ol.appendChild(li)});document.getElementById('pptModalV6').classList.add('show');showToast('已開啟重點')}
+  window.PPT_V6_IMMERSIVE=function(){document.body.classList.toggle('ppt-immersive-on');showToast(document.body.classList.contains('ppt-immersive-on')?'已開啟沉浸模式':'已關閉沉浸模式')}
+  function patchButtons(){let buttons=document.querySelectorAll('.ppt-remote button');if(buttons.length>=5){buttons[2].setAttribute('onclick','PPT_V6_OVERVIEW()');buttons[3].setAttribute('onclick','PPT_V6_FOCUS()');buttons[4].setAttribute('onclick','PPT_V6_IMMERSIVE()');return true}return false}
+  if(!patchButtons()){let n=0,id=setInterval(()=>{if(patchButtons()||++n>30)clearInterval(id)},100)}
 })();
 </script>
 
