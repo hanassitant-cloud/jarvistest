@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>一小時 Python 入門 Part 1｜HTML PPT</title>
+  <meta name="description" content="Python 入門教學 HTML 投影片：print、變數、型態、input、if/else、for loop、list。" />
+  <style>
+    :root{
+      --bg:#071013; --ink:#f7f3e8; --muted:#b8c7c5; --cyan:#5eead4; --lime:#bef264; --orange:#fb923c; --pink:#fb7185;
+      --panel:rgba(255,255,255,.08); --line:rgba(255,255,255,.18); --shadow:0 24px 70px rgba(0,0,0,.35);
+      --title-size:clamp(2rem,6vw,5.8rem); --h2-size:clamp(1.55rem,4vw,3.25rem); --body-size:clamp(.9rem,1.55vw,1.28rem);
+      --code-size:clamp(.78rem,1.35vw,1.05rem); --slide-padding:clamp(1rem,4vw,4rem); --content-gap:clamp(.7rem,2vw,1.7rem);
+    }
+    *{box-sizing:border-box} html,body{height:100%;margin:0;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC",Arial,sans-serif}
+    html{scroll-snap-type:y mandatory;scroll-behavior:smooth} body{counter-reset:slide}
+    .slide{width:100vw;height:100vh;height:100dvh;overflow:hidden;scroll-snap-align:start;display:flex;flex-direction:column;position:relative;isolation:isolate;background:
+      radial-gradient(circle at 15% 20%,rgba(94,234,212,.22),transparent 28%),radial-gradient(circle at 85% 75%,rgba(190,242,100,.16),transparent 30%),linear-gradient(135deg,#071013,#10232b 60%,#071013)}
+    .slide::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.7),transparent);z-index:-2}
+    .slide::after{counter-increment:slide;content:counter(slide, decimal-leading-zero);position:absolute;right:clamp(1rem,3vw,2.5rem);bottom:clamp(.8rem,2vw,1.5rem);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:rgba(255,255,255,.28);font-size:clamp(.75rem,1vw,1rem)}
+    .slide-content{flex:1;display:flex;flex-direction:column;justify-content:center;max-height:100%;overflow:hidden;padding:var(--slide-padding);gap:var(--content-gap);max-width:1180px;width:100%;margin:0 auto}
+    h1,h2,p{margin:0} h1{font-size:var(--title-size);line-height:.95;letter-spacing:-.06em} h2{font-size:var(--h2-size);line-height:1.02;letter-spacing:-.04em} p,li{font-size:var(--body-size);line-height:1.55;color:var(--muted)} strong{color:var(--ink)} .accent{color:var(--cyan)} .warm{color:var(--orange)}
+    .kicker{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.14em;color:var(--lime);font-size:clamp(.75rem,1vw,.95rem)}
+    .subtitle{font-size:clamp(1rem,2vw,1.5rem);max-width:780px}.source{font-size:clamp(.72rem,1vw,.9rem);opacity:.76}.source a{color:var(--cyan)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:clamp(.65rem,1.5vw,1rem);max-width:min(92vw,1050px)}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:24px;padding:clamp(1rem,2vw,1.45rem);box-shadow:var(--shadow);backdrop-filter:blur(18px);max-height:min(80vh,700px)}
+    .card h3{margin:.1rem 0 .55rem;font-size:clamp(1.1rem,2vw,1.55rem)} .card p{font-size:clamp(.82rem,1.28vw,1.05rem)}
+    .two{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(1rem,3vw,2rem);align-items:center}.stack{display:flex;flex-direction:column;gap:.85rem}.big{font-size:clamp(1.1rem,2.3vw,1.8rem);color:var(--ink)}
+    pre{margin:0;background:#051012;border:1px solid rgba(94,234,212,.28);border-radius:22px;padding:clamp(.9rem,2vw,1.25rem);box-shadow:var(--shadow);max-height:min(56vh,430px);overflow:hidden} code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:var(--code-size);line-height:1.45;color:#d9fff8;white-space:pre-wrap}.comment{color:#87a4a1}.py{color:var(--lime)}.num{color:#fda4af}
+    .pillrow{display:flex;flex-wrap:wrap;gap:.65rem}.pill{border:1px solid var(--line);background:rgba(255,255,255,.08);padding:.55rem .8rem;border-radius:999px;color:var(--ink);font-size:clamp(.82rem,1.2vw,1rem)}
+    .quote{font-size:clamp(1.45rem,3.4vw,3rem);line-height:1.16;letter-spacing:-.03em;color:var(--ink);max-width:900px}.note{border-left:4px solid var(--cyan);padding-left:1rem;color:var(--muted)}
+    .progress{position:fixed;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--cyan),var(--lime),var(--orange));z-index:10}.nav{position:fixed;right:16px;top:50%;translate:0 -50%;z-index:9;display:flex;flex-direction:column;gap:8px}.nav button{width:9px;height:9px;border-radius:99px;border:0;background:rgba(255,255,255,.25);padding:0;cursor:pointer}.nav button.active{background:var(--cyan);height:24px}.hint{position:fixed;left:18px;bottom:14px;color:rgba(255,255,255,.45);font-size:.78rem;z-index:9}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.8,.2,1)}.visible .reveal{opacity:1;transform:none}.visible .reveal:nth-child(2){transition-delay:.08s}.visible .reveal:nth-child(3){transition-delay:.16s}.visible .reveal:nth-child(4){transition-delay:.24s}.visible .reveal:nth-child(5){transition-delay:.32s}
+    @media(max-width:820px){.two{grid-template-columns:1fr}.nav{display:none}.slide-content{padding-bottom:3rem}pre{max-height:42vh}.grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.grid{grid-template-columns:1fr}.hint{display:none}}
+    @media(max-height:700px){:root{--slide-padding:clamp(.75rem,3vw,2rem);--title-size:clamp(1.7rem,5vw,3.6rem);--h2-size:clamp(1.25rem,3.3vw,2.25rem);--body-size:clamp(.72rem,1.25vw,.98rem)}.card{padding:.85rem}pre{max-height:44vh}}
+    @media(max-height:560px){.nav,.hint{display:none}.source{display:none}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important;scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div><nav class="nav" aria-label="投影片導覽"></nav><div class="hint">← → / Space 換頁・滑動也可以</div>
+
+  <section class="slide"><main class="slide-content">
+    <div class="kicker reveal">Python Beginner Course</div>
+    <h1 class="reveal">一小時 Python 入門 <span class="accent">Part 1</span></h1>
+    <p class="subtitle reveal">把網頁文章改編成適合教學與分享的 HTML 投影片：從 Hello World 到 List。</p>
+    <p class="source reveal">改編來源：寫點科普 Lynn〈一小時Python入門-part 1〉</p>
+  </main></section>
+
+  <section class="slide"><main class="slide-content">
+    <div class="kicker reveal">Why Python</div><h2 class="reveal">為什麼初學者適合 Python？</h2>
+    <div class="grid reveal">
+      <div class="card"><h3>簡潔易讀</h3><p>語法接近自然語言，初學者能更快把注意力放在「邏輯」而不是符號。</p></div>
+      <div class="card"><h3>用途很廣</h3><p>資料分析、自動化、AI、網站、爬蟲與商業流程都能用。</p></div>
+      <div class="card"><h3>主流入門語言</h3><p>許多大學與 CS 課程都把 Python 作為第一門程式語言。</p></div>
+    </div>
+  </main></section>
+
+  <section class="slide"><main class="slide-content two">
+    <div class="stack"><div class="kicker reveal">Setup</div><h2 class="reveal">環境設置：先能執行，再開始學</h2><p class="big reveal">初學最重要不是裝很多工具，而是先確定：你能寫、能跑、能看到結果。</p></div>
+    <div class="card reveal"><h3>兩種常見方式</h3><p>① 安裝 Python + 用 Terminal 執行 `.py` 檔</p><p>② 使用 Jupyter Notebook 互動式練習</p><p class="note">教學場景建議用 Notebook，回饋快、比較不挫折。</p></div>
+  </main></section>
+
+  <section class="slide"><main class="slide-content two">
+    <div class="stack"><div class="kicker reveal">01 Print</div><h2 class="reveal">第一個程式：跟世界打招呼</h2><p class="reveal">`print()` 會把你放進括號裡的內容印出來。</p></div>
+    <pre class="reveal"><code><span class="comment"># Hello World</span>
+print(<span class="py">"Hello, Python!"</span>)
+
+name = <span class="py">"Jason"</span>
+print(name)
+print(<span class="num">1234</span>)</code></pre>
+  </main></section>
+
+  <section class="slide"><main class="slide-content">
+    <div class="kicker reveal">02 Variable</div><h2 class="reveal">變數：幫資料取一個名字</h2>
+    <div class="grid reveal">
+      <div class="card"><h3>整數 int</h3><p>`a = 123`<br>適合計數、年齡、數量。</p></div>
+      <div class="card"><h3>字串 str</h3><p>`b = "456"`<br>看起來像數字，但本質是文字。</p></div>
+      <div class="card"><h3>浮點數 float</h3><p>`c = 8.70`<br>適合小數、比例、分數。</p></div>
+    </div>
+    <p class="note reveal">很多 TypeError 都來自：把不同型態的資料硬湊在一起。</p>
+  </main></section>
+
+  <section class="slide"><main class="slide-content two">
+    <div class="stack"><div class="kicker reveal">Type Conversion</div><h2 class="reveal">型態轉換：讓資料變成你要的樣子</h2><p class="reveal">輸入進來的資料常常是字串；要計算前，記得轉成數字。</p></div>
+    <pre class="reveal"><code>x = <span class="py">"456"</span>
+y = int(x)
+print(y + <span class="num">10</span>)   <span class="comment"># 466</span>
+
+age = <span class="num">18</span>
+print(<span class="py">"我今年 "</span> + str(age) + <span class="py">" 歲"</span>)</code></pre>
+  </main></section>
+
+  <section class="slide"><main class="slide-content two">
+    <div class="stack"><div class="kicker reveal">03 Input</div><h2 class="reveal">input：讓使用者把資料交給程式</h2><p class="reveal">`input()` 會等待使用者輸入，而且收到的一律先是字串。</p></div>
+    <pre class="reveal"><code>name = input(<span class="py">"Your name: "</span>)
+print(<span class="py">"Hello, "</span> + name)
+
+n = int(input(<span class="py">"請輸入數字: "</span>))
+print(n * <span class="num">2</span>)</code></pre>
+  </main></section>
+
+  <section class="slide"><main class="slide-content">
+    <div class="kicker reveal">Practice 1</div><h2 class="reveal">小練習：四則運算</h2>
+    <div class="two reveal"><div class="card"><h3>任務</h3><p>讀取兩個整數，印出加、減、乘、除結果。</p><p>提示：`input()` 得到的是字串，要先 `int()`。</p></div>
+    <pre><code>a = int(input(<span class="py">"a = "</span>))
+b = int(input(<span class="py">"b = "</span>))
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)</code></pre></div>
+  </main></section>
+
+  <section class="slide"><main class="slide-content two">
+    <div class="stack"><div class="kicker reveal">04 If / Else</div><h2 class="reveal">條件判斷：讓程式做選擇</h2><p class="reveal">每天都在 if / else：如果下雨就帶傘，否則就直接出門。</p></div>
+    <pre class="reveal"><code>battery = <span class="num">50</span>
+
+if battery >= <span class="num">80</span>:
+    print(<span class="py">"去抓寶可夢"</span>)
+elif battery >= <span class="num">30</span>:
+    print(<span class="py">"看看小說就好"</span>)
+else:
+    print(<span class="py">"回家充電"</span>)</code></pre>
+  </main></section>
+
+  <section class="slide"><main class="slide-content">
+    <div class="kicker reveal">Logic</div><h2 class="reveal">常用邏輯符號</h2>
+    <div class="pillrow reveal"><span class="pill">&gt; 大於</span><span class="pill">&lt; 小於</span><span class="pill">&gt;= 大於等於</span><span class="pill">== 等於</span><span class="pill">!= 不等於</span><span class="pill">and 且</span><span class="pill">or 或</span><span class="pill">not 非</span><span class="pill">True / False</span></div>
+    <p class="note reveal">注意：判斷相等是 `==`，不是指定變數用的 `=`。</p>
+  </main></section>
+
+  <section class="slide"><main class="slide-content two">
+    <div class="stack"><div class="kicker reveal">05 For Loop</div><h2 class="reveal">迴圈：讓重複的事自動發生</h2><p class="reveal">不要手寫 100 行 `print()`。交給迴圈，程式才像程式。</p></div>
+    <pre class="reveal"><code><span class="comment"># 印出 0 到 9</span>
+for i in range(<span class="num">10</span>):
+    print(i)
+
+<span class="comment"># range(起點, 終點, 間距)</span>
+for i in range(<span class="num">1</span>, <span class="num">10</span>, <span class="num">2</span>):
+    print(i)</code></pre>
+  </main></section>
+
+  <section class="slide"><main class="slide-content">
+    <div class="kicker reveal">Nested Loop</div><h2 class="reveal">小練習：九九乘法表</h2>
+    <div class="two reveal"><div class="card"><h3>重點</h3><p>for loop 裡面可以再放一個 for loop。</p><p>外層控制第幾列，內層控制每列要印什麼。</p></div>
+    <pre><code>for i in range(<span class="num">1</span>, <span class="num">10</span>):
+    for j in range(<span class="num">1</span>, <span class="num">10</span>):
+        print(i * j, end=<span class="py">"\t"</span>)
+    print()</code></pre></div>
+  </main></section>
+
+  <section class="slide"><main class="slide-content two">
+    <div class="stack"><div class="kicker reveal">06 List</div><h2 class="reveal">List：能裝很多資料的格子</h2><p class="reveal">當資料不只一筆，就不要一直開 `a、b、c`；用 List 管理一串資料。</p></div>
+    <pre class="reveal"><code>a = [<span class="py">"Lynn"</span>, <span class="num">0.87</span>, <span class="num">1234</span>, True]
+
+print(a[<span class="num">0</span>])   <span class="comment"># Lynn</span>
+print(a[<span class="num">3</span>])   <span class="comment"># True</span>
+print(len(a))  <span class="comment"># 4</span></code></pre>
+  </main></section>
+
+  <section class="slide"><main class="slide-content">
+    <div class="kicker reveal">List Tools</div><h2 class="reveal">List 常用操作</h2>
+    <div class="grid reveal">
+      <div class="card"><h3>新增</h3><p>`append(x)` 放到最後<br>`insert(i, x)` 插到指定位置</p></div>
+      <div class="card"><h3>刪除</h3><p>`pop()` 刪最後<br>`remove(x)` 刪第一個 x<br>`clear()` 清空</p></div>
+      <div class="card"><h3>計算</h3><p>`max()` 最大值<br>`min()` 最小值<br>`sum()` 總和</p></div>
+      <div class="card"><h3>切片</h3><p>`list[start:end]`<br>取出 start 到 end-1 的部分。</p></div>
+    </div>
+  </main></section>
+
+  <section class="slide"><main class="slide-content two">
+    <div class="stack"><div class="kicker reveal">Practice 2</div><h2 class="reveal">成績改造：List + Loop</h2><p class="reveal">把五次成績開根號再乘以 10，算新平均。</p></div>
+    <pre class="reveal"><code>scores = [<span class="num">10</span>, <span class="num">30</span>, <span class="num">50</span>, <span class="num">70</span>, <span class="num">90</span>]
+new_scores = []
+
+for s in scores:
+    new_scores.append(s ** <span class="num">0.5</span> * <span class="num">10</span>)
+
+print(sum(scores) / len(scores))
+print(sum(new_scores) / len(new_scores))</code></pre>
+  </main></section>
+
+  <section class="slide"><main class="slide-content">
+    <div class="kicker reveal">Mindset</div><p class="quote reveal">Error 都是暫時的，沒有解不掉的 Bug。</p>
+    <p class="subtitle reveal">初學 Python 最重要的能力：看錯誤訊息、拆小問題、一次修一個。</p>
+    <div class="pillrow reveal"><span class="pill">print</span><span class="pill">variable</span><span class="pill">type</span><span class="pill">input</span><span class="pill">if / else</span><span class="pill">for</span><span class="pill">range</span><span class="pill">list</span></div>
+  </main></section>
+
+  <section class="slide"><main class="slide-content">
+    <div class="kicker reveal">Next</div><h2 class="reveal">下一步：用專案把語法串起來</h2>
+    <div class="grid reveal">
+      <div class="card"><h3>複習</h3><p>把每張投影片的範例自己打一遍，不要只看。</p></div>
+      <div class="card"><h3>練習</h3><p>完成計算機、猜數字、九九乘法表、成績轉換。</p></div>
+      <div class="card"><h3>延伸</h3><p>Part 2 可接 Dict、函式、爬蟲或自動化小專案。</p></div>
+    </div>
+    <p class="source reveal">Source: https://kopu.chat/一小時python入門-part-1/</p>
+  </main></section>
+
+  <script>
+    class SlidePresentation{constructor(){this.slides=[...document.querySelectorAll('.slide')];this.nav=document.querySelector('.nav');this.progress=document.querySelector('.progress');this.index=0;this.lock=false;this.buildNav();this.observe();this.bind();this.update()}buildNav(){this.slides.forEach((_,i)=>{const b=document.createElement('button');b.setAttribute('aria-label',`前往第 ${i+1} 張`);b.onclick=()=>this.go(i);this.nav.appendChild(b)})}observe(){const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');this.index=this.slides.indexOf(e.target);this.update()}})},{threshold:.55});this.slides.forEach(s=>io.observe(s))}bind(){document.addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' '].includes(e.key)){e.preventDefault();this.next()}if(['ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();this.prev()}if(e.key==='Home')this.go(0);if(e.key==='End')this.go(this.slides.length-1)});let startY=0;document.addEventListener('touchstart',e=>startY=e.touches[0].clientY,{passive:true});document.addEventListener('touchend',e=>{const dy=startY-e.changedTouches[0].clientY;if(Math.abs(dy)>45)dy>0?this.next():this.prev()},{passive:true});window.addEventListener('wheel',e=>{if(this.lock)return;this.lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>this.lock=false,650)},{passive:true})}go(i){this.index=Math.max(0,Math.min(this.slides.length-1,i));this.slides[this.index].scrollIntoView({behavior:'smooth'});this.update()}next(){this.go(this.index+1)}prev(){this.go(this.index-1)}update(){const pct=((this.index+1)/this.slides.length)*100;this.progress.style.width=pct+'%';[...this.nav.children].forEach((b,i)=>b.classList.toggle('active',i===this.index))}}
+    new SlidePresentation();
+  </script>
+</body>
+</html>
