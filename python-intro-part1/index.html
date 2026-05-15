@@ -36,7 +36,15 @@
     @media(max-height:700px){:root{--slide-padding:clamp(.75rem,3vw,2rem);--title-size:clamp(1.7rem,5vw,3.6rem);--h2-size:clamp(1.25rem,3.3vw,2.25rem);--body-size:clamp(.72rem,1.25vw,.98rem)}.card{padding:.85rem}pre{max-height:44vh}}
     @media(max-height:560px){.nav,.hint{display:none}.source{display:none}}
     @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.2s!important;scroll-behavior:auto!important}}
-  </style>
+  
+/* Visual bottom control bar requested by Jason */
+.control-dock{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:.55rem;max-width:min(94vw,760px);padding:.48rem .55rem .48rem .85rem;border-radius:999px;background:rgba(255,255,255,.94);box-shadow:0 18px 50px rgba(0,0,0,.28);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.65)}
+.control-title{min-width:min(42vw,290px);max-width:min(42vw,320px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:800;color:#15324a;font-size:clamp(.78rem,1.6vw,1rem);letter-spacing:.01em}.control-buttons{display:flex;gap:.38rem}.control-btn{width:38px;height:34px;border:0;border-radius:13px;background:#0f2740;color:#fff;font-weight:900;font-size:.95rem;box-shadow:inset 0 -2px 0 rgba(255,255,255,.08),0 6px 14px rgba(15,39,64,.25);cursor:pointer;display:grid;place-items:center}.control-btn:hover{background:#163b60}.control-btn:active{transform:translateY(1px)}
+.overview-panel{position:fixed;inset:0;z-index:45;background:rgba(4,10,14,.76);backdrop-filter:blur(14px);display:none;padding:clamp(1rem,4vw,3rem);overflow:auto}.overview-panel.show{display:block}.overview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem;max-width:1100px;margin:0 auto}.overview-card{border:1px solid rgba(255,255,255,.22);border-radius:20px;padding:1rem;background:rgba(255,255,255,.1);color:white;min-height:120px;cursor:pointer;box-shadow:0 20px 60px rgba(0,0,0,.25)}.overview-card b{display:block;color:#9bf55a;margin-bottom:.45rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.overview-card span{font-weight:800;line-height:1.25}.text-focus .slide{background:#071114!important}.text-focus img{filter:saturate(.75) brightness(.72)}.text-focus .card,.text-focus .visual{border-color:rgba(155,245,90,.35)!important}
+@media(max-width:640px){.control-dock{bottom:10px;padding:.42rem;gap:.35rem}.control-title{min-width:34vw;max-width:34vw;font-size:.74rem}.control-btn{width:34px;height:32px;border-radius:12px}.hint{display:none!important}}
+@media(max-height:560px){.control-dock{scale:.86;bottom:6px}.hint{display:none!important}}
+
+</style>
 </head>
 <body>
   <div class="progress" aria-hidden="true"></div><nav class="nav" aria-label="投影片導覽"></nav><div class="hint">← → / Space 換頁・滑動也可以</div>
@@ -201,5 +209,42 @@ print(sum(new_scores) / len(new_scores))</code></pre>
     class SlidePresentation{constructor(){this.slides=[...document.querySelectorAll('.slide')];this.nav=document.querySelector('.nav');this.progress=document.querySelector('.progress');this.index=0;this.lock=false;this.buildNav();this.observe();this.bind();this.update()}buildNav(){this.slides.forEach((_,i)=>{const b=document.createElement('button');b.setAttribute('aria-label',`前往第 ${i+1} 張`);b.onclick=()=>this.go(i);this.nav.appendChild(b)})}observe(){const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');this.index=this.slides.indexOf(e.target);this.update()}})},{threshold:.55});this.slides.forEach(s=>io.observe(s))}bind(){document.addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' '].includes(e.key)){e.preventDefault();this.next()}if(['ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();this.prev()}if(e.key==='Home')this.go(0);if(e.key==='End')this.go(this.slides.length-1)});let startY=0;document.addEventListener('touchstart',e=>startY=e.touches[0].clientY,{passive:true});document.addEventListener('touchend',e=>{const dy=startY-e.changedTouches[0].clientY;if(Math.abs(dy)>45)dy>0?this.next():this.prev()},{passive:true});window.addEventListener('wheel',e=>{if(this.lock)return;this.lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>this.lock=false,650)},{passive:true})}go(i){this.index=Math.max(0,Math.min(this.slides.length-1,i));this.slides[this.index].scrollIntoView({behavior:'smooth'});this.update()}next(){this.go(this.index+1)}prev(){this.go(this.index-1)}update(){const pct=((this.index+1)/this.slides.length)*100;this.progress.style.width=pct+'%';[...this.nav.children].forEach((b,i)=>b.classList.toggle('active',i===this.index))}}
     new SlidePresentation();
   </script>
+
+<div class="control-dock" role="toolbar" aria-label="簡報控制列">
+  <div class="control-title" id="controlTitle">簡報控制</div>
+  <div class="control-buttons">
+    <button class="control-btn" id="btnPrev" title="上一頁" aria-label="上一頁">←</button>
+    <button class="control-btn" id="btnNext" title="下一頁" aria-label="下一頁">→</button>
+    <button class="control-btn" id="btnOverview" title="總覽" aria-label="總覽">O</button>
+    <button class="control-btn" id="btnText" title="文字/重點模式" aria-label="文字模式">T</button>
+    <button class="control-btn" id="btnFull" title="全螢幕" aria-label="全螢幕">F</button>
+  </div>
+</div>
+<div class="overview-panel" id="overviewPanel" aria-label="投影片總覽"><div class="overview-grid" id="overviewGrid"></div></div>
+
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const title=document.getElementById('controlTitle');
+  const overview=document.getElementById('overviewPanel');
+  const grid=document.getElementById('overviewGrid');
+  let current=0;
+  const getTitle=s=>{const h=s.querySelector('h1,h2,.quote');return h? h.textContent.trim().replace(/\s+/g,' ').slice(0,34):'投影片';};
+  const go=i=>{current=Math.max(0,Math.min(slides.length-1,i));slides[current].scrollIntoView({behavior:'smooth'});update();};
+  const update=()=>{title.textContent=getTitle(slides[current]||document.body);};
+  document.getElementById('btnPrev')?.addEventListener('click',()=>go(current-1));
+  document.getElementById('btnNext')?.addEventListener('click',()=>go(current+1));
+  document.getElementById('btnText')?.addEventListener('click',()=>document.body.classList.toggle('text-focus'));
+  document.getElementById('btnFull')?.addEventListener('click',()=>{if(!document.fullscreenElement){document.documentElement.requestFullscreen?.();}else{document.exitFullscreen?.();}});
+  document.getElementById('btnOverview')?.addEventListener('click',()=>overview.classList.toggle('show'));
+  overview?.addEventListener('click',e=>{if(e.target===overview)overview.classList.remove('show');});
+  slides.forEach((s,i)=>{const c=document.createElement('div');c.className='overview-card';c.innerHTML=`<b>${String(i+1).padStart(2,'0')}</b><span>${getTitle(s)}</span>`;c.onclick=()=>{overview.classList.remove('show');go(i);};grid.appendChild(c);});
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){current=slides.indexOf(e.target);update();}})},{threshold:.55});slides.forEach(s=>io.observe(s));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')overview.classList.remove('show');});
+  update();
+})();
+</script>
+
 </body>
 </html>

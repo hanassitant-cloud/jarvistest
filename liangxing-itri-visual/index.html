@@ -24,6 +24,14 @@ h1,h2,h3,p{margin:0}h1{font-size:var(--title-size);line-height:.92;letter-spacin
 .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:.7rem}.node{background:var(--panel2);border:1px solid var(--line);border-radius:24px;padding:1.15rem;min-height:160px}.arrow{font-size:2rem;color:var(--mint)}.quote{font-size:clamp(1.35rem,3.1vw,2.75rem);line-height:1.18;letter-spacing:-.035em;color:var(--ink);max-width:980px}.note{border-left:4px solid var(--mint);padding-left:1rem}.pillrow{display:flex;flex-wrap:wrap;gap:.55rem}.pill{border:1px solid var(--line);border-radius:999px;padding:.48rem .75rem;background:rgba(255,255,255,.08);color:var(--ink);font-size:clamp(.75rem,1.05vw,.95rem)}
 .progress{position:fixed;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--mint),var(--green),var(--amber));z-index:10}.nav{position:fixed;right:15px;top:50%;translate:0 -50%;display:flex;flex-direction:column;gap:8px;z-index:9}.nav button{width:9px;height:9px;border:0;border-radius:99px;background:rgba(255,255,255,.26);cursor:pointer}.nav button.active{height:24px;background:var(--mint)}.hint{position:fixed;left:18px;bottom:14px;color:rgba(255,255,255,.45);font-size:.78rem;z-index:9}.reveal{opacity:0;transform:translateY(18px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.8,.2,1)}.visible .reveal{opacity:1;transform:none}.visible .reveal:nth-child(2){transition-delay:.08s}.visible .reveal:nth-child(3){transition-delay:.16s}.visible .reveal:nth-child(4){transition-delay:.24s}.visible .reveal:nth-child(5){transition-delay:.32s}
 @media(max-width:880px){.two,.two.flip{grid-template-columns:1fr}.timeline{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.arrow{rotate:90deg;justify-self:center}.nav{display:none}.visual img{max-height:38vh}.grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.grid,.timeline{grid-template-columns:1fr}.hint{display:none}}@media(max-height:700px){:root{--slide-padding:clamp(.65rem,3vw,2rem);--title-size:clamp(1.6rem,5vw,3.6rem);--h2-size:clamp(1.2rem,3vw,2.25rem);--body-size:clamp(.7rem,1.15vw,.95rem)}.visual img{max-height:45vh}.card{padding:.8rem}.phase{min-height:120px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition-duration:.2s!important;animation-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* Visual bottom control bar requested by Jason */
+.control-dock{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:.55rem;max-width:min(94vw,760px);padding:.48rem .55rem .48rem .85rem;border-radius:999px;background:rgba(255,255,255,.94);box-shadow:0 18px 50px rgba(0,0,0,.28);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.65)}
+.control-title{min-width:min(42vw,290px);max-width:min(42vw,320px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:800;color:#15324a;font-size:clamp(.78rem,1.6vw,1rem);letter-spacing:.01em}.control-buttons{display:flex;gap:.38rem}.control-btn{width:38px;height:34px;border:0;border-radius:13px;background:#0f2740;color:#fff;font-weight:900;font-size:.95rem;box-shadow:inset 0 -2px 0 rgba(255,255,255,.08),0 6px 14px rgba(15,39,64,.25);cursor:pointer;display:grid;place-items:center}.control-btn:hover{background:#163b60}.control-btn:active{transform:translateY(1px)}
+.overview-panel{position:fixed;inset:0;z-index:45;background:rgba(4,10,14,.76);backdrop-filter:blur(14px);display:none;padding:clamp(1rem,4vw,3rem);overflow:auto}.overview-panel.show{display:block}.overview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem;max-width:1100px;margin:0 auto}.overview-card{border:1px solid rgba(255,255,255,.22);border-radius:20px;padding:1rem;background:rgba(255,255,255,.1);color:white;min-height:120px;cursor:pointer;box-shadow:0 20px 60px rgba(0,0,0,.25)}.overview-card b{display:block;color:#9bf55a;margin-bottom:.45rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.overview-card span{font-weight:800;line-height:1.25}.text-focus .slide{background:#071114!important}.text-focus img{filter:saturate(.75) brightness(.72)}.text-focus .card,.text-focus .visual{border-color:rgba(155,245,90,.35)!important}
+@media(max-width:640px){.control-dock{bottom:10px;padding:.42rem;gap:.35rem}.control-title{min-width:34vw;max-width:34vw;font-size:.74rem}.control-btn{width:34px;height:32px;border-radius:12px}.hint{display:none!important}}
+@media(max-height:560px){.control-dock{scale:.86;bottom:6px}.hint{display:none!important}}
+
 </style>
 </head>
 <body>
@@ -99,5 +107,42 @@ h1,h2,h3,p{margin:0}h1{font-size:var(--title-size);line-height:.92;letter-spacin
 class Deck{constructor(){this.s=[...document.querySelectorAll('.slide')];this.i=0;this.nav=document.querySelector('.nav');this.bar=document.querySelector('.progress');this.lock=false;this.build();this.observe();this.bind();this.update()}build(){this.s.forEach((_,i)=>{const b=document.createElement('button');b.setAttribute('aria-label',`第 ${i+1} 張`);b.onclick=()=>this.go(i);this.nav.appendChild(b)})}observe(){const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');this.i=this.s.indexOf(e.target);this.update()}})},{threshold:.55});this.s.forEach(x=>io.observe(x))}bind(){document.addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' '].includes(e.key)){e.preventDefault();this.next()}if(['ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();this.prev()}if(e.key==='Home')this.go(0);if(e.key==='End')this.go(this.s.length-1)});let y=0;document.addEventListener('touchstart',e=>y=e.touches[0].clientY,{passive:true});document.addEventListener('touchend',e=>{const d=y-e.changedTouches[0].clientY;if(Math.abs(d)>45)d>0?this.next():this.prev()},{passive:true});window.addEventListener('wheel',e=>{if(this.lock)return;this.lock=true;e.deltaY>0?this.next():this.prev();setTimeout(()=>this.lock=false,650)},{passive:true})}go(i){this.i=Math.max(0,Math.min(this.s.length-1,i));this.s[this.i].scrollIntoView({behavior:'smooth'});this.update()}next(){this.go(this.i+1)}prev(){this.go(this.i-1)}update(){this.bar.style.width=((this.i+1)/this.s.length*100)+'%';[...this.nav.children].forEach((b,i)=>b.classList.toggle('active',i===this.i))}}
 new Deck();
 </script>
+
+<div class="control-dock" role="toolbar" aria-label="簡報控制列">
+  <div class="control-title" id="controlTitle">簡報控制</div>
+  <div class="control-buttons">
+    <button class="control-btn" id="btnPrev" title="上一頁" aria-label="上一頁">←</button>
+    <button class="control-btn" id="btnNext" title="下一頁" aria-label="下一頁">→</button>
+    <button class="control-btn" id="btnOverview" title="總覽" aria-label="總覽">O</button>
+    <button class="control-btn" id="btnText" title="文字/重點模式" aria-label="文字模式">T</button>
+    <button class="control-btn" id="btnFull" title="全螢幕" aria-label="全螢幕">F</button>
+  </div>
+</div>
+<div class="overview-panel" id="overviewPanel" aria-label="投影片總覽"><div class="overview-grid" id="overviewGrid"></div></div>
+
+
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const title=document.getElementById('controlTitle');
+  const overview=document.getElementById('overviewPanel');
+  const grid=document.getElementById('overviewGrid');
+  let current=0;
+  const getTitle=s=>{const h=s.querySelector('h1,h2,.quote');return h? h.textContent.trim().replace(/\s+/g,' ').slice(0,34):'投影片';};
+  const go=i=>{current=Math.max(0,Math.min(slides.length-1,i));slides[current].scrollIntoView({behavior:'smooth'});update();};
+  const update=()=>{title.textContent=getTitle(slides[current]||document.body);};
+  document.getElementById('btnPrev')?.addEventListener('click',()=>go(current-1));
+  document.getElementById('btnNext')?.addEventListener('click',()=>go(current+1));
+  document.getElementById('btnText')?.addEventListener('click',()=>document.body.classList.toggle('text-focus'));
+  document.getElementById('btnFull')?.addEventListener('click',()=>{if(!document.fullscreenElement){document.documentElement.requestFullscreen?.();}else{document.exitFullscreen?.();}});
+  document.getElementById('btnOverview')?.addEventListener('click',()=>overview.classList.toggle('show'));
+  overview?.addEventListener('click',e=>{if(e.target===overview)overview.classList.remove('show');});
+  slides.forEach((s,i)=>{const c=document.createElement('div');c.className='overview-card';c.innerHTML=`<b>${String(i+1).padStart(2,'0')}</b><span>${getTitle(s)}</span>`;c.onclick=()=>{overview.classList.remove('show');go(i);};grid.appendChild(c);});
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){current=slides.indexOf(e.target);update();}})},{threshold:.55});slides.forEach(s=>io.observe(s));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')overview.classList.remove('show');});
+  update();
+})();
+</script>
+
 </body>
 </html>
