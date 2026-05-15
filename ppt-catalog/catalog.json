@@ -5,7 +5,8 @@
     "desc": "企業級 AI 智慧服務平台展示簡報，整理客服、行銷、知識管理、決策支援與 AI 營運中樞概念。",
     "source": "Jason / 文文內部 AI 智慧服務平台規劃資料",
     "date": "2026-05-14",
-    "category": "AI 平台"
+    "category": "AI 平台",
+    "zip_url": "https://drive.google.com/open?id=1SXj1WJszX28bYJGAyklfNRigtdCYmURn"
   },
   {
     "slug": "AI1",
@@ -13,7 +14,8 @@
     "desc": "AI 智慧服務平台展示簡報的另一版本，含互動式控制與平台能力架構。",
     "source": "Jason / 文文內部 AI 智慧服務平台規劃資料",
     "date": "2026-05-14",
-    "category": "AI 平台"
+    "category": "AI 平台",
+    "zip_url": "https://drive.google.com/open?id=1MJzihPcWzOZjbGH-hgtzdSKmkGFofS3q"
   },
   {
     "slug": "L1",
@@ -21,7 +23,8 @@
     "desc": "介紹 Spatial Intelligence / 空間智慧的趨勢、應用與 AI 下一階段機會。",
     "source": "Jason 提供主題與文文整理研究",
     "date": "2026-05-14",
-    "category": "AI 趨勢"
+    "category": "AI 趨勢",
+    "zip_url": "https://drive.google.com/open?id=1s4W5wyPQBgu00B4hsoO1ylnNdMvLhK9Z"
   },
   {
     "slug": "L2",
@@ -29,7 +32,8 @@
     "desc": "空間智慧主題的互動式安全版投影片，強調可直接開啟與展示。",
     "source": "Jason 提供主題與文文整理研究",
     "date": "2026-05-14",
-    "category": "AI 趨勢"
+    "category": "AI 趨勢",
+    "zip_url": "https://drive.google.com/open?id=1Ed38VOEq0hxoCHiMcY6A0HaOUjMjoBGP"
   },
   {
     "slug": "python-intro-part1",
@@ -37,7 +41,8 @@
     "desc": "Python 入門教學簡報，適合初學者用一小時建立基礎語法與學習方向。",
     "source": "文文教學內容整理",
     "date": "2026-05-15",
-    "category": "教學"
+    "category": "教學",
+    "zip_url": "https://drive.google.com/open?id=1hBLxTlAQcvoXamNxHaYtEWkEbJEXFgFg"
   },
   {
     "slug": "liangxing-itri-visual",
@@ -45,7 +50,8 @@
     "desc": "良興 / 工研院全通路轉型個案圖文簡報，整理品牌、通路、數位轉型與商業洞察。",
     "source": "使用者提供/指定網站與文文網路資料整理",
     "date": "2026-05-15",
-    "category": "企業個案"
+    "category": "企業個案",
+    "zip_url": "https://drive.google.com/open?id=1fzeIjqxu00G1DZvWyMZRpSWgdrOmkIRu"
   },
   {
     "slug": "biodewake-visual",
@@ -53,7 +59,8 @@
     "desc": "碧睿生醫品牌與產品資料分析簡報，含品牌定位、產品線與商業洞察。",
     "source": "指定網站與公開網路資料",
     "date": "2026-05-15",
-    "category": "企業個案"
+    "category": "企業個案",
+    "zip_url": "https://drive.google.com/open?id=1GKaknFr9sFqSm5ub9gDajIiZ2A4ppUwm"
   },
   {
     "slug": "petangel-visual",
@@ -61,7 +68,8 @@
     "desc": "PetAngel 毛天使網站內容分析簡報，整理服務定位、產品/服務、客戶情境與改善建議。",
     "source": "指定網站與公開網路資料",
     "date": "2026-05-15",
-    "category": "品牌分析"
+    "category": "品牌分析",
+    "zip_url": "https://drive.google.com/open?id=1NPJhQnCKOmsKQlF5u-Sv4Ndo0QLKFnlT"
   },
   {
     "slug": "ntu-fin-visual",
@@ -69,7 +77,8 @@
     "desc": "臺大管理學院財務金融學系暨研究所介紹頁面分析，整理系所定位、歷史、課程、國際化與產學合作。",
     "source": "https://management.ntu.edu.tw/college_intro/intro_fin",
     "date": "2026-05-15",
-    "category": "學校/系所"
+    "category": "學校/系所",
+    "zip_url": "https://drive.google.com/open?id=1X-8jLxcpmOn4q-c10cT_Fd9DCZh32x0N"
   },
   {
     "slug": "school-trade-visual",
@@ -77,7 +86,8 @@
     "desc": "以 PDF pitch deck 為基礎，延伸市場研究、競品、MVP、商業模式、風險與 AI 延伸方向。",
     "source": "Jason 上傳 PDF：校園二手書與學習互助服務平台 Pitch Deck + 網路研究",
     "date": "2026-05-15",
-    "category": "創業提案"
+    "category": "創業提案",
+    "zip_url": "https://drive.google.com/open?id=13jS5SzKfuSZjfcWwKXr6ylspw1X8fKq-"
   },
   {
     "slug": "genai-internet-student-visual",
@@ -85,7 +95,8 @@
     "desc": "從學生角度整理生成式 AI 如何改變 Google 搜尋、學習、資訊查證與學術倫理。",
     "source": "Google Drive 文件：生成式AI與網際網路_學生角度完整報告.docx",
     "date": "2026-05-15",
-    "category": "教學/報告"
+    "category": "教學/報告",
+    "zip_url": "https://drive.google.com/open?id=1q0IClhwTSAB4DkZVFOZyFYIXOlh85gpa"
   },
   {
     "slug": "northeast-dental-visual",
@@ -93,7 +104,8 @@
     "desc": "整理新店東北大牙醫公開資訊，含地址、電話、門診、醫師、特色療程與就醫前提醒。",
     "source": "Best Doctor 頁面 + MyDentist、PPI、Taiwan Dental 等公開資料",
     "date": "2026-05-15",
-    "category": "診所分析"
+    "category": "診所分析",
+    "zip_url": "https://drive.google.com/open?id=1dDlsjdD8q55EZ14UEHMi42IfI5R2qy6h"
   },
   {
     "slug": "northeast-dental-growth-proposal",
@@ -101,7 +113,8 @@
     "desc": "針對東北大牙醫提出 AI 行銷改善方案，含 Google 商家、SEO、LINE AI 助理、評論 SOP 與 90 天計畫。",
     "source": "東北大牙醫公開資料整理 + 文文商業/AI 顧問分析",
     "date": "2026-05-15",
-    "category": "顧問提案"
+    "category": "顧問提案",
+    "zip_url": "https://drive.google.com/open?id=1LobWUR-Kd7LpQ8V7XfPehbDzLoLmO0bS"
   },
   {
     "slug": "spec-kit-visual",
@@ -109,6 +122,7 @@
     "desc": "介紹 GitHub Spec Kit、Spec-Driven Development 流程，並研究如何整合進 OpenClaw / 文文 AI 顧問流程。",
     "source": "https://github.com/github/spec-kit README、spec-driven.md、installation.md、integrations.md",
     "date": "2026-05-15",
-    "category": "開發流程"
+    "category": "開發流程",
+    "zip_url": "https://drive.google.com/open?id=1W60nHJeYVKrRPAwh_rnCBS6QkoQuV1ff"
   }
 ]
