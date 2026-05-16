@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文文技能目錄｜OpenClaw</title>
+  <meta name="description" content="文文已安裝技能、可用能力與未來候選技能總表。">
+  <style>
+    :root{--bg:#f7f8fb;--ink:#152033;--muted:#667085;--line:#d9e0ea;--panel:#fff;--brand:#1769e0;--brand2:#0f9f8f;--dark:#1f2937}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC",Arial,sans-serif;line-height:1.55}
+    header{background:#0f172a;color:white;padding:42px 20px 34px;border-bottom:1px solid #0b1220}
+    .wrap{max-width:1180px;margin:0 auto}
+    .eyebrow{font-size:13px;color:#a7f3d0;letter-spacing:.08em;text-transform:uppercase;margin:0 0 10px}
+    h1{font-size:clamp(30px,4vw,54px);line-height:1.08;margin:0 0 14px;letter-spacing:0}
+    .lead{max-width:850px;color:#dbeafe;font-size:18px;margin:0}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .meta span{border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:8px 12px;color:#e5e7eb;background:rgba(255,255,255,.06);font-size:14px}
+    main{padding:26px 20px 56px}
+    section{margin:0 auto 26px}
+    .toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px;margin-bottom:18px}
+    .filters{display:flex;gap:8px;flex-wrap:wrap}
+    button.filter{border:1px solid var(--line);background:#fff;color:var(--dark);border-radius:999px;padding:8px 12px;font-size:14px;cursor:pointer}
+    button.filter.active{background:var(--brand);border-color:var(--brand);color:#fff}
+    input{min-width:260px;flex:1;max-width:380px;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:15px}
+    .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}
+    .stat{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px}
+    .stat strong{display:block;font-size:28px;color:var(--brand);line-height:1}
+    .stat span{font-size:13px;color:var(--muted)}
+    h2{font-size:24px;margin:28px 0 12px}
+    .note{background:#eef6ff;border:1px solid #bfdbfe;border-radius:8px;padding:14px 16px;color:#1e3a5f;margin:14px 0}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .skill-card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:15px;min-height:190px}
+    .card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+    .pill{font-size:12px;background:#e7f0ff;color:#1557b0;border-radius:999px;padding:5px 8px}
+    .source{font-size:12px;color:var(--muted)}
+    .skill-card h3{font-size:18px;margin:0 0 4px}
+    .skill-card p{margin:8px 0 0;color:#344054;font-size:14px}
+    .skill-card .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#0f766e;font-size:13px;margin-top:0}
+    table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+    th,td{text-align:left;border-bottom:1px solid var(--line);padding:12px 14px;vertical-align:top}
+    th{background:#f1f5f9;color:#334155;font-size:14px}
+    td{font-size:14px;color:#344054}
+    tr:last-child td{border-bottom:0}
+    .future-status{display:inline-block;background:#ecfdf3;color:#027a48;border-radius:999px;padding:4px 8px;font-size:12px;white-space:nowrap}
+    footer{border-top:1px solid var(--line);padding:22px 20px;color:var(--muted);background:#fff;font-size:13px}
+    .hidden{display:none!important}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:620px){header{padding-top:30px}.grid{grid-template-columns:1fr}.toolbar{align-items:stretch}.filters{width:100%}input{min-width:0;max-width:none;width:100%}th:nth-child(2),td:nth-child(2){display:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <p class="eyebrow">OpenClaw / Wenwen Skills Catalog</p>
+      <h1>文文技能目錄</h1>
+      <p class="lead">這是文文目前可用技能、已整合工作流程與未來候選技能的固定列表。之後每安裝或完成一項新技能，就更新這一頁，讓 Jason 和小伙伴知道文文能做什麼。</p>
+      <div class="meta">
+        <span>更新時間：2026/5/16 下午10:09:39</span>
+        <span>已盤點技能：60 項</span>
+        <span>候選/整合流程：13 項</span>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="stats">
+      <div class="stat"><strong>60</strong><span>目前可用技能</span></div>
+      <div class="stat"><strong>7</strong><span>技能分類</span></div>
+      <div class="stat"><strong>13</strong><span>候選與整合流程</span></div>
+      <div class="stat"><strong>1</strong><span>固定維護入口</span></div>
+    </section>
+
+    <section>
+      <h2>維護原則</h2>
+      <div class="note">這份表不是機密設定檔，不放 API Key、Token、密碼、Gateway 細節或客戶敏感資料。它只公開技能名稱、用途和狀態，方便教學、協作與企業導入規劃。</div>
+    </section>
+
+    <section>
+      <h2>已可用 / 已安裝技能</h2>
+      <div class="toolbar">
+        <div class="filters"><button class="filter active" data-filter="全部">全部</button>
+<button class="filter" data-filter="其他工具">其他工具</button>
+<button class="filter" data-filter="知識與文件">知識與文件</button>
+<button class="filter" data-filter="生活與設備">生活與設備</button>
+<button class="filter" data-filter="簡報與交付">簡報與交付</button>
+<button class="filter" data-filter="開發與代理">開發與代理</button>
+<button class="filter" data-filter="通訊與協作">通訊與協作</button>
+<button class="filter" data-filter="本機與系統">本機與系統</button></div>
+        <input id="search" type="search" placeholder="搜尋技能名稱或用途">
+      </div>
+      <div class="grid" id="skillGrid">
+        <article class="skill-card" data-name="1password" data-cat="其他工具" data-status="已可用">
+  <div class="card-top"><span class="pill">其他工具</span><span class="source">openclaw</span></div>
+  <h3>1Password CLI 密鑰讀取</h3>
+  <p class="code">1password</p>
+  <p>管理 1Password CLI 的登入與桌面整合；涉及敏感資料時必須先確認授權與用途。</p>
+</article>
+<article class="skill-card" data-name="apple-notes" data-cat="知識與文件" data-status="已可用">
+  <div class="card-top"><span class="pill">知識與文件</span><span class="source">openclaw</span></div>
+  <h3>Apple Notes 筆記管理</h3>
+  <p class="code">apple-notes</p>
+  <p>Create, view, edit, delete, search, move, or export Apple Notes via the memo CLI on macOS.</p>
+</article>
+<article class="skill-card" data-name="apple-reminders" data-cat="生活與設備" data-status="已可用">
+  <div class="card-top"><span class="pill">生活與設備</span><span class="source">openclaw</span></div>
+  <h3>Apple Reminders 待辦管理</h3>
+  <p class="code">apple-reminders</p>
+  <p>List, add, edit, complete, or delete Apple Reminders and reminder lists via remindctl.</p>
+</article>
+<article class="skill-card" data-name="bear-notes" data-cat="知識與文件" data-status="已可用">
+  <div class="card-top"><span class="pill">知識與文件</span><span class="source">openclaw</span></div>
+  <h3>Bear 筆記管理</h3>
+  <p class="code">bear-notes</p>
+  <p>Create, search, and manage Bear notes via grizzly CLI.</p>
+</article>
+<article class="skill-card" data-name="blogwatcher" data-cat="生活與設備" data-status="已可用">
+  <div class="card-top"><span class="pill">生活與設備</span><span class="source">openclaw</span></div>
+  <h3>Blog / RSS 監控</h3>
+  <p class="code">blogwatcher</p>
+  <p>Monitor blogs and RSS/Atom feeds for updates using the blogwatcher CLI.</p>
+</article>
+<article class="skill-card" data-name="blucli" data-cat="生活與設備" data-status="已可用">
+  <div class="card-top"><span class="pill">生活與設備</span><span class="source">openclaw</span></div>
+  <h3>BluOS 音響控制</h3>
+  <p class="code">blucli</p>
+  <p>BluOS CLI (blu) for discovery, playback, grouping, and volume.</p>
+</article>
+<article class="skill-card" data-name="camsnap" data-cat="生活與設備" data-status="已可用">
+  <div class="card-top"><span class="pill">生活與設備</span><span class="source">openclaw</span></div>
+  <h3>攝影機截圖/錄影</h3>
+  <p class="code">camsnap</p>
+  <p>Capture frames or clips from RTSP/ONVIF cameras.</p>
+</article>
+<article class="skill-card" data-name="canvas" data-cat="簡報與交付" data-status="已可用">
+  <div class="card-top"><span class="pill">簡報與交付</span><span class="source">openclaw</span></div>
+  <h3>OpenClaw 節點畫面顯示</h3>
+  <p class="code">canvas</p>
+  <p>Display HTML content on connected OpenClaw nodes (Mac app, iOS, Android).</p>
+</article>
+<article class="skill-card" data-name="clawhub" data-cat="開發與代理" data-status="已可用">
+  <div class="card-top"><span class="pill">開發與代理</span><span class="source">openclaw</span></div>
+  <h3>ClawHub 技能搜尋與發布</h3>
+  <p class="code">clawhub</p>
+  <p>Search, install, update, sync, or publish agent skills with the ClawHub CLI and registry.</p>
+</article>
+<article class="skill-card" data-name="coding-agent" data-cat="開發與代理" data-status="已可用">
+  <div class="card-top"><span class="pill">開發與代理</span><span class="source">openclaw</span></div>
+  <h3>多代理 coding 任務委派</h3>
+  <p class="code">coding-agent</p>
+  <p>Delegate coding tasks to Codex, Claude Code, OpenCode, or Pi agents via immediate background processes. Use when: (1) building or creating features/apps, (2) reviewing PRs in a temp clone/wo</p>
+</article>
+<article class="skill-card" data-name="discord" data-cat="通訊與協作" data-status="已可用">
+  <div class="card-top"><span class="pill">通訊與協作</span><span class="source">openclaw</span></div>
+  <h3>Discord 訊息操作</h3>
+  <p class="code">discord</p>
+  <p>Discord ops via the message tool (channel=discord).</p>
+</article>
+<article class="skill-card" data-name="eightctl" data-cat="生活與設備" data-status="已可用">
+  <div class="card-top"><span class="pill">生活與設備</span><span class="source">openclaw</span></div>
+  <h3>Eight Sleep 控制</h3>
+  <p class="code">eightctl</p>
+  <p>Control Eight Sleep pods (status, temperature, alarms, schedules).</p>
+</article>
+<article class="skill-card" data-name="gemini" data-cat="開發與代理" data-status="已可用">
+  <div class="card-top"><span class="pill">開發與代理</span><span class="source">openclaw</span></div>
+  <h3>Gemini CLI 輔助分析</h3>
+  <p class="code">gemini</p>
+  <p>Gemini CLI for one-shot Q&amp;A, summaries, and generation.</p>
+</article>
+<article class="skill-card" data-name="gh-issues" data-cat="開發與代理" data-status="已可用">
+  <div class="card-top"><span class="pill">開發與代理</span><span class="source">openclaw</span></div>
+  <h3>GitHub issue 處理</h3>
+  <p class="code">gh-issues</p>
+  <p>Fetch GitHub issues, delegate fixes to subagents, open PRs, watch reviews, or run /gh-issues workflows.</p>
+</article>
+<article class="skill-card" data-name="gifgrep" data-cat="生活與設備" data-status="已可用">
+  <div class="card-top"><span class="pill">生活與設備</span><span class="source">openclaw</span></div>
+  <h3>GIF 搜尋與下載</h3>
+  <p class="code">gifgrep</p>
+  <p>Search GIF providers with CLI/TUI, download results, and extract stills/sheets.</p>
+</article>
+<article class="skill-card" data-name="github" data-cat="開發與代理" data-status="已可用">
+  <div class="card-top"><span class="pill">開發與代理</span><span class="source">openclaw</span></div>
+  <h3>GitHub 操作</h3>
+  <p class="code">github</p>
+  <p>Use gh for GitHub issues, PR status, CI/logs, comments, reviews, releases, and API queries.</p>
+</article>
+<article class="skill-card" data-name="gog" data-cat="知識與文件" data-status="已可用">
+  <div class="card-top"><span class="pill">知識與文件</span><span class="source">openclaw</span></div>
+  <h3>Google Workspace / Gmail / Drive / Calendar</h3>
+  <p class="code">gog</p>
+  <p>Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs.</p>
+</article>
+<article class="skill-card" data-name="goplaces" data-cat="生活與設備" data-status="已可用">
+  <div class="card-top"><span class="pill">生活與設備</span><span class="source">openclaw</span></div>
+  <h3>Google Places 地點查詢</h3>
+  <p class="code">goplaces</p>
+  <p>Query Google Places for text search, place details, resolve, reviews, or scriptable JSON via goplaces.</p>
+</article>
+<article class="skill-card" data-name="healthcheck" data-cat="本機與系統" data-status="已可用">
+  <div class="card-top"><span class="pill">本機與系統</span><span class="source">openclaw</span></div>
+  <h3>主機安全健檢與風險盤點</h3>
+  <p class="code">healthcheck</p>
+  <p>Audit and harden hosts running OpenClaw for SSH, firewall, updates, exposure, cron checks, and risk posture.</p>
+</article>
+<article class="skill-card" data-name="himalaya" data-cat="知識與文件" data-status="已可用">
+  <div class="card-top"><span class="pill">知識與文件</span><span class="source">openclaw</span></div>
+  <h3>Email 收發與整理</h3>
+  <p class="code">himalaya</p>
+  <p>Use himalaya to list, read, search, compose, reply, forward, and organize IMAP/SMTP email.</p>
+</article>
+<article class="skill-card" data-name="html-ppt" data-cat="簡報與交付" data-status="已可用">
+  <div class="card-top"><span class="pill">簡報與交付</span><span class="source">workspace</span></div>
+  <h3>高質感 HTML PPT / 圖文簡報製作</h3>
+  <p class="code">html-ppt</p>
+  <p>HTML PPT Studio — author professional static HTML presentations in many styles, layouts, and animations, all driven by templates. Use when the user asks for a presentation, PPT, slides, keyn</p>
+</article>
+<article class="skill-card" data-name="html-ppt-catalog" data-cat="簡報與交付" data-status="已可用">
+  <div class="card-top"><span class="pill">簡報與交付</span><span class="source">workspace</span></div>
+  <h3>HTML PPT 固定總表維護</h3>
+  <p class="code">html-ppt-catalog</p>
+  <p>Maintain a fixed index/catalog webpage for all generated HTML PPT / GitHub Pages slide decks. Use when creating, publishing, updating, or auditing HTML PPT links, slide deck catalogs, portfo</p>
+</article>
+<article class="skill-card" data-name="imagegen" data-cat="簡報與交付" data-status="已可用">
+  <div class="card-top"><span class="pill">簡報與交付</span><span class="source">codex-system</span></div>
+  <h3>AI 圖像生成與修圖</h3>
+  <p class="code">imagegen</p>
+  <p>Generate or edit raster images when the task benefits from AI-created bitmap visuals such as photos, illustrations, textures, sprites, mockups, or transparent-background cutouts. Use when Co</p>
+</article>
+<article class="skill-card" data-name="imsg" data-cat="通訊與協作" data-status="已可用">
+  <div class="card-top"><span class="pill">通訊與協作</span><span class="source">openclaw</span></div>
+  <h3>iMessage / SMS 操作</h3>
+  <p class="code">imsg</p>
+  <p>iMessage/SMS CLI for listing chats, history, and sending messages via Messages.app.</p>
+</article>
+<article class="skill-card" data-name="mcporter" data-cat="開發與代理" data-status="已可用">
+  <div class="card-top"><span class="pill">開發與代理</span><span class="source">openclaw</span></div>
+  <h3>MCP 伺服器與工具管理</h3>
+  <p class="code">mcporter</p>
+  <p>List, configure, authenticate, call, and inspect MCP servers/tools with mcporter over HTTP or stdio.</p>
+</article>
+<article class="skill-card" data-name="model-usage" data-cat="本機與系統" data-status="已可用">
+  <div class="card-top"><span class="pill">本機與系統</span><span class="source">openclaw</span></div>
+  <h3>模型使用量與成本統計</h3>
+  <p class="code">model-usage</p>
+  <p>Summarize CodexBar local cost logs by model for Codex or Claude, including current or full breakdowns.</p>
+</article>
+<article class="skill-card" data-name="nano-pdf" data-cat="簡報與交付" data-status="已可用">
+  <div class="card-top"><span class="pill">簡報與交付</span><span class="source">openclaw</span></div>
+  <h3>PDF 編輯</h3>
+  <p class="code">nano-pdf</p>
+  <p>Edit PDFs with natural-language instructions using the nano-pdf CLI.</p>
+</article>
+<article class="skill-card" data-name="node-connect" data-cat="本機與系統" data-status="已可用">
+  <div class="card-top"><span class="pill">本機與系統</span><span class="source">openclaw</span></div>
+  <h3>OpenClaw 手機/桌面節點連線診斷</h3>
+  <p class="code">node-connect</p>
+  <p>Diagnose OpenClaw Android, iOS, or macOS node pairing, QR/setup code, route, auth, and connection failures.</p>
+</article>
+<article class="skill-card" data-name="notion" data-cat="知識與文件" data-status="已可用">
+  <div class="card-top"><span class="pill">知識與文件</span><span class="source">openclaw</span></div>
+  <h3>Notion 頁面與資料庫管理</h3>
+  <p class="code">notion</p>
+  <p>Notion API for creating and managing pages, databases, and blocks.</p>
+</article>
+<article class="skill-card" data-name="obsidian" data-cat="知識與文件" data-status="已可用">
+  <div class="card-top"><span class="pill">知識與文件</span><span class="source">openclaw</span></div>
+  <h3>Obsidian 筆記庫管理</h3>
+  <p class="code">obsidian</p>
+  <p>Work with Obsidian vaults (plain Markdown notes) and automate via obsidian-cli.</p>
+</article>
+<article class="skill-card" data-name="openai-docs" data-cat="開發與代理" data-status="已可用">
+  <div class="card-top"><span class="pill">開發與代理</span><span class="source">codex-system</span></div>
+  <h3>OpenAI 官方文件查詢</h3>
+  <p class="code">openai-docs</p>
+  <p>Use when the user asks how to build with OpenAI products or APIs and needs up-to-date official documentation with citations, help choosing the latest model for a use case, or model upgrade a</p>
+</article>
+<article class="skill-card" data-name="openai-whisper" data-cat="知識與文件" data-status="已可用">
+  <div class="card-top"><span class="pill">知識與文件</span><span class="source">openclaw</span></div>
+  <h3>本地語音轉文字</h3>
+  <p class="code">openai-whisper</p>
+  <p>Local speech-to-text with the Whisper CLI (no API key).</p>
+</article>
+<article class="skill-card" data-name="openai-whisper-api" data-cat="知識與文件" data-status="已可用">
+  <div class="card-top"><span class="pill">知識與文件</span><span class="source">openclaw</span></div>
+  <h3>OpenAI Whisper API 語音轉文字</h3>
+  <p class="code">openai-whisper-api</p>
+  <p>Transcribe audio via OpenAI Audio Transcriptions API (Whisper).</p>
+</article>
+<article class="skill-card" data-name="openclaw-slides" data-cat="簡報與交付" data-status="已可用">
+  <div class="card-top"><span class="pill">簡報與交付</span><span class="source">workspace</span></div>
+  <h3>動畫式網頁簡報與 PPT 轉換</h3>
+  <p class="code">openclaw-slides</p>
+  <p>Create stunning, animation-rich HTML presentations from scratch or convert PowerPoint files (.ppt/.pptx) to beautiful web slides. Use when the user wants to build a pitch deck, presentation,</p>
+</article>
+<article class="skill-card" data-name="openhue" data-cat="生活與設備" data-status="已可用">
+  <div class="card-top"><span class="pill">生活與設備</span><span class="source">openclaw</span></div>
+  <h3>Philips Hue 燈光控制</h3>
+  <p class="code">openhue</p>
+  <p>Control Philips Hue lights and scenes via the OpenHue CLI.</p>
+</article>
+<article class="skill-card" data-name="oracle" data-cat="開發與代理" data-status="已可用">
+  <div class="card-top"><span class="pill">開發與代理</span><span class="source">openclaw</span></div>
+  <h3>第二模型審查與除錯</h3>
+  <p class="code">oracle</p>
+  <p>Use oracle CLI to bundle prompts and files for second-model debugging, refactor, design, or review checks.</p>
+</article>
+<article class="skill-card" data-name="ordercli" data-cat="生活與設備" data-status="已可用">
+  <div class="card-top"><span class="pill">生活與設備</span><span class="source">openclaw</span></div>
+  <h3>外送訂單查詢</h3>
+  <p class="code">ordercli</p>
+  <p>Foodora-only CLI for checking past orders and active order status (Deliveroo WIP).</p>
+</article>
+<article class="skill-card" data-name="peekaboo" data-cat="本機與系統" data-status="已可用">
+  <div class="card-top"><span class="pill">本機與系統</span><span class="source">openclaw</span></div>
+  <h3>macOS 畫面截圖與 UI 自動化</h3>
+  <p class="code">peekaboo</p>
+  <p>Capture and automate macOS UI with the Peekaboo CLI.</p>
+</article>
+<article class="skill-card" data-name="plugin-creator" data-cat="開發與代理" data-status="已可用">
+  <div class="card-top"><span class="pill">開發與代理</span><span class="source">codex-system</span></div>
+  <h3>建立 Codex 外掛</h3>
+  <p class="code">plugin-creator</p>
+  <p>Create and scaffold plugin directories for Codex with a required `.codex-plugin/plugin.json`, optional plugin folders/files, and baseline placeholders you can edit before publishing or testi</p>
+</article>
+<article class="skill-card" data-name="presentation-agent" data-cat="簡報與交付" data-status="已可用">
+  <div class="card-top"><span class="pill">簡報與交付</span><span class="source">workspace</span></div>
+  <h3>Markdown / Marp 簡報轉換</h3>
+  <p class="code">presentation-agent</p>
+  <p>Convert Markdown documents to presentation slides (PDF/PPTX/HTML) using Marp. Supports Mermaid diagrams (gantt, flowchart, etc.) and data graphs. Use when a user asks to create slides, prese</p>
+</article>
+<article class="skill-card" data-name="sag" data-cat="生活與設備" data-status="已可用">
+  <div class="card-top"><span class="pill">生活與設備</span><span class="source">openclaw</span></div>
+  <h3>ElevenLabs 文字轉語音</h3>
+  <p class="code">sag</p>
+  <p>ElevenLabs text-to-speech with mac-style say UX.</p>
+</article>
+<article class="skill-card" data-name="session-logs" data-cat="知識與文件" data-status="已可用">
+  <div class="card-top"><span class="pill">知識與文件</span><span class="source">openclaw</span></div>
+  <h3>工作紀錄搜尋</h3>
+  <p class="code">session-logs</p>
+  <p>Search and analyze your own session logs (older/parent conversations) using jq.</p>
+</article>
+<article class="skill-card" data-name="sherpa-onnx-tts" data-cat="其他工具" data-status="已可用">
+  <div class="card-top"><span class="pill">其他工具</span><span class="source">openclaw</span></div>
+  <h3>本地離線文字轉語音</h3>
+  <p class="code">sherpa-onnx-tts</p>
+  <p>Local text-to-speech via sherpa-onnx (offline, no cloud)</p>
+</article>
+<article class="skill-card" data-name="skill-creator" data-cat="開發與代理" data-status="已可用">
+  <div class="card-top"><span class="pill">開發與代理</span><span class="source">codex-system</span></div>
+  <h3>建立與維護技能包</h3>
+  <p class="code">skill-creator</p>
+  <p>Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledg</p>
+</article>
+<article class="skill-card" data-name="skill-installer" data-cat="開發與代理" data-status="已可用">
+  <div class="card-top"><span class="pill">開發與代理</span><span class="source">codex-system</span></div>
+  <h3>安裝 Codex 技能</h3>
+  <p class="code">skill-installer</p>
+  <p>Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path. Use when a user asks to list installable skills, install a curated skill, or install a skill from anot</p>
+</article>
+<article class="skill-card" data-name="slack" data-cat="通訊與協作" data-status="已可用">
+  <div class="card-top"><span class="pill">通訊與協作</span><span class="source">openclaw</span></div>
+  <h3>Slack 訊息操作</h3>
+  <p class="code">slack</p>
+  <p>Use the Slack tool to react, pin/unpin, send, edit, delete messages, or fetch Slack member info.</p>
+</article>
+<article class="skill-card" data-name="songsee" data-cat="生活與設備" data-status="已可用">
+  <div class="card-top"><span class="pill">生活與設備</span><span class="source">openclaw</span></div>
+  <h3>音訊視覺化</h3>
+  <p class="code">songsee</p>
+  <p>Generate spectrograms and feature-panel visualizations from audio with the songsee CLI.</p>
+</article>
+<article class="skill-card" data-name="sonoscli" data-cat="生活與設備" data-status="已可用">
+  <div class="card-top"><span class="pill">生活與設備</span><span class="source">openclaw</span></div>
+  <h3>Sonos 音響控制</h3>
+  <p class="code">sonoscli</p>
+  <p>Control Sonos speakers (discover/status/play/volume/group).</p>
+</article>
+<article class="skill-card" data-name="spotify-player" data-cat="生活與設備" data-status="已可用">
+  <div class="card-top"><span class="pill">生活與設備</span><span class="source">openclaw</span></div>
+  <h3>Spotify 播放控制</h3>
+  <p class="code">spotify-player</p>
+  <p>Terminal Spotify playback/search via spogo (preferred) or spotify_player.</p>
+</article>
+<article class="skill-card" data-name="summarize" data-cat="知識與文件" data-status="已可用">
+  <div class="card-top"><span class="pill">知識與文件</span><span class="source">openclaw</span></div>
+  <h3>網頁、影片、PDF 摘要</h3>
+  <p class="code">summarize</p>
+  <p>Summarize or transcribe URLs, YouTube/videos, podcasts, articles, transcripts, PDFs, and local files.</p>
+</article>
+<article class="skill-card" data-name="taskflow" data-cat="本機與系統" data-status="已可用">
+  <div class="card-top"><span class="pill">本機與系統</span><span class="source">openclaw</span></div>
+  <h3>長任務流程管理</h3>
+  <p class="code">taskflow</p>
+  <p>Coordinate multi-step detached tasks as one durable TaskFlow job with owner context, state, waits, and child tasks.</p>
+</article>
+<article class="skill-card" data-name="taskflow-inbox-triage" data-cat="本機與系統" data-status="已可用">
+  <div class="card-top"><span class="pill">本機與系統</span><span class="source">openclaw</span></div>
+  <h3>收件匣/訊息分流工作流</h3>
+  <p class="code">taskflow-inbox-triage</p>
+  <p>Example TaskFlow pattern for inbox triage, intent routing, waiting on replies, and later summaries.</p>
+</article>
+<article class="skill-card" data-name="things-mac" data-cat="生活與設備" data-status="已可用">
+  <div class="card-top"><span class="pill">生活與設備</span><span class="source">openclaw</span></div>
+  <h3>Things 3 待辦管理</h3>
+  <p class="code">things-mac</p>
+  <p>Add, update, list, search, or inspect Things 3 todos, inbox, today, projects, areas, and tags on macOS.</p>
+</article>
+<article class="skill-card" data-name="tmux" data-cat="開發與代理" data-status="已可用">
+  <div class="card-top"><span class="pill">開發與代理</span><span class="source">openclaw</span></div>
+  <h3>tmux 互動終端控制</h3>
+  <p class="code">tmux</p>
+  <p>Remote-control tmux sessions for interactive CLIs by sending keystrokes and scraping pane output.</p>
+</article>
+<article class="skill-card" data-name="trello" data-cat="通訊與協作" data-status="已可用">
+  <div class="card-top"><span class="pill">通訊與協作</span><span class="source">openclaw</span></div>
+  <h3>Trello 看板管理</h3>
+  <p class="code">trello</p>
+  <p>Manage Trello boards, lists, and cards via the Trello REST API.</p>
+</article>
+<article class="skill-card" data-name="video-frames" data-cat="簡報與交付" data-status="已可用">
+  <div class="card-top"><span class="pill">簡報與交付</span><span class="source">openclaw</span></div>
+  <h3>影片擷取畫面</h3>
+  <p class="code">video-frames</p>
+  <p>Extract frames or short clips from videos using ffmpeg.</p>
+</article>
+<article class="skill-card" data-name="voice-call" data-cat="通訊與協作" data-status="已可用">
+  <div class="card-top"><span class="pill">通訊與協作</span><span class="source">openclaw</span></div>
+  <h3>語音通話橋接</h3>
+  <p class="code">voice-call</p>
+  <p>Start voice calls via the OpenClaw voice-call plugin.</p>
+</article>
+<article class="skill-card" data-name="wacli" data-cat="通訊與協作" data-status="已可用">
+  <div class="card-top"><span class="pill">通訊與協作</span><span class="source">openclaw</span></div>
+  <h3>WhatsApp 操作</h3>
+  <p class="code">wacli</p>
+  <p>Send third-party WhatsApp messages or sync/search WhatsApp history via wacli, not normal active chats.</p>
+</article>
+<article class="skill-card" data-name="weather" data-cat="生活與設備" data-status="已可用">
+  <div class="card-top"><span class="pill">生活與設備</span><span class="source">openclaw</span></div>
+  <h3>天氣查詢與旅遊天氣規劃</h3>
+  <p class="code">weather</p>
+  <p>Get current weather, rain, temperature, and forecasts for locations or travel planning.</p>
+</article>
+<article class="skill-card" data-name="xurl" data-cat="其他工具" data-status="已可用">
+  <div class="card-top"><span class="pill">其他工具</span><span class="source">openclaw</span></div>
+  <h3>X/Twitter API 操作</h3>
+  <p class="code">xurl</p>
+  <p>Use xurl for authenticated X API posts, replies, search, DMs, media upload, followers, or raw v2 calls.</p>
+</article>
+      </div>
+    </section>
+
+    <section>
+      <h2>候選技能 / 未來可用能力</h2>
+      <table>
+        <thead><tr><th>名稱</th><th>狀態</th><th>基本介紹與用途</th></tr></thead>
+        <tbody><tr><td>RAG-Anything</td><td><span class="future-status">候選</span></td><td>多模態企業知識庫引擎，可處理 PDF、Word、圖片、表格、公式，適合大量文件查詢。已完成 Mac mini PoC：PDF + Word 解析通過。</td></tr>
+<tr><td>Ollama / LM Studio</td><td><span class="future-status">候選</span></td><td>本地離線大模型服務，提供 OpenAI-compatible 本地接口，讓 RAG 或企業助理不用雲端 API 也能跑。</td></tr>
+<tr><td>vLLM / llama.cpp</td><td><span class="future-status">候選</span></td><td>更進階的本地模型推論服務，適合未來 Mac Studio 128GB 等主機部署。</td></tr>
+<tr><td>Qdrant / Chroma / Milvus</td><td><span class="future-status">候選</span></td><td>向量資料庫，用於企業知識庫、語意搜尋、文件引用與權限隔離。</td></tr>
+<tr><td>LINE Bot 企業客服</td><td><span class="future-status">候選</span></td><td>把企業知識庫接到 LINE 官方帳號，讓客戶或員工用 LINE 查資料。</td></tr>
+<tr><td>Telegram 小伙伴訓練系統</td><td><span class="future-status">候選</span></td><td>讓小伙伴透過 Telegram 讀教材、交作業、查 SOP、接受文文訓練。</td></tr>
+<tr><td>網站克隆 / Web 分析工具</td><td><span class="future-status">候選</span></td><td>用於分析目標網站、拆解設計與內容結構，輔助提案和網站改版。</td></tr>
+<tr><td>Fincept 分析工作流</td><td><span class="future-status">已整合筆記</span></td><td>金融資料分析、研究筆記與橋接工具，適合投資研究輔助但需保留風險提示。</td></tr>
+<tr><td>Google Meet 語音橋接</td><td><span class="future-status">已整合腳本</span></td><td>Jason 與文文語音房間入口，可重開橋接並用中文回應。</td></tr>
+<tr><td>Google Drive 交付流程</td><td><span class="future-status">已整合</span></td><td>交付檔案上傳、分享連結、權限教學與備份流程。</td></tr>
+<tr><td>企業 AI 顧問技術步驟</td><td><span class="future-status">已內化流程</span></td><td>企業導入前置流程：Telegram ID、Gmail/OpenAI 帳號、權限與費用責任歸屬。</td></tr>
+<tr><td>勁園國際導入包</td><td><span class="future-status">已內化流程</span></td><td>勁園簽約注意事項、小園訓練、AI 智慧服務平台 17 大功能與展示流程。</td></tr>
+<tr><td>Mac 待命 / 恢復系統</td><td><span class="future-status">已整合腳本</span></td><td>系統待命、系統待命鎖定、結束待命，保護遠端桌面與 OpenClaw 不中斷。</td></tr></tbody>
+      </table>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">固定網址預計保持不變：/wenwen-skills/。每次新增技能、完成 PoC、或建立新的企業導入流程後更新。</div>
+  </footer>
+  <script>
+    const buttons = [...document.querySelectorAll('.filter')];
+    const cards = [...document.querySelectorAll('.skill-card')];
+    const search = document.querySelector('#search');
+    let active = '全部';
+    function apply(){
+      const q = search.value.trim().toLowerCase();
+      cards.forEach(card => {
+        const catOk = active === '全部' || card.dataset.cat === active;
+        const textOk = !q || card.textContent.toLowerCase().includes(q);
+        card.classList.toggle('hidden', !(catOk && textOk));
+      });
+    }
+    buttons.forEach(btn => btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      active = btn.dataset.filter;
+      apply();
+    }));
+    search.addEventListener('input', apply);
+  </script>
+</body>
+</html>
