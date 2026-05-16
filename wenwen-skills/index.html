@@ -56,7 +56,7 @@
       <h1>文文技能目錄</h1>
       <p class="lead">這是文文目前可用技能、已整合工作流程與未來候選技能的固定列表。之後每安裝或完成一項新技能，就更新這一頁，讓 Jason 和小伙伴知道文文能做什麼。</p>
       <div class="meta">
-        <span>更新時間：2026/5/16 下午10:09:39</span>
+        <span>更新時間：2026/5/16 下午10:14:00</span>
         <span>已盤點技能：60 項</span>
         <span>候選/整合流程：13 項</span>
       </div>
@@ -476,6 +476,73 @@
     <div class="wrap">固定網址預計保持不變：/wenwen-skills/。每次新增技能、完成 PoC、或建立新的企業導入流程後更新。</div>
   </footer>
   <script>
+    const zhDescriptions = {
+      "1password": "管理 1Password CLI 登入與桌面整合。可協助讀取或注入授權後的密鑰，但涉及敏感資料時一定要先確認用途與權限。",
+      "apple-notes": "管理 Apple Notes 筆記。可以搜尋、建立、修改、搬移、刪除或匯出筆記，適合整理會議紀錄、教學筆記與工作資料。",
+      "apple-reminders": "管理 Apple Reminders 待辦事項。可以新增提醒、查詢清單、標記完成、修改期限，適合追蹤交辦事項與日常提醒。",
+      "bear-notes": "管理 Bear 筆記。可以建立、搜尋與整理 Bear 裡的 Markdown 筆記，適合做個人知識庫與寫作草稿。",
+      "blogwatcher": "監控 Blog、RSS 或 Atom 訂閱源。可以定期檢查網站更新，適合追蹤技術文章、競品消息與產業資訊。",
+      "blucli": "控制 BluOS 音響設備。可以搜尋設備、播放音樂、調整音量與群組播放，適合智慧家庭或展示空間控制。",
+      "camsnap": "擷取 RTSP / ONVIF 攝影機畫面或短片。可用於看監控畫面、擷取現場截圖、做簡易影像記錄。",
+      "canvas": "把 HTML 畫面顯示到 OpenClaw 連接的 Mac、iOS、Android 節點。適合展示看板、簡報頁、任務狀態或互動畫面。",
+      "clawhub": "搜尋、安裝、更新、同步與發布 OpenClaw 技能。適合管理文文或小伙伴可用的技能包。",
+      "coding-agent": "把程式開發、修 bug、重構、PR 檢查等任務交給 Codex、Claude Code、OpenCode 等代理執行。適合大型程式工作分工。",
+      "discord": "操作 Discord 訊息。可以發訊息、回覆、反應、管理頻道互動，適合 Discord 社群或團隊協作。",
+      "eightctl": "控制 Eight Sleep 智慧床墊。可以查狀態、調整溫度、管理鬧鐘與睡眠排程。",
+      "gemini": "使用 Gemini CLI 做一次性問答、摘要、生成或第二模型判斷。適合交叉檢查內容或補充分析角度。",
+      "gh-issues": "處理 GitHub Issues。可以抓 issue、分派修復任務、開 PR、追蹤 review，適合軟體專案維護。",
+      "gifgrep": "搜尋 GIF、下載結果、擷取靜態圖或縮圖表。適合聊天素材、簡報動圖或視覺參考。",
+      "github": "操作 GitHub。可以查 issue、PR、CI、release、留言、review 與 API 資訊，適合工程協作與開源專案管理。",
+      "gog": "操作 Google Workspace。可處理 Gmail、Calendar、Drive、Contacts、Sheets、Docs 等工作，適合文件交付與辦公流程。",
+      "goplaces": "查詢 Google Places 地點資料。可以搜尋店家、查地址、評價、營業資訊，適合商家分析與旅遊規劃。",
+      "healthcheck": "檢查 OpenClaw 主機安全與健康狀態。包含 SSH、防火牆、更新、暴露面、cron 與風險 posture。",
+      "himalaya": "用 IMAP / SMTP 管理 Email。可以讀信、搜尋、寫信、回覆、轉寄與整理郵件。",
+      "html-ppt": "製作高質感 HTML PPT、圖文簡報、演講稿或小紅書圖文。適合企業提案、教學簡報、品牌簡報與 GitHub Pages 發布。",
+      "html-ppt-catalog": "維護所有 HTML PPT / GitHub Pages 簡報的固定總表。每做一份簡報後更新入口頁、名稱、描述、日期與連結。",
+      "imagegen": "生成或編輯 AI 圖像。適合做照片風格圖、插畫、材質、sprite、透明背景圖與簡報視覺素材。",
+      "imsg": "操作 iMessage / SMS。可以列出對話、查歷史、發送訊息；涉及對外發訊息時需要特別確認。",
+      "mcporter": "管理 MCP 伺服器與工具。可以列出、設定、登入、呼叫與檢查 MCP 工具，適合擴充外部資料源。",
+      "model-usage": "統計 Codex / Claude 等模型使用量與成本。適合追蹤花費、比較模型使用情況與做成本管理。",
+      "nano-pdf": "用自然語言編輯 PDF。適合修改 PDF 文字、版面或文件內容，但正式文件仍需要人工複核。",
+      "node-connect": "診斷 OpenClaw Android、iOS、macOS 節點連線問題。可處理 QR code、配對碼、路由、授權與連線失敗。",
+      "notion": "操作 Notion 頁面、資料庫與區塊。適合建立知識庫、專案頁、文件中心與任務管理資料庫。",
+      "obsidian": "操作 Obsidian vault 裡的 Markdown 筆記。適合個人知識庫、第二大腦與長期資料整理。",
+      "openai-docs": "查詢 OpenAI 官方文件與最新 API 用法。適合選模型、升級 API、設計 prompt 或確認官方規格。",
+      "openai-whisper": "本地離線語音轉文字，不需要雲端 API。適合會議錄音、語音備忘、影片音訊轉文字。",
+      "openai-whisper-api": "用 OpenAI Whisper API 做語音轉文字。通常準確率穩，但會使用雲端 API 與費用。",
+      "openclaw-slides": "製作動畫豐富的 HTML 簡報，或把 PowerPoint 轉成漂亮網頁簡報。適合提案、課程與展示頁。",
+      "openhue": "控制 Philips Hue 燈光與場景。可調整燈光、切換場景，適合智慧家庭或展示空間。",
+      "oracle": "把問題、程式碼或文件打包給第二模型做審查、除錯、設計建議或重構判斷。",
+      "ordercli": "查詢外送訂單與目前訂單狀態。主要支援 Foodora，Deliveroo 仍屬待完善功能。",
+      "peekaboo": "擷取與自動操作 macOS UI。適合需要看畫面、點按、截圖、檢查桌面狀態的任務。",
+      "plugin-creator": "建立 Codex 外掛骨架。可產生 plugin.json 與基本資料夾，適合開發新的本機外掛能力。",
+      "presentation-agent": "把 Markdown 轉成簡報，支援 Marp、PDF、PPTX、HTML，也可處理 Mermaid 圖表與資料圖。",
+      "sag": "用 ElevenLabs 做文字轉語音。適合產生自然語音、簡報旁白、教學音訊。",
+      "session-logs": "搜尋與分析過去工作紀錄。適合找舊對話、追蹤決策、回顧之前做過的任務。",
+      "sherpa-onnx-tts": "本地離線文字轉語音。適合不想使用雲端 TTS 的語音播報或本地助理聲音。",
+      "skill-creator": "建立、整理、審查與改進 AgentSkill / SKILL.md。適合把固定工作流程變成可重複使用的技能。",
+      "skill-installer": "安裝 Codex 技能。可以從精選清單或 GitHub repo 安裝技能到本機技能目錄。",
+      "slack": "操作 Slack 訊息。可以發訊息、回覆、反應、編輯、刪除或查成員資訊，適合團隊協作。",
+      "songsee": "把音訊做成頻譜圖或特徵視覺化。適合音訊分析、音樂素材檢查與簡報視覺化。",
+      "sonoscli": "控制 Sonos 喇叭。可以搜尋設備、播放、調整音量、群組或查看狀態。",
+      "spotify-player": "控制 Spotify 播放與搜尋。適合播放音樂、找歌曲、管理播放狀態。",
+      "summarize": "摘要或轉錄網頁、YouTube、Podcast、文章、PDF、本機檔案與文字稿。適合快速整理大量內容。",
+      "taskflow": "管理長時間、多步驟、可暫停等待的任務流程。適合企業導入、追蹤回覆、背景任務與專案狀態。",
+      "taskflow-inbox-triage": "收件匣分流範例流程。可判斷訊息意圖、等待回覆、路由任務並產生後續摘要。",
+      "things-mac": "操作 Things 3 待辦。可以新增、更新、搜尋、檢查 inbox/today/project/area/tag。",
+      "tmux": "遠端控制 tmux 互動終端。適合管理長時間 CLI、看輸出、送鍵盤指令與維持背景工作。",
+      "trello": "管理 Trello 看板、列表與卡片。適合專案流程、任務看板與團隊協作。",
+      "video-frames": "用 ffmpeg 從影片擷取影格或短片。適合做縮圖、畫面分析、影片素材整理。",
+      "voice-call": "啟動 OpenClaw 語音通話外掛。適合語音橋接、即時對話與語音助理入口。",
+      "wacli": "操作 WhatsApp 第三方訊息或同步/搜尋歷史。涉及對外發訊息時需要先確認。",
+      "weather": "查詢目前天氣、降雨、溫度與預報。適合旅遊規劃、外出安排與日常天氣提醒。",
+      "xurl": "操作 X / Twitter API。可發文、回覆、搜尋、DM、上傳媒體或呼叫 v2 API；對外發布前需確認。"
+    };
+    document.querySelectorAll('.skill-card').forEach(card => {
+      const desc = zhDescriptions[card.dataset.name];
+      const p = card.querySelector('p:not(.code)');
+      if (desc && p) p.textContent = desc;
+    });
     const buttons = [...document.querySelectorAll('.filter')];
     const cards = [...document.querySelectorAll('.skill-card')];
     const search = document.querySelector('#search');
