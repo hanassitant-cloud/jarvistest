@@ -1,39 +1,33 @@
 [
   {
-    "slug": "AI",
-    "name": "AI 智慧服務平台｜互動式 HTML 展示簡報版",
-    "desc": "企業級 AI 智慧服務平台展示簡報，整理客服、行銷、知識管理、決策支援與 AI 營運中樞概念。",
-    "source": "Jason / 文文內部 AI 智慧服務平台規劃資料",
-    "date": "2026-05-14",
-    "category": "AI 平台",
-    "zip_url": "https://drive.google.com/open?id=1SXj1WJszX28bYJGAyklfNRigtdCYmURn"
+    "slug": "tong-beauty-ai-diagnosis",
+    "name": "彤美人美容美體莊園｜AI 商業診斷與成長提案",
+    "desc": "以公開資料與前次調研整理彤美人的品牌定位、服務/產品收入線、競品缺口、Google 商家與社群優化、會員回訪漏斗，以及 AI LINE 客服與預約前諮詢導入路線圖。",
+    "source": "彤美人官網公開資料 + Jason 前次指定商業診斷調研 + 文文 AI 顧問分析",
+    "date": "2026-05-16",
+    "category": "顧問提案",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/tong-beauty-ai-diagnosis/",
+    "backup": "/Volumes/B21/文文/GitHubPages交付/tong-beauty-ai-diagnosis/",
+    "zip_url": "https://drive.google.com/open?id=1MkQX61PjeIDrEnbsY7JlCbiX0szWcDvM",
+    "notes": "健康/能量檢測相關內容僅作行銷與客服資訊整理，不替代醫療診斷。"
   },
   {
-    "slug": "AI1",
-    "name": "AI 智慧服務平台｜互動式 HTML 展示簡報版",
-    "desc": "AI 智慧服務平台展示簡報的另一版本，含互動式控制與平台能力架構。",
-    "source": "Jason / 文文內部 AI 智慧服務平台規劃資料",
-    "date": "2026-05-14",
-    "category": "AI 平台",
-    "zip_url": "https://drive.google.com/open?id=1MJzihPcWzOZjbGH-hgtzdSKmkGFofS3q"
+    "slug": "spec-kit-visual",
+    "name": "GitHub Spec Kit｜規格驅動開發與 OpenClaw 整合圖文簡報",
+    "desc": "介紹 GitHub Spec Kit、Spec-Driven Development 流程，並研究如何整合進 OpenClaw / 文文 AI 顧問流程。",
+    "source": "https://github.com/github/spec-kit README、spec-driven.md、installation.md、integrations.md",
+    "date": "2026-05-15",
+    "category": "開發流程",
+    "zip_url": "https://drive.google.com/open?id=1W60nHJeYVKrRPAwh_rnCBS6QkoQuV1ff"
   },
   {
-    "slug": "L1",
-    "name": "空間智慧：AI 下一個被低估的主戰場",
-    "desc": "介紹 Spatial Intelligence / 空間智慧的趨勢、應用與 AI 下一階段機會。",
-    "source": "Jason 提供主題與文文整理研究",
-    "date": "2026-05-14",
-    "category": "AI 趨勢",
-    "zip_url": "https://drive.google.com/open?id=1s4W5wyPQBgu00B4hsoO1ylnNdMvLhK9Z"
-  },
-  {
-    "slug": "L2",
-    "name": "空間智慧互動式投影片",
-    "desc": "空間智慧主題的互動式安全版投影片，強調可直接開啟與展示。",
-    "source": "Jason 提供主題與文文整理研究",
-    "date": "2026-05-14",
-    "category": "AI 趨勢",
-    "zip_url": "https://drive.google.com/open?id=1Ed38VOEq0hxoCHiMcY6A0HaOUjMjoBGP"
+    "slug": "school-trade-visual",
+    "name": "校園二手書與學習互助服務平台｜深度研究 Pitch Deck",
+    "desc": "以 PDF pitch deck 為基礎，延伸市場研究、競品、MVP、商業模式、風險與 AI 延伸方向。",
+    "source": "Jason 上傳 PDF：校園二手書與學習互助服務平台 Pitch Deck + 網路研究",
+    "date": "2026-05-15",
+    "category": "創業提案",
+    "zip_url": "https://drive.google.com/open?id=13jS5SzKfuSZjfcWwKXr6ylspw1X8fKq-"
   },
   {
     "slug": "python-intro-part1",
@@ -43,24 +37,6 @@
     "date": "2026-05-15",
     "category": "教學",
     "zip_url": "https://drive.google.com/open?id=1hBLxTlAQcvoXamNxHaYtEWkEbJEXFgFg"
-  },
-  {
-    "slug": "liangxing-itri-visual",
-    "name": "良興全通路轉型個案｜精美圖文 HTML PPT",
-    "desc": "良興 / 工研院全通路轉型個案圖文簡報，整理品牌、通路、數位轉型與商業洞察。",
-    "source": "使用者提供/指定網站與文文網路資料整理",
-    "date": "2026-05-15",
-    "category": "企業個案",
-    "zip_url": "https://drive.google.com/open?id=1fzeIjqxu00G1DZvWyMZRpSWgdrOmkIRu"
-  },
-  {
-    "slug": "biodewake-visual",
-    "name": "碧睿生醫 Biodewake｜品牌資料分析圖文 HTML PPT",
-    "desc": "碧睿生醫品牌與產品資料分析簡報，含品牌定位、產品線與商業洞察。",
-    "source": "指定網站與公開網路資料",
-    "date": "2026-05-15",
-    "category": "企業個案",
-    "zip_url": "https://drive.google.com/open?id=1GKaknFr9sFqSm5ub9gDajIiZ2A4ppUwm"
   },
   {
     "slug": "petangel-visual",
@@ -81,24 +57,6 @@
     "zip_url": "https://drive.google.com/open?id=1X-8jLxcpmOn4q-c10cT_Fd9DCZh32x0N"
   },
   {
-    "slug": "school-trade-visual",
-    "name": "校園二手書與學習互助服務平台｜深度研究 Pitch Deck",
-    "desc": "以 PDF pitch deck 為基礎，延伸市場研究、競品、MVP、商業模式、風險與 AI 延伸方向。",
-    "source": "Jason 上傳 PDF：校園二手書與學習互助服務平台 Pitch Deck + 網路研究",
-    "date": "2026-05-15",
-    "category": "創業提案",
-    "zip_url": "https://drive.google.com/open?id=13jS5SzKfuSZjfcWwKXr6ylspw1X8fKq-"
-  },
-  {
-    "slug": "genai-internet-student-visual",
-    "name": "生成式 AI 與網際網路｜學生角度圖文 HTML PPT",
-    "desc": "從學生角度整理生成式 AI 如何改變 Google 搜尋、學習、資訊查證與學術倫理。",
-    "source": "Google Drive 文件：生成式AI與網際網路_學生角度完整報告.docx",
-    "date": "2026-05-15",
-    "category": "教學/報告",
-    "zip_url": "https://drive.google.com/open?id=1q0IClhwTSAB4DkZVFOZyFYIXOlh85gpa"
-  },
-  {
     "slug": "northeast-dental-visual",
     "name": "新店東北大牙醫｜網路資料整理圖文 HTML PPT",
     "desc": "整理新店東北大牙醫公開資訊，含地址、電話、門診、醫師、特色療程與就醫前提醒。",
@@ -117,13 +75,22 @@
     "zip_url": "https://drive.google.com/open?id=1LobWUR-Kd7LpQ8V7XfPehbDzLoLmO0bS"
   },
   {
-    "slug": "spec-kit-visual",
-    "name": "GitHub Spec Kit｜規格驅動開發與 OpenClaw 整合圖文簡報",
-    "desc": "介紹 GitHub Spec Kit、Spec-Driven Development 流程，並研究如何整合進 OpenClaw / 文文 AI 顧問流程。",
-    "source": "https://github.com/github/spec-kit README、spec-driven.md、installation.md、integrations.md",
+    "slug": "liangxing-itri-visual",
+    "name": "良興全通路轉型個案｜精美圖文 HTML PPT",
+    "desc": "良興 / 工研院全通路轉型個案圖文簡報，整理品牌、通路、數位轉型與商業洞察。",
+    "source": "使用者提供/指定網站與文文網路資料整理",
     "date": "2026-05-15",
-    "category": "開發流程",
-    "zip_url": "https://drive.google.com/open?id=1W60nHJeYVKrRPAwh_rnCBS6QkoQuV1ff"
+    "category": "企業個案",
+    "zip_url": "https://drive.google.com/open?id=1fzeIjqxu00G1DZvWyMZRpSWgdrOmkIRu"
+  },
+  {
+    "slug": "genai-internet-student-visual",
+    "name": "生成式 AI 與網際網路｜學生角度圖文 HTML PPT",
+    "desc": "從學生角度整理生成式 AI 如何改變 Google 搜尋、學習、資訊查證與學術倫理。",
+    "source": "Google Drive 文件：生成式AI與網際網路_學生角度完整報告.docx",
+    "date": "2026-05-15",
+    "category": "教學/報告",
+    "zip_url": "https://drive.google.com/open?id=1q0IClhwTSAB4DkZVFOZyFYIXOlh85gpa"
   },
   {
     "slug": "damiaocheng-mazu-power-visual",
@@ -144,15 +111,48 @@
     "zip_url": "https://drive.google.com/open?id=1eLptLtv_8NCZnxCUP1UVXmGeGV-Oomw-"
   },
   {
-    "slug": "tong-beauty-ai-diagnosis",
-    "name": "彤美人美容美體莊園｜AI 商業診斷與成長提案",
-    "desc": "以公開資料與前次調研整理彤美人的品牌定位、服務/產品收入線、競品缺口、Google 商家與社群優化、會員回訪漏斗，以及 AI LINE 客服與預約前諮詢導入路線圖。",
-    "source": "彤美人官網公開資料 + Jason 前次指定商業診斷調研 + 文文 AI 顧問分析",
-    "date": "2026-05-16",
-    "category": "顧問提案",
-    "url": "https://hanassitant-cloud.github.io/jarvistest/tong-beauty-ai-diagnosis/",
-    "backup": "/Volumes/B21/文文/GitHubPages交付/tong-beauty-ai-diagnosis/",
-    "zip_url": "https://drive.google.com/open?id=1MkQX61PjeIDrEnbsY7JlCbiX0szWcDvM",
-    "notes": "健康/能量檢測相關內容僅作行銷與客服資訊整理，不替代醫療診斷。"
+    "slug": "biodewake-visual",
+    "name": "碧睿生醫 Biodewake｜品牌資料分析圖文 HTML PPT",
+    "desc": "碧睿生醫品牌與產品資料分析簡報，含品牌定位、產品線與商業洞察。",
+    "source": "指定網站與公開網路資料",
+    "date": "2026-05-15",
+    "category": "企業個案",
+    "zip_url": "https://drive.google.com/open?id=1GKaknFr9sFqSm5ub9gDajIiZ2A4ppUwm"
+  },
+  {
+    "slug": "L2",
+    "name": "空間智慧互動式投影片",
+    "desc": "空間智慧主題的互動式安全版投影片，強調可直接開啟與展示。",
+    "source": "Jason 提供主題與文文整理研究",
+    "date": "2026-05-14",
+    "category": "AI 趨勢",
+    "zip_url": "https://drive.google.com/open?id=1Ed38VOEq0hxoCHiMcY6A0HaOUjMjoBGP"
+  },
+  {
+    "slug": "L1",
+    "name": "空間智慧：AI 下一個被低估的主戰場",
+    "desc": "介紹 Spatial Intelligence / 空間智慧的趨勢、應用與 AI 下一階段機會。",
+    "source": "Jason 提供主題與文文整理研究",
+    "date": "2026-05-14",
+    "category": "AI 趨勢",
+    "zip_url": "https://drive.google.com/open?id=1s4W5wyPQBgu00B4hsoO1ylnNdMvLhK9Z"
+  },
+  {
+    "slug": "AI1",
+    "name": "AI 智慧服務平台｜互動式 HTML 展示簡報版",
+    "desc": "AI 智慧服務平台展示簡報的另一版本，含互動式控制與平台能力架構。",
+    "source": "Jason / 文文內部 AI 智慧服務平台規劃資料",
+    "date": "2026-05-14",
+    "category": "AI 平台",
+    "zip_url": "https://drive.google.com/open?id=1MJzihPcWzOZjbGH-hgtzdSKmkGFofS3q"
+  },
+  {
+    "slug": "AI",
+    "name": "AI 智慧服務平台｜互動式 HTML 展示簡報版",
+    "desc": "企業級 AI 智慧服務平台展示簡報，整理客服、行銷、知識管理、決策支援與 AI 營運中樞概念。",
+    "source": "Jason / 文文內部 AI 智慧服務平台規劃資料",
+    "date": "2026-05-14",
+    "category": "AI 平台",
+    "zip_url": "https://drive.google.com/open?id=1SXj1WJszX28bYJGAyklfNRigtdCYmURn"
   }
 ]
