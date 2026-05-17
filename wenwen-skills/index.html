@@ -237,6 +237,10 @@
   <h3>小伙伴超能力入口模板</h3>
   <p class="code">partner-superpower-portal</p>
   <p>文文自己產生的技能。建立每位小伙伴自己的 GitHub Pages 超能力入口網站，包含主入口、網址列表、HTML PPT 目錄、技能列表與 Google Drive 檔案總管；帳號與連結一律使用該小伙伴自己的 Gmail、GitHub、Google Drive。</p>
+  <div class="skill-actions">
+    <a class="doc-link" href="../partner-superpower-portal-skill/" target="_blank" rel="noopener">完整文件</a>
+    <button class="share-link" type="button" data-share-card="partner-superpower-portal">技能分享</button>
+  </div>
 </article>
 <article class="skill-card" data-name="imagegen" data-cat="簡報與交付" data-status="已可用">
   <div class="card-top"><span class="pill">簡報與交付</span><span class="source">codex-system</span></div>
@@ -605,7 +609,14 @@
       if (!externalDoc) doc.addEventListener('click', () => showDocs(card));
       share.addEventListener('click', () => shareSkill(card).catch(() => alert(skillInfo(card).url)));
       actions.append(doc, share);
-      card.append(actions);
+      const existingActions = card.querySelector('.skill-actions');
+      if (existingActions) {
+        existingActions.querySelectorAll('[data-share-card]').forEach(button => {
+          button.addEventListener('click', () => shareSkill(card).catch(() => alert(skillInfo(card).url)));
+        });
+      } else {
+        card.append(actions);
+      }
     });
   </script>
 </body>
