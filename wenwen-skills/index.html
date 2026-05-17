@@ -39,8 +39,12 @@
     .skill-card h3{font-size:18px;margin:0 0 4px}
     .skill-card p{margin:8px 0 0;color:var(--muted);font-size:14px}
     .skill-card .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#67e8f9;font-size:13px;margin-top:0}
-    .skill-card .learn-link,.skill-card .share-link{display:inline-flex;align-items:center;justify-content:center;margin-top:13px;min-height:36px;padding:8px 12px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#04111f;text-decoration:none;font-size:13px;font-weight:900;border:0;cursor:pointer;font-family:inherit}
-    .skill-card .share-link{background:rgba(255,255,255,.08);color:var(--ink);border:1px solid var(--line);margin-left:6px}
+    .skill-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}
+    .skill-card .doc-link,.skill-card .share-link{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:8px 12px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#04111f;text-decoration:none;font-size:13px;font-weight:900;border:0;cursor:pointer;font-family:inherit}
+    .skill-card .share-link{background:rgba(255,255,255,.08);color:var(--ink);border:1px solid var(--line)}
+    dialog{max-width:min(720px,calc(100% - 28px));border:1px solid var(--line);border-radius:18px;background:#081024;color:var(--ink);box-shadow:0 28px 90px rgba(0,0,0,.52);padding:0}
+    dialog::backdrop{background:rgba(3,7,18,.68);backdrop-filter:blur(6px)}
+    .doc-modal{padding:22px}.doc-modal h3{font-size:24px;margin:0 0 6px}.doc-modal p{color:var(--muted)}.doc-modal dl{display:grid;grid-template-columns:120px 1fr;gap:8px 12px;color:var(--muted)}.doc-modal dt{color:#a7f3d0;font-weight:900}.doc-modal dd{margin:0}.modal-actions{display:flex;justify-content:flex-end;margin-top:18px}
     table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}
     th,td{text-align:left;border-bottom:1px solid var(--line);padding:12px 14px;vertical-align:top}
     th{background:rgba(255,255,255,.08);color:#dbeafe;font-size:14px}
@@ -233,8 +237,6 @@
   <h3>小伙伴超能力入口模板</h3>
   <p class="code">partner-superpower-portal</p>
   <p>建立每位小伙伴自己的 GitHub Pages 超能力入口網站，包含主入口、網址列表、HTML PPT 目錄、技能列表與 Google Drive 檔案總管；帳號與連結一律使用該小伙伴自己的 Gmail、GitHub、Google Drive。</p>
-  <a class="learn-link" href="../partner-superpower-portal-skill/#full-doc">完整文件</a>
-  <button class="share-link" type="button" data-share-skill>技能分享</button>
 </article>
 <article class="skill-card" data-name="imagegen" data-cat="簡報與交付" data-status="已可用">
   <div class="card-top"><span class="pill">簡報與交付</span><span class="source">codex-system</span></div>
@@ -493,6 +495,20 @@
   <footer>
     <div class="wrap">固定網址預計保持不變：/wenwen-skills/。每次新增技能、完成 PoC、或建立新的企業導入流程後更新。</div>
   </footer>
+  <dialog id="skillDocDialog">
+    <div class="doc-modal">
+      <h3 id="docTitle"></h3>
+      <p id="docDescription"></p>
+      <dl>
+        <dt>技能代號</dt><dd id="docCode"></dd>
+        <dt>分類</dt><dd id="docCategory"></dd>
+        <dt>來源</dt><dd id="docSource"></dd>
+        <dt>狀態</dt><dd id="docStatus"></dd>
+        <dt>公開鏈結</dt><dd id="docUrl"></dd>
+      </dl>
+      <div class="modal-actions"><button class="filter active" type="button" id="closeDocDialog">關閉</button></div>
+    </div>
+  </dialog>
   <script>
     const buttons = [...document.querySelectorAll('.filter')];
     const cards = [...document.querySelectorAll('.skill-card')];
@@ -513,12 +529,28 @@
       apply();
     }));
     search.addEventListener('input', apply);
-    const skillShare = {
-      title: '小伙伴超能力入口模板',
-      text: '學習 partner-superpower-portal 技能：建立自己的 GitHub Pages 超能力入口網站。',
-      url: 'https://hanassitant-cloud.github.io/jarvistest/partner-superpower-portal-skill/'
+    const siteRoot = 'https://hanassitant-cloud.github.io/jarvistest';
+    const specialDocs = {
+      'partner-superpower-portal': siteRoot + '/partner-superpower-portal-skill/#full-doc'
     };
-    async function shareSkill() {
+    function skillInfo(card) {
+      const code = card.querySelector('.code')?.textContent.trim() || card.dataset.name;
+      const title = card.querySelector('h3')?.textContent.trim() || code;
+      const description = [...card.querySelectorAll('p')]
+        .filter(p => !p.classList.contains('code'))
+        .map(p => p.textContent.trim())
+        .join(' ');
+      const source = card.querySelector('.source')?.textContent.trim() || '';
+      const url = specialDocs[code] || siteRoot + '/wenwen-skills/#skill-' + encodeURIComponent(code);
+      return { code, title, description, source, url, category: card.dataset.cat || '', status: card.dataset.status || '' };
+    }
+    async function shareSkill(card) {
+      const info = skillInfo(card);
+      const skillShare = {
+        title: info.title,
+        text: '文文技能：' + info.title + '（' + info.code + '）。' + info.description,
+        url: info.url
+      };
       if (navigator.share) {
         await navigator.share(skillShare);
         return;
@@ -526,8 +558,32 @@
       await navigator.clipboard.writeText(skillShare.url);
       alert('技能學習鏈結已複製');
     }
-    document.querySelectorAll('[data-share-skill]').forEach((button) => {
-      button.addEventListener('click', () => shareSkill().catch(() => alert(skillShare.url)));
+    const dialog = document.querySelector('#skillDocDialog');
+    function showDocs(card) {
+      const info = skillInfo(card);
+      document.querySelector('#docTitle').textContent = info.title;
+      document.querySelector('#docDescription').textContent = info.description;
+      document.querySelector('#docCode').textContent = info.code;
+      document.querySelector('#docCategory').textContent = info.category;
+      document.querySelector('#docSource').textContent = info.source;
+      document.querySelector('#docStatus').textContent = info.status;
+      document.querySelector('#docUrl').innerHTML = '<a href="' + info.url + '">' + info.url + '</a>';
+      if (dialog.showModal) dialog.showModal();
+    }
+    document.querySelector('#closeDocDialog').addEventListener('click', () => dialog.close());
+    cards.forEach(card => {
+      const info = skillInfo(card);
+      card.id = 'skill-' + info.code;
+      const actions = document.createElement('div');
+      actions.className = 'skill-actions';
+      const doc = specialDocs[info.code]
+        ? Object.assign(document.createElement('a'), { className: 'doc-link', href: specialDocs[info.code], textContent: '完整文件' })
+        : Object.assign(document.createElement('button'), { className: 'doc-link', type: 'button', textContent: '完整文件' });
+      const share = Object.assign(document.createElement('button'), { className: 'share-link', type: 'button', textContent: '技能分享' });
+      if (!specialDocs[info.code]) doc.addEventListener('click', () => showDocs(card));
+      share.addEventListener('click', () => shareSkill(card).catch(() => alert(skillInfo(card).url)));
+      actions.append(doc, share);
+      card.append(actions);
     });
   </script>
 </body>
