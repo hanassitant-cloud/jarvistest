@@ -20,12 +20,16 @@
     .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
     .card,.note{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;backdrop-filter:blur(18px)}
     .note{border-color:rgba(103,232,249,.34);background:rgba(103,232,249,.1)}
+    .meta-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}
+    .meta-item{background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:10px;padding:13px}
+    .meta-item span{display:block;color:var(--soft);font-size:12px;font-weight:800;text-transform:uppercase}
+    .meta-item strong{display:block;margin-top:4px;color:var(--ink);font-size:15px;word-break:break-word}
     code{color:#67e8f9;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
     .button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#04111f;text-decoration:none;font-weight:950;margin:8px 8px 0 0}
     .ghost{background:rgba(255,255,255,.08);color:var(--ink);border:1px solid var(--line)}
     ol,ul{padding-left:22px}
     footer{border-top:1px solid var(--line);padding:22px 0;color:var(--soft);font-size:13px}
-    @media(max-width:760px){.grid{grid-template-columns:1fr}header{padding-top:30px}}
+    @media(max-width:760px){.grid,.meta-grid{grid-template-columns:1fr}header{padding-top:30px}}
   </style>
 </head>
 <body>
@@ -39,6 +43,18 @@
     </div>
   </header>
   <main class="wrap">
+    <section class="note">
+      <h2>技能基本資料</h2>
+      <div class="meta-grid">
+        <div class="meta-item"><span>技能名稱</span><strong>小伙伴超能力入口模板</strong></div>
+        <div class="meta-item"><span>技能代號</span><strong>partner-superpower-portal</strong></div>
+        <div class="meta-item"><span>版號</span><strong>v1.0.0</strong></div>
+        <div class="meta-item"><span>產生日期</span><strong>2026-05-18</strong></div>
+        <div class="meta-item"><span>固定學習鏈結</span><strong>https://hanassitant-cloud.github.io/jarvistest/partner-superpower-portal-skill/</strong></div>
+        <div class="meta-item"><span>適用對象</span><strong>新小伙伴、企業 AI 助理、專案入口網站</strong></div>
+      </div>
+    </section>
+
     <section class="note">
       <h2>這個技能做什麼</h2>
       <p><code>partner-superpower-portal</code> 用來幫每位小伙伴建立自己的「超能力入口網站」。固定包含主入口、所有網址列表、HTML PPT 目錄、技能列表、Google Drive 檔案總管；也可以加客服入口、AI 整合網站與專題分析報告。</p>
