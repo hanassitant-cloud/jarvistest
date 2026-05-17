@@ -6,9 +6,10 @@
   <title>文文技能目錄｜OpenClaw</title>
   <meta name="description" content="文文已安裝技能、可用能力與未來候選技能總表。">
   <style>
-    :root{--bg:#030712;--ink:#f8fafc;--muted:#bfd2e8;--line:rgba(148,163,184,.24);--panel:rgba(16,27,51,.72);--brand:#67e8f9;--brand2:#86efac;--dark:#f8fafc;--soft:#8aa5bf}
+    :root{--bg:#030712;--ink:#f8fafc;--muted:#bfd2e8;--line:rgba(148,163,184,.24);--panel:rgba(16,27,51,.72);--brand:#67e8f9;--brand2:#86efac;--link:#7dd3fc;--dark:#f8fafc;--soft:#8aa5bf}
     *{box-sizing:border-box}
     body{margin:0;background:radial-gradient(circle at 20% 0%,rgba(96,165,250,.34),transparent 34rem),radial-gradient(circle at 85% 10%,rgba(52,211,153,.2),transparent 30rem),linear-gradient(145deg,#07162d 0%,#081024 42%,#030712 100%);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC",Arial,sans-serif;line-height:1.55}
+    a{color:var(--link);text-underline-offset:3px}
     body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(255,255,255,.05),transparent 28%),repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 96px);mask-image:linear-gradient(180deg,#000,transparent 78%)}
     header{background:transparent;color:white;padding:46px 20px 34px;border-bottom:1px solid rgba(148,163,184,.16);position:relative}
     .wrap{max-width:1180px;margin:0 auto}
@@ -44,7 +45,7 @@
     .skill-card .share-link{background:rgba(255,255,255,.08);color:var(--ink);border:1px solid var(--line)}
     dialog{max-width:min(720px,calc(100% - 28px));border:1px solid var(--line);border-radius:18px;background:#081024;color:var(--ink);box-shadow:0 28px 90px rgba(0,0,0,.52);padding:0}
     dialog::backdrop{background:rgba(3,7,18,.68);backdrop-filter:blur(6px)}
-    .doc-modal{padding:22px}.doc-modal h3{font-size:24px;margin:0 0 6px}.doc-modal p{color:var(--muted)}.doc-modal dl{display:grid;grid-template-columns:120px 1fr;gap:8px 12px;color:var(--muted)}.doc-modal dt{color:#a7f3d0;font-weight:900}.doc-modal dd{margin:0}.modal-actions{display:flex;justify-content:flex-end;margin-top:18px}
+    .doc-modal{padding:22px}.doc-modal h3{font-size:24px;margin:0 0 6px}.doc-modal p{color:var(--muted)}.doc-modal a{color:var(--link);font-weight:800;word-break:break-all}.doc-modal dl{display:grid;grid-template-columns:120px 1fr;gap:8px 12px;color:var(--muted)}.doc-modal dt{color:#a7f3d0;font-weight:900}.doc-modal dd{margin:0}.modal-actions{display:flex;justify-content:flex-end;margin-top:18px}
     table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}
     th,td{text-align:left;border-bottom:1px solid var(--line);padding:12px 14px;vertical-align:top}
     th{background:rgba(255,255,255,.08);color:#dbeafe;font-size:14px}
