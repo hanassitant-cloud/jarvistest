@@ -25,7 +25,7 @@
     .meta-item span{display:block;color:var(--soft);font-size:12px;font-weight:800;text-transform:uppercase}
     .meta-item strong{display:block;margin-top:4px;color:var(--ink);font-size:15px;word-break:break-word}
     code{color:#67e8f9;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-    .button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#04111f;text-decoration:none;font-weight:950;margin:8px 8px 0 0}
+    .button,button.button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#04111f;text-decoration:none;font-weight:950;margin:8px 8px 0 0;border:0;cursor:pointer;font:inherit}
     .ghost{background:rgba(255,255,255,.08);color:var(--ink);border:1px solid var(--line)}
     ol,ul{padding-left:22px}
     footer{border-top:1px solid var(--line);padding:22px 0;color:var(--soft);font-size:13px}
@@ -38,6 +38,8 @@
       <div class="eyebrow">WenWen Skill Learning Page / v1.0.0 / 2026-05-18</div>
       <h1>小伙伴超能力入口模板</h1>
       <p>這頁是給小伙伴學習用的公開說明。小伙伴拿到這個鏈結後，就能知道怎麼建立自己的 GitHub Pages 入口網站，而不是誤用文文、小張、賈維斯或小園的帳號。</p>
+      <button class="button" type="button" data-share-skill>技能分享</button>
+      <a class="button" href="#full-doc">完整文件</a>
       <a class="button" href="../wenwen-skills/">返回文文技能列表</a>
       <a class="button ghost" href="https://github.com/hanassitant-cloud/jarvistest/tree/main/partner-superpower-portal-skill">查看此學習頁原始檔</a>
     </div>
@@ -99,9 +101,44 @@
       </ol>
       <p>給小伙伴的簡短指令可以這樣寫：<code>請使用 partner-superpower-portal，幫我用自己的 Gmail、GitHub、Google Drive 建立我的超能力入口網站。</code></p>
     </section>
+
+    <section id="full-doc">
+      <h2>完整文件</h2>
+      <div class="card">
+        <h3>技能檔案結構</h3>
+        <ul>
+          <li><code>SKILL.md</code>：技能觸發說明、核心流程、隱私規則、設計標準與驗證方式。</li>
+          <li><code>references/function-map.md</code>：三個既有小伙伴入口網站的功能拆解，以及通用模板規格。</li>
+          <li><code>assets/sample-config.json</code>：小伙伴自己的 Gmail、GitHub、Google Drive、網址、簡報、技能、檔案清單設定範本。</li>
+          <li><code>scripts/build_portal.py</code>：從 JSON 設定產生 GitHub Pages 靜態入口網站的工具。</li>
+        </ul>
+        <h3>版本規則</h3>
+        <p>目前版號是 <code>v1.0.0</code>，產生日期是 <code>2026-05-18</code>。未來只要模板功能、頁面結構、產生器或規則有更新，就要提高版號並標註新的更新日期。</p>
+        <h3>分享規則</h3>
+        <p>分享給小伙伴時，直接給本頁固定鏈結即可。小伙伴學習時必須使用自己的 Gmail、GitHub、Google Drive，不得沿用文文或其他小伙伴的帳號、Repository、Drive 連結。</p>
+      </div>
+    </section>
   </main>
   <footer>
     <div class="wrap">固定學習頁：/partner-superpower-portal-skill/。未來技能更新時，請同步提高版本號與日期。</div>
   </footer>
+  <script>
+    const skillShare = {
+      title: '小伙伴超能力入口模板',
+      text: '學習 partner-superpower-portal 技能：建立自己的 GitHub Pages 超能力入口網站。',
+      url: 'https://hanassitant-cloud.github.io/jarvistest/partner-superpower-portal-skill/'
+    };
+    async function shareSkill() {
+      if (navigator.share) {
+        await navigator.share(skillShare);
+        return;
+      }
+      await navigator.clipboard.writeText(skillShare.url);
+      alert('技能學習鏈結已複製');
+    }
+    document.querySelectorAll('[data-share-skill]').forEach((button) => {
+      button.addEventListener('click', () => shareSkill().catch(() => alert(skillShare.url)));
+    });
+  </script>
 </body>
 </html>

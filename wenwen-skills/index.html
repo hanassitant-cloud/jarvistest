@@ -39,7 +39,8 @@
     .skill-card h3{font-size:18px;margin:0 0 4px}
     .skill-card p{margin:8px 0 0;color:var(--muted);font-size:14px}
     .skill-card .code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#67e8f9;font-size:13px;margin-top:0}
-    .skill-card .learn-link{display:inline-flex;align-items:center;justify-content:center;margin-top:13px;min-height:36px;padding:8px 12px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#04111f;text-decoration:none;font-size:13px;font-weight:900}
+    .skill-card .learn-link,.skill-card .share-link{display:inline-flex;align-items:center;justify-content:center;margin-top:13px;min-height:36px;padding:8px 12px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#04111f;text-decoration:none;font-size:13px;font-weight:900;border:0;cursor:pointer;font-family:inherit}
+    .skill-card .share-link{background:rgba(255,255,255,.08);color:var(--ink);border:1px solid var(--line);margin-left:6px}
     table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}
     th,td{text-align:left;border-bottom:1px solid var(--line);padding:12px 14px;vertical-align:top}
     th{background:rgba(255,255,255,.08);color:#dbeafe;font-size:14px}
@@ -232,7 +233,8 @@
   <h3>小伙伴超能力入口模板</h3>
   <p class="code">partner-superpower-portal</p>
   <p>建立每位小伙伴自己的 GitHub Pages 超能力入口網站，包含主入口、網址列表、HTML PPT 目錄、技能列表與 Google Drive 檔案總管；帳號與連結一律使用該小伙伴自己的 Gmail、GitHub、Google Drive。</p>
-  <a class="learn-link" href="../partner-superpower-portal-skill/">打開學習頁</a>
+  <a class="learn-link" href="../partner-superpower-portal-skill/#full-doc">完整文件</a>
+  <button class="share-link" type="button" data-share-skill>技能分享</button>
 </article>
 <article class="skill-card" data-name="imagegen" data-cat="簡報與交付" data-status="已可用">
   <div class="card-top"><span class="pill">簡報與交付</span><span class="source">codex-system</span></div>
@@ -511,6 +513,22 @@
       apply();
     }));
     search.addEventListener('input', apply);
+    const skillShare = {
+      title: '小伙伴超能力入口模板',
+      text: '學習 partner-superpower-portal 技能：建立自己的 GitHub Pages 超能力入口網站。',
+      url: 'https://hanassitant-cloud.github.io/jarvistest/partner-superpower-portal-skill/'
+    };
+    async function shareSkill() {
+      if (navigator.share) {
+        await navigator.share(skillShare);
+        return;
+      }
+      await navigator.clipboard.writeText(skillShare.url);
+      alert('技能學習鏈結已複製');
+    }
+    document.querySelectorAll('[data-share-skill]').forEach((button) => {
+      button.addEventListener('click', () => shareSkill().catch(() => alert(skillShare.url)));
+    });
   </script>
 </body>
 </html>
