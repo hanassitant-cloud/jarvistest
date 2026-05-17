@@ -232,11 +232,11 @@
   <p class="code">html-ppt-catalog</p>
   <p>維護所有 HTML PPT / GitHub Pages 簡報的固定總表。每做一份簡報後更新入口頁、名稱、描述、日期與連結。</p>
 </article>
-<article class="skill-card" data-name="partner-superpower-portal" data-cat="簡報與交付" data-status="已可用">
-  <div class="card-top"><span class="pill">簡報與交付</span><span class="source">workspace</span></div>
+<article class="skill-card" data-name="partner-superpower-portal" data-cat="簡報與交付" data-status="已可用" data-origin-note="文文自己產生的技能；完整說明、版號、產生日期與分享規則以文文公開學習頁為準。">
+  <div class="card-top"><span class="pill">簡報與交付</span><span class="source">文文自建</span></div>
   <h3>小伙伴超能力入口模板</h3>
   <p class="code">partner-superpower-portal</p>
-  <p>建立每位小伙伴自己的 GitHub Pages 超能力入口網站，包含主入口、網址列表、HTML PPT 目錄、技能列表與 Google Drive 檔案總管；帳號與連結一律使用該小伙伴自己的 Gmail、GitHub、Google Drive。</p>
+  <p>文文自己產生的技能。建立每位小伙伴自己的 GitHub Pages 超能力入口網站，包含主入口、網址列表、HTML PPT 目錄、技能列表與 Google Drive 檔案總管；帳號與連結一律使用該小伙伴自己的 Gmail、GitHub、Google Drive。</p>
 </article>
 <article class="skill-card" data-name="imagegen" data-cat="簡報與交付" data-status="已可用">
   <div class="card-top"><span class="pill">簡報與交付</span><span class="source">codex-system</span></div>
@@ -504,6 +504,7 @@
         <dt>分類</dt><dd id="docCategory"></dd>
         <dt>來源</dt><dd id="docSource"></dd>
         <dt>狀態</dt><dd id="docStatus"></dd>
+        <dt>來源說明</dt><dd id="docOrigin"></dd>
         <dt>公開鏈結</dt><dd id="docUrl"></dd>
       </dl>
       <div class="modal-actions"><button class="filter active" type="button" id="closeDocDialog">關閉</button></div>
@@ -560,7 +561,8 @@
         .join(' ');
       const source = card.querySelector('.source')?.textContent.trim() || '';
       const url = specialDocs[code] || publicGitHubDocs[code] || siteRoot + '/wenwen-skills/#skill-' + encodeURIComponent(code);
-      return { code, title, description, source, url, category: card.dataset.cat || '', status: card.dataset.status || '' };
+      const origin = card.dataset.originNote || (publicGitHubDocs[code] ? '公開 GitHub 技能；完整文件會直接導到原公開來源。' : '文文技能列表公開說明；目前沒有另外公開 GitHub 技能頁。');
+      return { code, title, description, source, url, origin, category: card.dataset.cat || '', status: card.dataset.status || '' };
     }
     async function shareSkill(card) {
       const info = skillInfo(card);
@@ -585,6 +587,7 @@
       document.querySelector('#docCategory').textContent = info.category;
       document.querySelector('#docSource').textContent = info.source;
       document.querySelector('#docStatus').textContent = info.status;
+      document.querySelector('#docOrigin').textContent = info.origin;
       document.querySelector('#docUrl').innerHTML = '<a href="' + info.url + '">' + info.url + '</a>';
       if (dialog.showModal) dialog.showModal();
     }
