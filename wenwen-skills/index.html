@@ -45,10 +45,13 @@
     td{font-size:14px;color:var(--muted)}
     tr:last-child td{border-bottom:0}
     .future-status{display:inline-block;background:rgba(134,239,172,.15);color:#86efac;border-radius:999px;padding:4px 8px;font-size:12px;white-space:nowrap}
+    .back-home-bottom{display:flex;justify-content:center;margin:34px 0 2px}
+    .back-home-bottom a{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:#04111f;background:linear-gradient(135deg,var(--brand),var(--brand2));border-radius:999px;padding:14px 22px;font-weight:950;box-shadow:0 18px 45px rgba(45,212,191,.18)}
+    .back-home-bottom .back-icon{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.58);font-size:19px}
     footer{border-top:1px solid var(--line);padding:22px 20px;color:var(--muted);background:rgba(3,7,18,.66);font-size:13px}
     .hidden{display:none!important}
     @media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:620px){header{padding-top:30px}.grid{grid-template-columns:1fr}.toolbar{align-items:stretch}.filters{width:100%}input{min-width:0;max-width:none;width:100%}th:nth-child(2),td:nth-child(2){display:none}}
+    @media(max-width:620px){header{padding-top:30px}.grid{grid-template-columns:1fr}.toolbar{align-items:stretch}.filters{width:100%}input{min-width:0;max-width:none;width:100%}.back-home-bottom a{width:100%;justify-content:center}th:nth-child(2),td:nth-child(2){display:none}}
   </style>
 </head>
 <body>
@@ -473,6 +476,9 @@
 <tr><td>Mac 待命 / 恢復系統</td><td><span class="future-status">已整合腳本</span></td><td>系統待命、系統待命鎖定、結束待命，保護遠端桌面與 OpenClaw 不中斷。</td></tr></tbody>
       </table>
     </section>
+    <div class="back-home-bottom">
+      <a href="../" aria-label="返回文文超能力主網頁"><span class="back-icon" aria-hidden="true">↩</span><span>返回文文超能力</span></a>
+    </div>
   </main>
   <footer>
     <div class="wrap">固定網址預計保持不變：/wenwen-skills/。每次新增技能、完成 PoC、或建立新的企業導入流程後更新。</div>
