@@ -533,6 +533,24 @@
     const specialDocs = {
       'partner-superpower-portal': siteRoot + '/partner-superpower-portal-skill/#full-doc'
     };
+    const publicGitHubDocs = {
+      'apple-notes': 'https://github.com/antoniorodr/memo',
+      'apple-reminders': 'https://github.com/steipete/remindctl',
+      'bear-notes': 'https://github.com/tylerwince/grizzly',
+      'blogwatcher': 'https://github.com/Hyaxia/blogwatcher',
+      'blucli': 'https://github.com/steipete/blucli',
+      'eightctl': 'https://github.com/steipete/eightctl',
+      'gifgrep': 'https://github.com/steipete/gifgrep',
+      'goplaces': 'https://github.com/steipete/goplaces',
+      'himalaya': 'https://github.com/pimalaya/himalaya',
+      'html-ppt': 'https://github.com/lewislulu/html-ppt-skill',
+      'openclaw-slides': 'https://github.com/zarazhangrui/openclaw-slides',
+      'ordercli': 'https://github.com/steipete/ordercli',
+      'songsee': 'https://github.com/steipete/songsee',
+      'things-mac': 'https://github.com/ossianhempel/things3-cli',
+      'wacli': 'https://github.com/steipete/wacli',
+      'xurl': 'https://github.com/xdevplatform/xurl'
+    };
     function skillInfo(card) {
       const code = card.querySelector('.code')?.textContent.trim() || card.dataset.name;
       const title = card.querySelector('h3')?.textContent.trim() || code;
@@ -541,7 +559,7 @@
         .map(p => p.textContent.trim())
         .join(' ');
       const source = card.querySelector('.source')?.textContent.trim() || '';
-      const url = specialDocs[code] || siteRoot + '/wenwen-skills/#skill-' + encodeURIComponent(code);
+      const url = specialDocs[code] || publicGitHubDocs[code] || siteRoot + '/wenwen-skills/#skill-' + encodeURIComponent(code);
       return { code, title, description, source, url, category: card.dataset.cat || '', status: card.dataset.status || '' };
     }
     async function shareSkill(card) {
@@ -576,11 +594,12 @@
       card.id = 'skill-' + info.code;
       const actions = document.createElement('div');
       actions.className = 'skill-actions';
-      const doc = specialDocs[info.code]
-        ? Object.assign(document.createElement('a'), { className: 'doc-link', href: specialDocs[info.code], textContent: '完整文件' })
+      const externalDoc = specialDocs[info.code] || publicGitHubDocs[info.code];
+      const doc = externalDoc
+        ? Object.assign(document.createElement('a'), { className: 'doc-link', href: externalDoc, target: '_blank', rel: 'noopener', textContent: '完整文件' })
         : Object.assign(document.createElement('button'), { className: 'doc-link', type: 'button', textContent: '完整文件' });
       const share = Object.assign(document.createElement('button'), { className: 'share-link', type: 'button', textContent: '技能分享' });
-      if (!specialDocs[info.code]) doc.addEventListener('click', () => showDocs(card));
+      if (!externalDoc) doc.addEventListener('click', () => showDocs(card));
       share.addEventListener('click', () => shareSkill(card).catch(() => alert(skillInfo(card).url)));
       actions.append(doc, share);
       card.append(actions);
