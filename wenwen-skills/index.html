@@ -69,14 +69,14 @@
       <p class="lead">這是文文目前可用技能、已整合工作流程與未來候選技能的固定列表。之後每安裝或完成一項新技能，就更新這一頁，讓 Jason 和小伙伴知道文文能做什麼。</p>
       <div class="meta">
         <span>更新時間：2026/5/18 上午07:05:00</span>
-        <span>已盤點技能：61 項</span>
+        <span>已盤點技能：62 項</span>
         <span>候選/整合流程：13 項</span>
       </div>
     </div>
   </header>
   <main class="wrap">
     <section class="stats">
-      <div class="stat"><strong>61</strong><span>目前可用技能</span></div>
+      <div class="stat"><strong>62</strong><span>目前可用技能</span></div>
       <div class="stat"><strong>7</strong><span>技能分類</span></div>
       <div class="stat"><strong>13</strong><span>候選與整合流程</span></div>
       <div class="stat"><strong>1</strong><span>固定維護入口</span></div>
@@ -242,6 +242,13 @@
     <a class="doc-link" href="../partner-superpower-portal-skill/" target="_blank" rel="noopener">完整文件</a>
     <button class="share-link" type="button" data-share-card="partner-superpower-portal">技能分享</button>
   </div>
+</article>
+<article class="skill-card" data-name="web-customer-service-widget" data-cat="簡報與交付" data-status="已可用" data-origin-note="Jason 與 ipoehawk_bot 討論出的網頁嵌入式客服助手能力；公開說明以 Widget 測試頁與程式鏈結為準，內部知識庫與分身設定不公開。">
+  <div class="card-top"><span class="pill">簡報與交付</span><span class="source">團隊自建</span></div>
+  <h3>網頁嵌入式客服助手 Widget</h3>
+  <p class="code">web-customer-service-widget</p>
+  <p>把客服助手嵌入到客戶網站右下角，讓訪客直接在網頁詢問問題；後端可由小伙伴分身扮演客服，依指定品牌、網站與資料範圍回答，例如勁園 AI 客服、毛天使客服助手或富盛豐客服問答。</p>
+  <p>目前 Widget 測試頁：<a href="https://ipoehawk.jarvisclawbot.com/a-agent/widget-demo/" target="_blank" rel="noopener">widget-demo</a>；嵌入程式：<a href="https://ipoehawk.jarvisclawbot.com/a-agent/widget.js" target="_blank" rel="noopener">widget.js</a>。</p>
 </article>
 <article class="skill-card" data-name="imagegen" data-cat="簡報與交付" data-status="已可用">
   <div class="card-top"><span class="pill">簡報與交付</span><span class="source">codex-system</span></div>
@@ -537,7 +544,8 @@
     search.addEventListener('input', apply);
     const siteRoot = 'https://hanassitant-cloud.github.io/jarvistest';
     const specialDocs = {
-      'partner-superpower-portal': siteRoot + '/partner-superpower-portal-skill/#full-doc'
+      'partner-superpower-portal': siteRoot + '/partner-superpower-portal-skill/#full-doc',
+      'web-customer-service-widget': 'https://ipoehawk.jarvisclawbot.com/a-agent/widget-demo/'
     };
     const publicGitHubDocs = {
       'apple-notes': 'https://github.com/antoniorodr/memo',
