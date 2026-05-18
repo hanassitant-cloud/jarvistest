@@ -28,6 +28,11 @@
     code{color:#67e8f9;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
     .button,button.button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#04111f;text-decoration:none;font-weight:950;margin:8px 8px 0 0;border:0;cursor:pointer;font:inherit}
     .ghost{background:rgba(255,255,255,.08);color:var(--ink);border:1px solid var(--line)}
+    .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.04)}
+    table{width:100%;border-collapse:collapse;min-width:760px}
+    th,td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    th{color:var(--ink);background:rgba(255,255,255,.07)}
+    td{color:var(--soft)}
     ol,ul{padding-left:22px}
     footer{border-top:1px solid var(--line);padding:22px 0;color:var(--soft);font-size:13px}
     @media(max-width:760px){.grid,.meta-grid{grid-template-columns:1fr}header{padding-top:30px}}
@@ -36,7 +41,7 @@
 <body>
   <header>
     <div class="wrap">
-      <div class="eyebrow">WenWen Skill Learning Page / v1.0.0 / 2026-05-18</div>
+      <div class="eyebrow">WenWen Skill Learning Page / v1.0.6 / 2026-05-18</div>
       <h1>小伙伴超能力入口模板</h1>
       <p>這頁是給小伙伴學習用的公開說明。小伙伴拿到這個鏈結後，就能知道怎麼建立自己的 GitHub Pages 入口網站，而不是誤用文文、小張、賈維斯或小園的帳號。</p>
       <button class="button" type="button" data-share-skill>技能分享</button>
@@ -51,7 +56,7 @@
       <div class="meta-grid">
         <div class="meta-item"><span>技能名稱</span><strong>小伙伴超能力入口模板</strong></div>
         <div class="meta-item"><span>技能代號</span><strong>partner-superpower-portal</strong></div>
-        <div class="meta-item"><span>版號</span><strong>v1.0.0</strong></div>
+        <div class="meta-item"><span>版號</span><strong>v1.0.6</strong></div>
         <div class="meta-item"><span>產生日期</span><strong>2026-05-18</strong></div>
         <div class="meta-item"><span>固定學習鏈結</span><strong>https://hanassitant-cloud.github.io/jarvistest/partner-superpower-portal-skill/</strong></div>
         <div class="meta-item"><span>適用對象</span><strong>新小伙伴、企業 AI 助理、專案入口網站</strong></div>
@@ -70,6 +75,29 @@
         <article class="card"><h3>自己的 GitHub</h3><p>用自己的 GitHub 帳號開 repository，GitHub Pages 網址格式通常是 <code>https://帳號.github.io/倉庫名稱/</code>。</p></article>
         <article class="card"><h3>自己的 Google Drive</h3><p>公開交付檔案放在自己的 Drive 資料夾，只有確認可公開的檔案才放進檔案總管。</p></article>
         <article class="card"><h3>自己的公開連結</h3><p>官方網站、社群、LINE/Telegram 客服、AI 系統與簡報連結，都必須是該小伙伴或該公司自己的。</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>開工前資料表</h2>
+      <div class="card">
+        <p>小伙伴不能亂填、猜填或照抄其他小伙伴的資料。開工前先自己判斷每個欄位要填什麼，能從本機環境查到的先查，不能安全確認的標成需要文文或 Jason 核對。填完後先交給文文對一遍；真的需要 Jason 提供或授權的，再集中問 Jason。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>欄位</th><th>要填的資料</th><th>資料來源</th><th>核對狀態</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>小伙伴名稱</td><td>公開名稱、Bot 名稱、角色</td><td>Jason 提供 / 既有設定</td><td>文文核對</td><td>不要沿用別人的名稱。</td></tr>
+            <tr><td>工作目錄</td><td>本機 workspace 或專案資料夾</td><td>自己查本機環境</td><td>文文核對</td><td>路徑要存在且可寫入。</td></tr>
+            <tr><td>備份磁碟</td><td>自己的備份磁碟名稱</td><td>Jason 提供 / 自己查掛載磁碟</td><td>文文核對</td><td>文文的 B21 只是文文自己的，不是通用值。</td></tr>
+            <tr><td>備份資料夾</td><td>磁碟下自己的資料夾</td><td>Jason 提供 / 既有設定</td><td>文文核對</td><td>例如艾瑞卡使用艾瑞卡資料夾。</td></tr>
+            <tr><td>Gmail</td><td>小伙伴自己的 Gmail</td><td>Jason 提供</td><td>文文核對</td><td>拼字不確定要先確認。</td></tr>
+            <tr><td>GitHub</td><td>帳號、repo、Pages 分支、發布 URL</td><td>自己查登入狀態 / Jason 授權</td><td>文文核對</td><td>會影響公開發布，不能猜。</td></tr>
+            <tr><td>Google Drive</td><td>帳號、資料夾、分享規則</td><td>自己查授權 / Jason 授權</td><td>文文核對</td><td>公開或限制分享要先確認。</td></tr>
+            <tr><td>公私邊界</td><td>哪些能公開、哪些不能公開</td><td>Jason 提供 / 文文判斷</td><td>文文核對</td><td>涉及客戶、內部方法、Prompt、Token 一律保守。</td></tr>
+            <tr><td>入口網址</td><td>slug、最終 GitHub Pages URL</td><td>既有設定 / Jason 提供</td><td>文文核對</td><td>要唯一、可讀、不可覆蓋別人的資料夾。</td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -109,7 +137,9 @@
     <section>
       <h2>學習使用方式</h2>
       <ol>
-        <li>先準備自己的 Gmail、GitHub repository、Google Drive 公開資料夾。</li>
+        <li>先填完開工前資料表，標明資料來源與核對狀態。</li>
+        <li>把填好的資料表交給文文核對；文文確認缺哪些資料後，真的需要 Jason 的才集中問 Jason。</li>
+        <li>確認自己的 Gmail、GitHub repository、Google Drive 公開資料夾、備份磁碟與備份資料夾。</li>
         <li>把公司或小伙伴名稱、公開網址、簡報、技能、檔案清單整理成 JSON 設定。</li>
         <li>用 <code>partner-superpower-portal</code> 產生靜態網站。</li>
         <li>把產生出的檔案放到自己的 GitHub Pages repository。</li>
@@ -129,7 +159,7 @@
           <li><code>scripts/build_portal.py</code>：從 JSON 設定產生 GitHub Pages 靜態入口網站的工具。</li>
         </ul>
         <h3>版本規則</h3>
-        <p>目前版號是 <code>v1.0.0</code>，產生日期是 <code>2026-05-18</code>。未來只要模板功能、頁面結構、產生器或規則有更新，就要提高版號並標註新的更新日期。</p>
+        <p>目前版號是 <code>v1.0.6</code>，產生日期是 <code>2026-05-18</code>。未來只要模板功能、頁面結構、產生器或規則有更新，就要提高版號並標註新的更新日期。</p>
         <h3>分享規則</h3>
         <p>分享給小伙伴時，直接給本頁固定鏈結即可。小伙伴學習時必須使用自己的 Gmail、GitHub、Google Drive，不得沿用文文或其他小伙伴的帳號、Repository、Drive 連結。若是小伙伴的客戶會看到的頁面，只能呈現應用、服務能力與成果，不放詳細教學、機密資訊、內部流程或完整實行方法；這是保護 Jason 團隊長久業務的基本規範。</p>
       </div>
