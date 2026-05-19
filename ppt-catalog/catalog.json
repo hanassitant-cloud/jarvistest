@@ -1,5 +1,17 @@
 [
   {
+    "slug": "liufu-baozi-ai-diagnosis",
+    "name": "六福包子｜桃園在地排隊名店 AI 商業診斷圖文版",
+    "desc": "整理桃園六福包子的公開食記、Google 評價線索、排隊人氣、分店與菜單資訊，並轉成 AI 客服、團購預訂、尖峰分流與在地品牌經營的顧問提案。",
+    "source": "AJ 的旅行地圖、蘋果樹旅遊玩樂誌、VIVIYU 小世界、女子的休假計劃、FonFood 等公開網路資料 + 文文 AI 顧問分析",
+    "date": "2026-05-19",
+    "category": "顧問提案",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/liufu-baozi-ai-diagnosis/",
+    "backup": "/Volumes/B21/文文/GitHubPages交付/liufu-baozi-ai-diagnosis/",
+    "zip_url": "https://drive.google.com/open?id=1dztdC_K8b-MywR1K8JB9ubj27uhJhM82",
+    "notes": "Google 評分與評論數為公開資料頁擷取線索，正式商業提案前建議再核對 Google 商家即時資料。"
+  },
+  {
     "slug": "tong-beauty-ai-diagnosis",
     "name": "彤美人美容美體莊園｜AI 商業診斷與成長提案",
     "desc": "以公開資料與前次調研整理彤美人的品牌定位、服務/產品收入線、競品缺口、Google 商家與社群優化、會員回訪漏斗，以及 AI LINE 客服與預約前諮詢導入路線圖。",
