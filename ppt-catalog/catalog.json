@@ -1,5 +1,17 @@
 [
   {
+    "slug": "nanshan-life-research",
+    "name": "南山人壽｜全方位調查與 AI 顧問觀察",
+    "desc": "整理南山人壽公開資料，涵蓋公司概況、財務狀況、IFRS17/CSM、新制風險、員工與業務員狀況、通路與商品策略，以及 AI 顧問導入觀察。",
+    "source": "南山人壽官方資訊公開、中央社、Yahoo 股市/財訊快報、蕃新聞/品觀點、公開就業資訊等公開資料 + 文文 AI 顧問分析",
+    "date": "2026-05-19",
+    "category": "企業個案",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/nanshan-life-research/",
+    "backup": "/Volumes/B21/文文/GitHubPages交付/nanshan-life-research/",
+    "zip_url": "",
+    "notes": "所有數字為公開資料整理，正式商業、投資或法規判斷前應再核對南山最新官方公告與主管機關資料。"
+  },
+  {
     "slug": "liufu-baozi-ai-diagnosis",
     "name": "六福包子｜桃園在地排隊名店 AI 商業診斷圖文版",
     "desc": "整理桃園六福包子的公開食記、Google 評價線索、排隊人氣、分店與菜單資訊，並轉成 AI 客服、團購預訂、尖峰分流與在地品牌經營的顧問提案。",
