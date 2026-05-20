@@ -84,7 +84,7 @@
 
     <section>
       <h2>維護原則</h2>
-      <div class="note">這份表不是機密設定檔，不放 API Key、Token、密碼、Gateway 細節或客戶敏感資料。它只公開技能名稱、用途和狀態，方便教學、協作與企業導入規劃。</div>
+      <div class="note">這份表不是機密設定檔，不放敏感權限資料、後端連線細節或客戶敏感資料。它只公開技能名稱、用途和狀態，方便教學、協作與企業導入規劃。</div>
     </section>
 
     <section>
@@ -243,14 +243,14 @@
     <button class="share-link" type="button" data-share-card="partner-superpower-portal">技能分享</button>
   </div>
 </article>
-<article class="skill-card" data-name="web-customer-service-widget" data-cat="簡報與交付" data-status="已可用" data-origin-note="Jason 與 ipoehawk_bot 討論出的網頁嵌入式客服助手能力；公開說明以 Widget 測試頁與程式鏈結為準，內部知識庫與分身設定不公開。">
+<article class="skill-card" data-name="web-customer-service-widget" data-cat="簡報與交付" data-status="已可用" data-origin-note="Jason 與團隊討論出的網頁嵌入式客服助手能力；公開說明只保留應用與成果，內部知識庫與分身設定不公開。">
   <div class="card-top"><span class="pill">簡報與交付</span><span class="source">團隊自建</span></div>
   <h3>網頁嵌入式客服助手 Widget</h3>
   <p class="code">web-customer-service-widget</p>
   <p>把客服助手嵌入到客戶網站右下角，讓訪客直接在網頁詢問問題；後端可由小伙伴分身扮演客服，依指定品牌、網站與資料範圍回答，例如勁園 AI 客服、毛天使客服助手或富盛豐客服問答。</p>
-  <p>目前 Widget 測試頁：<a href="https://ipoehawk.jarvisclawbot.com/a-agent/widget-demo/" target="_blank" rel="noopener">widget-demo</a>；嵌入程式：<a href="https://ipoehawk.jarvisclawbot.com/a-agent/widget.js" target="_blank" rel="noopener">widget.js</a>。</p>
+  <p>目前公開說明只保留 Widget 的應用方式與客戶價值；測試頁、嵌入程式與內部設定不在公開頁面列出。</p>
   <div class="skill-actions">
-    <a class="doc-link" href="https://ipoehawk.jarvisclawbot.com/a-agent/widget-demo/" target="_blank" rel="noopener">完整文件</a>
+    <span class="doc-link">公開說明整理中</span>
     <button class="share-link" type="button" data-share-card="web-customer-service-widget">技能分享</button>
   </div>
 </article>
@@ -306,7 +306,7 @@
   <div class="card-top"><span class="pill">開發與代理</span><span class="source">codex-system</span></div>
   <h3>OpenAI 官方文件查詢</h3>
   <p class="code">openai-docs</p>
-  <p>查詢 OpenAI 官方文件與最新 API 用法。適合選模型、升級 API、設計 prompt 或確認官方規格。</p>
+  <p>查詢 OpenAI 官方文件與最新 API 用法。適合選模型、升級 API、設計指令或確認官方規格。</p>
 </article>
 <article class="skill-card" data-name="openai-whisper" data-cat="知識與文件" data-status="已可用">
   <div class="card-top"><span class="pill">知識與文件</span><span class="source">openclaw</span></div>
@@ -384,7 +384,7 @@
   <div class="card-top"><span class="pill">開發與代理</span><span class="source">codex-system</span></div>
   <h3>建立與維護技能包</h3>
   <p class="code">skill-creator</p>
-  <p>建立、整理、審查與改進 AgentSkill / SKILL.md。適合把固定工作流程變成可重複使用的技能。</p>
+  <p>建立、整理、審查與改進 AgentSkill 技能文件。適合把固定工作流程變成可重複使用的技能。</p>
 </article>
 <article class="skill-card" data-name="skill-installer" data-cat="開發與代理" data-status="已可用">
   <div class="card-top"><span class="pill">開發與代理</span><span class="source">codex-system</span></div>
@@ -549,7 +549,7 @@
     const siteRoot = 'https://hanassitant-cloud.github.io/jarvistest';
     const specialDocs = {
       'partner-superpower-portal': siteRoot + '/partner-superpower-portal-skill/#full-doc',
-      'web-customer-service-widget': 'https://ipoehawk.jarvisclawbot.com/a-agent/widget-demo/'
+      'web-customer-service-widget': 'Web 客服 Widget 知識庫穩定化：公開示範連結依專案核准後提供。'
     };
     const publicGitHubDocs = {
       'apple-notes': 'https://github.com/antoniorodr/memo',

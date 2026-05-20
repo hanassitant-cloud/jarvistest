@@ -2,14 +2,13 @@
   {
     "slug": "ai-platform-spec-visual",
     "name": "AI智慧平台導入｜平台規格圖文簡報",
-    "desc": "將 AI-platform-spec-1.1 對外版規格書轉為 HTML PPT 圖文版，整理平台定位、導入流程、核心模組、支援模組、資料安全與交付驗收。",
-    "source": "AI-platform-spec-1.1.pdf 對外版規格書",
+    "desc": "將 AI-platform-spec-1.1 正式規格書轉為 HTML PPT 圖文版，整理平台定位、導入流程、核心模組、支援模組、資料安全與交付驗收。",
+    "source": "AI-platform-spec-1.1.pdf 正式規格書",
     "date": "2026-05-20",
     "category": "AI 平台",
     "url": "https://hanassitant-cloud.github.io/jarvistest/ai-platform-spec-visual/",
-    "backup": "/Volumes/B21/文文/GitHubPages交付/ai-platform-spec-visual/",
     "zip_url": "https://drive.google.com/open?id=1DOaBjrMQAC2IXy902G8-EEQSHm17DRfG",
-    "notes": "對外展示版，不包含內部版管理規則、機密路徑、Prompt、腳本、Gateway 或可複製內部方法。"
+    "notes": "公開展示版本，不包含內部管理規則、機密路徑、腳本或可複製內部方法。"
   },
   {
     "slug": "nanshan-life-research",
@@ -19,7 +18,6 @@
     "date": "2026-05-19",
     "category": "企業個案",
     "url": "https://hanassitant-cloud.github.io/jarvistest/nanshan-life-research/",
-    "backup": "/Volumes/B21/文文/GitHubPages交付/nanshan-life-research/",
     "zip_url": "https://drive.google.com/open?id=1OL59f6HjAh_zWPQX8aLd04ebdKsBxkv7",
     "notes": "所有數字為公開資料整理，正式商業、投資或法規判斷前應再核對南山最新官方公告與主管機關資料。"
   },
@@ -31,7 +29,6 @@
     "date": "2026-05-19",
     "category": "顧問提案",
     "url": "https://hanassitant-cloud.github.io/jarvistest/liufu-baozi-ai-diagnosis/",
-    "backup": "/Volumes/B21/文文/GitHubPages交付/liufu-baozi-ai-diagnosis/",
     "zip_url": "https://drive.google.com/open?id=1dztdC_K8b-MywR1K8JB9ubj27uhJhM82",
     "notes": "Google 評分與評論數為公開資料頁擷取線索，正式商業提案前建議再核對 Google 商家即時資料。"
   },
@@ -43,7 +40,6 @@
     "date": "2026-05-16",
     "category": "顧問提案",
     "url": "https://hanassitant-cloud.github.io/jarvistest/tong-beauty-ai-diagnosis/",
-    "backup": "/Volumes/B21/文文/GitHubPages交付/tong-beauty-ai-diagnosis/",
     "zip_url": "https://drive.google.com/open?id=1MkQX61PjeIDrEnbsY7JlCbiX0szWcDvM",
     "notes": "健康/能量檢測相關內容僅作行銷與客服資訊整理，不替代醫療診斷。"
   },
