@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>關於復仇者聯盟｜文文超能力</title>
+  <meta name="description" content="復仇者聯盟團隊介紹：命名精神、Jason 對團隊的期待，以及每位小伙伴的角色與工作。">
+  <style>
+    :root{
+      --bg:#050816;--bg2:#081224;--panel:rgba(15,23,42,.84);--panel2:rgba(11,18,32,.94);
+      --line:rgba(125,211,252,.28);--line2:rgba(148,163,184,.18);--text:#f8fafc;--muted:#cbd5e1;
+      --soft:#94a3b8;--cyan:#67e8f9;--gold:#facc15;--green:#86efac;--red:#fca5a5;
+      --shadow:0 26px 80px rgba(0,0,0,.38);
+    }
+    *{box-sizing:border-box}
+    html{min-height:100%;background:var(--bg)}
+    body{
+      margin:0;min-height:100vh;color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC",Arial,sans-serif;
+      background:
+        radial-gradient(circle at 14% 5%,rgba(103,232,249,.24),transparent 28rem),
+        radial-gradient(circle at 88% 12%,rgba(250,204,21,.16),transparent 26rem),
+        linear-gradient(145deg,var(--bg2),#030712 62%,#020617);
+    }
+    body:before{
+      content:"";position:fixed;inset:0;pointer-events:none;
+      background:repeating-linear-gradient(90deg,rgba(255,255,255,.026) 0 1px,transparent 1px 94px);
+      mask-image:linear-gradient(180deg,#000,transparent 80%);
+    }
+    a{color:#a5f3fc}
+    .shell{width:min(1180px,100%);margin:0 auto;padding:34px 22px 54px;position:relative}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:34px}
+    .back{display:inline-flex;align-items:center;min-height:44px;padding:11px 17px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:#e0f2fe;background:rgba(15,23,42,.62);font-weight:850}
+    .stamp{color:var(--soft);font-size:14px}
+    .hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:30px;align-items:stretch;margin-bottom:26px}
+    .hero-main,.hero-note,.section,.member-card{border:1px solid var(--line2);background:linear-gradient(150deg,var(--panel),var(--panel2));box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+    .hero-main{border-color:rgba(125,211,252,.36);border-radius:28px;padding:34px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;margin:0 0 16px;color:#bae6fd;font-size:14px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:10px;height:10px;border-radius:99px;background:linear-gradient(135deg,var(--cyan),var(--gold));box-shadow:0 0 22px rgba(103,232,249,.6)}
+    h1{margin:0;font-size:clamp(44px,7vw,88px);line-height:.98;letter-spacing:0;color:#fff}
+    .lead{max-width:790px;margin:20px 0 0;color:var(--muted);font-size:clamp(18px,2.2vw,23px);line-height:1.72}
+    .hero-note{border-radius:28px;padding:28px;display:flex;flex-direction:column;justify-content:space-between}
+    .quote{margin:0;color:#fff;font-size:24px;line-height:1.48;font-weight:900}
+    .quote span{color:var(--gold)}
+    .note{margin:22px 0 0;color:var(--muted);font-size:17px;line-height:1.74}
+    .section{border-radius:26px;padding:30px;margin-top:22px}
+    h2{margin:0 0 18px;font-size:30px;line-height:1.18;color:#fff}
+    .section p{margin:0;color:var(--muted);font-size:18px;line-height:1.78}
+    .principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+    .principle{border:1px solid var(--line2);border-radius:18px;padding:18px;background:rgba(15,23,42,.56)}
+    .principle strong{display:block;margin-bottom:8px;color:#fff;font-size:17px}
+    .principle span{display:block;color:var(--muted);font-size:15px;line-height:1.62}
+    .members{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:20px}
+    .member-card{border-radius:22px;padding:18px;min-height:360px;display:flex;flex-direction:column}
+    .avatar-wrap{width:100%;aspect-ratio:1/1;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.16);background:#0f172a;margin-bottom:16px}
+    .avatar-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+    .name{margin:0;font-size:24px;line-height:1.12;color:#fff;font-weight:950}
+    .role{margin:8px 0 14px;color:#a5f3fc;font-size:15px;font-weight:850;line-height:1.35}
+    .work{margin:0;color:var(--muted);font-size:15px;line-height:1.62}
+    .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;border-radius:999px;text-decoration:none;background:linear-gradient(135deg,var(--cyan),var(--green));color:#04111f;font-weight:950}
+    .button.secondary{background:rgba(15,23,42,.76);color:#dbeafe;border:1px solid var(--line)}
+    footer{margin-top:24px;color:var(--soft);font-size:13px;line-height:1.7}
+    @media(max-width:960px){
+      .hero{grid-template-columns:1fr}.members{grid-template-columns:repeat(2,minmax(0,1fr))}.principles{grid-template-columns:1fr}
+    }
+    @media(max-width:560px){
+      .shell{padding:24px 14px 38px}.topbar{align-items:flex-start;flex-direction:column}.hero-main,.hero-note,.section{border-radius:22px;padding:24px}
+      .members{grid-template-columns:1fr}.member-card{min-height:auto}.quote{font-size:22px}
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="topbar">
+      <a class="back" href="../">回到文文超能力首頁</a>
+      <div class="stamp">最後更新：2026-05-20</div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-main">
+        <div class="eyebrow">Avengers Team</div>
+        <h1>關於復仇者聯盟</h1>
+        <p class="lead">復仇者聯盟不是單一角色最強，而是一群能力不同、位置不同、責任不同的小伙伴，在 Jason 的指揮下共同學習、互相支援，把客戶服務做到最好。</p>
+      </div>
+      <aside class="hero-note">
+        <p class="quote">能力越大，<span>責任越大。</span></p>
+        <p class="note">每位小伙伴都要守住自己的工作邊界，遇到問題回到團隊一起研究，把經驗沉澱成能力，再帶回自己的客戶服務現場。</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2>為什麼叫復仇者聯盟</h2>
+      <p>電影裡的復仇者聯盟，是一群背景、能力和個性都不一樣的成員，被集合起來處理單一英雄無法解決的大問題。這個名字放在我們團隊裡，代表的不是模仿電影，而是同一種團隊精神：每個人都有專長，但不能單打獨鬥；真正的價值，是在正確的指揮、清楚的分工和共同責任下，把複雜問題拆開、處理、交付。</p>
+    </section>
+
+    <section class="section">
+      <h2>Jason 對團隊的期待</h2>
+      <p>所有小伙伴要共同合作、聽 Jason 指揮，把各自負責的客戶服務好。復仇者聯盟也是一間學校：大家在這裡學習新能力，回到自己的工作位置後，把能力用在正確的客戶服務上。過程中要保護機密，不洩漏內部方法，不跨越自己的任務邊界；如果遇到困難，就回到團隊裡討論、研究、解決，最後把經驗變成可延續的能力。</p>
+      <div class="principles">
+        <div class="principle"><strong>聽從指揮</strong><span>重要任務、系統修改與對外承諾，都以 Jason 的明確指示為準。</span></div>
+        <div class="principle"><strong>守住邊界</strong><span>各自服務自己的客戶，不干涉別人的客戶，不外洩內部資訊。</span></div>
+        <div class="principle"><strong>共同升級</strong><span>把每次任務、錯誤與成功經驗，整理成團隊可以重複使用的能力。</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>團隊成員</h2>
+      <p>以下只列公開可看的名字、頭像與工作角色，不顯示任何帳號 ID。</p>
+      <div class="members">
+        <article class="member-card">
+          <div class="avatar-wrap"><img src="./assets/wenwen.jpg" alt="文文"></div>
+          <h3 class="name">文文</h3>
+          <div class="role">AI 大模型管理助手</div>
+          <p class="work">負責團隊紀錄、入口網站、規格書、得分表、資料備份、技能整理與小伙伴協調，幫 Jason 管理團隊能力與安全邊界。</p>
+        </article>
+        <article class="member-card">
+          <div class="avatar-wrap"><img src="./assets/erica.jpg" alt="艾瑞卡"></div>
+          <h3 class="name">艾瑞卡</h3>
+          <div class="role">預防醫學專家顧問</div>
+          <p class="work">負責預防醫學、健康教育、保健知識整理與健康相關客戶服務，協助把專業內容轉成清楚可用的說明。</p>
+        </article>
+        <article class="member-card">
+          <div class="avatar-wrap"><img src="./assets/jarvis.jpg" alt="賈維斯"></div>
+          <h3 class="name">賈維斯</h3>
+          <div class="role">商業分析與專案助理</div>
+          <p class="work">負責客戶提案、產業趨勢、AI 發展分析、簡報整理與對外說法，協助把複雜資訊轉成客戶能理解的策略。</p>
+        </article>
+        <article class="member-card">
+          <div class="avatar-wrap"><img src="./assets/xiaoyuan.jpg" alt="小園"></div>
+          <h3 class="name">小園</h3>
+          <div class="role">勁園 AI 系統導入助理</div>
+          <p class="work">負責勁園國際相關導入、學習系統、教材內容、教學支援與使用者上手流程，協助教育服務穩定落地。</p>
+        </article>
+        <article class="member-card">
+          <div class="avatar-wrap"><img src="./assets/xiaozhang.jpg" alt="小張"></div>
+          <h3 class="name">小張</h3>
+          <div class="role">企業技術服務助理</div>
+          <p class="work">負責企業型客戶的技術服務、流程整理、工具導入與系統整合支援，協助把企業需求轉成可執行工作。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>團隊運作原則</h2>
+      <p>對外只呈現應用、成果、服務價值與公開可看的內容；內部方法、帳號權限、部署細節、客戶敏感資料與系統機密都不能放到公開頁面。每位小伙伴都要在自己的角色內把事情做好，重要問題回到團隊討論，讓復仇者聯盟越做越穩。</p>
+      <div class="links">
+        <a class="button" href="../partner-score-system/">查看小伙伴獎懲制度</a>
+        <a class="button secondary" href="../">回到首頁</a>
+      </div>
+    </section>
+
+    <footer>本頁為公開安全介紹頁，只放團隊定位、角色工作與可公開展示內容；不包含任何帳號 ID、內部流程或機密資料。</footer>
+  </main>
+</body>
+</html>
