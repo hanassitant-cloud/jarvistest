@@ -1,5 +1,17 @@
 [
   {
+    "slug": "ai-platform-spec-visual",
+    "name": "AI智慧平台導入｜平台規格圖文簡報",
+    "desc": "將 AI-platform-spec-1.1 對外版規格書轉為 HTML PPT 圖文版，整理平台定位、導入流程、核心模組、支援模組、資料安全與交付驗收。",
+    "source": "AI-platform-spec-1.1.pdf 對外版規格書",
+    "date": "2026-05-20",
+    "category": "AI 平台",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/ai-platform-spec-visual/",
+    "backup": "/Volumes/B21/文文/GitHubPages交付/ai-platform-spec-visual/",
+    "zip_url": "https://drive.google.com/open?id=1DOaBjrMQAC2IXy902G8-EEQSHm17DRfG",
+    "notes": "對外展示版，不包含內部版管理規則、機密路徑、Prompt、腳本、Gateway 或可複製內部方法。"
+  },
+  {
     "slug": "nanshan-life-research",
     "name": "南山人壽｜全方位調查與 AI 顧問觀察",
     "desc": "整理南山人壽公開資料，涵蓋公司概況、財務狀況、IFRS17/CSM、新制風險、員工與業務員狀況、通路與商品策略，以及 AI 顧問導入觀察。",

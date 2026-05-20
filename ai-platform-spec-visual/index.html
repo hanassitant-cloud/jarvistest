@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>AI智慧平台導入｜產品規格圖文簡報</title>
+  <meta name="description" content="AI platform spec 1.1 external visual HTML PPT.">
+  <style>
+    :root{
+      --ink:#162033;--muted:#5d697c;--subtle:#7c8797;--paper:#fbfcff;--panel:#ffffff;
+      --line:rgba(22,32,51,.12);--blue:#1867c9;--cyan:#0f9bb5;--green:#1d8f68;
+      --amber:#c98412;--rose:#c94b67;--violet:#7555c7;--shadow:0 26px 70px rgba(18,32,58,.16);
+      --bar:#ffffff;--darkbtn:#182235;--btn:#1464d2;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;overflow:hidden;background:#edf3f8;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",Arial,sans-serif;letter-spacing:0}
+    body{background:linear-gradient(135deg,#f8fbff 0%,#eef7f7 46%,#f6f3ec 100%)}
+    a{color:inherit}
+    .deck{height:100vh;width:100vw;position:relative;overflow:hidden}
+    .slide{position:absolute;inset:0;padding:68px 7vw 112px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:42px;align-items:center;opacity:0;pointer-events:none;transform:translateX(36px) scale(.985);transition:opacity .38s ease,transform .38s ease}
+    .slide.active{opacity:1;pointer-events:auto;transform:translateX(0) scale(1)}
+    .slide::before{content:"";position:absolute;inset:22px;border:1px solid rgba(22,32,51,.08);border-radius:18px;pointer-events:none}
+    .slide::after{content:"";position:absolute;right:6vw;top:48px;width:180px;height:180px;background:conic-gradient(from 120deg,rgba(24,103,201,.18),rgba(15,155,181,.12),rgba(29,143,104,.16),rgba(24,103,201,.18));border-radius:50%;filter:blur(1px);opacity:.55;z-index:-1}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    .eyebrow{display:inline-flex;gap:10px;align-items:center;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.74);font-size:14px;color:var(--muted);font-weight:700}
+    h1,h2{margin:0;line-height:1.06;letter-spacing:0}
+    h1{font-size:clamp(42px,6.8vw,88px);font-weight:900}
+    h2{font-size:clamp(34px,4.2vw,62px);font-weight:900}
+    .lead{font-size:clamp(18px,2.1vw,28px);line-height:1.55;color:#2e3a4d;margin:24px 0 0;max-width:900px}
+    .body{font-size:18px;line-height:1.75;color:#364256;margin:18px 0 0}
+    .small{font-size:14px;color:var(--subtle);line-height:1.6}
+    .stack{display:grid;gap:16px}
+    .card{background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:8px;box-shadow:0 16px 42px rgba(18,32,58,.08);padding:20px}
+    .card h3{margin:0 0 8px;font-size:21px;letter-spacing:0}
+    .card p{margin:0;color:#4a5669;line-height:1.58}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;border-radius:999px;background:#eef6ff;border:1px solid rgba(24,103,201,.18);color:#164d8b;font-weight:800;font-size:14px}
+    .hero-panel{position:relative;min-height:520px;border-radius:8px;background:linear-gradient(145deg,#ffffff,#eaf5f7);box-shadow:var(--shadow);border:1px solid rgba(22,32,51,.1);overflow:hidden;padding:32px;display:flex;align-items:center;justify-content:center}
+    .hub{position:relative;width:min(460px,82vw);height:min(460px,82vw)}
+    .hub .core{position:absolute;inset:29%;display:grid;place-items:center;border-radius:50%;background:#162033;color:#fff;text-align:center;font-weight:900;font-size:28px;box-shadow:0 24px 60px rgba(22,32,51,.28);z-index:2}
+    .orbit{position:absolute;border:1px dashed rgba(22,32,51,.25);border-radius:50%;inset:6%}
+    .node{position:absolute;width:142px;min-height:72px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 14px 34px rgba(18,32,58,.12);display:grid;place-items:center;text-align:center;font-weight:900;color:#1f2a3e;padding:12px}
+    .n1{top:0;left:50%;transform:translateX(-50%)}.n2{right:0;top:34%}.n3{right:10%;bottom:4%}.n4{left:10%;bottom:4%}.n5{left:0;top:34%}
+    .flow{display:grid;gap:12px}.step{display:grid;grid-template-columns:54px 1fr;gap:14px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px;box-shadow:0 8px 22px rgba(18,32,58,.06)}
+    .num{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#162033;color:#fff;font-weight:900}
+    .step b{display:block;font-size:18px;margin-bottom:4px}.step span{color:#586579;line-height:1.45}
+    .module-card{position:relative;overflow:hidden}.module-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--accent,#1867c9)}
+    .module-card h3{padding-left:2px}.big-number{font-size:54px;line-height:1;font-weight:950;color:var(--accent,#1867c9);margin-bottom:8px}
+    .visual-map{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
+    .map-box{background:#fff;border:1px solid var(--line);border-radius:8px;padding:20px;min-height:132px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 12px 30px rgba(18,32,58,.07)}
+    .map-box b{font-size:22px}.map-box span{color:#5e6a7a;line-height:1.5}
+    .toc{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .toc a{display:flex;justify-content:space-between;gap:12px;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 14px;color:#253149;box-shadow:0 7px 18px rgba(18,32,58,.06);font-weight:800}
+    .toc a span:last-child{color:#6c788a;font-weight:700}
+    .watermark{position:absolute;left:50%;top:49%;transform:translate(-50%,-50%) rotate(-26deg);font-size:min(12vw,126px);font-weight:950;color:rgba(22,32,51,.055);white-space:nowrap;pointer-events:none;z-index:0}
+    .content{position:relative;z-index:1}
+    .topline{position:absolute;left:7vw;right:7vw;top:24px;display:flex;justify-content:space-between;gap:16px;color:#5a6576;font-size:13px;font-weight:800;z-index:5}
+    .topline .title{color:#162033}
+    .progress{position:absolute;left:0;right:0;top:0;height:4px;background:rgba(22,32,51,.08);z-index:10}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,#1867c9,#0f9bb5,#1d8f68);transition:width .25s}
+    .oc-ppt-remote{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);height:72px;background:var(--bar);border:1px solid rgba(15,23,42,.14);border-radius:999px;box-shadow:0 18px 54px rgba(15,23,42,.22);display:flex;align-items:center;gap:12px;padding:10px 14px;z-index:1000}
+    .oc-title{font-weight:900;color:#172033;padding:0 12px;white-space:nowrap;max-width:260px;overflow:hidden;text-overflow:ellipsis}
+    .oc-buttons{display:flex;gap:8px}
+    .oc-btn{border:0;border-radius:999px;min-width:76px;height:48px;padding:0 14px;font-weight:950;color:#fff;background:var(--btn);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:17px;line-height:1.05}
+    .oc-btn small{display:block;font-size:11px;font-weight:800;opacity:.92;margin-top:3px}.oc-btn.dark{background:var(--darkbtn)}.oc-btn:focus{outline:3px solid rgba(24,103,201,.25);outline-offset:2px}
+    .modal{position:fixed;inset:0;background:rgba(10,18,30,.55);backdrop-filter:blur(9px);z-index:900;display:none;padding:52px;overflow:auto}.modal.show{display:block}
+    .modal-inner{max-width:1180px;margin:0 auto;background:#fff;border-radius:10px;padding:26px;box-shadow:var(--shadow)}
+    .modal-head{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:18px}.modal-head h3{font-size:26px;margin:0}.close{border:0;background:#162033;color:#fff;border-radius:999px;padding:10px 16px;font-weight:900;cursor:pointer}
+    .overview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.thumb{border:1px solid var(--line);border-radius:8px;padding:16px;min-height:112px;cursor:pointer;background:#f7fafc}.thumb b{display:block;font-size:18px;margin-bottom:6px}.thumb span{color:#667386;font-size:13px}
+    .focus-list{display:grid;gap:12px}.focus-item{border-left:6px solid #1867c9;background:#f7fafc;border-radius:8px;padding:16px}.focus-item b{display:block;font-size:20px;margin-bottom:6px}.focus-item p{margin:0;color:#536174;line-height:1.58}
+    .backlink{position:fixed;right:22px;top:22px;z-index:1200;text-decoration:none;background:#fff;color:#17304f;border:1px solid var(--line);border-radius:999px;padding:10px 14px;font-weight:900;box-shadow:0 10px 24px rgba(18,32,58,.12)}
+    @media(max-width:980px){
+      html,body{overflow:auto;overflow-x:hidden}.deck{height:auto;min-height:100vh;overflow:visible}.slide{position:relative;display:none;min-height:100vh;height:auto;width:100vw;overflow:hidden;padding:70px 22px 116px;grid-template-columns:1fr;gap:24px}.slide.active{display:grid}.slide::before{inset:12px}.slide::after{display:none}
+      .hero-panel{min-height:360px;padding:20px}.hub{width:min(330px,86vw);height:min(330px,86vw)}.node{width:110px;min-height:58px;font-size:13px}.hub .core{font-size:20px}
+      .grid2,.grid3,.visual-map,.toc{grid-template-columns:1fr}.topline{left:22px;right:22px}.topline span:last-child{display:none}.backlink{right:12px;top:50px;font-size:12px;padding:7px 10px}.oc-ppt-remote{left:8px;right:auto;width:360px;max-width:calc(100vw - 16px);bottom:8px;transform:none;height:auto;border-radius:26px;display:block;padding:8px;overflow:hidden}.oc-title{display:none}.oc-buttons{width:100%;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.oc-btn{min-width:0;width:100%;height:48px;padding:0 2px;font-size:13px}.oc-btn small{font-size:9px}.overview-grid{grid-template-columns:1fr}.modal{padding:18px}
+    }
+  </style>
+</head>
+<body>
+  <a class="backlink" href="../ppt-catalog/">PPT 總表</a>
+  <div class="progress"><span id="progress"></span></div>
+  <main class="deck" id="deck">
+    <section class="slide active" data-title="封面" id="cover">
+      <div class="topline"><span class="title">AI智慧平台導入</span><span>AI platform spec 1.1 external</span></div>
+      <div class="watermark">Jason團隊機密資料勿外流</div>
+      <div class="content">
+        <div class="eyebrow">平台規格圖文簡報｜對外版</div>
+        <h1>AI智慧平台導入</h1>
+        <p class="lead">把客服、會議、教材、檔案、研究與機器人升級整理成可導入、可驗收、可持續維護的 AI 服務平台。</p>
+        <p class="body">來源：AI-platform-spec-1.1.pdf 對外版。此圖文版聚焦合作伙伴與客戶可理解的產品價值，不包含內部 Prompt、腳本、後端架構或部署細節。</p>
+      </div>
+      <div class="hero-panel"><div class="hub"><div class="orbit"></div><div class="core">AI<br>平台</div><div class="node n1">線上會議</div><div class="node n2">智慧教材</div><div class="node n3">機器人升級</div><div class="node n4">檔案管理</div><div class="node n5">學術研究</div></div></div>
+    </section>
+    <section class="slide" data-title="平台規格說明" id="intro">
+      <div class="topline"><span class="title">AI智慧平台導入</span><span>平台規格說明</span></div><div class="watermark">Jason團隊機密資料勿外流</div>
+      <div class="content"><div class="eyebrow">01｜平台規格說明</div><h2>不是單一聊天機器人，而是一套可落地的 AI 營運規格。</h2><p class="lead">這套平台把客戶資料、服務流程、知識庫、權限、驗收與後續維護整合起來，讓 AI 不是一次性展示，而是能在客戶現場長期使用。</p></div>
+      <div class="stack">
+        <div class="card"><h3>標準化導入</h3><p>用固定流程確認資料、帳號、權限、可公開範圍與交付成果。</p></div>
+        <div class="card"><h3>模組化升級</h3><p>客戶可先從基礎客服開始，再逐步升級到會議、教材、檔案與研究工作台。</p></div>
+        <div class="card"><h3>成果可驗收</h3><p>每個模組都對應清楚的交付物、測試方式與後續維護方向。</p></div>
+      </div>
+    </section>
+    <section class="slide" data-title="目錄" id="toc">
+      <div class="topline"><span class="title">AI智慧平台導入</span><span>目錄</span></div><div class="watermark">Jason團隊機密資料勿外流</div>
+      <div class="content"><div class="eyebrow">02｜快速跳轉</div><h2>目錄</h2><p class="lead">點選項目可直接跳到對應頁面，適合現場簡報與合作伙伴快速檢視。</p></div>
+      <nav class="toc">
+        <a href="#intro"><span>平台規格說明</span><span>02</span></a><a href="#value"><span>客戶價值</span><span>04</span></a>
+        <a href="#process"><span>標準導入流程</span><span>05</span></a><a href="#modules"><span>五大核心模組</span><span>06</span></a>
+        <a href="#meeting"><span>AI 智能線上文字會議系統</span><span>07</span></a><a href="#course"><span>多媒體智慧教材 PPT 自動上架</span><span>08</span></a>
+        <a href="#bot"><span>AI 機器人自動升級</span><span>09</span></a><a href="#file"><span>線上檔案管理</span><span>10</span></a>
+        <a href="#research"><span>AI 學術深度研究支援</span><span>11</span></a><a href="#support"><span>支援型模組</span><span>12</span></a>
+        <a href="#security"><span>安全、權限與交付邊界</span><span>13</span></a><a href="#delivery"><span>交付驗收</span><span>14</span></a>
+      </nav>
+    </section>
+    <section class="slide" data-title="客戶價值" id="value">
+      <div class="topline"><span class="title">AI智慧平台導入</span><span>客戶價值</span></div><div class="watermark">Jason團隊機密資料勿外流</div>
+      <div class="content"><div class="eyebrow">03｜Customer Value</div><h2>先讓客戶低風險上線，再用資料與流程持續長大。</h2><p class="lead">適合中小企業、教育機構、顧問公司、品牌業者與需要 AI 助理的服務型團隊。</p></div>
+      <div class="grid2">
+        <div class="card"><h3>快速上線</h3><p>以既有平台能力模組化導入，避免每案從零開發。</p></div>
+        <div class="card"><h3>成本可控</h3><p>標準版先處理高頻需求，客製項目再另行評估。</p></div>
+        <div class="card"><h3>可維護</h3><p>後續可按月補資料、測試問答、更新內容與整理報表。</p></div>
+        <div class="card"><h3>可升級</h3><p>從客服助手延伸到顧問診斷、內訓教材、研究工作台與檔案中心。</p></div>
+      </div>
+    </section>
+    <section class="slide" data-title="標準導入流程" id="process">
+      <div class="topline"><span class="title">AI智慧平台導入</span><span>導入流程</span></div><div class="watermark">Jason團隊機密資料勿外流</div>
+      <div class="content"><div class="eyebrow">04｜Implementation Flow</div><h2>每一案都先建立邊界，再進入建置、測試與驗收。</h2><p class="lead">這能避免 AI 亂答、資料混用、權限不清或交付成果不可追蹤。</p></div>
+      <div class="flow">
+        <div class="step"><div class="num">1</div><div><b>Start Gate</b><span>確認資料、帳號、入口、權限、公開與保密範圍。</span></div></div>
+        <div class="step"><div class="num">2</div><div><b>資料整理</b><span>分類公開資料、客戶資料、敏感資料與禁答範圍。</span></div></div>
+        <div class="step"><div class="num">3</div><div><b>知識庫建立</b><span>建立 FAQ、服務流程、轉人工規則與保守回答規格。</span></div></div>
+        <div class="step"><div class="num">4</div><div><b>入口建置</b><span>可選 Web、Telegram、LINE、Google Drive 或專屬入口。</span></div></div>
+        <div class="step"><div class="num">5</div><div><b>測試修正</b><span>測常見問題、敏感問題、手機桌機與不知道時的處理。</span></div></div>
+        <div class="step"><div class="num">6</div><div><b>上線驗收</b><span>交付入口、使用說明、測試清單、版本紀錄與維護建議。</span></div></div>
+      </div>
+    </section>
+    <section class="slide" data-title="核心模組" id="modules">
+      <div class="topline"><span class="title">AI智慧平台導入</span><span>五大核心模組</span></div><div class="watermark">Jason團隊機密資料勿外流</div>
+      <div class="content"><div class="eyebrow">05｜Core Modules</div><h2>五大核心模組，對應客戶最常見的 AI 導入場景。</h2><p class="lead">不是一次全開，而是依客戶成熟度與資料準備程度分階段導入。</p></div>
+      <div class="visual-map">
+        <div class="map-box"><b>線上文字會議</b><span>記錄、問答、方案、決策、簡報與建檔。</span></div>
+        <div class="map-box"><b>智慧教材 PPT</b><span>把文件、影片、會議與知識轉成可上架教材。</span></div>
+        <div class="map-box"><b>機器人升級</b><span>讓 AI 助理可更新知識、技能、版本與權限。</span></div>
+        <div class="map-box"><b>線上檔案管理</b><span>集中上傳、AI 分析、查詢、權限與備份。</span></div>
+        <div class="map-box"><b>學術研究支援</b><span>文獻、研究資料、引用、簡報與倫理控管。</span></div>
+        <div class="map-box"><b>支援型模組</b><span>客服、診斷、知識庫、文案與回訪能力。</span></div>
+      </div>
+    </section>
+    <section class="slide" data-title="AI智能線上文字會議系統" id="meeting">
+      <div class="topline"><span class="title">AI智慧平台導入</span><span>模組 1</span></div><div class="watermark">Jason團隊機密資料勿外流</div>
+      <div class="content"><div class="eyebrow">06｜Meeting Intelligence Hub</div><h2>AI 智能線上文字會議系統</h2><p class="lead">以 Telegram 等文字會議為穩定入口；使用者可用手機語音轉文字送出，再由 AI 協助記錄、回答、整理與追蹤。</p></div>
+      <div class="grid2">
+        <div class="card module-card" style="--accent:#1867c9"><div class="big-number">01</div><h3>會議紀錄</h3><p>整理主題、討論重點、決策、待辦、負責人與未決問題。</p></div>
+        <div class="card module-card" style="--accent:#0f9bb5"><div class="big-number">02</div><h3>即時專家支援</h3><p>針對會議問題提供背景知識、選項、風險提醒與下一步。</p></div>
+        <div class="card module-card" style="--accent:#1d8f68"><div class="big-number">03</div><h3>方案展開</h3><p>把討論轉成產品規格、流程草案、任務清單或簡報大綱。</p></div>
+        <div class="card module-card" style="--accent:#c98412"><div class="big-number">04</div><h3>會後建檔</h3><p>產出互動式 HTML PPT、會議紀錄、版本紀錄與保存位置。</p></div>
+      </div>
+    </section>
+    <section class="slide" data-title="智慧教材PPT自動上架" id="course">
+      <div class="topline"><span class="title">AI智慧平台導入</span><span>模組 2</span></div><div class="watermark">Jason團隊機密資料勿外流</div>
+      <div class="content"><div class="eyebrow">07｜Course-to-Deck</div><h2>多媒體智慧教材 PPT 自動上架系統</h2><p class="lead">將文字、圖片、PDF、影片、音訊、會議紀錄、課程內容與專業知識，整理成可觀看、可教學、可上架、可建檔的互動式教材。</p></div>
+      <div class="stack">
+        <div class="card"><h3>多格式匯入</h3><p>支援 PDF、PPT、Word、圖片、影片、音訊、逐字稿、SOP 與網頁資料。</p></div>
+        <div class="card"><h3>教材化轉換</h3><p>生成章節、學習目標、案例、流程圖、FAQ、測驗題與課後任務。</p></div>
+        <div class="card"><h3>上架與索引</h3><p>支援 GitHub Pages、Google Drive、私密雲端、教材總表與權限分流。</p></div>
+      </div>
+    </section>
+    <section class="slide" data-title="AI機器人自動升級" id="bot">
+      <div class="topline"><span class="title">AI智慧平台導入</span><span>模組 3</span></div><div class="watermark">Jason團隊機密資料勿外流</div>
+      <div class="content"><div class="eyebrow">08｜Bot Evolution Engine</div><h2>AI 機器人自動升級系統</h2><p class="lead">讓 AI 客服、業務助理、教學助理與專家機器人不是一次性交付，而是能隨資料、任務、回饋與版本持續升級。</p></div>
+      <div class="grid2">
+        <div class="card"><h3>知識庫更新</h3><p>新文件、FAQ、活動、教材與 SOP 可進入指定機器人的回答範圍。</p></div>
+        <div class="card"><h3>能力模組升級</h3><p>新增文件查詢、預約收集、PPT 生成、多語系、轉人工與權限回答。</p></div>
+        <div class="card"><h3>版本與回退</h3><p>每次升級記錄版本、影響範圍、測試結果與上一個穩定版本。</p></div>
+        <div class="card"><h3>安全驗收</h3><p>升級前後測試常見問題、敏感問題、權限問題與品牌口吻。</p></div>
+      </div>
+    </section>
+    <section class="slide" data-title="線上檔案管理" id="file">
+      <div class="topline"><span class="title">AI智慧平台導入</span><span>模組 4</span></div><div class="watermark">Jason團隊機密資料勿外流</div>
+      <div class="content"><div class="eyebrow">09｜Document Workspace</div><h2>線上檔案管理系統</h2><p class="lead">把文件、圖片、簡報、表單、教材、素材、會議紀錄與專案成果集中到線上檔案中心，並搭配 AI 分析與權限管理。</p></div>
+      <div class="flow">
+        <div class="step"><div class="num">上</div><div><b>多功能上傳</b><span>上傳時選客戶、專案、用途、公開狀態、權限層級與版本備註。</span></div></div>
+        <div class="step"><div class="num">析</div><div><b>AI 即時分析</b><span>產出摘要、分類、關鍵字、風險、建議與後續工作草案。</span></div></div>
+        <div class="step"><div class="num">研</div><div><b>檔案驅動研究</b><span>以檔案為核心延伸資料、比對差異、補足背景與產出報告。</span></div></div>
+        <div class="step"><div class="num">管</div><div><b>查詢與權限</b><span>依客戶、專案、時間、檔案類型、公開狀態與審核狀態查詢。</span></div></div>
+      </div>
+    </section>
+    <section class="slide" data-title="AI學術深度研究支援" id="research">
+      <div class="topline"><span class="title">AI智慧平台導入</span><span>模組 5</span></div><div class="watermark">Jason團隊機密資料勿外流</div>
+      <div class="content"><div class="eyebrow">10｜Academic Research Hub</div><h2>AI 學術深度研究支援系統</h2><p class="lead">協助學術單位、老師、研究生與專題小組整理文獻、資料、訪談、問卷與研究素材，形成可追蹤的研究工作台。</p></div>
+      <div class="grid2">
+        <div class="card"><h3>文獻匯入與摘要</h3><p>整理作者、年份、標題、研究方法、主要發現與可引用狀態。</p></div>
+        <div class="card"><h3>研究架構生成</h3><p>協助整理研究背景、問題、目的、假設、流程、限制與預期成果。</p></div>
+        <div class="card"><h3>資料分析與洞察</h3><p>問卷、訪談、田野紀錄、表格資料與個案比較可形成初步報告。</p></div>
+        <div class="card"><h3>引用與倫理控管</h3><p>保留來源與版本，涉及個資或人體研究時遵守倫理與資料保護。</p></div>
+      </div>
+    </section>
+    <section class="slide" data-title="支援型模組" id="support">
+      <div class="topline"><span class="title">AI智慧平台導入</span><span>支援模組</span></div><div class="watermark">Jason團隊機密資料勿外流</div>
+      <div class="content"><div class="eyebrow">11｜Support Modules</div><h2>支援型模組讓平台能貼近不同產業場景。</h2><p class="lead">這些模組可依客戶需求搭配導入，不必一次全部建置。</p></div>
+      <div class="grid3">
+        <div class="card"><h3>網頁客服助手</h3><p>網站右下角客服 Widget，降低重複問題並提升詢問轉換。</p></div>
+        <div class="card"><h3>Telegram / LINE 客服</h3><p>用熟悉通訊入口收集諮詢、預約與需求摘要。</p></div>
+        <div class="card"><h3>AI 商業診斷</h3><p>快速整理品牌、客服、行銷、流程與 AI 導入缺口。</p></div>
+        <div class="card"><h3>內部知識庫</h3><p>集中公司服務、產品、流程、禁忌與客服話術。</p></div>
+        <div class="card"><h3>社群文案助理</h3><p>將服務、案例、活動與專業知識轉成社群貼文。</p></div>
+        <div class="card"><h3>會員回訪整理</h3><p>協助追蹤客戶狀態、續約、回訪與售後關懷。</p></div>
+      </div>
+    </section>
+    <section class="slide" data-title="安全與邊界" id="security">
+      <div class="topline"><span class="title">AI智慧平台導入</span><span>安全與邊界</span></div><div class="watermark">Jason團隊機密資料勿外流</div>
+      <div class="content"><div class="eyebrow">12｜Security Boundary</div><h2>對外只談應用、成果、價值、驗收與服務邊界。</h2><p class="lead">平台導入必須同時保護客戶資料與 Jason 團隊內部能力資產。</p></div>
+      <div class="stack">
+        <div class="card"><h3>可公開</h3><p>服務內容、使用入口、導入流程、交付成果、驗收標準與客戶可得到的價值。</p></div>
+        <div class="card"><h3>不可公開</h3><p>內部 Prompt、腳本、後端架構、API Key、Token、密碼、完整內部 SOP 與其他客戶資料。</p></div>
+        <div class="card"><h3>高風險領域</h3><p>醫療、法律、投資、保險、學術倫理與個資議題需保留人工審核與專業確認。</p></div>
+      </div>
+    </section>
+    <section class="slide" data-title="交付驗收" id="delivery">
+      <div class="topline"><span class="title">AI智慧平台導入</span><span>交付驗收</span></div><div class="watermark">Jason團隊機密資料勿外流</div>
+      <div class="content"><div class="eyebrow">13｜Deliverables</div><h2>規格文件本身也要可閱讀、可跳轉、可備份、可追蹤。</h2><p class="lead">這份 HTML PPT 圖文檔是對外展示版，用來快速說明平台架構與模組價值。</p></div>
+      <div class="grid2">
+        <div class="card"><h3>HTML PPT</h3><p>可於手機與桌機瀏覽，支援鍵盤、觸控、總覽、重點與沉浸模式。</p></div>
+        <div class="card"><h3>GitHub Pages</h3><p>發布成固定連結，方便合作伙伴展示與回傳。</p></div>
+        <div class="card"><h3>PPT 總表</h3><p>加入固定作品總表，便於 Jason 後續管理與查找。</p></div>
+        <div class="card"><h3>備份與 ZIP</h3><p>同步建立 ZIP 交付檔、Google Drive 連結與 B21 備份。</p></div>
+      </div>
+    </section>
+    <section class="slide" data-title="操作說明" id="controls">
+      <div class="topline"><span class="title">AI智慧平台導入</span><span>操作說明</span></div><div class="watermark">Jason團隊機密資料勿外流</div>
+      <div class="content"><div class="eyebrow">14｜Controls</div><h2>使用底部固定控制列操作簡報。</h2><p class="lead">控制列已依 Jason 指定標準保留：上一頁、下一頁、總覽、重點、沉浸。也可用鍵盤左右鍵與觸控滑動換頁。</p></div>
+      <div class="stack">
+        <div class="card"><h3>總覽</h3><p>一次查看所有頁面，點選縮圖即可跳頁。</p></div>
+        <div class="card"><h3>重點</h3><p>快速列出這份簡報的核心訊息，方便口頭簡報前確認。</p></div>
+        <div class="card"><h3>沉浸</h3><p>進入瀏覽器全螢幕模式，適合會議展示。</p></div>
+      </div>
+    </section>
+  </main>
+  <div class="oc-ppt-remote" aria-label="OpenClaw presentation controls">
+    <div class="oc-title">AI智慧平台導入</div>
+    <div class="oc-buttons">
+      <button class="oc-btn dark" id="prev" type="button">←<small>上一頁</small></button>
+      <button class="oc-btn dark" id="next" type="button">→<small>下一頁</small></button>
+      <button class="oc-btn" id="overviewBtn" type="button">O<small>總覽</small></button>
+      <button class="oc-btn" id="focusBtn" type="button">T<small>重點</small></button>
+      <button class="oc-btn" id="fullBtn" type="button">F<small>沉浸</small></button>
+    </div>
+  </div>
+  <div class="modal" id="overview"><div class="modal-inner"><div class="modal-head"><h3>簡報總覽</h3><button class="close" data-close="overview">關閉</button></div><div class="overview-grid" id="overviewGrid"></div></div></div>
+  <div class="modal" id="focus"><div class="modal-inner"><div class="modal-head"><h3>重點摘要</h3><button class="close" data-close="focus">關閉</button></div><div class="focus-list">
+    <div class="focus-item"><b>1. 平台不是單點工具</b><p>核心是把資料、知識庫、權限、驗收與維護做成可落地的 AI 營運規格。</p></div>
+    <div class="focus-item"><b>2. 五大模組可分階段導入</b><p>會議、教材、機器人升級、檔案管理與學術研究可依客戶成熟度逐步開通。</p></div>
+    <div class="focus-item"><b>3. 對外保留安全邊界</b><p>對客戶講成果與價值，不交付內部 Prompt、腳本、架構、完整 SOP 或敏感資料。</p></div>
+    <div class="focus-item"><b>4. 交付要能被驗收</b><p>每個模組都要對應入口、檔案、報告、版本紀錄、測試項目與備份位置。</p></div>
+  </div></div></div>
+  <script>
+    (function(){
+      var slides=[].slice.call(document.querySelectorAll(".slide"));
+      var index=0;
+      var progress=document.getElementById("progress");
+      function show(n){
+        index=(n+slides.length)%slides.length;
+        slides.forEach(function(s,i){s.classList.toggle("active",i===index);});
+        progress.style.width=((index+1)/slides.length*100)+"%";
+        if(location.hash!=="#"+(index+1)){history.replaceState(null,"","#"+(index+1));}
+      }
+      function fromHash(){
+        var raw=decodeURIComponent(location.hash.replace("#",""));
+        if(!raw){show(0);return;}
+        var num=parseInt(raw,10);
+        if(!isNaN(num)){show(Math.max(0,Math.min(slides.length-1,num-1)));return;}
+        var target=document.getElementById(raw);
+        if(target){show(slides.indexOf(target));}
+      }
+      document.getElementById("prev").onclick=function(){show(index-1);};
+      document.getElementById("next").onclick=function(){show(index+1);};
+      document.addEventListener("keydown",function(e){
+        if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" "){show(index+1);}
+        if(e.key==="ArrowLeft"||e.key==="PageUp"){show(index-1);}
+        if(e.key==="o"||e.key==="O"){toggle("overview",true);}
+        if(e.key==="t"||e.key==="T"){toggle("focus",true);}
+        if(e.key==="f"||e.key==="F"){fullscreen();}
+        if(e.key==="Escape"){toggle("overview",false);toggle("focus",false);}
+      });
+      var startX=null;
+      document.addEventListener("touchstart",function(e){startX=e.touches[0].clientX;},{passive:true});
+      document.addEventListener("touchend",function(e){if(startX===null)return;var dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>48){show(index+(dx<0?1:-1));}startX=null;},{passive:true});
+      function toggle(id,on){document.getElementById(id).classList.toggle("show",on);}
+      document.getElementById("overviewBtn").onclick=function(){toggle("overview",true);};
+      document.getElementById("focusBtn").onclick=function(){toggle("focus",true);};
+      document.getElementById("fullBtn").onclick=fullscreen;
+      function fullscreen(){var el=document.documentElement;if(!document.fullscreenElement&&el.requestFullscreen){el.requestFullscreen();}else if(document.exitFullscreen){document.exitFullscreen();}}
+      [].slice.call(document.querySelectorAll(".close")).forEach(function(btn){btn.onclick=function(){toggle(btn.getAttribute("data-close"),false);};});
+      document.getElementById("overviewGrid").innerHTML=slides.map(function(s,i){return "<button class='thumb' data-i='"+i+"'><b>"+(i+1)+". "+(s.getAttribute("data-title")||"")+"</b><span>第 "+(i+1)+" 頁</span></button>";}).join("");
+      document.getElementById("overviewGrid").addEventListener("click",function(e){var b=e.target.closest(".thumb");if(!b)return;show(parseInt(b.getAttribute("data-i"),10));toggle("overview",false);});
+      [].slice.call(document.querySelectorAll(".toc a")).forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var id=a.getAttribute("href").slice(1);var target=document.getElementById(id);if(target){show(slides.indexOf(target));}});});
+      window.addEventListener("hashchange",fromHash);
+      fromHash();
+    })();
+  </script>
+</body>
+</html>
