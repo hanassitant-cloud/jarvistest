@@ -1,5 +1,16 @@
 [
   {
+    "slug": "ctbc-2891-investment-report",
+    "name": "中信金 2891｜投資分析圖文報告",
+    "desc": "整理中信金 2891 最新公開資料，涵蓋前 4 月獲利、Q1 表現、股利、估值、50 元以下情境、操作區間與主要風險。",
+    "source": "中信金控官方 IR、官方公告、中央社/Yahoo 股市、鉅亨網台股報價與新聞等公開資料 + 文文投資分析",
+    "date": "2026-05-21",
+    "category": "投資分析",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/ctbc-2891-investment-report/",
+    "zip_url": "https://drive.google.com/open?id=13sCnRb5gT8_6ZZaap-f-UYj_G4KjhVnM",
+    "notes": "投資分析僅供參考，不構成保證獲利或個別買賣指令；正式下單前應重新核對最新公告與股價。"
+  },
+  {
     "slug": "ai-platform-spec-visual",
     "name": "AI智慧平台導入｜平台規格圖文簡報",
     "desc": "將 AI-platform-spec-1.1 正式規格書轉為 HTML PPT 圖文版，整理平台定位、導入流程、核心模組、支援模組、資料安全與交付驗收。",

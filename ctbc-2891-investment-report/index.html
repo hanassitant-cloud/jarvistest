@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>中信金 2891｜投資分析圖文報告</title>
+  <meta name="description" content="中信金 2891 投資分析 HTML PPT，整理獲利、股利、估值、50 元以下情境與操作策略。">
+  <style>
+    :root{
+      --ink:#152238;--muted:#5d6a7e;--subtle:#7b8797;--paper:#f7fafc;--panel:#fff;
+      --line:rgba(21,34,56,.13);--blue:#1464d2;--dark:#182235;--cyan:#0f9bb5;
+      --green:#16835f;--amber:#c98213;--red:#bf3f51;--shadow:0 24px 70px rgba(21,34,56,.16);
+      --bar:#fff;--darkbtn:#182235;--btn:#1464d2;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;overflow:hidden;background:#eef5f9;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",Arial,sans-serif;letter-spacing:0}
+    body{background:linear-gradient(135deg,#f9fbff 0%,#edf7f4 48%,#f7f1e8 100%)}
+    a{color:inherit}
+    .deck{position:relative;width:100vw;height:100vh;overflow:hidden}
+    .slide{position:absolute;inset:0;padding:64px 7vw 116px;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(330px,.96fr);gap:42px;align-items:center;opacity:0;pointer-events:none;transform:translateX(34px) scale(.985);transition:opacity .38s ease,transform .38s ease}
+    .slide.active{opacity:1;pointer-events:auto;transform:translateX(0) scale(1)}
+    .slide::before{content:"";position:absolute;inset:22px;border:1px solid rgba(21,34,56,.08);border-radius:18px;pointer-events:none}
+    .content,.visual{position:relative;z-index:1;min-width:0}
+    .topline{position:absolute;left:7vw;top:28px;font-size:13px;color:#627085;font-weight:900;letter-spacing:0}
+    .slide-no{position:absolute;right:7vw;top:28px;font-size:13px;color:#627085;font-weight:900}
+    .eyebrow{display:inline-flex;gap:10px;align-items:center;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.76);font-size:14px;color:var(--muted);font-weight:900}
+    h1,h2{margin:0;line-height:1.06;letter-spacing:0}
+    h1{font-size:clamp(42px,6.4vw,84px);font-weight:950}
+    h2{font-size:clamp(34px,4.2vw,62px);font-weight:950}
+    h3{margin:0 0 8px;font-size:22px;line-height:1.25}
+    .lead{font-size:clamp(18px,2.05vw,28px);line-height:1.55;color:#2c3a4f;margin:22px 0 0;max-width:900px}
+    .body{font-size:18px;line-height:1.72;color:#3a475b;margin:18px 0 0}
+    .small{font-size:13px;line-height:1.55;color:var(--subtle)}
+    .stack{display:grid;gap:16px}
+    .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+    .card{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:8px;box-shadow:0 16px 42px rgba(21,34,56,.08);padding:20px}
+    .card p{margin:0;color:#4b586d;line-height:1.56}
+    .metric{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px;box-shadow:0 12px 34px rgba(21,34,56,.08)}
+    .metric b{display:block;font-size:clamp(34px,4vw,58px);line-height:1;color:var(--blue);letter-spacing:0}
+    .metric span{display:block;margin-top:8px;color:#566377;font-weight:800}
+    .metric small{display:block;margin-top:6px;color:#8792a1;line-height:1.45}
+    .hero-panel{min-height:520px;border-radius:8px;background:linear-gradient(145deg,#fff,#e8f5f4);box-shadow:var(--shadow);border:1px solid rgba(21,34,56,.11);overflow:hidden;padding:30px;display:grid;place-items:center}
+    .price-card{width:min(510px,100%);background:#101a2b;color:#fff;border-radius:8px;padding:28px;box-shadow:0 28px 80px rgba(16,26,43,.28)}
+    .ticker{display:flex;justify-content:space-between;gap:16px;align-items:center;border-bottom:1px solid rgba(255,255,255,.16);padding-bottom:18px;margin-bottom:18px}
+    .ticker b{font-size:42px}.ticker span{color:#b8c7dc;font-weight:800}
+    .price{font-size:86px;line-height:1;font-weight:950;letter-spacing:0}.price small{font-size:22px;color:#8dd7c3}
+    .range{display:grid;gap:8px;margin-top:22px}.range-row{display:grid;grid-template-columns:70px 1fr 58px;gap:12px;align-items:center;color:#c7d3e4;font-weight:800}
+    .bar{height:12px;border-radius:999px;background:rgba(255,255,255,.14);overflow:hidden}.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#35c29f,#62a8ff)}
+    .thesis{display:grid;grid-template-columns:1fr;gap:12px}.thesis .item{display:grid;grid-template-columns:42px 1fr;gap:13px;align-items:start;background:#fff;border:1px solid var(--line);border-radius:8px;padding:15px;box-shadow:0 10px 25px rgba(21,34,56,.07)}
+    .badge{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#162238;color:#fff;font-weight:950}.item strong{display:block;font-size:18px;margin-bottom:4px}.item span{color:#536074;line-height:1.48}
+    .mini-chart{height:290px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:22px;display:flex;align-items:end;gap:18px;box-shadow:var(--shadow)}
+    .col{flex:1;display:grid;align-items:end;gap:9px;text-align:center;color:#5b687a;font-weight:900}.col i{display:block;border-radius:8px 8px 0 0;background:linear-gradient(180deg,#1464d2,#35b79b);min-height:24px}.col:nth-child(2) i{background:linear-gradient(180deg,#0f9bb5,#35b79b)}.col:nth-child(3) i{background:linear-gradient(180deg,#c98213,#f2bd5b)}.col:nth-child(4) i{background:linear-gradient(180deg,#16835f,#69c7a8)}
+    .valuation-line{position:relative;height:190px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:26px;box-shadow:0 18px 48px rgba(21,34,56,.09)}
+    .axis{position:absolute;left:38px;right:38px;top:92px;height:10px;border-radius:999px;background:linear-gradient(90deg,#2db886 0 34%,#f1b64f 34% 70%,#d95363 70% 100%)}
+    .mark{position:absolute;top:64px;transform:translateX(-50%);display:grid;place-items:center;text-align:center;font-weight:950}.mark::after{content:"";width:3px;height:54px;background:#162238;border-radius:99px;margin-top:6px}.mark small{font-size:12px;color:#677488}.m1{left:31%}.m2{left:58%}.m3{left:79%}
+    .scenario{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.scenario .box{background:#fff;border:1px solid var(--line);border-radius:8px;padding:16px;min-height:155px;box-shadow:0 10px 28px rgba(21,34,56,.07)}.box b{display:block;font-size:28px;color:var(--blue);margin-bottom:8px}.box span{color:#4f5c70;line-height:1.48}
+    .traffic{display:grid;gap:12px}.traffic .row{display:grid;grid-template-columns:82px 1fr;gap:14px;align-items:center}.light{border-radius:999px;padding:9px 12px;text-align:center;color:#fff;font-weight:950}.green{background:#16835f}.yellow{background:#c98213}.red{background:#bf3f51}
+    .source-list{display:grid;gap:10px}.source-list a,.source-list div{display:block;text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:8px;padding:13px 14px;color:#334155;line-height:1.45;box-shadow:0 7px 18px rgba(21,34,56,.06)}
+    .quote{font-size:clamp(34px,4.5vw,66px);line-height:1.14;font-weight:950}.quote strong{color:var(--blue)}
+    .progress{position:fixed;left:0;top:0;height:5px;background:linear-gradient(90deg,#1464d2,#18a886,#f0b44d);width:0;z-index:40;transition:width .25s ease}
+    .oc-control-guide-slide{background:linear-gradient(135deg,#f8fbff,#eef7f4)}
+    .ocg-wrap{grid-column:1/-1;max-width:1080px;margin:0 auto;width:100%}.ocg-kicker{font-weight:950;color:#0f766e;text-transform:uppercase;font-size:13px}.ocg-title{margin-top:10px}.ocg-sub{font-size:20px;line-height:1.6;color:#475569;max-width:820px}.ocg-demo{margin:24px 0}.ocg-bar{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:999px;padding:10px 12px;box-shadow:0 18px 48px rgba(15,23,42,.15);width:max-content;max-width:100%}.ocg-bar-title{font-weight:950;color:#0f172a;margin:0 8px 0 4px}.ocg-btn{width:64px;height:50px;border-radius:999px;background:#182235;color:#fff;display:grid;place-items:center;font-weight:950;line-height:1}.ocg-btn.blue{background:#1464d2}.ocg-btn b{font-size:18px}.ocg-btn span{font-size:11px}.ocg-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.ocg-card{background:#fff;border:1px solid rgba(15,23,42,.12);border-radius:8px;padding:16px;box-shadow:0 10px 26px rgba(15,23,42,.08)}.ocg-card h3{font-size:18px}.ocg-card p{margin:0;color:#64748b}.ocg-rule{margin-top:16px;font-weight:900;color:#075985}
+    .oc-ppt-remote{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:8px;background:var(--bar);border:1px solid rgba(15,23,42,.13);border-radius:999px;padding:10px 12px;box-shadow:0 18px 50px rgba(15,23,42,.18);max-width:calc(100vw - 24px)}
+    .oc-ppt-remote-title{font-size:13px;font-weight:950;color:#1f2a3e;white-space:nowrap;max-width:250px;overflow:hidden;text-overflow:ellipsis;margin:0 8px 0 4px}
+    .oc-btn{border:0;width:64px;height:50px;border-radius:999px;background:var(--btn);color:#fff;font-weight:950;font-size:18px;display:grid;place-items:center;line-height:1;cursor:pointer}.oc-btn.dark{background:var(--darkbtn)}.oc-btn small{display:block;font-size:11px;font-weight:900;margin-top:2px;color:#fff}
+    .modal{position:fixed;inset:0;background:rgba(8,18,32,.58);backdrop-filter:blur(10px);z-index:60;display:none;align-items:center;justify-content:center;padding:22px}.modal.show{display:flex}.modal-inner{width:min(980px,96vw);max-height:86vh;overflow:auto;background:#fff;border-radius:12px;padding:22px;box-shadow:0 30px 100px rgba(0,0,0,.35)}.modal-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}.modal-head h3{margin:0}.close{border:0;border-radius:999px;background:#162238;color:#fff;font-weight:950;padding:10px 14px}.overview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.overview-item{border:1px solid var(--line);border-radius:8px;background:#f8fbff;padding:14px;cursor:pointer}.overview-item b{color:var(--blue)}.overview-item span{display:block;margin-top:5px;color:#334155;font-weight:900}.focus-list{font-size:18px;line-height:1.65;color:#334155}.toast{position:fixed;left:50%;top:18px;transform:translateX(-50%) translateY(-12px);z-index:70;background:#162238;color:#fff;border-radius:999px;padding:10px 16px;font-weight:950;opacity:0;transition:.25s;pointer-events:none}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    .ppt-immersive-on .slide::before,.ppt-immersive-on .topline,.ppt-immersive-on .slide-no{display:none}.ppt-immersive-on .slide{padding-top:48px}.ppt-immersive-on .oc-ppt-remote-title::before{content:"沉浸｜";color:#16835f}
+    .wenwen-back-prev{position:fixed;left:14px;top:14px;z-index:80;display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:8px 13px;border-radius:999px;text-decoration:none;font:850 14px/1 -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC",Arial,sans-serif;color:#04111f;background:linear-gradient(135deg,#67e8f9,#86efac);box-shadow:0 12px 28px rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.55);opacity:.94}.wenwen-back-prev span{width:24px;height:24px;border-radius:9px;display:grid;place-items:center;background:rgba(255,255,255,.62);font-size:16px}.wenwen-back-prev em{font-style:normal}
+    @media(max-width:880px){html,body{overflow:hidden}.slide{grid-template-columns:minmax(0,1fr);gap:22px;padding:58px 18px 108px;overflow:auto;overflow-x:hidden;align-content:start;width:100vw;max-width:100vw}.content,.visual{width:100%;max-width:100%;overflow-wrap:anywhere}h1{font-size:34px;line-height:1.14;word-break:break-word}h2{font-size:32px;line-height:1.14}.lead{font-size:16px;line-height:1.55}.hero-panel{min-height:auto;padding:18px;width:100%;max-width:100%;min-width:0;overflow:hidden;display:flex;justify-content:center}.price-card{width:240px;max-width:240px;min-width:0;padding:18px;overflow:hidden}.ticker{gap:8px;display:block}.ticker b{font-size:30px}.ticker span{display:block;margin-top:6px;white-space:normal;font-size:14px}.price{font-size:38px;white-space:nowrap}.price small{font-size:14px}.range-row{grid-template-columns:46px 1fr;gap:8px;font-size:12px}.range-row span:last-child{display:none}.price-card .small{display:none}.grid2,.grid3,.scenario,.ocg-grid{grid-template-columns:1fr}.topline{left:58px;right:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.slide-no{right:18px;display:none}.oc-ppt-remote{gap:4px;padding:7px;bottom:calc(env(safe-area-inset-bottom,0px) + 10px)}.oc-ppt-remote-title{display:none}.oc-btn{width:50px;height:44px;font-size:16px}.oc-btn small{font-size:10px}.overview-grid{grid-template-columns:1fr}.ocg-bar{width:100%;justify-content:center}.ocg-bar-title{display:none}.ocg-btn{width:54px;height:46px}.scenario .box{min-height:0}.wenwen-back-prev{left:12px;top:12px;width:42px;height:42px;min-height:42px;padding:0;justify-content:center;border-radius:15px}.wenwen-back-prev span{width:26px;height:26px;font-size:17px}.wenwen-back-prev em{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <main class="deck" id="deck">
+    <section class="slide active">
+      <div class="topline">CTBC 2891 Investment Report</div><div class="slide-no">01 / 12</div>
+      <div class="content">
+        <div class="eyebrow">2026-05-21｜公開資料整理</div>
+        <h1>中信金 2891<br>投資分析圖文報告</h1>
+        <p class="lead">結論先講：基本面偏強，適合長期配置與股息型持有；但目前價格接近近一年高檔，短線不建議追高。</p>
+        <p class="small">本簡報為資訊整理與投資分析，不構成保證獲利或個別買賣指令。正式下單前仍需依資金配置、風險承受度與最新公告再確認。</p>
+      </div>
+      <div class="visual hero-panel">
+        <div class="price-card">
+          <div class="ticker"><b>2891</b><span>中信金｜金融控股</span></div>
+          <div class="price">58.10 <small>TWD</small></div>
+          <div class="range">
+            <div class="range-row"><span>52W低</span><div class="bar"><div class="fill" style="width:18%"></div></div><span>40.35</span></div>
+            <div class="range-row"><span>現價</span><div class="bar"><div class="fill" style="width:100%"></div></div><span>58.10</span></div>
+            <div class="range-row"><span>52W高</span><div class="bar"><div class="fill" style="width:99%"></div></div><span>58.00</span></div>
+          </div>
+          <p class="small" style="color:#b9c7d8;margin:20px 0 0">鉅亨網頁面顯示：本益比 14.25、P/B 2.26、近四季 EPS 4.08。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="topline">Core View</div><div class="slide-no">02 / 12</div>
+      <div class="content">
+        <div class="eyebrow">投資結論</div>
+        <h2>長期偏多，短線不追高。</h2>
+        <p class="lead">中信金的獲利、股利與銀行本業動能都不差；真正要注意的是價格已經反映樂觀預期，買點比故事更重要。</p>
+      </div>
+      <div class="visual thesis">
+        <div class="item"><div class="badge">1</div><div><strong>已持有者</strong><span>可續抱領息；若部位過大或成本很低，可在高檔分批調節。</span></div></div>
+        <div class="item"><div class="badge">2</div><div><strong>尚未進場者</strong><span>不建議 55 元以上一次買滿；用分批策略等 52、50、48 三段。</span></div></div>
+        <div class="item"><div class="badge">3</div><div><strong>問 50 元以下</strong><span>有可能，但目前不是基本面壞掉的主劇本，比較像大盤或除息修正給機會。</span></div></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="topline">Key Numbers</div><div class="slide-no">03 / 12</div>
+      <div class="content">
+        <div class="eyebrow">最新數字</div>
+        <h2>前 4 月獲利創同期高點。</h2>
+        <p class="lead">官方 IR 顯示，2026 年累計至 4 月，中信金控稅後淨利 284.99 億元，EPS 1.46 元。</p>
+      </div>
+      <div class="visual grid2">
+        <div class="metric"><b>284.99 億</b><span>前 4 月稅後淨利</span><small>CTBC Holding year-to-date net income</small></div>
+        <div class="metric"><b>1.46 元</b><span>前 4 月 EPS</span><small>官方 IR 2026 年月自結資料</small></div>
+        <div class="metric"><b>231.04 億</b><span>Q1 合併稅後盈餘</span><small>Q1 創歷年同期新高</small></div>
+        <div class="metric"><b>1.18 元</b><span>Q1 EPS</span><small>銀行與壽險雙引擎貢獻</small></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="topline">Earnings Engine</div><div class="slide-no">04 / 12</div>
+      <div class="content">
+        <div class="eyebrow">獲利引擎</div>
+        <h2>銀行本業是主軸，壽險增加彈性。</h2>
+        <p class="lead">中信銀受惠存放款、財富管理、刷卡消費成長；台灣人壽則提供投資與保險業務貢獻，但也帶來金融市場波動風險。</p>
+      </div>
+      <div class="visual">
+        <div class="mini-chart" aria-label="獲利比較圖">
+          <div class="col"><i style="height:210px"></i><span>金控<br>284.99億</span></div>
+          <div class="col"><i style="height:154px"></i><span>中信銀<br>209.05億</span></div>
+          <div class="col"><i style="height:62px"></i><span>台壽保<br>83.99億</span></div>
+          <div class="col"><i style="height:132px"></i><span>Q1 EPS<br>1.18元</span></div>
+        </div>
+        <p class="small">註：前三欄為 2026 前 4 月稅後淨利；Q1 EPS 為新聞與自結資料整理。</p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="topline">Dividend</div><div class="slide-no">05 / 12</div>
+      <div class="content">
+        <div class="eyebrow">股利與殖利率</div>
+        <h2>股息吸引力存在，但價格越高越稀釋。</h2>
+        <p class="lead">2025 年度現金股利董事會決議每股 2.5 元；若以 58.1 元估算，殖利率約 4.3%。若回到 52 元，殖利率會回升到約 4.8%。</p>
+      </div>
+      <div class="visual grid2">
+        <div class="metric"><b>2.5 元</b><span>2025 年度現金股利</span><small>董事會決議普通股股利分派</small></div>
+        <div class="metric"><b>4.3%</b><span>約略現金殖利率</span><small>以 58.1 元估算，未計稅費與價格變動</small></div>
+        <div class="card"><h3>股利觀察</h3><p>中信金適合放在「金融股息配置」而非短線題材股。買入價格會明顯影響未來報酬率。</p></div>
+        <div class="card"><h3>除息提醒</h3><p>除息前後價格會自然調整，跌破某個整數價位不一定代表基本面轉壞。</p></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="topline">Valuation</div><div class="slide-no">06 / 12</div>
+      <div class="content">
+        <div class="eyebrow">估值位置</div>
+        <h2>便宜感下降，等待回檔比較合理。</h2>
+        <p class="lead">近四季 EPS 4.08、本益比約 14.25、股價淨值比約 2.26。這不是爛價格，但也不是閉眼撿便宜的位置。</p>
+      </div>
+      <div class="visual stack">
+        <div class="valuation-line">
+          <div class="axis"></div>
+          <div class="mark m1"><span>50-52</span><small>舒服買點</small></div>
+          <div class="mark m2"><span>55-58</span><small>偏高觀望</small></div>
+          <div class="mark m3"><span>60+</span><small>不追價</small></div>
+        </div>
+        <div class="grid3">
+          <div class="card"><h3>EPS</h3><p>近四季 EPS 4.08，獲利品質支撐評價。</p></div>
+          <div class="card"><h3>P/E</h3><p>約 14 倍，已非明顯低估。</p></div>
+          <div class="card"><h3>P/B</h3><p>約 2.26，市場給予高於帳面淨值的溢價。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="topline">Will It Break 50?</div><div class="slide-no">07 / 12</div>
+      <div class="content">
+        <div class="eyebrow">50 元以下情境</div>
+        <h2>會不會到 50 以下？可以，但不是目前主劇本。</h2>
+        <p class="lead">除非大盤修正、金融股法人賣壓、除息調整，或壽險/匯率/利率壓力升高，否則跌破 50 並長時間站不回來的機率不高。</p>
+      </div>
+      <div class="visual scenario">
+        <div class="box"><b>高</b><span>回到 52-53：正常震盪，屬於較容易看到的回檔區。</span></div>
+        <div class="box"><b>中</b><span>碰到 50-51：需搭配大盤或金融股修正。</span></div>
+        <div class="box"><b>低中</b><span>跌破 50：可能發生，但通常需要外部壓力。</span></div>
+        <div class="box"><b>低</b><span>跌破 48：需要重新檢查基本面或市場風險。</span></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="topline">Trading Plan</div><div class="slide-no">08 / 12</div>
+      <div class="content">
+        <div class="eyebrow">操作區間</div>
+        <h2>用價格分層，不用猜單一底部。</h2>
+        <p class="lead">比較務實的回答是：可以等 50 以下，但不一定等得到。用 52、50、48 三段分批，比全押一個價位更穩。</p>
+      </div>
+      <div class="visual traffic">
+        <div class="row"><div class="light red">58+</div><div class="card"><h3>不追高</h3><p>殖利率被壓低，短線風險報酬比變差。</p></div></div>
+        <div class="row"><div class="light yellow">52-53</div><div class="card"><h3>小量分批</h3><p>若想建立長期部位，可先試單但保留現金。</p></div></div>
+        <div class="row"><div class="light green">50-51</div><div class="card"><h3>較漂亮買點</h3><p>若基本面未變，是比較合理的加碼區。</p></div></div>
+        <div class="row"><div class="light green">48-49</div><div class="card"><h3>長線加碼區</h3><p>但要同步確認是否有非預期風險。</p></div></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="topline">Risk Map</div><div class="slide-no">09 / 12</div>
+      <div class="content">
+        <div class="eyebrow">主要風險</div>
+        <h2>真正該怕的是條件改變，不是單日股價。</h2>
+        <p class="lead">金融股的風險通常不是突然沒有價值，而是利率、匯率、壽險資產評價、景氣循環與大盤資金面一起改變。</p>
+      </div>
+      <div class="visual grid2">
+        <div class="card"><h3>利率與債券</h3><p>利率快速變動會影響壽險資產評價與金融市場情緒。</p></div>
+        <div class="card"><h3>匯率波動</h3><p>新台幣匯率與避險成本可能影響壽險與海外投資表現。</p></div>
+        <div class="card"><h3>信用與景氣</h3><p>放款成長若搭配景氣轉弱，需注意備抵提列與逾放壓力。</p></div>
+        <div class="card"><h3>估值過熱</h3><p>好公司也可能買貴；若殖利率下降，吸引力會減弱。</p></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="topline">Decision</div><div class="slide-no">10 / 12</div>
+      <div class="content">
+        <div class="eyebrow">一句話給老闆</div>
+        <div class="quote">「中信金跌破 <strong>50</strong> 有可能，但目前比較像等待市場給機會，不是公司基本面應該跌破 50。」</div>
+      </div>
+      <div class="visual stack">
+        <div class="card"><h3>如果他已經持有</h3><p>續抱可以，部位太大才在高檔分批調節。</p></div>
+        <div class="card"><h3>如果他要新買</h3><p>不要 58 附近追滿。52 以下小買，50 以下加碼，48 以下重新檢查再決定。</p></div>
+        <div class="card"><h3>如果他只想等 50</h3><p>可以等，但可能等不到。資金分批比賭一個價位更合理。</p></div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="topline">Sources</div><div class="slide-no">11 / 12</div>
+      <div class="content">
+        <div class="eyebrow">資料來源</div>
+        <h2>本報告使用公開資料交叉整理。</h2>
+        <p class="lead">數字會隨市場即時變化，正式決策前應重新核對最新股價、公司公告與除息資訊。</p>
+      </div>
+      <div class="visual source-list">
+        <a href="https://ir.ctbcholding.com/html/financial?year=2026" target="_blank" rel="noopener">中信金控官方 IR：2026 Monthly Results，前 4 月 EPS 1.46。</a>
+        <a href="https://ir.ctbcholding.com/html/announcements_detail?id=21331" target="_blank" rel="noopener">中信金控官方公告：2025 全年 EPS 4.08。</a>
+        <a href="https://tw.stock.yahoo.com/news/%E5%85%AC%E5%91%8A-%E4%B8%AD%E4%BF%A1%E9%87%91%E8%91%A3%E4%BA%8B%E6%9C%83%E6%B1%BA%E8%AD%B0%E6%99%AE%E9%80%9A%E8%82%A1%E8%82%A1%E5%88%A9%E5%88%86%E6%B4%BE-101936262.html" target="_blank" rel="noopener">中央社 / Yahoo 股市：董事會決議 2025 年度現金股利每股 2.5 元。</a>
+        <a href="https://tw.stock.yahoo.com/news/%E4%B8%AD%E4%BF%A1%E9%87%91q1%E5%A4%A7%E8%B3%BA231%E5%84%84%E5%85%83%E5%89%B5%E5%90%8C%E6%9C%9F%E6%96%B0%E9%AB%98-eps-1-18%E5%85%83-101440284.html" target="_blank" rel="noopener">鉅亨網 / Yahoo 股市：Q1 EPS 1.18、銀行與壽險營運說明。</a>
+        <a href="https://www.cnyes.com/twstock/2891/relation/overview" target="_blank" rel="noopener">鉅亨網台股報價頁：股價、P/E、P/B、近四季 EPS、52 週區間。</a>
+      </div>
+    </section>
+
+    <section class="slide oc-control-guide-slide" data-openclaw-control-guide="true">
+      <div class="topline">Controls</div><div class="slide-no">12 / 12</div>
+      <div class="ocg-wrap">
+        <div class="ocg-kicker">How to use this HTML PPT</div>
+        <h2 class="ocg-title">底部控制列怎麼用？</h2>
+        <p class="ocg-sub">每份簡報底部都有五個固定按鍵。按鍵會顯示「符號 + 中文小字」，手機與桌面都可以直接點選。</p>
+        <div class="ocg-demo"><div class="ocg-bar"><div class="ocg-bar-title">簡報控制</div><div class="ocg-btn"><b>←</b><span>上一頁</span></div><div class="ocg-btn"><b>→</b><span>下一頁</span></div><div class="ocg-btn blue"><b>O</b><span>總覽</span></div><div class="ocg-btn blue"><b>T</b><span>重點</span></div><div class="ocg-btn blue"><b>F</b><span>沉浸</span></div></div></div>
+        <div class="ocg-grid"><div class="ocg-card"><h3>上一頁</h3><p>回到前一張投影片。</p></div><div class="ocg-card"><h3>下一頁</h3><p>前往下一張投影片。</p></div><div class="ocg-card"><h3>總覽</h3><p>打開全部投影片目錄。</p></div><div class="ocg-card"><h3>重點</h3><p>顯示本頁重點摘要。</p></div><div class="ocg-card"><h3>沉浸</h3><p>切換沉浸/專注模式。</p></div></div>
+        <div class="ocg-rule">標準規則：五個按鍵都要有中文小字，不能只顯示符號或英文字母。</div>
+      </div>
+    </section>
+  </main>
+
+  <div class="oc-ppt-remote" aria-label="OpenClaw presentation controls">
+    <div class="oc-ppt-remote-title" id="remoteTitle">中信金 2891｜投資分析</div>
+    <button class="oc-btn dark" id="prev" type="button">←<small>上一頁</small></button>
+    <button class="oc-btn dark" id="next" type="button">→<small>下一頁</small></button>
+    <button class="oc-btn" id="overviewBtn" type="button">O<small>總覽</small></button>
+    <button class="oc-btn" id="focusBtn" type="button">T<small>重點</small></button>
+    <button class="oc-btn" id="fullBtn" type="button">F<small>沉浸</small></button>
+  </div>
+  <div class="modal" id="overview"><div class="modal-inner"><div class="modal-head"><h3>簡報總覽</h3><button class="close" data-close="overview">關閉</button></div><div class="overview-grid" id="overviewGrid"></div></div></div>
+  <div class="modal" id="focus"><div class="modal-inner"><div class="modal-head"><h3>本頁重點</h3><button class="close" data-close="focus">關閉</button></div><ol class="focus-list" id="focusList"></ol></div></div>
+  <div class="toast" id="toast">已切換</div>
+  <a class="wenwen-back-prev" href="../ppt-catalog/" onclick="if(history.length>1){history.back();return false;}" aria-label="返回上一頁"><span aria-hidden="true">↩</span><em>返回上一頁</em></a>
+  <script>
+    const slides=[...document.querySelectorAll('.slide')];let current=0;
+    const progress=document.getElementById('progress'),remoteTitle=document.getElementById('remoteTitle'),toastEl=document.getElementById('toast');
+    function titleOf(s){const h=s.querySelector('h1,h2,.quote');return h?h.textContent.trim().replace(/\s+/g,' ').slice(0,28):'簡報控制'}
+    function showToast(t){toastEl.textContent=t;toastEl.classList.add('show');setTimeout(()=>toastEl.classList.remove('show'),1200)}
+    function go(i){current=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,n)=>s.classList.toggle('active',n===current));progress.style.width=((current+1)/slides.length*100)+'%';remoteTitle.textContent=titleOf(slides[current]);location.hash='#/'+(current+1)}
+    document.getElementById('prev').onclick=()=>go(current-1);document.getElementById('next').onclick=()=>go(current+1);
+    document.addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)){e.preventDefault();go(current+1)}if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(current-1)}if(e.key==='Home')go(0);if(e.key==='End')go(slides.length-1);if(e.key.toLowerCase()==='o')openOverview();if(e.key.toLowerCase()==='t')openFocus();if(e.key.toLowerCase()==='f')toggleFull();if(e.key==='Escape')document.querySelectorAll('.modal').forEach(m=>m.classList.remove('show'))});
+    function openOverview(){const g=document.getElementById('overviewGrid');g.innerHTML='';slides.forEach((s,i)=>{const d=document.createElement('div');d.className='overview-item';d.innerHTML='<b>'+String(i+1).padStart(2,'0')+'</b><span>'+titleOf(s)+'</span>';d.onclick=()=>{document.getElementById('overview').classList.remove('show');go(i)};g.appendChild(d)});document.getElementById('overview').classList.add('show');showToast('已開啟總覽')}
+    function openFocus(){const list=document.getElementById('focusList'),s=slides[current];list.innerHTML='';[...s.querySelectorAll('h1,h2,h3,.lead,.card p,.item span,.box span')].map(x=>x.textContent.trim().replace(/\s+/g,' ')).filter(x=>x.length>12).slice(0,7).forEach(x=>{const li=document.createElement('li');li.textContent=x;list.appendChild(li)});document.getElementById('focus').classList.add('show');showToast('已開啟重點')}
+    function toggleFull(){document.body.classList.toggle('ppt-immersive-on');showToast(document.body.classList.contains('ppt-immersive-on')?'已開啟沉浸模式':'已關閉沉浸模式')}
+    document.getElementById('overviewBtn').onclick=openOverview;document.getElementById('focusBtn').onclick=openFocus;document.getElementById('fullBtn').onclick=toggleFull;document.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>document.getElementById(b.dataset.close).classList.remove('show'));
+    const m=location.hash.match(/#\/(\d+)/);go(m?Number(m[1])-1:0);
+  </script>
+</body>
+</html>
