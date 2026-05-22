@@ -1,5 +1,16 @@
 [
   {
+    "slug": "tong-beauty-pif-ai-compliance",
+    "name": "彤美人｜2026 PIF 與醫美新制 AI 應對方案",
+    "desc": "針對 2026/7/1 化粧品 PIF 全面上路與醫美特管新制，整理彤美人的產品帳、文件帳、話術帳、AI 合規管理模組、6 週導入路線與服務方案。",
+    "source": "TFDA 食藥署公告、全國法規資料庫、衛福部醫事司公開資料 + 彤美人前次商業診斷 + 文文 AI 顧問分析",
+    "date": "2026-05-22",
+    "category": "顧問提案",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/tong-beauty-pif-ai-compliance/",
+    "zip_url": "https://drive.google.com/open?id=1gBK2WyXSCl-9IpjbOGIypvmzQYIae2y1",
+    "notes": "AI 系統定位為資料整理、風險提示、文件追蹤與話術檢查；不取代 PIF 安全評估簽署、法規顧問、檢驗機構、律師或主管機關判定。"
+  },
+  {
     "slug": "ctbc-2891-investment-report",
     "name": "中信金 2891｜投資分析圖文報告",
     "desc": "整理中信金 2891 最新公開資料，涵蓋前 4 月獲利、Q1 表現、股利、估值、50 元以下情境、操作區間與主要風險。",
