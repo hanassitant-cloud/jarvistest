@@ -1,5 +1,16 @@
 [
   {
+    "slug": "cgust-childcare-dept",
+    "name": "長庚科技大學幼兒保育系｜系所資料與出路圖文簡報",
+    "desc": "整理長庚科技大學幼兒保育系公開資料，包含桃園系所定位、發展沿革、114 學年度學生數、招生管道、課程特色、證照與就業出路，以及 AI 顧問服務觀察。",
+    "source": "長庚科技大學幼兒保育系官網、教育部政府資料開放平臺「大專院校各校科系別學生數」、University TW、大學問等公開資料 + 文文 AI 顧問分析",
+    "date": "2026-05-23",
+    "category": "學校/系所",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/cgust-childcare-dept/",
+    "zip_url": "https://drive.google.com/open?id=1wJP2WQ085sQfwUYoiALabwt8vyAEkIP6",
+    "notes": "招生與就業資料以公開資料整理，正式招生、錄取與資格認定請以長庚科技大學及招生委員會最新公告為準。"
+  },
+  {
     "slug": "tong-beauty-pif-ai-compliance",
     "name": "彤美人｜2026 PIF 與醫美新制 AI 應對方案",
     "desc": "針對 2026/7/1 化粧品 PIF 全面上路與醫美特管新制，整理彤美人的產品帳、文件帳、話術帳、AI 合規管理模組、6 週導入路線與服務方案。",

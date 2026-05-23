@@ -6,7 +6,7 @@
   <title>文文 HTML PPT 作品總表</title>
   <meta name="description" content="文文已發布 HTML PPT 作品總表，依日期由新到舊排序。">
   <style>
-    :root{--bg:#f7fbff;--ink:#102033;--muted:#64748b;--blue:#0ea5e9;--teal:#14b8a6;--green:#16a34a;--amber:#f59e0b;--line:rgba(15,23,42,.14);--shadow:0 24px 70px rgba(15,23,42,.12)}
+    :root{--bg:#f7fbff;--ink:#102033;--muted:#64748b;--blue:#0ea5e9;--teal:#14b8a6;--line:rgba(15,23,42,.14);--shadow:0 24px 70px rgba(15,23,42,.12)}
     *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 8% 8%,rgba(14,165,233,.18),transparent 30%),radial-gradient(circle at 90% 30%,rgba(20,184,166,.16),transparent 28%),linear-gradient(135deg,#fff,#eefaff 68%,#f7fbff);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC",Arial,sans-serif;letter-spacing:0}
     .wrap{max-width:1180px;margin:0 auto;padding:42px 20px 80px}.home{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#075985;background:#e0f2fe;border:1px solid #bae6fd;border-radius:999px;padding:9px 13px;font-weight:800}.hero{padding:42px 0 26px}.eyebrow{color:#0f766e;font-weight:900;letter-spacing:0;font-size:14px;text-transform:uppercase}h1{font-size:clamp(34px,6vw,68px);line-height:1.03;margin:10px 0 16px;letter-spacing:0}.lead{font-size:19px;line-height:1.65;color:#40536b;max-width:850px;margin:0}.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.stat{background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:8px;padding:14px 16px;box-shadow:var(--shadow)}.stat b{font-size:28px}.stat span{display:block;color:var(--muted);font-size:13px}.tools{display:grid;grid-template-columns:1fr auto;gap:14px;margin:24px 0}.search{width:100%;border:1px solid var(--line);border-radius:8px;padding:14px 16px;font-size:16px;background:#fff}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 13px;font-weight:800;color:#334155;cursor:pointer}.chip.active{background:#0f172a;color:#fff}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:8px;padding:22px;box-shadow:0 18px 48px rgba(15,23,42,.1)}.meta{display:flex;justify-content:space-between;gap:12px;color:#64748b;font-size:13px;font-weight:900}.meta span{color:#0369a1}.card h2{font-size:24px;margin:12px 0 10px;line-height:1.25}.desc,.source{line-height:1.62;color:#475569}.source{font-size:14px;color:#64748b}.actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px}.actions a{text-decoration:none;border-radius:999px;padding:10px 14px;font-weight:900}.open{background:#0f172a;color:#fff}.zip{background:#e0f2fe;color:#075985}.actions code{color:#64748b;font-size:12px}@media(max-width:820px){.tools{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.wrap{padding:28px 14px 60px}.card h2{font-size:21px}}
   </style>
@@ -18,150 +18,164 @@
       <div class="eyebrow">HTML PPT Catalog</div>
       <h1>文文 HTML PPT 作品總表</h1>
       <p class="lead">這裡整理已發布的 HTML PPT、圖文簡報與提案頁面，依日期由新到舊排序。每個項目包含展示連結、ZIP 下載、資料來源與分類，方便 Jason 快速查找與交付。</p>
-      <div class="stats"><div class="stat"><b>21</b><span>已登錄作品</span></div><div class="stat"><b>13</b><span>分類</span></div><div class="stat"><b>GitHub Pages</b><span>公開展示層</span></div></div>
+      <div class="stats"><div class="stat"><b>23</b><span>已登錄作品</span></div><div class="stat"><b>13</b><span>分類</span></div><div class="stat"><b>GitHub Pages</b><span>公開展示層</span></div></div>
     </section>
-    <section class="tools"><input id="q" class="search" placeholder="搜尋名稱、描述或資料來源"><div class="chips" id="chips"><button class="chip active" data-cat="全部">全部</button><button class="chip" data-cat="投資分析">投資分析</button><button class="chip" data-cat="AI 平台">AI 平台</button><button class="chip" data-cat="企業個案">企業個案</button><button class="chip" data-cat="顧問提案">顧問提案</button><button class="chip" data-cat="開發流程">開發流程</button><button class="chip" data-cat="創業提案">創業提案</button><button class="chip" data-cat="教學">教學</button><button class="chip" data-cat="品牌分析">品牌分析</button><button class="chip" data-cat="學校/系所">學校/系所</button><button class="chip" data-cat="診所分析">診所分析</button><button class="chip" data-cat="教學/報告">教學/報告</button><button class="chip" data-cat="文學導讀">文學導讀</button><button class="chip" data-cat="AI 趨勢">AI 趨勢</button></div></section>
-    <section class="grid" id="grid"><article class="card" data-name="中信金 2891｜投資分析圖文報告 整理中信金 2891 最新公開資料，涵蓋前 4 月獲利、Q1 表現、股利、估值、50 元以下情境、操作區間與主要風險。 中信金控官方 IR、官方公告、中央社/Yahoo 股市、鉅亨網台股報價與新聞等公開資料 + 文文投資分析" data-cat="投資分析">
+    <section class="tools"><input id="q" class="search" placeholder="搜尋名稱、描述或資料來源"><div class="chips" id="chips"><button class="chip active" data-cat="全部">全部</button><button class="chip" data-cat="學校/系所">學校/系所</button><button class="chip" data-cat="顧問提案">顧問提案</button><button class="chip" data-cat="投資分析">投資分析</button><button class="chip" data-cat="AI 平台">AI 平台</button><button class="chip" data-cat="企業個案">企業個案</button><button class="chip" data-cat="開發流程">開發流程</button><button class="chip" data-cat="創業提案">創業提案</button><button class="chip" data-cat="教學">教學</button><button class="chip" data-cat="品牌分析">品牌分析</button><button class="chip" data-cat="診所分析">診所分析</button><button class="chip" data-cat="教學/報告">教學/報告</button><button class="chip" data-cat="文學導讀">文學導讀</button><button class="chip" data-cat="AI 趨勢">AI 趨勢</button></div></section>
+    <section class="grid" id="grid"><article class="card" data-name="長庚科技大學幼兒保育系｜系所資料與出路圖文簡報 整理長庚科技大學幼兒保育系公開資料，包含桃園系所定位、發展沿革、114 學年度學生數、招生管道、課程特色、證照與就業出路，以及 AI 顧問服務觀察。 長庚科技大學幼兒保育系官網、教育部政府資料開放平臺「大專院校各校科系別學生數」、University TW、大學問等公開資料 + 文文 AI 顧問分析 招生與就業資料以公開資料整理，正式招生、錄取與資格認定請以長庚科技大學及招生委員會最新公告為準。" data-cat="學校/系所">
+  <div class="meta"><span>學校/系所</span><time>2026-05-23</time></div>
+  <h2>長庚科技大學幼兒保育系｜系所資料與出路圖文簡報</h2>
+  <p class="desc">整理長庚科技大學幼兒保育系公開資料，包含桃園系所定位、發展沿革、114 學年度學生數、招生管道、課程特色、證照與就業出路，以及 AI 顧問服務觀察。</p>
+  <p class="source"><b>資料來源：</b>長庚科技大學幼兒保育系官網、教育部政府資料開放平臺「大專院校各校科系別學生數」、University TW、大學問等公開資料 + 文文 AI 顧問分析</p>
+  <div class="actions"><a class="open" href="https://hanassitant-cloud.github.io/jarvistest/cgust-childcare-dept/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1wJP2WQ085sQfwUYoiALabwt8vyAEkIP6" target="_blank" rel="noopener">ZIP 下載</a><code>/cgust-childcare-dept/</code></div>
+</article>
+<article class="card" data-name="彤美人｜2026 PIF 與醫美新制 AI 應對方案 針對 2026/7/1 化粧品 PIF 全面上路與醫美特管新制，整理彤美人的產品帳、文件帳、話術帳、AI 合規管理模組、6 週導入路線與服務方案。 TFDA 食藥署公告、全國法規資料庫、衛福部醫事司公開資料 + 彤美人前次商業診斷 + 文文 AI 顧問分析 AI 系統定位為資料整理、風險提示、文件追蹤與話術檢查；不取代 PIF 安全評估簽署、法規顧問、檢驗機構、律師或主管機關判定。" data-cat="顧問提案">
+  <div class="meta"><span>顧問提案</span><time>2026-05-22</time></div>
+  <h2>彤美人｜2026 PIF 與醫美新制 AI 應對方案</h2>
+  <p class="desc">針對 2026/7/1 化粧品 PIF 全面上路與醫美特管新制，整理彤美人的產品帳、文件帳、話術帳、AI 合規管理模組、6 週導入路線與服務方案。</p>
+  <p class="source"><b>資料來源：</b>TFDA 食藥署公告、全國法規資料庫、衛福部醫事司公開資料 + 彤美人前次商業診斷 + 文文 AI 顧問分析</p>
+  <div class="actions"><a class="open" href="https://hanassitant-cloud.github.io/jarvistest/tong-beauty-pif-ai-compliance/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1gBK2WyXSCl-9IpjbOGIypvmzQYIae2y1" target="_blank" rel="noopener">ZIP 下載</a><code>/tong-beauty-pif-ai-compliance/</code></div>
+</article>
+<article class="card" data-name="中信金 2891｜投資分析圖文報告 整理中信金 2891 最新公開資料，涵蓋前 4 月獲利、Q1 表現、股利、估值、50 元以下情境、操作區間與主要風險。 中信金控官方 IR、官方公告、中央社/Yahoo 股市、鉅亨網台股報價與新聞等公開資料 + 文文投資分析 投資分析僅供參考，不構成保證獲利或個別買賣指令；正式下單前應重新核對最新公告與股價。" data-cat="投資分析">
   <div class="meta"><span>投資分析</span><time>2026-05-21</time></div>
   <h2>中信金 2891｜投資分析圖文報告</h2>
   <p class="desc">整理中信金 2891 最新公開資料，涵蓋前 4 月獲利、Q1 表現、股利、估值、50 元以下情境、操作區間與主要風險。</p>
   <p class="source"><b>資料來源：</b>中信金控官方 IR、官方公告、中央社/Yahoo 股市、鉅亨網台股報價與新聞等公開資料 + 文文投資分析</p>
   <div class="actions"><a class="open" href="https://hanassitant-cloud.github.io/jarvistest/ctbc-2891-investment-report/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=13sCnRb5gT8_6ZZaap-f-UYj_G4KjhVnM" target="_blank" rel="noopener">ZIP 下載</a><code>/ctbc-2891-investment-report/</code></div>
 </article>
-<article class="card" data-name="AI智慧平台導入｜平台規格圖文簡報 將 AI-platform-spec-1.1 正式規格書轉為 HTML PPT 圖文版，整理平台定位、導入流程、核心模組、支援模組、資料安全與交付驗收。 AI-platform-spec-1.1.pdf 正式規格書" data-cat="AI 平台">
+<article class="card" data-name="AI智慧平台導入｜平台規格圖文簡報 將 AI-platform-spec-1.1 正式規格書轉為 HTML PPT 圖文版，整理平台定位、導入流程、核心模組、支援模組、資料安全與交付驗收。 AI-platform-spec-1.1.pdf 正式規格書 公開展示版本，不包含內部管理規則、機密路徑、腳本或可複製內部方法。" data-cat="AI 平台">
   <div class="meta"><span>AI 平台</span><time>2026-05-20</time></div>
   <h2>AI智慧平台導入｜平台規格圖文簡報</h2>
   <p class="desc">將 AI-platform-spec-1.1 正式規格書轉為 HTML PPT 圖文版，整理平台定位、導入流程、核心模組、支援模組、資料安全與交付驗收。</p>
   <p class="source"><b>資料來源：</b>AI-platform-spec-1.1.pdf 正式規格書</p>
   <div class="actions"><a class="open" href="https://hanassitant-cloud.github.io/jarvistest/ai-platform-spec-visual/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1DOaBjrMQAC2IXy902G8-EEQSHm17DRfG" target="_blank" rel="noopener">ZIP 下載</a><code>/ai-platform-spec-visual/</code></div>
 </article>
-<article class="card" data-name="南山人壽｜全方位調查與 AI 顧問觀察 整理南山人壽公開資料，涵蓋公司概況、財務狀況、IFRS17/CSM、新制風險、員工與業務員狀況、通路與商品策略，以及 AI 顧問導入觀察。 南山人壽官方資訊公開、中央社、Yahoo 股市/財訊快報、蕃新聞/品觀點、公開就業資訊等公開資料 + 文文 AI 顧問分析" data-cat="企業個案">
+<article class="card" data-name="南山人壽｜全方位調查與 AI 顧問觀察 整理南山人壽公開資料，涵蓋公司概況、財務狀況、IFRS17/CSM、新制風險、員工與業務員狀況、通路與商品策略，以及 AI 顧問導入觀察。 南山人壽官方資訊公開、中央社、Yahoo 股市/財訊快報、蕃新聞/品觀點、公開就業資訊等公開資料 + 文文 AI 顧問分析 所有數字為公開資料整理，正式商業、投資或法規判斷前應再核對南山最新官方公告與主管機關資料。" data-cat="企業個案">
   <div class="meta"><span>企業個案</span><time>2026-05-19</time></div>
   <h2>南山人壽｜全方位調查與 AI 顧問觀察</h2>
   <p class="desc">整理南山人壽公開資料，涵蓋公司概況、財務狀況、IFRS17/CSM、新制風險、員工與業務員狀況、通路與商品策略，以及 AI 顧問導入觀察。</p>
   <p class="source"><b>資料來源：</b>南山人壽官方資訊公開、中央社、Yahoo 股市/財訊快報、蕃新聞/品觀點、公開就業資訊等公開資料 + 文文 AI 顧問分析</p>
   <div class="actions"><a class="open" href="https://hanassitant-cloud.github.io/jarvistest/nanshan-life-research/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1OL59f6HjAh_zWPQX8aLd04ebdKsBxkv7" target="_blank" rel="noopener">ZIP 下載</a><code>/nanshan-life-research/</code></div>
 </article>
-<article class="card" data-name="六福包子｜桃園在地排隊名店 AI 商業診斷圖文版 整理桃園六福包子的公開食記、Google 評價線索、排隊人氣、分店與菜單資訊，並轉成 AI 客服、團購預訂、尖峰分流與在地品牌經營的顧問提案。 AJ 的旅行地圖、蘋果樹旅遊玩樂誌、VIVIYU 小世界、女子的休假計劃、FonFood 等公開網路資料 + 文文 AI 顧問分析" data-cat="顧問提案">
+<article class="card" data-name="六福包子｜桃園在地排隊名店 AI 商業診斷圖文版 整理桃園六福包子的公開食記、Google 評價線索、排隊人氣、分店與菜單資訊，並轉成 AI 客服、團購預訂、尖峰分流與在地品牌經營的顧問提案。 AJ 的旅行地圖、蘋果樹旅遊玩樂誌、VIVIYU 小世界、女子的休假計劃、FonFood 等公開網路資料 + 文文 AI 顧問分析 Google 評分與評論數為公開資料頁擷取線索，正式商業提案前建議再核對 Google 商家即時資料。" data-cat="顧問提案">
   <div class="meta"><span>顧問提案</span><time>2026-05-19</time></div>
   <h2>六福包子｜桃園在地排隊名店 AI 商業診斷圖文版</h2>
   <p class="desc">整理桃園六福包子的公開食記、Google 評價線索、排隊人氣、分店與菜單資訊，並轉成 AI 客服、團購預訂、尖峰分流與在地品牌經營的顧問提案。</p>
   <p class="source"><b>資料來源：</b>AJ 的旅行地圖、蘋果樹旅遊玩樂誌、VIVIYU 小世界、女子的休假計劃、FonFood 等公開網路資料 + 文文 AI 顧問分析</p>
   <div class="actions"><a class="open" href="https://hanassitant-cloud.github.io/jarvistest/liufu-baozi-ai-diagnosis/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1dztdC_K8b-MywR1K8JB9ubj27uhJhM82" target="_blank" rel="noopener">ZIP 下載</a><code>/liufu-baozi-ai-diagnosis/</code></div>
 </article>
-<article class="card" data-name="彤美人美容美體莊園｜AI 商業診斷與成長提案 以公開資料與前次調研整理彤美人的品牌定位、服務/產品收入線、競品缺口、Google 商家與社群優化、會員回訪漏斗，以及 AI LINE 客服與預約前諮詢導入路線圖。 彤美人官網公開資料 + Jason 前次指定商業診斷調研 + 文文 AI 顧問分析" data-cat="顧問提案">
+<article class="card" data-name="彤美人美容美體莊園｜AI 商業診斷與成長提案 以公開資料與前次調研整理彤美人的品牌定位、服務/產品收入線、競品缺口、Google 商家與社群優化、會員回訪漏斗，以及 AI LINE 客服與預約前諮詢導入路線圖。 彤美人官網公開資料 + Jason 前次指定商業診斷調研 + 文文 AI 顧問分析 健康/能量檢測相關內容僅作行銷與客服資訊整理，不替代醫療診斷。" data-cat="顧問提案">
   <div class="meta"><span>顧問提案</span><time>2026-05-16</time></div>
   <h2>彤美人美容美體莊園｜AI 商業診斷與成長提案</h2>
   <p class="desc">以公開資料與前次調研整理彤美人的品牌定位、服務/產品收入線、競品缺口、Google 商家與社群優化、會員回訪漏斗，以及 AI LINE 客服與預約前諮詢導入路線圖。</p>
   <p class="source"><b>資料來源：</b>彤美人官網公開資料 + Jason 前次指定商業診斷調研 + 文文 AI 顧問分析</p>
   <div class="actions"><a class="open" href="https://hanassitant-cloud.github.io/jarvistest/tong-beauty-ai-diagnosis/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1MkQX61PjeIDrEnbsY7JlCbiX0szWcDvM" target="_blank" rel="noopener">ZIP 下載</a><code>/tong-beauty-ai-diagnosis/</code></div>
 </article>
-<article class="card" data-name="GitHub Spec Kit｜規格驅動開發與 OpenClaw 整合圖文簡報 介紹 GitHub Spec Kit、Spec-Driven Development 流程，並研究如何整合進 OpenClaw / 文文 AI 顧問流程。 https://github.com/github/spec-kit README、spec-driven.md、installation.md、integrations.md" data-cat="開發流程">
+<article class="card" data-name="GitHub Spec Kit｜規格驅動開發與 OpenClaw 整合圖文簡報 介紹 GitHub Spec Kit、Spec-Driven Development 流程，並研究如何整合進 OpenClaw / 文文 AI 顧問流程。 https://github.com/github/spec-kit README、spec-driven.md、installation.md、integrations.md " data-cat="開發流程">
   <div class="meta"><span>開發流程</span><time>2026-05-15</time></div>
   <h2>GitHub Spec Kit｜規格驅動開發與 OpenClaw 整合圖文簡報</h2>
   <p class="desc">介紹 GitHub Spec Kit、Spec-Driven Development 流程，並研究如何整合進 OpenClaw / 文文 AI 顧問流程。</p>
   <p class="source"><b>資料來源：</b>https://github.com/github/spec-kit README、spec-driven.md、installation.md、integrations.md</p>
   <div class="actions"><a class="open" href="../spec-kit-visual/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1W60nHJeYVKrRPAwh_rnCBS6QkoQuV1ff" target="_blank" rel="noopener">ZIP 下載</a><code>/spec-kit-visual/</code></div>
 </article>
-<article class="card" data-name="校園二手書與學習互助服務平台｜深度研究 Pitch Deck 以 PDF pitch deck 為基礎，延伸市場研究、競品、MVP、商業模式、風險與 AI 延伸方向。 Jason 上傳 PDF：校園二手書與學習互助服務平台 Pitch Deck + 網路研究" data-cat="創業提案">
+<article class="card" data-name="校園二手書與學習互助服務平台｜深度研究 Pitch Deck 以 PDF pitch deck 為基礎，延伸市場研究、競品、MVP、商業模式、風險與 AI 延伸方向。 Jason 上傳 PDF：校園二手書與學習互助服務平台 Pitch Deck + 網路研究 " data-cat="創業提案">
   <div class="meta"><span>創業提案</span><time>2026-05-15</time></div>
   <h2>校園二手書與學習互助服務平台｜深度研究 Pitch Deck</h2>
   <p class="desc">以 PDF pitch deck 為基礎，延伸市場研究、競品、MVP、商業模式、風險與 AI 延伸方向。</p>
   <p class="source"><b>資料來源：</b>Jason 上傳 PDF：校園二手書與學習互助服務平台 Pitch Deck + 網路研究</p>
   <div class="actions"><a class="open" href="../school-trade-visual/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=13jS5SzKfuSZjfcWwKXr6ylspw1X8fKq-" target="_blank" rel="noopener">ZIP 下載</a><code>/school-trade-visual/</code></div>
 </article>
-<article class="card" data-name="一小時 Python 入門 Part 1 Python 入門教學簡報，適合初學者用一小時建立基礎語法與學習方向。 文文教學內容整理" data-cat="教學">
+<article class="card" data-name="一小時 Python 入門 Part 1 Python 入門教學簡報，適合初學者用一小時建立基礎語法與學習方向。 文文教學內容整理 " data-cat="教學">
   <div class="meta"><span>教學</span><time>2026-05-15</time></div>
   <h2>一小時 Python 入門 Part 1</h2>
   <p class="desc">Python 入門教學簡報，適合初學者用一小時建立基礎語法與學習方向。</p>
   <p class="source"><b>資料來源：</b>文文教學內容整理</p>
   <div class="actions"><a class="open" href="../python-intro-part1/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1hBLxTlAQcvoXamNxHaYtEWkEbJEXFgFg" target="_blank" rel="noopener">ZIP 下載</a><code>/python-intro-part1/</code></div>
 </article>
-<article class="card" data-name="PetAngel 毛天使｜圖文分析 HTML PPT PetAngel 毛天使網站內容分析簡報，整理服務定位、產品/服務、客戶情境與改善建議。 指定網站與公開網路資料" data-cat="品牌分析">
+<article class="card" data-name="PetAngel 毛天使｜圖文分析 HTML PPT PetAngel 毛天使網站內容分析簡報，整理服務定位、產品/服務、客戶情境與改善建議。 指定網站與公開網路資料 " data-cat="品牌分析">
   <div class="meta"><span>品牌分析</span><time>2026-05-15</time></div>
   <h2>PetAngel 毛天使｜圖文分析 HTML PPT</h2>
   <p class="desc">PetAngel 毛天使網站內容分析簡報，整理服務定位、產品/服務、客戶情境與改善建議。</p>
   <p class="source"><b>資料來源：</b>指定網站與公開網路資料</p>
   <div class="actions"><a class="open" href="../petangel-visual/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1NPJhQnCKOmsKQlF5u-Sv4Ndo0QLKFnlT" target="_blank" rel="noopener">ZIP 下載</a><code>/petangel-visual/</code></div>
 </article>
-<article class="card" data-name="臺大財金系｜圖文分析 HTML PPT 臺大管理學院財務金融學系暨研究所介紹頁面分析，整理系所定位、歷史、課程、國際化與產學合作。 https://management.ntu.edu.tw/college_intro/intro_fin" data-cat="學校/系所">
+<article class="card" data-name="臺大財金系｜圖文分析 HTML PPT 臺大管理學院財務金融學系暨研究所介紹頁面分析，整理系所定位、歷史、課程、國際化與產學合作。 https://management.ntu.edu.tw/college_intro/intro_fin " data-cat="學校/系所">
   <div class="meta"><span>學校/系所</span><time>2026-05-15</time></div>
   <h2>臺大財金系｜圖文分析 HTML PPT</h2>
   <p class="desc">臺大管理學院財務金融學系暨研究所介紹頁面分析，整理系所定位、歷史、課程、國際化與產學合作。</p>
   <p class="source"><b>資料來源：</b>https://management.ntu.edu.tw/college_intro/intro_fin</p>
   <div class="actions"><a class="open" href="../ntu-fin-visual/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1X-8jLxcpmOn4q-c10cT_Fd9DCZh32x0N" target="_blank" rel="noopener">ZIP 下載</a><code>/ntu-fin-visual/</code></div>
 </article>
-<article class="card" data-name="新店東北大牙醫｜網路資料整理圖文 HTML PPT 整理新店東北大牙醫公開資訊，含地址、電話、門診、醫師、特色療程與就醫前提醒。 Best Doctor 頁面 + MyDentist、PPI、Taiwan Dental 等公開資料" data-cat="診所分析">
+<article class="card" data-name="新店東北大牙醫｜網路資料整理圖文 HTML PPT 整理新店東北大牙醫公開資訊，含地址、電話、門診、醫師、特色療程與就醫前提醒。 Best Doctor 頁面 + MyDentist、PPI、Taiwan Dental 等公開資料 " data-cat="診所分析">
   <div class="meta"><span>診所分析</span><time>2026-05-15</time></div>
   <h2>新店東北大牙醫｜網路資料整理圖文 HTML PPT</h2>
   <p class="desc">整理新店東北大牙醫公開資訊，含地址、電話、門診、醫師、特色療程與就醫前提醒。</p>
   <p class="source"><b>資料來源：</b>Best Doctor 頁面 + MyDentist、PPI、Taiwan Dental 等公開資料</p>
   <div class="actions"><a class="open" href="../northeast-dental-visual/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1dDlsjdD8q55EZ14UEHMi42IfI5R2qy6h" target="_blank" rel="noopener">ZIP 下載</a><code>/northeast-dental-visual/</code></div>
 </article>
-<article class="card" data-name="東北大牙醫 AI 行銷改善提案 針對東北大牙醫提出 AI 行銷改善方案，含 Google 商家、SEO、LINE AI 助理、評論 SOP 與 90 天計畫。 東北大牙醫公開資料整理 + 文文商業/AI 顧問分析" data-cat="顧問提案">
+<article class="card" data-name="東北大牙醫 AI 行銷改善提案 針對東北大牙醫提出 AI 行銷改善方案，含 Google 商家、SEO、LINE AI 助理、評論 SOP 與 90 天計畫。 東北大牙醫公開資料整理 + 文文商業/AI 顧問分析 " data-cat="顧問提案">
   <div class="meta"><span>顧問提案</span><time>2026-05-15</time></div>
   <h2>東北大牙醫 AI 行銷改善提案</h2>
   <p class="desc">針對東北大牙醫提出 AI 行銷改善方案，含 Google 商家、SEO、LINE AI 助理、評論 SOP 與 90 天計畫。</p>
   <p class="source"><b>資料來源：</b>東北大牙醫公開資料整理 + 文文商業/AI 顧問分析</p>
   <div class="actions"><a class="open" href="../northeast-dental-growth-proposal/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1LobWUR-Kd7LpQ8V7XfPehbDzLoLmO0bS" target="_blank" rel="noopener">ZIP 下載</a><code>/northeast-dental-growth-proposal/</code></div>
 </article>
-<article class="card" data-name="良興全通路轉型個案｜精美圖文 HTML PPT 良興 / 工研院全通路轉型個案圖文簡報，整理品牌、通路、數位轉型與商業洞察。 使用者提供/指定網站與文文網路資料整理" data-cat="企業個案">
+<article class="card" data-name="良興全通路轉型個案｜精美圖文 HTML PPT 良興 / 工研院全通路轉型個案圖文簡報，整理品牌、通路、數位轉型與商業洞察。 使用者提供/指定網站與文文網路資料整理 " data-cat="企業個案">
   <div class="meta"><span>企業個案</span><time>2026-05-15</time></div>
   <h2>良興全通路轉型個案｜精美圖文 HTML PPT</h2>
   <p class="desc">良興 / 工研院全通路轉型個案圖文簡報，整理品牌、通路、數位轉型與商業洞察。</p>
   <p class="source"><b>資料來源：</b>使用者提供/指定網站與文文網路資料整理</p>
   <div class="actions"><a class="open" href="../liangxing-itri-visual/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1fzeIjqxu00G1DZvWyMZRpSWgdrOmkIRu" target="_blank" rel="noopener">ZIP 下載</a><code>/liangxing-itri-visual/</code></div>
 </article>
-<article class="card" data-name="生成式 AI 與網際網路｜學生角度圖文 HTML PPT 從學生角度整理生成式 AI 如何改變 Google 搜尋、學習、資訊查證與學術倫理。 Google Drive 文件：生成式AI與網際網路_學生角度完整報告.docx" data-cat="教學/報告">
+<article class="card" data-name="生成式 AI 與網際網路｜學生角度圖文 HTML PPT 從學生角度整理生成式 AI 如何改變 Google 搜尋、學習、資訊查證與學術倫理。 Google Drive 文件：生成式AI與網際網路_學生角度完整報告.docx " data-cat="教學/報告">
   <div class="meta"><span>教學/報告</span><time>2026-05-15</time></div>
   <h2>生成式 AI 與網際網路｜學生角度圖文 HTML PPT</h2>
   <p class="desc">從學生角度整理生成式 AI 如何改變 Google 搜尋、學習、資訊查證與學術倫理。</p>
   <p class="source"><b>資料來源：</b>Google Drive 文件：生成式AI與網際網路_學生角度完整報告.docx</p>
   <div class="actions"><a class="open" href="../genai-internet-student-visual/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1q0IClhwTSAB4DkZVFOZyFYIXOlh85gpa" target="_blank" rel="noopener">ZIP 下載</a><code>/genai-internet-student-visual/</code></div>
 </article>
-<article class="card" data-name="《大廟埕》書摘導讀｜媽祖進香與香火權力遊戲 以 The News Lens 書摘為基礎，整理《大廟埕》的媽祖進香改道、正統敘事、香火權力，以及作者張鎮洲公開資料分析。 https://www.thenewslens.com/article/266308；Readmoo《大廟埕》作者簡介；品傳媒新書發表報導；BOOK☆WALKER 書籍頁" data-cat="文學導讀">
+<article class="card" data-name="《大廟埕》書摘導讀｜媽祖進香與香火權力遊戲 以 The News Lens 書摘為基礎，整理《大廟埕》的媽祖進香改道、正統敘事、香火權力，以及作者張鎮洲公開資料分析。 https://www.thenewslens.com/article/266308；Readmoo《大廟埕》作者簡介；品傳媒新書發表報導；BOOK☆WALKER 書籍頁 " data-cat="文學導讀">
   <div class="meta"><span>文學導讀</span><time>2026-05-15</time></div>
   <h2>《大廟埕》書摘導讀｜媽祖進香與香火權力遊戲</h2>
   <p class="desc">以 The News Lens 書摘為基礎，整理《大廟埕》的媽祖進香改道、正統敘事、香火權力，以及作者張鎮洲公開資料分析。</p>
   <p class="source"><b>資料來源：</b>https://www.thenewslens.com/article/266308；Readmoo《大廟埕》作者簡介；品傳媒新書發表報導；BOOK☆WALKER 書籍頁</p>
   <div class="actions"><a class="open" href="../damiaocheng-mazu-power-visual/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1nhUjf6_gbtXtVIr-QikW_R8OMXAoZGAH" target="_blank" rel="noopener">ZIP 下載</a><code>/damiaocheng-mazu-power-visual/</code></div>
 </article>
-<article class="card" data-name="張鎮洲《大廟埕》完整資料整理｜圖文 HTML PPT 整合《大廟埕》書籍規格、作者背景、新書發表、推薦語、目次、The News Lens 選摘與文化脈絡分析的完整資料簡報。 Readmoo、三民網路書店、BOOK☆WALKER、品傳媒新書發表報導、The News Lens 關鍵評論網選摘" data-cat="文學導讀">
+<article class="card" data-name="張鎮洲《大廟埕》完整資料整理｜圖文 HTML PPT 整合《大廟埕》書籍規格、作者背景、新書發表、推薦語、目次、The News Lens 選摘與文化脈絡分析的完整資料簡報。 Readmoo、三民網路書店、BOOK☆WALKER、品傳媒新書發表報導、The News Lens 關鍵評論網選摘 " data-cat="文學導讀">
   <div class="meta"><span>文學導讀</span><time>2026-05-15</time></div>
   <h2>張鎮洲《大廟埕》完整資料整理｜圖文 HTML PPT</h2>
   <p class="desc">整合《大廟埕》書籍規格、作者背景、新書發表、推薦語、目次、The News Lens 選摘與文化脈絡分析的完整資料簡報。</p>
   <p class="source"><b>資料來源：</b>Readmoo、三民網路書店、BOOK☆WALKER、品傳媒新書發表報導、The News Lens 關鍵評論網選摘</p>
   <div class="actions"><a class="open" href="../damiaocheng-book-complete-visual/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1eLptLtv_8NCZnxCUP1UVXmGeGV-Oomw-" target="_blank" rel="noopener">ZIP 下載</a><code>/damiaocheng-book-complete-visual/</code></div>
 </article>
-<article class="card" data-name="碧睿生醫 Biodewake｜品牌資料分析圖文 HTML PPT 碧睿生醫品牌與產品資料分析簡報，含品牌定位、產品線與商業洞察。 指定網站與公開網路資料" data-cat="企業個案">
+<article class="card" data-name="碧睿生醫 Biodewake｜品牌資料分析圖文 HTML PPT 碧睿生醫品牌與產品資料分析簡報，含品牌定位、產品線與商業洞察。 指定網站與公開網路資料 " data-cat="企業個案">
   <div class="meta"><span>企業個案</span><time>2026-05-15</time></div>
   <h2>碧睿生醫 Biodewake｜品牌資料分析圖文 HTML PPT</h2>
   <p class="desc">碧睿生醫品牌與產品資料分析簡報，含品牌定位、產品線與商業洞察。</p>
   <p class="source"><b>資料來源：</b>指定網站與公開網路資料</p>
   <div class="actions"><a class="open" href="../biodewake-visual/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1GKaknFr9sFqSm5ub9gDajIiZ2A4ppUwm" target="_blank" rel="noopener">ZIP 下載</a><code>/biodewake-visual/</code></div>
 </article>
-<article class="card" data-name="空間智慧互動式投影片 空間智慧主題的互動式安全版投影片，強調可直接開啟與展示。 Jason 提供主題與文文整理研究" data-cat="AI 趨勢">
+<article class="card" data-name="空間智慧互動式投影片 空間智慧主題的互動式安全版投影片，強調可直接開啟與展示。 Jason 提供主題與文文整理研究 " data-cat="AI 趨勢">
   <div class="meta"><span>AI 趨勢</span><time>2026-05-14</time></div>
   <h2>空間智慧互動式投影片</h2>
   <p class="desc">空間智慧主題的互動式安全版投影片，強調可直接開啟與展示。</p>
   <p class="source"><b>資料來源：</b>Jason 提供主題與文文整理研究</p>
   <div class="actions"><a class="open" href="../L2/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1Ed38VOEq0hxoCHiMcY6A0HaOUjMjoBGP" target="_blank" rel="noopener">ZIP 下載</a><code>/L2/</code></div>
 </article>
-<article class="card" data-name="空間智慧：AI 下一個被低估的主戰場 介紹 Spatial Intelligence / 空間智慧的趨勢、應用與 AI 下一階段機會。 Jason 提供主題與文文整理研究" data-cat="AI 趨勢">
+<article class="card" data-name="空間智慧：AI 下一個被低估的主戰場 介紹 Spatial Intelligence / 空間智慧的趨勢、應用與 AI 下一階段機會。 Jason 提供主題與文文整理研究 " data-cat="AI 趨勢">
   <div class="meta"><span>AI 趨勢</span><time>2026-05-14</time></div>
   <h2>空間智慧：AI 下一個被低估的主戰場</h2>
   <p class="desc">介紹 Spatial Intelligence / 空間智慧的趨勢、應用與 AI 下一階段機會。</p>
   <p class="source"><b>資料來源：</b>Jason 提供主題與文文整理研究</p>
   <div class="actions"><a class="open" href="../L1/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1s4W5wyPQBgu00B4hsoO1ylnNdMvLhK9Z" target="_blank" rel="noopener">ZIP 下載</a><code>/L1/</code></div>
 </article>
-<article class="card" data-name="AI 智慧服務平台｜互動式 HTML 展示簡報版 AI 智慧服務平台展示簡報的另一版本，含互動式控制與平台能力架構。 Jason / 文文內部 AI 智慧服務平台規劃資料" data-cat="AI 平台">
+<article class="card" data-name="AI 智慧服務平台｜互動式 HTML 展示簡報版 AI 智慧服務平台展示簡報的另一版本，含互動式控制與平台能力架構。 Jason / 文文內部 AI 智慧服務平台規劃資料 " data-cat="AI 平台">
   <div class="meta"><span>AI 平台</span><time>2026-05-14</time></div>
   <h2>AI 智慧服務平台｜互動式 HTML 展示簡報版</h2>
   <p class="desc">AI 智慧服務平台展示簡報的另一版本，含互動式控制與平台能力架構。</p>
   <p class="source"><b>資料來源：</b>Jason / 文文內部 AI 智慧服務平台規劃資料</p>
   <div class="actions"><a class="open" href="../AI1/" target="_blank" rel="noopener">打開 HTML PPT</a><a class="zip" href="https://drive.google.com/open?id=1MJzihPcWzOZjbGH-hgtzdSKmkGFofS3q" target="_blank" rel="noopener">ZIP 下載</a><code>/AI1/</code></div>
 </article>
-<article class="card" data-name="AI 智慧服務平台｜互動式 HTML 展示簡報版 企業級 AI 智慧服務平台展示簡報，整理客服、行銷、知識管理、決策支援與 AI 營運中樞概念。 Jason / 文文內部 AI 智慧服務平台規劃資料" data-cat="AI 平台">
+<article class="card" data-name="AI 智慧服務平台｜互動式 HTML 展示簡報版 企業級 AI 智慧服務平台展示簡報，整理客服、行銷、知識管理、決策支援與 AI 營運中樞概念。 Jason / 文文內部 AI 智慧服務平台規劃資料 " data-cat="AI 平台">
   <div class="meta"><span>AI 平台</span><time>2026-05-14</time></div>
   <h2>AI 智慧服務平台｜互動式 HTML 展示簡報版</h2>
   <p class="desc">企業級 AI 智慧服務平台展示簡報，整理客服、行銷、知識管理、決策支援與 AI 營運中樞概念。</p>
