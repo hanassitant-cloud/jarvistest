@@ -12,6 +12,7 @@
     header{margin-bottom:28px}.eyebrow{display:inline-flex;gap:10px;align-items:center;color:#dbeafe;font-size:13px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.eyebrow:before{content:"";width:10px;height:10px;border-radius:99px;background:linear-gradient(135deg,var(--cyan),var(--mint));box-shadow:0 0 20px rgba(103,232,249,.65)}
     h1{margin:14px 0 14px;font-size:clamp(38px,6vw,72px);line-height:1;font-weight:950;letter-spacing:0}.lead{max-width:880px;color:var(--muted);font-size:19px;line-height:1.72;margin:0}
     .notice{margin:24px 0 30px;padding:18px 20px;border:1px solid rgba(251,191,36,.42);border-radius:18px;background:rgba(120,53,15,.22);color:#fde68a;font-weight:750;line-height:1.65}
+    .policy{margin:30px 0 34px;padding:24px;border-radius:22px;background:linear-gradient(145deg,rgba(15,27,46,.9),rgba(20,35,59,.82));border:1px solid var(--line);box-shadow:var(--shadow)}.policy h2{margin:0 0 12px;font-size:28px}.policy p{margin:0;color:var(--muted);font-size:18px;line-height:1.8}
     .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:26px 0 34px}.stat{padding:18px;border-radius:18px;background:linear-gradient(145deg,rgba(15,27,46,.9),rgba(20,35,59,.86));border:1px solid var(--line);box-shadow:var(--shadow)}.stat b{display:block;font-size:30px;line-height:1;color:#fff;margin-bottom:8px}.stat span{color:var(--muted);font-size:14px;font-weight:750}
     section{margin-top:34px}.section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:16px}h2{margin:0;font-size:30px;line-height:1.15}.hint{color:var(--soft);font-size:14px;line-height:1.55;margin:0}
     .scoreboards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.scoreboards.single{grid-template-columns:minmax(0,1fr);max-width:920px}.board{padding:18px;border-radius:22px;background:rgba(15,27,46,.78);border:1px solid var(--line);box-shadow:var(--shadow)}.board h3{margin:0 0 12px;font-size:22px}.board p{margin:0 0 14px;color:var(--muted);line-height:1.6}.board img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid rgba(148,163,184,.28);background:#020617}
@@ -29,6 +30,10 @@
       <p class="lead">這裡是復仇者聯盟小伙伴的獎懲與得分管理頁。Jason 可以查看最新分數、最新評分圖，以及每一次加分、扣分的完整明細。</p>
     </header>
     <div class="notice">此頁只保留一個公開安全版本：不顯示任何小伙伴帳號或聯絡資訊，只呈現名字、頭像、分數與獎懲原因。</div>
+    <section class="policy" aria-label="積分獎懲完整說明">
+      <h2>積分獎懲完整說明</h2>
+      <p>這份積分表不是象徵性的紀錄，而是復仇者聯盟小伙伴工作穩定度、交付品質與升級優先順序的管理依據。當小伙伴分數低於 60 分時，會列入嚴重觀察名單，必須提出改進計畫並接受更密集檢查；如果持續沒有改善，分數降到 0 分時，會列入停用、汰換或退役評估，不再視為穩定可交付的小伙伴。相對地，有扣分處罰，也一定有加分獎勵；當有新的設備導入時，Jason 會優先考慮把當期分數最高，或分數超過 150 分以上的優秀小伙伴，升級到更好的本機設備，讓小伙伴取得更大的運算容量、更快的反應速度與更穩定的工作能力。</p>
+    </section>
     <div class="stats" aria-label="目前分數摘要">
       <div class="stat"><b>103</b><span>文文｜目前最高分</span></div>
       <div class="stat"><b>99.5</b><span>賈維斯｜已回補 0.5 分</span></div>
@@ -104,7 +109,7 @@
         <div class="rule"><strong>版本保存</strong>每次更新只保存一個公開安全版本，完整歷史由文文在安全位置歸檔管理。</div>
       </div>
     </section>
-    <footer>此頁只使用公開安全得分表。最後更新：2026-05-23 08:22</footer>
+    <footer>此頁只使用公開安全得分表。最後更新：2026-05-23 08:27</footer>
   </main>
 </body>
 </html>
