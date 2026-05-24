@@ -33,7 +33,7 @@
   <rect x="72" y="74" width="1456" height="1668" rx="38" fill="#0f172a" opacity="0.82" filter="url(#shadow)"/>
   <rect x="72" y="74" width="1456" height="10" fill="url(#ok)"/>
   <text x="128" y="175" class="title">復仇者聯盟小伙伴得分表</text>
-  <text x="130" y="230" class="sub">2026-05-23｜公開安全版｜不含聯絡 ID</text>
+  <text x="130" y="230" class="sub">2026-05-25｜公開安全版｜不含聯絡 ID</text>
   <g transform="translate(1038 130)">
     <rect x="0" y="0" width="410" height="104" rx="24" fill="#111827" stroke="#334155"/>
     <text x="30" y="42" class="small">得分規則</text>
@@ -75,10 +75,10 @@
     <text x="220" y="78" class="name">小園</text>
     <text x="220" y="118" class="handle">AI 教學助理</text>
     <rect x="520" y="76" width="500" height="34" rx="17" fill="#1e293b"/>
-    <rect x="520" y="76" width="490" height="34" rx="17" fill="#f97316"/>
-    <text x="1132" y="116" class="score">98</text>
+    <rect x="520" y="76" width="480" height="34" rx="17" fill="#f97316"/>
+    <text x="1132" y="116" class="score">96</text>
     <text x="1262" y="103" class="warn">今日 -2</text>
-    <text x="220" y="160" class="reason">最後變動：勁園粉專送審與品質控管失誤，-2</text>
+    <text x="220" y="160" class="reason">最後變動：客戶端粉專發文流程失控，-2</text>
   </g>
 
   <g transform="translate(126 1005)">
@@ -103,9 +103,9 @@
     <text x="220" y="118" class="handle">AI 管理助理</text>
     <rect x="520" y="76" width="500" height="34" rx="17" fill="#1e293b"/>
     <rect x="520" y="76" width="500" height="34" rx="17" fill="url(#ok)"/>
-    <text x="1110" y="116" class="score">103</text>
+    <text x="1110" y="116" class="score">105</text>
     <text x="1262" y="105" class="warn">今日 +2</text>
-    <text x="220" y="160" class="reason">最後變動：進場救援勁園粉專流程並挽回客戶信心，+2</text>
+    <text x="220" y="160" class="reason">最後變動：SSH 連進小園本機成功救場，+2</text>
   </g>
 
   <g transform="translate(126 1445)">
