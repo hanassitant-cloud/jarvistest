@@ -125,9 +125,9 @@
   <g transform="translate(126 1665)">
     <rect x="0" y="0" width="1348" height="180" rx="30" fill="#083344" stroke="#06b6d4" stroke-width="2"/>
     <circle cx="98" cy="98" r="82" fill="#cffafe"/>
-    <image href="avatars/eclife.svg" x="22" y="22" width="152" height="152" preserveAspectRatio="xMidYMid slice" clip-path="url(#avatar7)"/>
+    <image href="avatars/eclife.jpg" x="22" y="22" width="152" height="152" preserveAspectRatio="xMidYMid slice" clip-path="url(#avatar7)"/>
     <circle cx="98" cy="98" r="82" fill="none" stroke="#a5f3fc" stroke-width="5"/>
-    <text x="220" y="78" class="name">eclife</text>
+    <text x="220" y="78" class="name">小興</text>
     <text x="220" y="118" class="handle">AI 新小伙伴</text>
     <rect x="520" y="76" width="500" height="34" rx="17" fill="#1e293b"/>
     <rect x="520" y="76" width="500" height="34" rx="17" fill="url(#ok)"/>
