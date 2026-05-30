@@ -1,5 +1,16 @@
 [
   {
+    "slug": "darencademy-analysis",
+    "name": "大人學 Darencademy｜網站主旨、關聯品牌與創辦人分析",
+    "desc": "整合大人學、識博管理顧問、專案管理生活思維、大人的 Small Talk 與創辦人公開資料，分析網站主旨、商業模式、內容策略、品牌系統與可借鏡方向。",
+    "source": "大人學官方關於頁與作者頁、shop.darencademy.com 課程報名站、ProjectUp 專案管理生活思維、識博管理顧問官網、Apple Podcasts 與公開搜尋資料 + 文文整理分析",
+    "date": "2026-05-30",
+    "category": "品牌/網站分析",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/darencademy-analysis/",
+    "notes": "本簡報依 2026-05-30 可查公開資料整理；課程梯次、企業服務數字與 Podcast 平台資訊會隨時間更新，正式引用前建議再核對官方頁。",
+    "zip_url": "https://drive.google.com/open?id=1shYKSv9x0vGS3-qMXvSYD4wysYujioVV"
+  },
+  {
     "slug": "chihping-fashion-night",
     "name": "治平高中時尚造型科夜間部｜科系評估與出路圖文簡報",
     "desc": "整理治平高中時尚造型科與進修部夜間部公開資料，分析科系定位、課程特色、升學就業出路、產業薪資現實、選讀風險與家長決策建議。",
