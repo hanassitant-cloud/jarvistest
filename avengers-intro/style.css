@@ -44,6 +44,73 @@
     var(--bg);
 }
 
+.tpl-avengers-intro .score-cover {
+  background:
+    radial-gradient(circle at 18% 18%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 34%),
+    var(--bg);
+}
+
+.tpl-avengers-intro .score-cover-layout {
+  display: grid;
+  grid-template-columns: .88fr 1.12fr;
+  gap: 36px;
+  align-items: center;
+  height: calc(100vh - 170px);
+  min-height: 540px;
+}
+
+.tpl-avengers-intro .score-cover-copy {
+  min-width: 0;
+}
+
+.tpl-avengers-intro .score-cover .lede {
+  margin-bottom: 24px;
+  font-weight: 700;
+  color: var(--text-1);
+}
+
+.tpl-avengers-intro .partner-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 680px;
+}
+
+.tpl-avengers-intro .partner-list span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--text-1);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.tpl-avengers-intro .scoreboard-frame {
+  margin: 0;
+  align-self: center;
+  justify-self: center;
+  width: min(100%, 520px);
+  max-height: calc(100vh - 170px);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #0f172a;
+  box-shadow: var(--shadow-lg, 0 24px 80px rgba(15, 23, 42, .25));
+}
+
+.tpl-avengers-intro .scoreboard-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 172px);
+  object-fit: contain;
+}
+
 .tpl-avengers-intro .cover-grid,
 .tpl-avengers-intro .metric-grid,
 .tpl-avengers-intro .cards,
@@ -366,6 +433,7 @@
   }
 
   .tpl-avengers-intro .cover-grid,
+  .tpl-avengers-intro .score-cover-layout,
   .tpl-avengers-intro .split,
   .tpl-avengers-intro .metric-grid,
   .tpl-avengers-intro .cards.g2,
@@ -379,6 +447,30 @@
     grid-template-columns: 1fr;
     width: min(100%, calc(100vw - 90px));
     max-width: calc(100vw - 90px);
+  }
+
+  .tpl-avengers-intro .score-cover-layout {
+    height: auto;
+    min-height: 0;
+  }
+
+  .tpl-avengers-intro .partner-list {
+    width: 100%;
+    max-width: calc(100vw - 90px);
+  }
+
+  .tpl-avengers-intro .partner-list span {
+    min-height: 38px;
+    font-size: 14px;
+  }
+
+  .tpl-avengers-intro .scoreboard-frame {
+    width: min(100%, 310px);
+    max-height: none;
+  }
+
+  .tpl-avengers-intro .scoreboard-frame img {
+    max-height: none;
   }
 
   .tpl-avengers-intro .arrow { transform: rotate(90deg); }
