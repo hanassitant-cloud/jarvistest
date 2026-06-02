@@ -61,13 +61,13 @@
   .flow .card{min-height:138px}
   .num{font-family:var(--font-mono);color:var(--accent);font-weight:900}
   .deck-nav{
-    position:fixed;right:24px;bottom:24px;z-index:50;display:flex;align-items:center;gap:8px;
+    position:fixed;right:24px;bottom:24px;z-index:70;display:flex;align-items:center;gap:8px;
     padding:8px;border:1px solid rgba(152,190,210,.32);border-radius:8px;
     background:rgba(7,16,22,.78);box-shadow:0 18px 54px rgba(0,0,0,.34);
     backdrop-filter:blur(14px)
   }
   .deck-nav button{
-    height:38px;min-width:96px;border:1px solid rgba(152,190,210,.34);border-radius:6px;
+    height:38px;min-width:78px;border:1px solid rgba(152,190,210,.34);border-radius:6px;
     background:rgba(255,255,255,.07);color:var(--text-1);font:700 14px/1 var(--font-sans);
     cursor:pointer
   }
@@ -79,11 +79,22 @@
   }
   body[data-preview="1"] .deck-nav{display:none}
   @media(max-width:900px){
-    .slide{padding:40px 24px}.h1{font-size:46px}.h2{font-size:34px}.lede{font-size:18px}
+    html,body{min-height:100%;overflow-x:hidden;overflow-y:auto}
+    .deck{width:100vw;max-width:100vw;height:auto;min-height:100dvh;overflow:visible}
+    .slide{position:relative;inset:auto;width:100vw;max-width:100vw;min-height:100dvh;height:auto;display:none;overflow:visible;padding:40px 16px 148px}
+    .slide.is-active{display:flex}
+    .slide>.deck-footer{position:relative;left:auto;right:auto;bottom:auto;margin-top:28px}
+    .slide *{min-width:0;max-width:100%;overflow-wrap:anywhere;word-break:break-all}
+    .h1{font-size:36px;line-height:1.14}.h2{font-size:24px;line-height:1.22}.lede{font-size:16px}
+    h3,.h3{font-size:24px}h4,.h4{font-size:18px}.quote{font-size:26px}
+    .dim,ul.clean li,.matrix div{font-size:15px}
+    .card{padding:20px 18px}
     .grid.g2,.grid.g3,.grid.g4,.timeline,.flow{grid-template-columns:1fr}
     .matrix{grid-template-columns:1fr}.metric{font-size:42px}
-    .deck-nav{right:12px;bottom:12px;left:12px;justify-content:center}
-    .deck-nav button{min-width:0;flex:1}
+    .overview.open{grid-template-columns:1fr;padding:24px 18px 112px}
+    .deck-nav{left:12px;right:auto;bottom:12px;width:calc(100vw - 24px);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+    .deck-nav button{min-width:0;width:100%;padding:0 8px}
+    .deck-nav .deck-nav-count{min-width:0;display:flex;align-items:center;justify-content:center}
   }
 </style>
 </head>
@@ -275,7 +286,10 @@
 </div>
 <nav class="deck-nav" aria-label="投影片導覽">
   <button type="button" data-deck-nav="prev" aria-label="上一頁">‹ 上一頁</button>
+  <button type="button" data-deck-nav="overview" aria-label="總覽">總覽</button>
+  <button type="button" data-deck-nav="notes" aria-label="講稿">講稿</button>
   <span class="deck-nav-count" aria-live="polite">1 / 14</span>
+  <button type="button" data-deck-nav="theme" aria-label="主題">主題</button>
   <button type="button" data-deck-nav="next" aria-label="下一頁">下一頁 ›</button>
 </nav>
 <script src="assets/runtime.js"></script>
@@ -284,8 +298,12 @@
     const slides = Array.from(document.querySelectorAll('.deck .slide'));
     const prev = document.querySelector('[data-deck-nav="prev"]');
     const next = document.querySelector('[data-deck-nav="next"]');
+    const overview = document.querySelector('[data-deck-nav="overview"]');
+    const notes = document.querySelector('[data-deck-nav="notes"]');
+    const theme = document.querySelector('[data-deck-nav="theme"]');
     const count = document.querySelector('.deck-nav-count');
     if (!slides.length || !prev || !next || !count) return;
+    let lastIdx = -1;
     function currentIndex(){
       const active = slides.findIndex(slide => slide.classList.contains('is-active'));
       if (active >= 0) return active;
@@ -297,6 +315,10 @@
       count.textContent = (idx + 1) + ' / ' + slides.length;
       prev.disabled = idx === 0;
       next.disabled = idx === slides.length - 1;
+      if (lastIdx !== -1 && idx !== lastIdx && window.matchMedia('(max-width: 900px)').matches) {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      }
+      lastIdx = idx;
     }
     function sendKey(key){
       document.dispatchEvent(new KeyboardEvent('keydown', {key, bubbles:true}));
@@ -304,6 +326,9 @@
     }
     prev.addEventListener('click', () => sendKey('ArrowLeft'));
     next.addEventListener('click', () => sendKey('ArrowRight'));
+    overview && overview.addEventListener('click', () => sendKey('o'));
+    notes && notes.addEventListener('click', () => sendKey('n'));
+    theme && theme.addEventListener('click', () => sendKey('t'));
     new MutationObserver(updateNav).observe(document.querySelector('.deck'), {
       subtree:true,
       attributes:true,
