@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>COMPUTEX 2026｜AI Together 產業情報簡報</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/animations/animations.css">
+<style>
+  :root{
+    --bg:#071016;--bg-soft:#0f1b24;--surface:#101c25;--surface-2:#162633;
+    --border:rgba(152,190,210,.22);--border-strong:rgba(152,190,210,.42);
+    --text-1:#f4fbff;--text-2:#aac3d3;--text-3:#7290a2;
+    --accent:#49d5b7;--accent-2:#58a6ff;--accent-3:#ffb454;
+    --good:#49d5b7;--warn:#ffb454;--bad:#ff6b7a;
+    --grad:linear-gradient(120deg,#49d5b7 0%,#58a6ff 55%,#ffb454 100%);
+    --grad-soft:linear-gradient(120deg,rgba(73,213,183,.18),rgba(88,166,255,.14),rgba(255,180,84,.12));
+    --radius:8px;--radius-sm:6px;--radius-lg:8px;
+    --shadow:0 22px 70px rgba(0,0,0,.38);
+    --letter-tight:0;--letter-normal:0;
+  }
+  body{letter-spacing:0;background:var(--bg);color:var(--text-1)}
+  .slide{padding:62px 78px;background:
+    linear-gradient(135deg,rgba(7,16,22,.98),rgba(9,24,34,.98)),
+    radial-gradient(circle at 85% 14%,rgba(88,166,255,.16),transparent 33%),
+    radial-gradient(circle at 16% 82%,rgba(73,213,183,.13),transparent 34%);
+  }
+  .slide::before{content:"";position:absolute;inset:0;background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:28px 28px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.7),transparent 84%);pointer-events:none}
+  .slide>*{position:relative;z-index:1}
+  .slide>.deck-footer{position:absolute;bottom:24px;left:40px;right:40px}
+  .h1{font-size:68px;line-height:1.08;letter-spacing:0;color:#fff}
+  .h2{font-size:46px;line-height:1.14;letter-spacing:0;color:#fff}
+  h3,.h3{font-size:30px;color:#fff;letter-spacing:0}
+  h4,.h4{font-size:20px;color:#fff;letter-spacing:0}
+  .kicker{font-family:var(--font-mono);letter-spacing:0;text-transform:none;color:var(--accent);font-size:13px}
+  .lede{font-size:21px;color:var(--text-2);line-height:1.55;max-width:70ch}
+  .card{border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border:1px solid var(--border);box-shadow:none}
+  .metric{font-size:58px;font-weight:900;line-height:1;color:#fff}
+  .metric small{font-size:22px;color:var(--text-3)}
+  .tag{display:inline-flex;align-items:center;border-radius:6px;border:1px solid var(--border);background:var(--surface-2);color:var(--text-2);font-family:var(--font-mono);font-size:12px;padding:5px 9px}
+  .bar{height:12px;border-radius:99px;background:var(--surface-2);overflow:hidden;border:1px solid var(--border)}
+  .bar span{display:block;height:100%;background:var(--grad)}
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+  .timebox{border-top:3px solid var(--accent);padding:16px 16px 18px;background:rgba(255,255,255,.045);border-radius:8px;border-left:1px solid var(--border);border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .timebox b{display:block;color:#fff;margin-bottom:8px}
+  .matrix{display:grid;grid-template-columns:1.05fr repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+  .matrix div{background:rgba(16,28,37,.96);padding:13px 14px;font-size:15px;color:var(--text-2)}
+  .matrix .head{background:rgba(73,213,183,.12);color:#fff;font-weight:800}
+  .quote{font-size:36px;line-height:1.25;font-weight:800;color:#fff;max-width:920px}
+  .source-list{font-size:13px;line-height:1.55;color:var(--text-2)}
+  .source-list a{color:#8fd8ff}
+  .deck-footer{letter-spacing:0}
+  ul.clean{padding-left:20px;margin:0}
+  ul.clean li{margin:8px 0;color:var(--text-2)}
+  .mini{font-size:13px;color:var(--text-3);line-height:1.5}
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:30px}
+  .flow .card{min-height:138px}
+  .num{font-family:var(--font-mono);color:var(--accent);font-weight:900}
+  @media(max-width:900px){
+    .slide{padding:40px 24px}.h1{font-size:46px}.h2{font-size:34px}.lede{font-size:18px}
+    .grid.g2,.grid.g3,.grid.g4,.timeline,.flow{grid-template-columns:1fr}
+    .matrix{grid-template-columns:1fr}.metric{font-size:42px}
+  }
+</style>
+</head>
+<body data-themes="tokyo-night,corporate-clean,blueprint,engineering-whiteprint" data-theme-base="assets/themes/">
+<div class="deck">
+
+  <section class="slide" data-title="Cover">
+    <p class="kicker">COMPUTEX Taipei 2026 · 2026/06/02 update</p>
+    <h1 class="h1 anim-fade-up" data-anim="fade-up">COMPUTEX 2026<br><span class="gradient-text">AI Together</span></h1>
+    <p class="lede mt-m">台北國際電腦展最新資料、報導重點、供應鏈分析與文文歸納。結論先講：今年 COMPUTEX 已經從「PC 展」變成「AI 商業化與實體化的供應鏈總動員」。</p>
+    <div class="row wrap mt-l"><span class="tag">AI PC</span><span class="tag">Agentic AI</span><span class="tag">AI Server</span><span class="tag">Physical AI</span><span class="tag">Taiwan Supply Chain</span></div>
+    <div class="deck-footer"><span>文文整理 · Jason 版</span><span class="slide-number" data-current="1" data-total="14"></span></div>
+    <div class="notes">本簡報截至 2026/06/02 17:54 台北時間，依官方頁面、品牌新聞稿與媒體報導整理。展會仍在進行，後續公告可能更新。</div>
+  </section>
+
+  <section class="slide" data-title="Executive Summary">
+    <p class="kicker">one-page verdict</p>
+    <h2 class="h2">今年最重要的不是單一新品，<br>而是 AI 正在進入可交付的硬體型態。</h2>
+    <div class="grid g3 mt-l">
+      <div class="card"><div class="num">01</div><h4>AI PC 重新定義</h4><p class="dim">NVIDIA RTX Spark、Qualcomm Snapdragon C、Intel client/edge 平台都在搶「本地 agent」入口。</p></div>
+      <div class="card"><div class="num">02</div><h4>資料中心走向系統戰</h4><p class="dim">CPU、GPU、網路、電力、散熱、機櫃、製造整合一起被看待，不再只看單顆晶片。</p></div>
+      <div class="card"><div class="num">03</div><h4>Physical AI 出場</h4><p class="dim">機器人、邊緣視覺、e-paper、智慧移動成為新展區，AI 從雲端走到現場。</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="Official Facts">
+    <p class="kicker">official baseline</p>
+    <h2 class="h2">官方確認的展會骨架</h2>
+    <div class="grid g4 mt-l">
+      <div class="card"><div class="metric">6/2-6/5</div><p class="dim">2026 年台北舉辦</p></div>
+      <div class="card"><div class="metric">1,500</div><p class="dim">參展商規模</p></div>
+      <div class="card"><div class="metric">6,000</div><p class="dim">攤位規模</p></div>
+      <div class="card"><div class="metric">33</div><p class="dim">國家與地區</p></div>
+    </div>
+    <p class="lede mt-l">主題為 <b>AI Together</b>，三大主軸是 <b>AI & Computing</b>、<b>Robotics & Mobility</b>、<b>Next-Gen Tech</b>；場域橫跨南港展覽館 1/2 館、世貿一館與 TICC。</p>
+  </section>
+
+  <section class="slide" data-title="Timeline">
+    <p class="kicker">event rhythm</p>
+    <h2 class="h2">展會節奏：大廠先定調，展場再驗證</h2>
+    <div class="timeline">
+      <div class="timebox"><b>6/1 · Qualcomm</b><p class="dim">Cristiano Amon 以 agentic AI 與 compute continuum 定調，強調裝置端 AI。</p></div>
+      <div class="timebox"><b>6/1 · NVIDIA GTC Taipei</b><p class="dim">Jensen Huang 發表 RTX Spark 與 AI PC/agent 願景，並拉動供應鏈敘事。</p></div>
+      <div class="timebox"><b>6/2 · 開展 + Intel</b><p class="dim">Lip-Bu Tan keynote；Intel 展示 client、edge、data center 系統策略。</p></div>
+      <div class="timebox"><b>6/2-6/5 · 展場驗證</b><p class="dim">OEM、ODM、機器人、e-paper、AI server、散熱與電力方案集中展示。</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="NVIDIA">
+    <p class="kicker">nvidia signal</p>
+    <h2 class="h2">NVIDIA 的訊號：PC 變成本地 agent 工作站</h2>
+    <div class="grid g2 mt-l">
+      <div>
+        <p class="lede">RTX Spark 是今年最具象徵性的發表：Blackwell RTX GPU、Grace CPU、最高 128GB unified memory、1 petaflop AI performance，把 Windows PC 包裝成「可跑本地 agent 與大型模型」的新類別。</p>
+        <ul class="clean mt-m">
+          <li>主打 120B 參數 LLM 與長上下文在本機運行。</li>
+          <li>Adobe、Blender、ComfyUI、llama.cpp 等生態被放進敘事。</li>
+          <li>ASUS、Dell、HP、Lenovo、Microsoft Surface、MSI 秋季推出機型。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>文文判斷</h3>
+        <p class="dim">這不是單純 Windows on Arm，而是 NVIDIA 把 CUDA/RTX 生態帶進個人端。真正競爭對手同時是 Intel/AMD/Qualcomm 的 CPU 市場、Apple 的整合式體驗，以及雲端 AI 訂閱的部分工作負載。</p>
+        <div class="bar mt-l"><span style="width:86%"></span></div>
+        <p class="mini mt-s">戰略強度：高。落地關鍵：價格、相容性、電池、開發者工具。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="Intel">
+    <p class="kicker">intel signal</p>
+    <h2 class="h2">Intel 的訊號：AI 擴張後，CPU 與網路重新變重要</h2>
+    <div class="grid g3 mt-l">
+      <div class="card"><h4>Xeon 6+</h4><p class="dim">以高密度、低功耗、雲原生與 agentic AI 工作負載為中心。</p></div>
+      <div class="card"><h4>Ethernet E835</h4><p class="dim">800 Series 擴充到最高 200GbE，對 AI/雲端/edge 的資料移動瓶頸下手。</p></div>
+      <div class="card"><h4>Crescent Island</h4><p class="dim">下一代 data center GPU，針對 agentic systems 的功耗與記憶體瓶頸補位。</p></div>
+    </div>
+    <p class="lede mt-l">Intel 的敘事比 NVIDIA 保守，但方向清楚：AI 不會只靠 GPU 擴張；當 agent 多、任務長、資料移動變複雜，CPU control plane 與 network fabric 會變成系統效率核心。</p>
+  </section>
+
+  <section class="slide" data-title="Qualcomm">
+    <p class="kicker">qualcomm signal</p>
+    <h2 class="h2">Qualcomm 的訊號：agentic AI 要進入更多便宜、低功耗裝置</h2>
+    <div class="grid g2 mt-l">
+      <div class="card">
+        <h3>The Year of Agents</h3>
+        <p class="dim">Qualcomm press kit 將 COMPUTEX 2026 主軸放在 agentic AI across the entire compute continuum，重點是手機、PC、車用、邊緣與連線裝置都要能跑 AI。</p>
+      </div>
+      <div class="card">
+        <h3>Snapdragon C</h3>
+        <p class="dim">媒體報導指出 Snapdragon C 瞄準 300 美元起的 Windows on Arm 筆電，把 AI PC 從高階機往入門市場推。</p>
+      </div>
+    </div>
+    <p class="lede mt-l">我的看法：NVIDIA 搶高階「本地 AI 工作站」，Qualcomm 搶低功耗與普及率。兩者會讓 AI PC 不再只是 NPU TOPS 行銷，而是分成高階本地模型與大量輕量 agent 兩條路。</p>
+  </section>
+
+  <section class="slide" data-title="Taiwan OEM ODM">
+    <p class="kicker">taiwan ecosystem</p>
+    <h2 class="h2">台灣供應鏈的位置：從零組件展，升級成 AI 系統交付中心</h2>
+    <div class="matrix mt-l">
+      <div class="head">層級</div><div class="head">代表訊號</div><div class="head">台灣角色</div><div class="head">商業含義</div>
+      <div>AI PC / device</div><div>ASUS ProArt、Zenbook、Vivobook、MSI 等新品</div><div>品牌、設計、製造、通路</div><div>個人端 AI 入口開始商品化</div>
+      <div>AI server / rack</div><div>Foxconn、Compal、Wiwynn、Pegatron 等系統整合</div><div>ODM/EMS + 機櫃級整合</div><div>AI 工廠需求帶動長週期訂單</div>
+      <div>Power / cooling</div><div>Delta、Vertiv、液冷與電力方案</div><div>能源效率與散熱供應鏈</div><div>GPU 之外的瓶頸開始被重估</div>
+      <div>Edge / robotics</div><div>Intel、YUAN、TI、Solomon、E Ink 等展區</div><div>感測、視覺、控制、現場部署</div><div>Physical AI 進入產業試點</div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="Physical AI">
+    <p class="kicker">physical ai</p>
+    <h2 class="h2">今年新亮點：AI Robotics Zone</h2>
+    <div class="grid g2 mt-l">
+      <div>
+        <p class="lede">世貿一館回歸並設立 AI Robotics Zone，搭配 E-Paper Industry Pavilion 與 TechXperience。這代表官方把「AI 從模型到現場」列為核心，而不是附屬展示。</p>
+        <ul class="clean mt-m">
+          <li>機器人應用：工業自動化、物流、醫療、智慧製造。</li>
+          <li>技術鏈：sensor、motor、reducer、AI vision、edge compute、system integration。</li>
+          <li>e-paper：低功耗顯示、車體/機器人介面、醫療與商業看板。</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="quote">AI 今年開始「有身體」。</div>
+        <p class="dim mt-m">過去 AI 展示多半停在雲端模型、聊天與生成圖文；COMPUTEX 2026 的差異，是把機器人、車、無人機、智慧城市、工廠與醫療現場放到同一條供應鏈裡。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="Market Reading">
+    <p class="kicker">market reading</p>
+    <h2 class="h2">投資與產業觀察：四條主線</h2>
+    <div class="flow">
+      <div class="card"><div class="num">A</div><h4>AI PC 供應鏈</h4><p class="dim">高階 creators、developers、local agents 會先吃到新機換機需求。</p></div>
+      <div class="card"><div class="num">B</div><h4>AI server/rack</h4><p class="dim">短期仍是最確定的資本支出主軸，台灣 ODM/EMS 受益明顯。</p></div>
+      <div class="card"><div class="num">C</div><h4>Power/cooling</h4><p class="dim">若 AI cluster 擴張，電力、散熱、網路是第二波瓶頸。</p></div>
+      <div class="card"><div class="num">D</div><h4>Edge robotics</h4><p class="dim">還在早期，但一旦落地，會把 AI 從資訊業帶進各行各業。</p></div>
+      <div class="card"><div class="num">E</div><h4>Software agents</h4><p class="dim">硬體端準備好後，本地 agent 與企業 workflow 才是長期價值。</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="Risks">
+    <p class="kicker">risk map</p>
+    <h2 class="h2">不要只看熱鬧：今年仍有四個風險</h2>
+    <div class="grid g2 mt-l">
+      <div class="card"><h4>AI PC 需求可能先高估</h4><p class="dim">如果本地 agent 體驗不夠成熟，消費者不會只為「AI」二字大規模換機。</p></div>
+      <div class="card"><h4>模型與軟體才是使用門檻</h4><p class="dim">硬體可以發表，但安全、權限、工具調用、資料隱私與 UX 需要時間。</p></div>
+      <div class="card"><h4>資料中心 CAPEX 有循環風險</h4><p class="dim">AI server 訂單強，但若雲端投資放緩，供應鏈估值會先被修正。</p></div>
+      <div class="card"><h4>Physical AI 落地慢</h4><p class="dim">機器人不是 demo 做得出來就能商用；可靠度、維修、法規與成本都很硬。</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="Jason Angle">
+    <p class="kicker">for jason</p>
+    <h2 class="h2">Jason 應該抓住的三件事</h2>
+    <div class="grid g3 mt-l">
+      <div class="card"><h4>1. 離線 AI 方向更正確</h4><p class="dim">RTX Spark、Snapdragon C、Intel edge 都在證明「本地 AI / hybrid AI」會成為主流，不是小眾。</p></div>
+      <div class="card"><h4>2. 小伙伴系統要往 agent 工作站靠</h4><p class="dim">未來每台小伙伴電腦，不只是跑聊天模型，而是有權限、安全、工具與任務記憶的本地 agent 節點。</p></div>
+      <div class="card"><h4>3. 對外服務要講得更硬</h4><p class="dim">顧問提案可從「AI 客服」升級成「企業 AI 工作流 + 本地/雲端混合部署 + 可稽核記憶」。</p></div>
+    </div>
+  </section>
+
+  <section class="slide" data-title="My Conclusion">
+    <p class="kicker">wenwen conclusion</p>
+    <h2 class="h2">文文總結：COMPUTEX 2026 的關鍵字不是 AI，<br>是「AI 的交付型態」。</h2>
+    <p class="lede mt-l">2023-2025 大家在問模型多強、GPU 多快；2026 的台北展場開始回答另一個問題：AI 要放在哪裡、誰來製造、誰來供電散熱、誰來把它裝進 PC/伺服器/機器人/車子/工廠，最後誰能讓使用者真的每天用。</p>
+    <div class="card mt-l">
+      <h3>一句話判斷</h3>
+      <p class="dim">這屆 COMPUTEX 是 AI 從「雲端模型競賽」走向「硬體商品化、系統整合、實體世界部署」的轉折點；台灣不只是受益者，而是全球 AI 交付鏈的中心之一。</p>
+    </div>
+  </section>
+
+  <section class="slide" data-title="Sources">
+    <p class="kicker">source log</p>
+    <h2 class="h2">主要資料來源</h2>
+    <div class="source-list mt-l">
+      <p>1. COMPUTEX 官方新聞：COMPUTEX 2026 Brings the Global AI Ecosystem to Taipei — https://www.computextaipei.com.tw/en/news/8F914C77B6AF77A5/info.html</p>
+      <p>2. COMPUTEX/PRNewswire：AI Goes Physical -- Taiwan Leads Global Industry Transformation as COMPUTEX 2026 Opens Tomorrow in Taipei — https://www.prnewswire.com/news-releases/ai-goes-physical--taiwan-leads-global-industry-transformation-as-computex-2026-opens-tomorrow-in-taipei-302787133.html</p>
+      <p>3. COMPUTEX Daily：AI Together: Leading a New Industry Era — https://computexdaily.com/2026/06/01/ai-together-leading-a-new-industry-era/</p>
+      <p>4. NVIDIA press release：NVIDIA and Microsoft Reinvent Windows PCs for the Age of Personal AI — https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Microsoft-Reinvent-Windows-PCs-for-the-Age-of-Personal-AI/default.aspx</p>
+      <p>5. Intel Newsroom：Intel Puts Agentic AI to Work with Xeon 6+, Networking, and AI Systems — https://newsroom.intel.com/data-center/intel-puts-agentic-ai-xeon-6-networking-ai-systems</p>
+      <p>6. Intel Computex 2026 keynote page — https://newsroom.intel.com/client-computing/intel-at-computex-2026-the-next-era-of-ai-driven-computing</p>
+      <p>7. Qualcomm Computex 2026 press kit — https://www.qualcomm.com/news/press-kits/computex-2026-press-kit</p>
+      <p>8. ASUS Pressroom COMPUTEX 2026 AI PC lineup — https://press.asus.com/news/press-releases/asus-computex-2026-ai-pc-lineup-proart-rtx-spark-zenbook-vivobook/</p>
+      <p>9. Foxconn COMPUTEX 2026 release — https://www.honhai.com/en-us/press-center/press-releases/latest-news/2044</p>
+      <p>10. Taiwan News：Computex Taipei to debut AI robotics section for first time — https://www.taiwannews.com.tw/news/6371761</p>
+    </div>
+    <div class="deck-footer"><span>資料截點：2026/06/02 台北時間</span><span class="slide-number" data-current="14" data-total="14"></span></div>
+  </section>
+
+</div>
+<script src="assets/runtime.js"></script>
+</body>
+</html>

@@ -1,5 +1,16 @@
 [
   {
+    "slug":  "computex-2026-ai-together",
+    "name":  "COMPUTEX 2026｜AI Together 產業情報簡報",
+    "desc":  "整理 COMPUTEX Taipei 2026 官方資料、NVIDIA/Intel/Qualcomm/ASUS/Foxconn 等公告與媒體報導，歸納 AI PC、agentic AI、AI server、physical AI、台灣供應鏈與 Jason 可用結論。",
+    "source":  "COMPUTEX 官方新聞、COMPUTEX Daily、PRNewswire、NVIDIA/Intel/Qualcomm/ASUS/Foxconn 官方資料、Taiwan News 等 2026-06-02 公開資料 + 文文整理分析",
+    "date":  "2026-06-02",
+    "category":  "AI 趨勢",
+    "url":  "https://hanassitant-cloud.github.io/jarvistest/computex-2026-ai-together/",
+    "zip_url":  "https://hanassitant-cloud.github.io/jarvistest/computex-2026-ai-together.zip",
+    "notes":  "資料截點為 2026-06-02 台北時間；COMPUTEX 2026 仍在進行，後續發表與新聞可能更新。"
+  },
+  {
     "slug":  "avengers-intro",
     "name":  "復仇者聯盟 AI 團隊介紹｜語音版 HTML PPT",
     "desc":  "通用公開版以最新小伙伴得分表開場，介紹復仇者聯盟 7 位 AI 小伙伴，以及團隊可提供的語音助手、內容企劃、Facebook 發布輔助、文件簡報、長期記憶、SOP 與自動化工作流能力；不包含公司名、客戶名、帳號、合約、金流或內部機密。",
