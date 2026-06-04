@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>表後微電網市場雷達與合作訪談包</title>
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="assets/base.css">
+  <link rel="stylesheet" href="assets/animations/animations.css">
+  <link rel="stylesheet" id="theme-link" href="assets/themes/corporate-clean.css">
+  <style>
+    :root { --deck-pad-x: 88px; --deck-pad-y: 70px; }
+    .slide { padding: var(--deck-pad-y) var(--deck-pad-x); }
+    .deck-mark { font-weight: 700; color: var(--text-1); letter-spacing: .02em; }
+    .cover { justify-content: space-between; }
+    .cover-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: end; min-height: 72vh; }
+    .cover h1 { font-size: 68px; max-width: 9.5em; margin-bottom: 22px; }
+    .cover .lede { max-width: 34em; }
+    .signal-board { border: 1px solid var(--border-strong); background: var(--surface); padding: 26px; display: grid; gap: 18px; }
+    .signal { display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+    .signal:last-child { border-bottom: 0; padding-bottom: 0; }
+    .signal strong { font-size: 28px; color: var(--accent-2); line-height: 1; }
+    .section-top { display: flex; justify-content: space-between; gap: 32px; align-items: flex-start; margin-bottom: 34px; }
+    .section-top h2 { max-width: 12em; }
+    .section-top .lede { max-width: 36em; font-size: 20px; }
+    .matrix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .matrix.two { grid-template-columns: repeat(2, 1fr); }
+    .tile { border: 1px solid var(--border); background: var(--surface); padding: 20px; min-height: 152px; }
+    .tile h3 { font-size: 24px; margin-bottom: 10px; color: var(--accent); }
+    .tile p, .tile li { font-size: 16px; color: var(--text-2); line-height: 1.55; }
+    .tile ul { margin: 10px 0 0; padding-left: 18px; }
+    .rank { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; align-items: stretch; }
+    .rank-card { border: 1px solid var(--border); background: var(--surface); padding: 22px; }
+    .rank-card h3 { font-size: 28px; margin-bottom: 14px; }
+    .rank-card .tag { display: inline-block; font-size: 13px; font-weight: 700; color: var(--accent-2); margin-bottom: 10px; }
+    .company-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .company-list span { border: 1px solid var(--border); background: var(--surface-2); padding: 6px 10px; font-size: 14px; }
+    .flow { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; align-items: stretch; }
+    .flow-item { border-top: 3px solid var(--accent-2); background: var(--surface); padding: 18px 14px; min-height: 138px; box-shadow: var(--shadow); }
+    .flow-item b { display: block; font-size: 18px; color: var(--text-1); margin-bottom: 8px; }
+    .flow-item span { font-size: 14px; color: var(--text-2); line-height: 1.45; }
+    .quote-box { border-left: 6px solid var(--accent-2); padding: 22px 30px; background: var(--surface-2); font-size: 30px; line-height: 1.45; font-weight: 650; color: var(--text-1); }
+    .score-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .score-table th, .score-table td { border-bottom: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+    .score-table th { color: var(--text-1); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+    .score-table td { color: var(--text-2); }
+    .big-number { font-size: 72px; line-height: .9; font-weight: 800; color: var(--accent-2); letter-spacing: 0; }
+    .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 42px; align-items: center; }
+    .checklist { display: grid; gap: 12px; }
+    .check { display: grid; grid-template-columns: 42px 1fr; gap: 14px; align-items: start; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    .check .num { width: 34px; height: 34px; border: 1px solid var(--border-strong); display: grid; place-items: center; font-weight: 700; color: var(--accent-2); }
+    .check h3 { font-size: 21px; margin-bottom: 4px; }
+    .check p { margin: 0; color: var(--text-2); font-size: 15px; line-height: 1.5; }
+    .contact-seq { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .contact { min-height: 176px; border: 1px solid var(--border); padding: 18px; background: var(--surface); }
+    .contact b { display: block; font-size: 22px; margin: 10px 0; color: var(--text-1); }
+    .contact span { color: var(--text-2); font-size: 14px; line-height: 1.45; }
+    .footnote { font-size: 13px; color: var(--text-3); }
+    @media (max-width: 900px) {
+      :root { --deck-pad-x: 34px; --deck-pad-y: 54px; }
+      html, body { overflow-x: hidden; }
+      .deck-header, .deck-footer { display: none; }
+      .slide { justify-content: flex-start; overflow-y: auto; padding-top: 28px; padding-bottom: 34px; }
+      .slide > * { max-width: 100%; }
+      .cover-grid, .split, .matrix, .matrix.two, .rank, .flow, .contact-seq { grid-template-columns: 1fr; }
+      .section-top { margin-bottom: 20px; }
+      .cover h1 { font-size: 42px; }
+      h2.title { font-size: 34px; }
+      .section-top { display: block; }
+      .lede { font-size: 18px; }
+      .tile, .rank-card, .contact { padding: 16px; }
+      .rank-card h3, .tile h3 { font-size: 24px; }
+      .company-list { gap: 8px; }
+      .company-list span { font-size: 13px; padding: 5px 8px; overflow-wrap: anywhere; }
+      .quote-box { font-size: 20px; padding: 18px; }
+      .score-table { font-size: 13px; }
+      .score-table th, .score-table td { padding: 8px; }
+      .flow-item, .contact, .tile { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="deck" data-themes="corporate-clean,swiss-grid,engineering-whiteprint,minimal-white,pitch-deck-vc">
+    <div class="deck-header">
+      <span class="deck-mark">OpenClaw Market Brief</span>
+      <span>Behind-the-Meter Microgrid</span>
+    </div>
+    <div class="deck-footer">
+      <span>Jason Chen · 2026-06-04</span>
+      <span class="slide-number"></span>
+    </div>
+    <div class="progress-bar"><span></span></div>
+
+    <section class="slide cover is-active">
+      <div class="cover-grid">
+        <div>
+          <div class="kicker">市場雷達與合作訪談包</div>
+          <h1 class="title">表後微電網</h1>
+          <p class="lede">從儲能櫃採購，升級到企業電表後方的能源控制、收益、韌性與 AI 維運整合。</p>
+        </div>
+        <div class="signal-board">
+          <div class="signal"><strong>5</strong><span>類市場玩家：設備、EMS、EPC、聚合商、能源服務平台。</span></div>
+          <div class="signal"><strong>20</strong><span>個現場追問問題，用來快速判斷對方是否有真實案場能力。</span></div>
+          <div class="signal"><strong>1</strong><span>個核心判斷：價值不在單一設備，而在 EMS、整合、交易與維運。</span></div>
+        </div>
+      </div>
+      <div class="notes">開場先把題目定義清楚：這不是單純介紹儲能產業，而是把 Jason 可能在現場遇到的公司、方案與合作切入點整理成可問、可判斷、可追蹤的簡報。第一句就要講出重點：表後微電網的價值不是買一台儲能櫃，而是企業自己的電表後方開始有一整套能源作業系統。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div>
+          <div class="kicker">Executive Summary</div>
+          <h2 class="title">先講結論</h2>
+        </div>
+        <p class="lede">表後微電網是企業用電場域的整合題，不是單一產品題。真正要問的是誰掌握控制、收益、維運與責任。</p>
+      </div>
+      <div class="matrix">
+        <div class="tile"><h3>不是只買設備</h3><p>儲能、PCS、充電樁會商品化，差異會轉向 EMS 控制策略、API、資安、維運 SLA。</p></div>
+        <div class="tile"><h3>收益要被驗證</h3><p>削峰填谷、時間電價、需量反應、VPP 分潤都要回到案場負載曲線與回收期。</p></div>
+        <div class="tile"><h3>韌性是高階門檻</h3><p>能監看不等於能孤島。Grid Forming、黑啟動、切換時間、保護協調才是真微電網門檻。</p></div>
+      </div>
+      <div class="notes">這頁是 Jason 對外或對內說明時的主軸。不要先陷入公司名單，先讓聽眾知道我們判斷市場的方法。對方如果一直講儲能容量，但講不清楚 EMS、收益、維運和資安，就要先把它當成設備商，而不是全套能源平台。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div>
+          <div class="kicker">Definition</div>
+          <h2 class="title">表後微電網是什麼</h2>
+        </div>
+        <p class="lede">電表後方的光、儲、充、負載與備援設備，由 EMS 整合成可監控、可控制、可收益、可備援的系統。</p>
+      </div>
+      <div class="flow">
+        <div class="flow-item"><b>太陽能</b><span>自發自用、綠電、碳管理。</span></div>
+        <div class="flow-item"><b>儲能</b><span>削峰、套利、備援、交易。</span></div>
+        <div class="flow-item"><b>充電樁</b><span>避免 EV 充電尖峰推高契約容量。</span></div>
+        <div class="flow-item"><b>關鍵負載</b><span>空調、製程、UPS、GPU cluster。</span></div>
+        <div class="flow-item"><b>EMS</b><span>預測、調度、告警、報表、API。</span></div>
+        <div class="flow-item"><b>VPP/DR</b><span>接入需量反應、輔助服務或聚合收益。</span></div>
+      </div>
+      <div class="notes">這頁用六個模組講清楚表後微電網的組成。重點是 EMS 在中間，不只是監控畫面，而是要能把設備、負載、交易和備援連成一個可運作的系統。如果對方只能做其中一兩塊，就要問他的合作夥伴與責任邊界。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div>
+          <div class="kicker">Market Map</div>
+          <h2 class="title">市場玩家分成 5 類</h2>
+        </div>
+        <p class="lede">同樣說自己做微電網，背後可能是完全不同的商業角色。先分類，才知道該問什麼。</p>
+      </div>
+      <div class="matrix">
+        <div class="tile"><h3>設備與系統整合</h3><p>台達、東元、台灣微網、森耀、裕能、台泥儲能、台普威、亞力、創揚。</p></div>
+        <div class="tile"><h3>能源服務與聚合</h3><p>Enel X Taiwan、聚盛、星星電力/泓德能源、星沃、森耀 DVPP。</p></div>
+        <div class="tile"><h3>光儲充場域建置</h3><p>Billion Watts、恆綠超充、大同智能、進能服等場域型業者。</p></div>
+        <div class="tile"><h3>國際平台對照</h3><p>Schneider Electric、Siemens、Tesla、Stem、Eaton、ABB、Hitachi Energy。</p></div>
+        <div class="tile"><h3>政策與市場平台</h3><p>台電電力交易、需量反應、輔助服務、用電大戶條款、時間電價。</p></div>
+        <div class="tile"><h3>AI 高耗能場域</h3><p>AI server、GPU cluster、資料中心會把能源管理從綠能題推成營運韌性題。</p></div>
+      </div>
+      <div class="notes">講這頁時要提醒 Jason：公司清單不是越多越好，而是要先分角色。設備商、EMS 商、聚合商、EPC 和能源服務商的問題不同，合作模式也不同。這能避免現場被對方的名詞帶著走。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div>
+          <div class="kicker">Taiwan Priority</div>
+          <h2 class="title">優先訪談名單</h2>
+        </div>
+        <p class="lede">第一梯找能代表市場方向的公司；第二梯找案場、設備、安全與落地能力。</p>
+      </div>
+      <div class="rank">
+        <div class="rank-card">
+          <span class="tag">A 級 · 優先訪談</span>
+          <h3>市場方向</h3>
+          <p class="dim">能快速判斷台灣表後微電網成熟度。</p>
+          <div class="company-list"><span>台達</span><span>東元</span><span>台灣微網</span><span>森耀</span><span>Enel X</span><span>聚盛</span></div>
+        </div>
+        <div class="rank-card">
+          <span class="tag">B 級 · 案場合作</span>
+          <h3>落地能力</h3>
+          <p class="dim">適合追問容量、回收期、消防、維運。</p>
+          <div class="company-list"><span>Billion Watts</span><span>台泥儲能</span><span>台普威</span><span>裕能</span><span>大同</span><span>亞力</span></div>
+        </div>
+        <div class="rank-card">
+          <span class="tag">C 級 · 補充查證</span>
+          <h3>特色觀察</h3>
+          <p class="dim">有特色，但需確認表後微電網實績。</p>
+          <div class="company-list"><span>星星電力</span><span>星沃</span><span>聚磊</span><span>恆綠超充</span><span>創揚</span></div>
+        </div>
+      </div>
+      <div class="notes">這頁可以直接拿來安排拜訪順序。第一梯不一定是最容易成交，而是最能判斷市場真實方向。問完台達、東元、森耀、台灣微網、Enel X 或聚盛，大概就知道台灣市場在設備、EMS、VPP、交易上的成熟度。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div>
+          <div class="kicker">Solution Types</div>
+          <h2 class="title">方案類型與價值</h2>
+        </div>
+        <p class="lede">同一套表後資產，可以服務節費、收益、韌性、碳管理與 AI 基礎設施穩定。</p>
+      </div>
+      <div class="matrix">
+        <div class="tile"><h3>表後儲能 + EMS</h3><p>工商業、商辦、醫院、資料中心。看 kW/kWh、放電策略、回收期。</p></div>
+        <div class="tile"><h3>光儲充一體化</h3><p>商場、車隊、社區、園區。關鍵是避免充電尖峰推高契約容量。</p></div>
+        <div class="tile"><h3>孤島微電網</h3><p>離島、醫療、軍警消、關鍵製程。看切換時間、黑啟動、Grid Forming。</p></div>
+        <div class="tile"><h3>需量反應 / VPP</h3><p>聚合可控負載、儲能與充電樁，取得台電調度或市場收益。</p></div>
+        <div class="tile"><h3>AI 資料中心</h3><p>GPU 負載波動、電力品質、備援、能源成本，會成為新痛點。</p></div>
+        <div class="tile"><h3>能源服務化</h3><p>EaaS、租賃、分潤，降低業主 CAPEX，收益與責任要講清楚。</p></div>
+      </div>
+      <div class="notes">這頁用來說明不同客戶的痛點不一樣。工廠可能先看契約容量和停電風險，充電站看尖峰，資料中心看電力品質和備援。Jason 要把問題問回場域，不要讓對方只拿標準型錄回答。</div>
+    </section>
+
+    <section class="slide">
+      <div class="split">
+        <div>
+          <div class="kicker">Key Question</div>
+          <h2 class="title">現場先問：你是哪一種？</h2>
+          <p class="lede">先判斷對方收入與責任邊界，才知道是否適合合作。</p>
+        </div>
+        <div class="checklist">
+          <div class="check"><div class="num">1</div><div><h3>收入來自哪裡？</h3><p>設備、工程、EMS 授權、維運，還是交易/收益分潤？</p></div></div>
+          <div class="check"><div class="num">2</div><div><h3>自己掌握哪幾層？</h3><p>電池、PCS、EMS、EPC、維運、聚合商資格，哪些自有、哪些靠夥伴？</p></div></div>
+          <div class="check"><div class="num">3</div><div><h3>能不能整合既有設備？</h3><p>客戶已有設備時，是開放接入，還是必須整套換成你們家的？</p></div></div>
+        </div>
+      </div>
+      <div class="notes">這三題是現場開場用。它可以很快把對方分類，避免浪費時間。如果對方講不清楚收入和責任邊界，後面談合作會很危險，因為能源案不是只有技術，還有消防、維運、保固、收益和責任分配。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div>
+          <div class="kicker">Technical Due Diligence</div>
+          <h2 class="title">判斷真微電網的 7 題</h2>
+        </div>
+        <p class="lede">能監看不等於能控制；能削峰不等於能孤島；能接雲端不等於資安合格。</p>
+      </div>
+      <table class="score-table">
+        <tr><th>主題</th><th>現場追問</th><th>判斷重點</th></tr>
+        <tr><td>EMS 控制</td><td>能否同時控制太陽能、儲能、EV、空調、製程負載？</td><td>只監看、半自動、或可預測調度。</td></tr>
+        <tr><td>孤島能力</td><td>停電切換時間？是否支援 Grid Forming、黑啟動、保護協調？</td><td>這是真微電網高階門檻。</td></tr>
+        <tr><td>開放整合</td><td>是否能接第三方 PCS/BMS/電表/SCADA？</td><td>避免被單一設備綁死。</td></tr>
+        <tr><td>API/資料</td><td>資料是否能匯出到客戶內部系統或 AI Agent？</td><td>OpenClaw 切入點。</td></tr>
+        <tr><td>資安維運</td><td>遠端控制權限、日誌、NOC/SOC、24/7 SLA 如何設計？</td><td>能源控制層不能當普通 IoT。</td></tr>
+      </table>
+      <div class="notes">這頁是技術追問。Jason 可以不用一次問完所有細節，但至少要讓對方知道我們不是只聽型錄。特別注意 API、資料匯出和資安，這三項直接關係到 OpenClaw 是否能用 AI Agent 補維運和報告層。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div>
+          <div class="kicker">Business Model</div>
+          <h2 class="title">成交要看商業模型</h2>
+        </div>
+        <p class="lede">表後微電網很容易講成願景，但真正成交要回到容量、負載曲線、收益來源與責任分配。</p>
+      </div>
+      <div class="matrix two">
+        <div class="tile"><h3>回收期不是通用數字</h3><p>必須用電費、契約容量、負載曲線、尖離峰價差、儲能容量與調度頻率試算。</p></div>
+        <div class="tile"><h3>收益分潤要問清楚</h3><p>需量反應、VPP、台電交易收益是保底、浮動，還是按實際調度分潤？</p></div>
+        <div class="tile"><h3>CAPEX 或 EaaS</h3><p>業主不想一次投資時，有沒有租賃、分潤、能源服務化或投資型方案？</p></div>
+        <div class="tile"><h3>風險誰負責</h3><p>未達收益、電池衰退、消防保險、維運 SLA、未配合調度，都要有責任邊界。</p></div>
+      </div>
+      <div class="notes">這頁幫 Jason 把商務問題拉回可驗證的模型。不要讓對方用「大概幾年回收」帶過，因為不同場域差很多。如果要做正式合作，下一步就要做試算表，把工廠、商辦、資料中心、充電站分開算。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div>
+          <div class="kicker">OpenClaw Angle</div>
+          <h2 class="title">OpenClaw 的切入點</h2>
+        </div>
+        <p class="lede">不要把 AI 講成直接控制電力設備。較好的定位是維運、決策輔助、報告、告警解釋與人機協作層。</p>
+      </div>
+      <div class="matrix">
+        <div class="tile"><h3>EMS + AI Agent</h3><p>把能源資料、告警、報表、SOP 和客戶問答接到自然語言介面。</p></div>
+        <div class="tile"><h3>維運助手</h3><p>自動整理異常、建議查核步驟、生成巡檢報告與會後紀錄。</p></div>
+        <div class="tile"><h3>VPP 營運客服</h3><p>聚合商需要大量事件通知、收益解釋、客戶回報與合約資料查詢。</p></div>
+        <div class="tile"><h3>本地 AI Server 敘事</h3><p>AI 越耗電，企業越需要本地 AI、本地能源管理、本地資料安全。</p></div>
+        <div class="tile"><h3>資料整合層</h3><p>接 EMS API、SCADA 報表、Google Drive、維運紀錄與客戶文件。</p></div>
+        <div class="tile"><h3>安全邊界</h3><p>AI 輔助決策，不直接越權控制高風險電力設備。</p></div>
+      </div>
+      <div class="notes">這頁非常重要。能源控制風險高，不能把 OpenClaw 講成要取代 EMS 或直接控制設備。比較穩的說法是 AI 維運和決策輔助層，接資料、解釋告警、產報告、協助人員判斷，但真正控制權仍由 EMS、工程師和權限流程負責。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div>
+          <div class="kicker">Positioning Script</div>
+          <h2 class="title">Jason 可直接講的開場白</h2>
+        </div>
+      </div>
+      <div class="quote-box">
+        我們現在在看企業本地 AI、能源管理跟微電網的結合。AI 伺服器、工廠、商辦未來都會遇到用電成本、供電韌性、資料安全和維運人力問題。你們如果已經有 EMS 或表後微電網，我想了解系統能不能跟本地 AI Agent 串接，讓客戶用自然語言查能源狀態、看告警、產生維運報告，甚至輔助做需量反應和削峰策略，但不直接讓 AI 越權控制電力設備。
+      </div>
+      <div class="notes">這段可以現場直接用。它的好處是：第一，不會把 OpenClaw 講成要取代 EMS；第二，把合作放在 AI 維運和決策輔助；第三，先講明不直接越權控制電力設備，讓能源業者比較安心。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div>
+          <div class="kicker">Vendor Scorecard</div>
+          <h2 class="title">20 分制可信度檢查</h2>
+        </div>
+        <p class="lede">現場聽完後，不用憑感覺。用 10 個指標，每項 0-2 分，快速判斷是否值得深談。</p>
+      </div>
+      <table class="score-table">
+        <tr><th>指標</th><th>2 分標準</th><th>低分警訊</th></tr>
+        <tr><td>案場實績</td><td>有容量、地點、年份、照片或報告。</td><td>只有概念或簡報圖。</td></tr>
+        <tr><td>EMS 能力</td><td>可預測、調度、優化、API。</td><td>只做監看。</td></tr>
+        <tr><td>設備相容</td><td>多品牌開放整合。</td><td>只能接自家設備。</td></tr>
+        <tr><td>孤島/交易/維運</td><td>可說明黑啟動、DR/VPP、24/7 SLA。</td><td>名詞多、責任不清。</td></tr>
+        <tr><td>商業與 AI 整合</td><td>可用負載曲線試算，資料/API 可接 Agent。</td><td>只講設備價格。</td></tr>
+      </table>
+      <p class="footnote mt-m">判讀：16-20 優先深談；11-15 單案或備選；6-10 偏設備/概念；0-5 不適合當正式合作主軸。</p>
+      <div class="notes">這頁是會後快速評分用。Jason 可以把每家公司用同一張表打分，避免被某一家簡報講得很漂亮就覺得成熟。能源合作要看實績、控制能力、資料、維運、商業模式，缺一塊都可能造成後續落地困難。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div>
+          <div class="kicker">Next Contacts</div>
+          <h2 class="title">建議第一梯接觸順序</h2>
+        </div>
+        <p class="lede">先問方向，再問落地。第一梯目標是建立市場真實度，不是立刻成交。</p>
+      </div>
+      <div class="contact-seq">
+        <div class="contact"><div class="big-number">1</div><b>台達</b><span>問 DeltaGrid EM、API、第三方設備、AI data center。</span></div>
+        <div class="contact"><div class="big-number">2</div><b>東元</b><span>問 VPP 示範、工商業表後、工業場域整合。</span></div>
+        <div class="contact"><div class="big-number">3</div><b>森耀</b><span>問 BTM Microgrid、DVPP、Grid Forming、能源資安。</span></div>
+        <div class="contact"><div class="big-number">4</div><b>台灣微網</b><span>問標準 EMS、快速整合、表後儲能介接。</span></div>
+        <div class="contact"><div class="big-number">5</div><b>Enel X / 聚盛</b><span>問需量反應、VPP、交易收益與分潤。</span></div>
+      </div>
+      <div class="notes">這頁可以當行動清單。Jason 如果時間有限，就先訪談這五類代表，因為它們分別對應 EMS 大廠、工業整合、微電網特色公司、標準 EMS 公司和聚合商。問完後就能判斷 OpenClaw 該切維運、資料、客服，還是 AI 資料中心敘事。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div>
+          <div class="kicker">Deliverables</div>
+          <h2 class="title">下一份文件怎麼做</h2>
+        </div>
+        <p class="lede">這份 PPT 是對外溝通與訪談用；後續要進一步成交或提案，需要把資料轉成試算與紀錄工具。</p>
+      </div>
+      <div class="matrix two">
+        <div class="tile"><h3>一頁式合作簡報</h3><p>把「表後微電網 x 本地 AI Agent」濃縮成一頁，適合發給廠商或客戶。</p></div>
+        <div class="tile"><h3>廠商訪談紀錄表</h3><p>每家公司用同一份欄位記錄角色、能力、案場、API、風險與下一步。</p></div>
+        <div class="tile"><h3>商業模式試算模板</h3><p>工廠、商辦、資料中心、充電站分開試算回收期與收益來源。</p></div>
+        <div class="tile"><h3>AI 資料中心專章</h3><p>把 GPU cluster、本地 AI、能源韌性與電力成本整理成獨立提案。</p></div>
+      </div>
+      <div class="notes">收尾時要講清楚，這份簡報已經可以拿去問廠商，但還不是正式投資或提案文件。下一步如果 Jason 要對外談合作，我會建議做一頁式合作簡報和訪談表；如果要往商業模型走，就要補試算模板和資料中心專章。</div>
+    </section>
+
+    <section class="slide center">
+      <div>
+        <div class="kicker">Closing</div>
+        <h2 class="title">真正要買的不是儲能櫃，是企業能源作業系統</h2>
+        <p class="lede" style="margin: 0 auto;">表後微電網的競爭核心會落在 EMS、資料、收益模型、維運能力與可信的責任邊界。OpenClaw 的機會，是成為能源系統上方的人機協作層。</p>
+      </div>
+      <div class="notes">最後一頁收斂成一句話。Jason 如果在現場簡短總結，可以說：我們不是來買一個設備，而是要看企業能源作業系統如何和本地 AI 整合。這能讓 OpenClaw 的位置更高，不會被壓成一般客服或聊天機器人。</div>
+    </section>
+  </div>
+  <script src="assets/runtime.js"></script>
+</body>
+</html>
