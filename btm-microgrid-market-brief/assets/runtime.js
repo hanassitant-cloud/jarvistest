@@ -126,74 +126,159 @@
     }
     const barFill = bar.querySelector('span');
 
-    /* ===== always-visible navigation controls =====
-     * Mobile browsers cannot rely on keyboard shortcuts, and Safari chrome can
-     * make the progress bar feel like the only control. Every published deck
-     * needs visible tap targets plus swipe support.
+    /* ===== OpenClaw standard bottom control bar =====
+     * This is Jason's preferred HTML PPT control style. Keep it visually
+     * consistent across decks: title + previous/next/overview/focus/immersive.
      */
     const navStyle = document.createElement('style');
     navStyle.textContent = `
-      .ppt-nav {
-        position: fixed;
-        left: 50%;
-        bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
-        transform: translateX(-50%);
-        z-index: 60;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 9px 12px;
-        border: 1px solid rgba(0,0,0,.12);
-        border-radius: 999px;
-        background: color-mix(in srgb, var(--surface) 92%, transparent);
-        box-shadow: 0 14px 40px rgba(18,24,40,.18), 0 2px 8px rgba(18,24,40,.08);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        font-family: var(--font-sans);
+      .ppt-nav.oc-ppt-remote {
+        position: fixed !important;
+        left: 50% !important;
+        bottom: calc(env(safe-area-inset-bottom, 0px) + 18px) !important;
+        transform: translateX(-50%) !important;
+        z-index: 2147483647 !important;
+        width: min(94vw, 820px) !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 10px !important;
+        border-radius: 22px !important;
+        background: rgba(255,255,255,.98) !important;
+        border: 2px solid rgba(0,0,0,.1) !important;
+        box-shadow: 0 18px 60px rgba(0,0,0,.34) !important;
+        backdrop-filter: blur(18px) !important;
+        -webkit-backdrop-filter: blur(18px) !important;
+        font-family: var(--font-sans) !important;
       }
-      .ppt-nav button {
-        width: 38px;
-        height: 38px;
-        border: 1px solid var(--border);
-        border-radius: 999px;
-        background: var(--surface);
-        color: var(--text-1);
-        display: grid;
-        place-items: center;
-        cursor: pointer;
-        font: 700 20px/1 var(--font-sans);
-        touch-action: manipulation;
+      .oc-ppt-remote-title {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #102033 !important;
+        font-weight: 900 !important;
+        font-size: 14px !important;
+        letter-spacing: 0 !important;
       }
-      .ppt-nav button:disabled {
-        opacity: .35;
-        cursor: not-allowed;
+      .ppt-nav.oc-ppt-remote button {
+        border: 0 !important;
+        border-radius: 14px !important;
+        background: #102033 !important;
+        color: white !important;
+        min-width: 76px !important;
+        height: 46px !important;
+        padding: 0 10px !important;
+        font-size: 15px !important;
+        font-weight: 900 !important;
+        line-height: 1.05 !important;
+        cursor: pointer !important;
+        touch-action: manipulation !important;
       }
-      .ppt-nav button:focus-visible {
-        outline: 3px solid color-mix(in srgb, var(--accent) 35%, transparent);
-        outline-offset: 2px;
+      .ppt-nav.oc-ppt-remote button:nth-of-type(3),
+      .ppt-nav.oc-ppt-remote button:nth-of-type(4),
+      .ppt-nav.oc-ppt-remote button:nth-of-type(5) {
+        background: #0ea5e9 !important;
       }
-      .ppt-nav .ppt-nav-count {
-        min-width: 62px;
-        text-align: center;
-        font-size: 13px;
-        font-weight: 700;
-        color: var(--text-2);
-        letter-spacing: 0;
+      .ppt-nav.oc-ppt-remote button:disabled {
+        opacity: .45 !important;
+        cursor: not-allowed !important;
       }
+      .oc-ppt-remote-small {
+        font-size: 11px !important;
+        display: block !important;
+        margin-top: 2px !important;
+        line-height: 1.05 !important;
+        white-space: nowrap !important;
+      }
+      .ppt-focus-modal {
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 2147483647 !important;
+        background: rgba(10,15,25,.88) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        display: none !important;
+        overflow: auto !important;
+        padding: 22px !important;
+      }
+      .ppt-focus-modal.show { display: block !important; }
+      .ppt-focus-card {
+        max-width: 930px !important;
+        margin: 0 auto !important;
+        background: #fff !important;
+        color: #1f2a2e !important;
+        border-radius: 24px !important;
+        padding: 20px !important;
+        box-shadow: 0 24px 80px rgba(0,0,0,.42) !important;
+      }
+      .ppt-focus-head {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 12px !important;
+        margin-bottom: 14px !important;
+      }
+      .ppt-focus-head h2 { margin: 0 !important; font-size: 28px !important; color: #102033 !important; }
+      .ppt-focus-close {
+        border: 0 !important;
+        background: #102033 !important;
+        color: #fff !important;
+        border-radius: 999px !important;
+        padding: 11px 15px !important;
+        font-weight: 900 !important;
+      }
+      .ppt-focus-points li {
+        color: #1f2a2e !important;
+        font-size: 18px !important;
+        line-height: 1.55 !important;
+        margin: .6rem 0 !important;
+        font-weight: 850 !important;
+      }
+      .ppt-toast {
+        position: fixed !important;
+        left: 50% !important;
+        top: 18px !important;
+        transform: translateX(-50%) !important;
+        z-index: 2147483647 !important;
+        background: #102033 !important;
+        color: white !important;
+        border-radius: 999px !important;
+        padding: 11px 16px !important;
+        font-weight: 900 !important;
+        display: none !important;
+      }
+      .ppt-toast.show { display: block !important; }
+      body.ppt-immersive-on .slide.is-active { transform: scale(1.018) !important; }
       @media (max-width: 900px) {
-        .ppt-nav {
-          bottom: calc(env(safe-area-inset-bottom, 0px) + 74px);
-          padding: 8px 10px;
+        .ppt-nav.oc-ppt-remote {
+          bottom: calc(env(safe-area-inset-bottom, 0px) + 14px) !important;
+          width: 96vw !important;
+          transform: translateX(-50%) scale(.88) !important;
+          padding: 8px !important;
+          gap: 6px !important;
         }
-        .ppt-nav button {
-          width: 42px;
-          height: 42px;
-          font-size: 22px;
+        .oc-ppt-remote-title {
+          display: block !important;
+          flex: 0 1 58px !important;
+          font-size: 10px !important;
+          line-height: 1.05 !important;
+          white-space: nowrap !important;
+          overflow: hidden !important;
+          text-overflow: ellipsis !important;
         }
-      }
-      @media print, (pointer: fine) and (min-width: 1100px) {
-        .ppt-nav { opacity: .82; }
-        .ppt-nav:hover, .ppt-nav:focus-within { opacity: 1; }
+        .ppt-nav.oc-ppt-remote button {
+          min-width: 48px !important;
+          width: 48px !important;
+          height: 48px !important;
+          padding: 0 5px !important;
+          font-size: 14px !important;
+        }
+        .oc-ppt-remote-small {
+          font-size: 9px !important;
+          margin-top: 2px !important;
+        }
       }
     `;
     document.head.appendChild(navStyle);
@@ -201,20 +286,27 @@
     let nav = document.querySelector('.ppt-nav');
     if (!nav) {
       nav = document.createElement('nav');
-      nav.className = 'ppt-nav';
-      nav.setAttribute('aria-label', 'Slide navigation');
+      nav.className = 'ppt-nav oc-ppt-remote';
+      nav.setAttribute('aria-label', '投影片控制列');
       nav.innerHTML = [
-        '<button type="button" class="ppt-prev" aria-label="Previous slide">‹</button>',
-        '<span class="ppt-nav-count" aria-live="polite"></span>',
-        '<button type="button" class="ppt-next" aria-label="Next slide">›</button>'
+        '<div class="oc-ppt-remote-title"></div>',
+        '<button type="button" class="ppt-prev" aria-label="上一頁">←<span class="oc-ppt-remote-small">上一頁</span></button>',
+        '<button type="button" class="ppt-next" aria-label="下一頁">→<span class="oc-ppt-remote-small">下一頁</span></button>',
+        '<button type="button" class="ppt-overview-btn" aria-label="總覽">O<span class="oc-ppt-remote-small">總覽</span></button>',
+        '<button type="button" class="ppt-focus-btn" aria-label="重點">T<span class="oc-ppt-remote-small">重點</span></button>',
+        '<button type="button" class="ppt-immersive-btn" aria-label="沉浸">F<span class="oc-ppt-remote-small">沉浸</span></button>'
       ].join('');
       document.body.appendChild(nav);
     }
+    nav.classList.add('oc-ppt-remote');
+    const navTitle = nav.querySelector('.oc-ppt-remote-title');
     const prevBtn = nav.querySelector('.ppt-prev');
     const nextBtn = nav.querySelector('.ppt-next');
-    const navCount = nav.querySelector('.ppt-nav-count');
     prevBtn.addEventListener('click', () => go(idx - 1));
     nextBtn.addEventListener('click', () => go(idx + 1));
+    nav.querySelector('.ppt-overview-btn')?.addEventListener('click', () => toggleOverview());
+    nav.querySelector('.ppt-focus-btn')?.addEventListener('click', () => toggleFocus());
+    nav.querySelector('.ppt-immersive-btn')?.addEventListener('click', () => toggleImmersive());
 
     /* ===== notes overlay (N key) ===== */
     let notes = document.querySelector('.notes-overlay');
@@ -222,6 +314,22 @@
       notes = document.createElement('div');
       notes.className = 'notes-overlay';
       document.body.appendChild(notes);
+    }
+    let focus = document.querySelector('.ppt-focus-modal');
+    if (!focus) {
+      focus = document.createElement('div');
+      focus.className = 'ppt-focus-modal';
+      focus.innerHTML = '<div class="ppt-focus-card"><div class="ppt-focus-head"><h2>本頁重點</h2><button type="button" class="ppt-focus-close">關閉</button></div><ul class="ppt-focus-points"></ul></div>';
+      document.body.appendChild(focus);
+    }
+    const focusPoints = focus.querySelector('.ppt-focus-points');
+    focus.querySelector('.ppt-focus-close')?.addEventListener('click', () => toggleFocus(false));
+    let toast = document.querySelector('.ppt-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'ppt-toast';
+      toast.textContent = '沉浸模式';
+      document.body.appendChild(toast);
     }
 
     /* ===== overview grid (O key) ===== */
@@ -318,7 +426,7 @@
       barFill.style.width = ((n+1)/total*100)+'%';
       const numEl = document.querySelector('.slide-number');
       if (numEl) { numEl.setAttribute('data-current', n+1); numEl.setAttribute('data-total', total); }
-      if (navCount) navCount.textContent = (n + 1) + ' / ' + total;
+      if (navTitle) navTitle.textContent = document.title || 'HTML PPT';
       if (prevBtn) prevBtn.disabled = n === 0;
       if (nextBtn) nextBtn.disabled = n === total - 1;
 
@@ -397,6 +505,26 @@
     }
 
     function toggleNotes(force){ notes.classList.toggle('open', force!==undefined?force:!notes.classList.contains('open')); }
+    function toggleFocus(force){
+      const isOpen = force!==undefined ? force : !focus.classList.contains('show');
+      focus.classList.toggle('show', isOpen);
+      if (!isOpen) return;
+      const current = slides[idx];
+      const texts = Array.from(current.querySelectorAll('h1,h2,h3,.lede,p,li,.tile,.rank-card,.flow-item,.check,.contact,td'))
+        .map(el => (el.textContent || '').trim().replace(/\s+/g, ' '))
+        .filter(Boolean)
+        .filter((text, i, arr) => arr.indexOf(text) === i)
+        .slice(0, 7);
+      focusPoints.innerHTML = (texts.length ? texts : ['這一頁是封面或視覺頁，請看投影片主畫面。'])
+        .map(text => '<li>' + text.replace(/[<>&]/g, ch => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[ch])) + '</li>')
+        .join('');
+    }
+    function toggleImmersive(){
+      document.body.classList.toggle('ppt-immersive-on');
+      toast.textContent = document.body.classList.contains('ppt-immersive-on') ? '沉浸模式已開啟' : '沉浸模式已關閉';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1200);
+    }
     function toggleOverview(force){
       const isOpen = force!==undefined ? force : !overview.classList.contains('open');
       overview.classList.toggle('open', isOpen);
@@ -1051,13 +1179,13 @@
         case 'ArrowLeft': case 'PageUp': case 'Backspace': go(idx-1); e.preventDefault(); break;
         case 'Home': go(0); break;
         case 'End': go(total-1); break;
-        case 'f': case 'F': fullscreen(); break;
+        case 'f': case 'F': toggleImmersive(); break;
         case 's': case 'S': openPresenterWindow(); break;
         case 'n': case 'N': toggleNotes(); break;
         case 'o': case 'O': toggleOverview(); break;
-        case 't': case 'T': cycleTheme(); break;
+        case 't': case 'T': toggleFocus(); break;
         case 'a': case 'A': cycleAnim(); break;
-        case 'Escape': toggleOverview(false); toggleNotes(false); break;
+        case 'Escape': toggleOverview(false); toggleNotes(false); toggleFocus(false); break;
       }
     });
 
