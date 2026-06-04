@@ -126,6 +126,96 @@
     }
     const barFill = bar.querySelector('span');
 
+    /* ===== always-visible navigation controls =====
+     * Mobile browsers cannot rely on keyboard shortcuts, and Safari chrome can
+     * make the progress bar feel like the only control. Every published deck
+     * needs visible tap targets plus swipe support.
+     */
+    const navStyle = document.createElement('style');
+    navStyle.textContent = `
+      .ppt-nav {
+        position: fixed;
+        left: 50%;
+        bottom: calc(env(safe-area-inset-bottom, 0px) + 16px);
+        transform: translateX(-50%);
+        z-index: 60;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 9px 12px;
+        border: 1px solid rgba(0,0,0,.12);
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--surface) 92%, transparent);
+        box-shadow: 0 14px 40px rgba(18,24,40,.18), 0 2px 8px rgba(18,24,40,.08);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        font-family: var(--font-sans);
+      }
+      .ppt-nav button {
+        width: 38px;
+        height: 38px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: var(--surface);
+        color: var(--text-1);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        font: 700 20px/1 var(--font-sans);
+        touch-action: manipulation;
+      }
+      .ppt-nav button:disabled {
+        opacity: .35;
+        cursor: not-allowed;
+      }
+      .ppt-nav button:focus-visible {
+        outline: 3px solid color-mix(in srgb, var(--accent) 35%, transparent);
+        outline-offset: 2px;
+      }
+      .ppt-nav .ppt-nav-count {
+        min-width: 62px;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-2);
+        letter-spacing: 0;
+      }
+      @media (max-width: 900px) {
+        .ppt-nav {
+          bottom: calc(env(safe-area-inset-bottom, 0px) + 74px);
+          padding: 8px 10px;
+        }
+        .ppt-nav button {
+          width: 42px;
+          height: 42px;
+          font-size: 22px;
+        }
+      }
+      @media print, (pointer: fine) and (min-width: 1100px) {
+        .ppt-nav { opacity: .82; }
+        .ppt-nav:hover, .ppt-nav:focus-within { opacity: 1; }
+      }
+    `;
+    document.head.appendChild(navStyle);
+
+    let nav = document.querySelector('.ppt-nav');
+    if (!nav) {
+      nav = document.createElement('nav');
+      nav.className = 'ppt-nav';
+      nav.setAttribute('aria-label', 'Slide navigation');
+      nav.innerHTML = [
+        '<button type="button" class="ppt-prev" aria-label="Previous slide">‹</button>',
+        '<span class="ppt-nav-count" aria-live="polite"></span>',
+        '<button type="button" class="ppt-next" aria-label="Next slide">›</button>'
+      ].join('');
+      document.body.appendChild(nav);
+    }
+    const prevBtn = nav.querySelector('.ppt-prev');
+    const nextBtn = nav.querySelector('.ppt-next');
+    const navCount = nav.querySelector('.ppt-nav-count');
+    prevBtn.addEventListener('click', () => go(idx - 1));
+    nextBtn.addEventListener('click', () => go(idx + 1));
+
     /* ===== notes overlay (N key) ===== */
     let notes = document.querySelector('.notes-overlay');
     if (!notes) {
@@ -228,6 +318,9 @@
       barFill.style.width = ((n+1)/total*100)+'%';
       const numEl = document.querySelector('.slide-number');
       if (numEl) { numEl.setAttribute('data-current', n+1); numEl.setAttribute('data-total', total); }
+      if (navCount) navCount.textContent = (n + 1) + ' / ' + total;
+      if (prevBtn) prevBtn.disabled = n === 0;
+      if (nextBtn) nextBtn.disabled = n === total - 1;
 
       // notes (bottom overlay)
       const note = slides[n].querySelector('.notes, aside.notes, .speaker-notes');
@@ -267,6 +360,26 @@
         bc.postMessage({ type: 'go', idx: n });
       }
     }
+
+    /* ===== touch swipe navigation for phones/tablets ===== */
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartTime = 0;
+    deck.addEventListener('touchstart', function(e) {
+      if (!e.touches || e.touches.length !== 1) return;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      touchStartTime = Date.now();
+    }, { passive: true });
+    deck.addEventListener('touchend', function(e) {
+      if (!e.changedTouches || e.changedTouches.length !== 1) return;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      const elapsed = Date.now() - touchStartTime;
+      if (elapsed > 900 || Math.abs(dx) < 46 || Math.abs(dx) < Math.abs(dy) * 1.35) return;
+      if (dx < 0) go(idx + 1);
+      else go(idx - 1);
+    }, { passive: true });
 
     /* ===== listen for remote navigation / theme changes ===== */
     if (bc) {
