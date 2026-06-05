@@ -1,5 +1,16 @@
 [
   {
+    "slug": "avengers-intro-voice-v2",
+    "name": "復仇者聯盟 AI 團隊介紹｜真人語音版 HTML PPT",
+    "desc": "以復仇者聯盟 AI 團隊介紹簡報為基礎，保留原版內容與逐頁語音播放，改用較自然的台灣中文神經網路旁白聲線，作為真人語音感測試版。",
+    "source": "Jason 2026-06-05 指示 + 文文依 2026-06-01 復仇者聯盟公開安全版簡報複製後重製語音；不含公司或客戶機密資料",
+    "date": "2026-06-05",
+    "category": "AI 團隊",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/avengers-intro-voice-v2/",
+    "zip_url": "https://hanassitant-cloud.github.io/jarvistest/avengers-intro-voice-v2.zip",
+    "notes": "公開展示版；原始語音版 avengers-intro 保留不覆蓋。本版音訊為台灣中文神經網路旁白，48kHz AAC，供 Jason 比較真人語音感與簡報現場播放效果。"
+  },
+  {
     "slug": "btm-microgrid-market-brief",
     "name": "表後微電網｜市場雷達與合作訪談包 HTML PPT",
     "desc": "整理表後微電網市場定義、台灣與國際主要玩家、方案類型、廠商分級、合作/競爭判斷、OpenClaw AI Agent 切入點與 Jason 現場訪談問題。",
