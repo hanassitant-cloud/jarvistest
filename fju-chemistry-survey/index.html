@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>輔仁大學化學系完整調查</title>
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="assets/base.css">
+  <link rel="stylesheet" href="assets/animations/animations.css">
+  <link rel="stylesheet" id="theme-link" href="assets/themes/academic-paper.css">
+  <style>
+    :root { --deck-pad-x: 82px; --deck-pad-y: 64px; }
+    .slide { padding: var(--deck-pad-y) var(--deck-pad-x); }
+    .deck-mark { font-weight: 800; color: var(--accent-2); }
+    .cover-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 46px; align-items: end; min-height: 68vh; }
+    .cover h1 { font-size: 64px; line-height: 1.03; max-width: 9em; margin: 10px 0 18px; }
+    .lede { color: var(--text-2); font-size: 21px; line-height: 1.65; }
+    .mini { font-size: 13px; color: var(--text-3); line-height: 1.55; }
+    .panel { border: 1px solid var(--border); background: var(--surface); padding: 24px; box-shadow: var(--shadow); }
+    .stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .stat { border-top: 4px solid var(--accent-2); background: var(--surface-2); padding: 18px; min-height: 124px; }
+    .stat b { display: block; font-size: 42px; line-height: 1; color: var(--text-1); margin-bottom: 10px; }
+    .stat span { color: var(--text-2); font-size: 15px; line-height: 1.45; }
+    .section-top { display: flex; justify-content: space-between; gap: 36px; align-items: flex-start; margin-bottom: 28px; }
+    .section-top h2 { max-width: 12em; }
+    .section-top .lede { max-width: 34em; font-size: 19px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .grid.two { grid-template-columns: repeat(2, 1fr); }
+    .tile { border: 1px solid var(--border); background: var(--surface); padding: 20px; min-height: 158px; }
+    .tile h3 { font-size: 23px; margin-bottom: 10px; color: var(--accent); }
+    .tile p, .tile li { color: var(--text-2); font-size: 15px; line-height: 1.55; }
+    .tile ul { padding-left: 18px; margin: 8px 0 0; }
+    .timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .time { border-top: 3px solid var(--accent); background: var(--surface); padding: 18px 14px; min-height: 138px; }
+    .time b { display: block; color: var(--accent-2); font-size: 24px; margin-bottom: 8px; }
+    .time span { color: var(--text-2); font-size: 14px; line-height: 1.5; }
+    .course-map { display: grid; grid-template-columns: 1fr 1.1fr; gap: 26px; align-items: stretch; }
+    .bar-list { display: grid; gap: 12px; }
+    .bar { display: grid; grid-template-columns: 108px 1fr 56px; gap: 12px; align-items: center; }
+    .bar-label { font-weight: 800; color: var(--text-1); }
+    .bar-track { height: 18px; background: var(--surface-2); border: 1px solid var(--border); }
+    .bar-fill { display: block; height: 100%; background: var(--accent-2); }
+    .bar-num { color: var(--text-2); text-align: right; }
+    .path { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .step { border: 1px solid var(--border); background: var(--surface); padding: 16px; min-height: 150px; }
+    .step b { display: block; font-size: 18px; color: var(--text-1); margin-bottom: 8px; }
+    .step span { color: var(--text-2); font-size: 14px; line-height: 1.45; }
+    .table { width: 100%; border-collapse: collapse; font-size: 15px; }
+    .table th, .table td { border-bottom: 1px solid var(--border); padding: 11px 12px; text-align: left; vertical-align: top; }
+    .table th { color: var(--text-1); font-size: 13px; letter-spacing: .04em; }
+    .table td { color: var(--text-2); line-height: 1.5; }
+    .quote { border-left: 6px solid var(--accent-2); background: var(--surface-2); padding: 22px 28px; font-size: 28px; line-height: 1.45; font-weight: 750; color: var(--text-1); }
+    .source-list { display: grid; gap: 10px; }
+    .source-list a { color: var(--accent); overflow-wrap: anywhere; }
+    @media (max-width: 900px) {
+      :root { --deck-pad-x: 28px; --deck-pad-y: 50px; }
+      html, body { overflow-x: hidden; }
+      .deck-header, .deck-footer { display: none; }
+      .slide { justify-content: flex-start; overflow-y: auto; padding-top: 26px; padding-bottom: 36px; }
+      .cover-grid, .grid, .grid.two, .course-map, .timeline, .path { grid-template-columns: 1fr; }
+      .cover h1 { font-size: 40px; }
+      h2.title { font-size: 32px; }
+      .section-top { display: block; margin-bottom: 18px; }
+      .lede { font-size: 17px; }
+      .stat-grid { grid-template-columns: 1fr; }
+      .tile, .panel, .step, .time { padding: 16px; min-height: auto; }
+      .bar { grid-template-columns: 92px 1fr 48px; }
+      .quote { font-size: 20px; padding: 18px; }
+      .table { font-size: 13px; }
+      .table th, .table td { padding: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="deck" data-themes="academic-paper,corporate-clean,swiss-grid,engineering-whiteprint,minimal-white">
+    <div class="deck-header">
+      <span class="deck-mark">FJU Chemistry Survey</span>
+      <span>輔仁大學化學系完整調查</span>
+    </div>
+    <div class="deck-footer">
+      <span>Jason Chen · 2026-06-06</span>
+      <span class="slide-number"></span>
+    </div>
+    <div class="progress-bar"><span></span></div>
+
+    <section class="slide cover is-active">
+      <div class="cover-grid">
+        <div>
+          <div class="kicker">學校 / 系所調查</div>
+          <h1 class="title">輔仁大學化學系完整調查</h1>
+          <p class="lede">整理系所規模、課程架構、研究領域、升學就業出路與選讀判斷，給家長與學生快速掌握這個科系到底在讀什麼、未來能往哪裡走。</p>
+          <p class="mini">資料截點：2026-06-06。招生、課程與人數會逐年調整，正式決策前仍需回到輔大與教育部最新公告。</p>
+        </div>
+        <div class="panel">
+          <div class="stat-grid">
+            <div class="stat"><b>505</b><span>大學部學生，輔大化學系官方 112 學年度現況。</span></div>
+            <div class="stat"><b>52</b><span>碩士班研究生，官方 112 學年度現況。</span></div>
+            <div class="stat"><b>14</b><span>博士班研究生，官方 112 學年度現況。</span></div>
+            <div class="stat"><b>128</b><span>學士班最低畢業學分，115 學年度修業規則。</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="notes">開場要先回答 Jason 問的三件事：多少學生、上什麼課、未來出路。這頁把結論數字放前面，但要提醒這裡的 505、52、14 是官方 112 學年度現況，教育部 UDB 另有 113 學年度正式學籍學生數與 114 新生註冊率，後面會分開講。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div><div class="kicker">Executive Summary</div><h2 class="title">先講結論</h2></div>
+        <p class="lede">輔大化學系是傳統化學訓練完整、實驗比重高、研究領域分明的理工科系；適合願意長期做實驗、讀基礎科學，並把化學延伸到材料、生醫、環境、能源或半導體應用的學生。</p>
+      </div>
+      <div class="grid">
+        <div class="tile"><h3>規模不小</h3><p>官方系所沿革頁列 112 學年度大學部 505 人、碩士 52 人、博士 14 人；教育部 UDB 113 學年度學士班正式學籍 499 人。</p></div>
+        <div class="tile"><h3>課程偏硬</h3><p>畢業至少 128 學分，專業必修 67 學分；核心會碰到普通、有機、無機、分析、物化、實驗與化學數學。</p></div>
+        <div class="tile"><h3>出路要分流</h3><p>單靠學士學位可往品管、檢測、製程、業務技術支援；若要研發、半導體材料、生醫材料，多半需要研究所訓練。</p></div>
+      </div>
+      <div class="notes">這頁不要過度美化。化學系不是輕鬆科系，最大的特點是基礎扎實、實驗訓練重，但職涯高度常和研究所、專題研究、產業實習或跨領域能力綁在一起。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div><div class="kicker">History</div><h2 class="title">系所定位與沿革</h2></div>
+        <p class="lede">輔大化學系在北平時期即有化學系，在台復校後於 1964 年成立大學部，之後補齊碩士班、博士班，形成完整的學士到博士訓練鏈。</p>
+      </div>
+      <div class="timeline">
+        <div class="time"><b>1929</b><span>北平輔仁大學設置化學系。</span></div>
+        <div class="time"><b>1964</b><span>輔大在台復校後成立化學系大學部。</span></div>
+        <div class="time"><b>1980</b><span>成立化學研究所碩士班。</span></div>
+        <div class="time"><b>1991</b><span>成立化學研究所博士班。</span></div>
+        <div class="time"><b>2001</b><span>大學部增設為兩班，官方寫每年約招收 120 名學生。</span></div>
+      </div>
+      <div class="quote" style="margin-top:26px;">定位：以基礎化學與實驗能力為底，往有機、無機、物化、分析、高分子與材料等研究領域延伸。</div>
+      <div class="notes">這頁的重點是讓聽眾知道它不是只有大學部的教學系，而是有完整研究所。對學生來說，這代表專題研究、實驗室、研究所銜接會是很重要的資源。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div><div class="kicker">Students</div><h2 class="title">學生人數與招生規模</h2></div>
+        <p class="lede">「系所有多少學生」要分成在學總人數、新生註冊與招生名額三種資料看，不能混在一起。</p>
+      </div>
+      <table class="table">
+        <thead><tr><th>資料類型</th><th>數字</th><th>解讀</th><th>來源</th></tr></thead>
+        <tbody>
+          <tr><td>112 學年度官方現況</td><td>大學部 505、碩士 52、博士 14</td><td>系所沿革頁列出的全系規模，適合看整體容量。</td><td>輔大化學系</td></tr>
+          <tr><td>113 學年度正式學籍</td><td>學士班 499 人，男 264、女 235</td><td>教育部 UDB 以 10 月 15 日正式學籍統計，適合看政府資料口徑。</td><td>教育部 UDB</td></tr>
+          <tr><td>114 學年度新生註冊率</td><td>學士班核定 112、實際註冊 117、註冊率 100%</td><td>表示當年新生報到狀況，不等於全系人數。</td><td>教育部 UDB</td></tr>
+          <tr><td>115 申請入學 / 繁星</td><td>申請入學 57；繁星推薦一般 27、外加 3</td><td>招生管道名額，還要加上其他入學管道才是完整招生。</td><td>大學問</td></tr>
+        </tbody>
+      </table>
+      <div class="notes">這頁要特別避免常見錯誤：把招生名額當成全系人數。對 Jason 來說，看科系規模最有用的是 505/499 這類在學人數；看今年熱度則看新生註冊率；看入學競爭才看申請、繁星、分發。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div><div class="kicker">Curriculum</div><h2 class="title">畢業學分架構</h2></div>
+        <p class="lede">115 學年度修業規則顯示，學士班最低畢業學分為 128；其中專業必修 67 學分，是整個課程壓力的核心。</p>
+      </div>
+      <div class="course-map">
+        <div class="panel">
+          <div class="bar-list">
+            <div class="bar"><span class="bar-label">全人核心</span><span class="bar-track"><span class="bar-fill" style="width:31%"></span></span><span class="bar-num">10</span></div>
+            <div class="bar"><span class="bar-label">基本能力</span><span class="bar-track"><span class="bar-fill" style="width:38%"></span></span><span class="bar-num">12</span></div>
+            <div class="bar"><span class="bar-label">通識涵養</span><span class="bar-track"><span class="bar-fill" style="width:31%"></span></span><span class="bar-num">10</span></div>
+            <div class="bar"><span class="bar-label">專業必修</span><span class="bar-track"><span class="bar-fill" style="width:100%"></span></span><span class="bar-num">67</span></div>
+            <div class="bar"><span class="bar-label">選修</span><span class="bar-track"><span class="bar-fill" style="width:43%"></span></span><span class="bar-num">29</span></div>
+          </div>
+          <p class="mini" style="margin-top:18px;">單位：學分。115 學年度規則列全人教育核心 10、基本能力 12、通識涵養 10、專業必修 67、選修至少 29，合計至少 128。</p>
+        </div>
+        <div class="grid two">
+          <div class="tile"><h3>專業必修是主軸</h3><p>67 學分代表四年中有很大比例要花在化學核心與實驗訓練。</p></div>
+          <div class="tile"><h3>選修決定分流</h3><p>29 學分選修可往有機、分析、材料、高分子、藥物、生化、環境與職場銜接方向配置。</p></div>
+          <div class="tile"><h3>英文與通識仍要顧</h3><p>基本能力含國文 4、外國語文 8；英文門檻有檢定替代規則。</p></div>
+          <div class="tile"><h3>擋修要注意</h3><p>微積分、普化、有機等基礎課若沒過，會影響後續物化、無機、高等有機等課程。</p></div>
+        </div>
+      </div>
+      <div class="notes">這頁把修業規則視覺化。專業必修 67 是關鍵，代表這不是只靠通識填學分的科系，基礎課沒打穩會連動後面擋修。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div><div class="kicker">Course Path</div><h2 class="title">四年大致會讀什麼</h2></div>
+        <p class="lede">化學系學習路線通常從數理與普通化學打底，再進入有機、無機、分析、物化與實驗，最後用選修與專題研究分流。</p>
+      </div>
+      <div class="path">
+        <div class="step"><b>大一：基礎打底</b><span>普通化學、普通化學實驗、微積分、普通物理、基礎語文與通識。</span></div>
+        <div class="step"><b>大二：核心展開</b><span>有機化學、分析化學、相關實驗與化學數學，開始感受到化學主修強度。</span></div>
+        <div class="step"><b>大三：理論深化</b><span>物理化學、無機化學、有機/分析進階實驗，訓練光譜、儀器與反應觀念。</span></div>
+        <div class="step"><b>大四：分流整合</b><span>高等有機、材料、高分子、生化、藥物化學、專題研究、產業與職場課程。</span></div>
+      </div>
+      <div class="grid two" style="margin-top:22px;">
+        <div class="tile"><h3>官方列出的進階課程例子</h3><p>量子化學、分子光譜、核磁共振光譜、基礎儀器分析、環境化學、高分子化學、材料科學、藥物化學、專題研究等。</p></div>
+        <div class="tile"><h3>AI 已進入課程名稱</h3><p>115 課程地圖選修中出現「有機合成與 AI 逆合成」，可視為化學與運算工具結合的方向訊號。</p></div>
+      </div>
+      <div class="notes">這頁用家長聽得懂的方式講四年路徑，不要只列課名。重點是：大一打底、大二進核心、大三最硬、大四靠選修和專題決定方向。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div><div class="kicker">Research</div><h2 class="title">五大研究與選修方向</h2></div>
+        <p class="lede">官方現況把師生研究領域分成有機、無機、物理、分析、高分子與材料化學五個主軸；這些主軸也對應研究所分組與進階選修。</p>
+      </div>
+      <div class="grid">
+        <div class="tile"><h3>有機化學</h3><p>高等有機、有機光譜、有機合成、藥物化學、生物有機與醣化學；適合往藥物、合成、化學生物走。</p></div>
+        <div class="tile"><h3>無機化學</h3><p>高等無機、金屬錯鹽、無機合成與分析；可銜接催化、材料、錯合物與能源相關議題。</p></div>
+        <div class="tile"><h3>物理化學</h3><p>進階物化、計算化學、光譜與理論；對數學、物理與模型理解要求較高。</p></div>
+        <div class="tile"><h3>分析化學</h3><p>進階分析、程序分析、電化學、儀器分析；與檢測、品管、環境與生醫分析連動高。</p></div>
+        <div class="tile"><h3>高分子與材料</h3><p>材料科學、高分子化學、高分子物性、有機光電材料；與半導體、顯示器、材料製程相關。</p></div>
+        <div class="tile"><h3>跨域應用</h3><p>官方發展方向提到生醫及環境之材料與分析、永續化學及能源，代表未來題目會更偏應用整合。</p></div>
+      </div>
+      <div class="notes">這頁可以幫學生選方向。對不確定的人，可以先看自己喜歡做合成、儀器分析、理論計算、材料製程，還是生醫環境應用。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div><div class="kicker">Graduate School</div><h2 class="title">研究所與升學銜接</h2></div>
+        <p class="lede">化學系本身有碩士班與博士班，官方招生資訊列 115 學年度碩士班共 27 名，其中甄試 21 名、考試一般入學生 6 名；博士班每年約 3 名。</p>
+      </div>
+      <div class="grid two">
+        <div class="tile"><h3>碩士班共同要求</h3><p>課程地圖列共同必修包含專題討論、論文、書報討論；選修需依主修領域規定至少 3 學分，其餘彈性配置。</p></div>
+        <div class="tile"><h3>博士班要求更研究導向</h3><p>博士班共同必修包含專題討論、論文、專題研究；官方課程地圖另列 SCI 論文或論文加專利路徑。</p></div>
+        <div class="tile"><h3>學士生可以提早探索</h3><p>官方簡介提到鼓勵成績優異學生修習碩士班課程；專題研究是判斷是否適合研究所的重要關卡。</p></div>
+        <div class="tile"><h3>為什麼研究所重要</h3><p>化學研發職通常看重實驗室訓練、儀器熟悉度、論文或專題成果；只有學士學位時職涯多從品管、檢測、助理工程師起步。</p></div>
+      </div>
+      <div class="notes">這頁要講實話：化學系如果只讀到學士，不是不行，但很多高階研發與材料職會更偏好碩士。若學生不想讀研究所，就要更早累積實習、證照、儀器與產業能力。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div><div class="kicker">Career</div><h2 class="title">未來出路怎麼看</h2></div>
+        <p class="lede">化學系不是單一路線，畢業後大致會分成升學研究、產業技術、檢測品管、跨域應用與教育公職幾條路。</p>
+      </div>
+      <table class="table">
+        <thead><tr><th>路線</th><th>可能工作 / 場域</th><th>需要補強</th></tr></thead>
+        <tbody>
+          <tr><td>升學研究</td><td>化學、材料、化工、生醫、藥學、環境、半導體材料相關研究所。</td><td>專題研究、實驗室經驗、英文閱讀、論文整理。</td></tr>
+          <tr><td>產業研發 / 製程</td><td>半導體材料、化工材料、高分子、光電材料、電池能源、藥物與生技材料。</td><td>碩士學歷、儀器分析、材料特性、統計與製程概念。</td></tr>
+          <tr><td>檢測 / 品管 / 法規</td><td>食品、環境、醫藥、化妝品、材料檢測實驗室與 QA/QC。</td><td>儀器操作、ISO/GLP/GMP 觀念、文件與法規能力。</td></tr>
+          <tr><td>技術業務 / 產品支援</td><td>化學試劑、儀器設備、材料產品、實驗室耗材與技術服務。</td><td>溝通、簡報、英文型錄、客戶需求轉譯能力。</td></tr>
+          <tr><td>教育 / 公職</td><td>教師、補教、科普、環保與檢驗相關公職或國營事業。</td><td>教育學程、考試準備、科普表達、行政法規。</td></tr>
+        </tbody>
+      </table>
+      <div class="notes">這頁要提醒：化學系出路不是只有當化學老師，也不是一定只能待實驗室。真正差異在於學生有沒有把化學基礎轉成某個產業場域能力。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div><div class="kicker">Fit</div><h2 class="title">適合與不適合的學生</h2></div>
+        <p class="lede">選化學系前，最好先判斷自己能不能接受長時間實驗、抽象理論、數理基礎與安全紀律。</p>
+      </div>
+      <div class="grid two">
+        <div class="tile"><h3>適合</h3><ul><li>高中化學不是只會背，願意理解反應與結構。</li><li>能接受實驗紀錄、等待、重做與誤差分析。</li><li>數學與物理不排斥，願意補微積分與物化。</li><li>對材料、生醫、能源、環境、藥物或半導體有興趣。</li></ul></div>
+        <div class="tile"><h3>不適合</h3><ul><li>只想避開數學物理，或以為化學系只背元素週期表。</li><li>不能接受實驗安全規範與長時間站立操作。</li><li>完全不想讀研究所，又不願提早累積產業實習或證照。</li><li>只想找立即高薪但不想補工程、材料或數據能力。</li></ul></div>
+      </div>
+      <div class="quote" style="margin-top:26px;">選讀判斷：如果學生喜歡「物質怎麼變、怎麼測、怎麼做成材料」，化學系有價值；如果只想逃避其他科目，風險很高。</div>
+      <div class="notes">這頁可以直接給 Jason 用來和孩子或家長溝通。選系不能只看校名，也要看學生能不能承受學科與實驗型態。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div><div class="kicker">Decision</div><h2 class="title">Jason 可用判斷清單</h2></div>
+        <p class="lede">如果要評估輔大化學系是否值得讀，可以用以下問題檢查學生、課程與未來路線是否對得上。</p>
+      </div>
+      <div class="grid">
+        <div class="tile"><h3>問學生</h3><p>你喜歡做實驗還是只喜歡考試？你能不能接受大三物化、有機、儀器分析這類硬課？</p></div>
+        <div class="tile"><h3>問課程</h3><p>你想走有機、分析、材料、高分子、生醫、環境，還是還不知道？不知道也可以，但大二前要開始探索。</p></div>
+        <div class="tile"><h3>問出路</h3><p>你能不能接受讀研究所？如果不讀，要用哪個產業技能補足學士學位的限制？</p></div>
+        <div class="tile"><h3>問資源</h3><p>有沒有進實驗室做專題？有沒有儀器操作、資料分析、英文閱讀與產業實習？</p></div>
+        <div class="tile"><h3>問風險</h3><p>基礎課被擋修怎麼辦？如果發現不喜歡實驗，有沒有轉系、輔系、雙主修或跨域路線？</p></div>
+        <div class="tile"><h3>問機會</h3><p>能否把化學和 AI、材料、半導體、生醫、永續能源接起來？這會決定未來競爭力。</p></div>
+      </div>
+      <div class="notes">這頁可以當最後的家長決策頁。要把「讀不讀」轉成一組可檢查問題，而不是只看排名或分數。</div>
+    </section>
+
+    <section class="slide">
+      <div class="section-top">
+        <div><div class="kicker">Sources</div><h2 class="title">資料來源與注意事項</h2></div>
+        <p class="lede">本簡報以官方與可信公開資料為主；其中招生、人數、課程會逐年更新，正式引用前請再核對最新年度公告。</p>
+      </div>
+      <div class="source-list">
+        <div class="tile"><h3>輔仁大學化學系｜系所沿革 / 現況 / 教育目標</h3><p><a href="https://ch.fju.edu.tw/%E7%B3%BB%E6%89%80%E7%B0%A1%E4%BB%8B/%E7%B3%BB%E6%89%80%E6%B2%BF%E9%9D%A9/" target="_blank" rel="noopener">https://ch.fju.edu.tw/系所簡介/系所沿革/</a></p></div>
+        <div class="tile"><h3>輔仁大學化學系｜修業規則</h3><p><a href="https://ch.fju.edu.tw/%E8%AA%B2%E7%A8%8B%E8%B3%87%E8%A8%8A/%E4%BF%AE%E6%A5%AD%E8%A6%8F%E5%89%87/" target="_blank" rel="noopener">https://ch.fju.edu.tw/課程資訊/修業規則/</a></p></div>
+        <div class="tile"><h3>輔仁大學化學系｜專業必修課程地圖</h3><p><a href="https://ch.fju.edu.tw/%E8%AA%B2%E7%A8%8B%E8%B3%87%E8%A8%8A/%E5%B0%88%E6%A5%AD%E5%BF%85%E4%BF%AE%E8%AA%B2%E7%A8%8B%E5%9C%B0%E5%9C%96/" target="_blank" rel="noopener">https://ch.fju.edu.tw/課程資訊/專業必修課程地圖/</a></p></div>
+        <div class="tile"><h3>教育部 UDB / 大學問</h3><p>教育部 UDB：正式學籍學生數、新生註冊率。大學問：115 學年度申請入學與繁星推薦名額。</p></div>
+      </div>
+      <div class="notes">結尾要明確說資料來源。這份簡報不是招生簡章替代品，而是決策前的整理版。正式填志願前要再查輔大招生專區、考分會與系網最新公告。</div>
+    </section>
+  </div>
+  <script src="assets/runtime.js"></script>
+</body>
+</html>

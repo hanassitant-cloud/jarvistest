@@ -1,5 +1,16 @@
 [
   {
+    "slug": "fju-chemistry-survey",
+    "name": "輔仁大學化學系｜系所完整調查 HTML PPT",
+    "desc": "整理輔仁大學化學系系所沿革、學生規模、招生資料、畢業學分、課程地圖、研究領域、升學就業出路與選讀判斷，供家長與學生快速評估。",
+    "source": "輔仁大學化學系官方系所沿革、修業規則、專業必修課程地圖；教育部 UDB 學生數與新生註冊率；大學問招生資料 + 文文整理分析",
+    "date": "2026-06-06",
+    "category": "學校/系所",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/fju-chemistry-survey/",
+    "zip_url": "https://hanassitant-cloud.github.io/jarvistest/fju-chemistry-survey.zip",
+    "notes": "資料截點為 2026-06-06；學生人數、招生名額、課程規則會逐年調整，正式填志願或引用前請再核對輔大與教育部最新公告。"
+  },
+  {
     "slug": "avengers-intro-voice-v2",
     "name": "復仇者聯盟 AI 團隊介紹｜真人語音版 HTML PPT",
     "desc": "以復仇者聯盟 AI 團隊介紹簡報為基礎，保留原版內容與逐頁語音播放，改用較自然的台灣中文神經網路旁白聲線，作為真人語音感測試版。",
