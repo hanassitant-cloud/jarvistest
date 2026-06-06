@@ -1,5 +1,16 @@
 [
   {
+    "slug": "vnu-food-beverage-survey",
+    "name": "萬能科技大學餐飲管理系｜師生規模、課程與出路調查真人語音版 HTML PPT",
+    "desc": "整理萬能科技大學餐飲管理系的師生規模、學生數趨勢、系所特色、設備證照、四年課程、校外實習、未來出路與選讀建議，並加入逐頁真人版 neural 語音。",
+    "source": "教育部開放資料「大專校院各校科系別概況」；萬能科技大學餐飲管理系官網本系特色、師資、設備、課程資訊；技專校院招生策略委員會；萬能餐飲系課程規劃 PDF；文文整理分析",
+    "date": "2026-06-06",
+    "category": "學校/系所",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/vnu-food-beverage-survey/",
+    "zip_url": "https://hanassitant-cloud.github.io/jarvistest/vnu-food-beverage-survey.zip",
+    "notes": "資料截點為 2026-06-06；教育部統計顯示 114 學年度日間四技 700 人、進修四技 277 人，合計 977 人，教師數欄位日間四技列 22。本版使用 edge_tts zh-TW-HsiaoChenNeural，音檔路徑 audio-neural/slide-xx.m4a。"
+  },
+  {
     "slug": "fju-chemistry-survey",
     "name": "輔仁大學化學系｜系所完整調查真人語音版 HTML PPT",
     "desc": "整理輔仁大學化學系系所沿革、學生規模、招生資料、畢業學分、課程地圖、研究領域、升學就業出路與選讀判斷，並加入逐頁真人語音播放，供家長與學生快速評估。",
