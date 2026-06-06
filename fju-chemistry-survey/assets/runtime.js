@@ -299,11 +299,23 @@
     const prevBtn = nav.querySelector('.ppt-prev');
     const nextBtn = nav.querySelector('.ppt-next');
     const pageCount = nav.querySelector('.oc-ppt-page-count');
+    const voiceBtn = nav.querySelector('.ppt-voice-btn');
+    let slideAudio = document.querySelector('#slide-audio');
+    if (!slideAudio) {
+      slideAudio = document.createElement('audio');
+      slideAudio.id = 'slide-audio';
+      slideAudio.preload = 'none';
+      document.body.appendChild(slideAudio);
+    }
     prevBtn.addEventListener('click', () => go(idx - 1));
     nextBtn.addEventListener('click', () => go(idx + 1));
     nav.querySelector('.ppt-overview-btn')?.addEventListener('click', () => toggleOverview());
     nav.querySelector('.ppt-speaker-btn')?.addEventListener('click', () => openPresenterWindow());
-    nav.querySelector('.ppt-voice-btn')?.addEventListener('click', () => toggleVoice());
+    voiceBtn?.addEventListener('click', () => toggleVoice());
+    slideAudio.addEventListener('ended', () => {
+      const label = voiceBtn?.querySelector('.oc-ppt-remote-small');
+      if (label) label.textContent = '語音';
+    });
 
     /* ===== notes overlay (N key) ===== */
     let notes = document.querySelector('.notes-overlay');
@@ -427,6 +439,11 @@
       if (prevBtn) prevBtn.disabled = n === 0;
       if (nextBtn) nextBtn.disabled = n === total - 1;
       if (pageCount) pageCount.textContent = (n + 1) + ' / ' + total;
+      if (slideAudio) {
+        slideAudio.pause();
+        const label = voiceBtn?.querySelector('.oc-ppt-remote-small');
+        if (label) label.textContent = '語音';
+      }
 
       // notes (bottom overlay)
       const note = slides[n].querySelector('.notes, aside.notes, .speaker-notes');
@@ -524,29 +541,32 @@
       setTimeout(() => toast.classList.remove('show'), 1200);
     }
     function toggleVoice(){
-      if (!('speechSynthesis' in window)) {
-        toast.textContent = '此瀏覽器不支援語音';
-        toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 1400);
-        return;
+      const page = idx + 1;
+      const src = 'audio/slide-' + String(page).padStart(2, '0') + '.m4a';
+      const label = voiceBtn?.querySelector('.oc-ppt-remote-small');
+      if (slideAudio.getAttribute('src') !== src) {
+        slideAudio.pause();
+        slideAudio.setAttribute('src', src);
       }
-      if (speechSynthesis.speaking) {
-        speechSynthesis.cancel();
+      if (!slideAudio.paused) {
+        slideAudio.pause();
+        if (label) label.textContent = '語音';
         toast.textContent = '語音已停止';
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 1200);
         return;
       }
-      const note = slides[idx].querySelector('.notes, aside.notes, .speaker-notes');
-      const text = (note?.textContent || slides[idx].textContent || '').trim().replace(/\s+/g, ' ').slice(0, 900);
-      const utterance = new SpeechSynthesisUtterance(text || '這一頁沒有可朗讀的文字。');
-      utterance.lang = 'zh-TW';
-      utterance.rate = .95;
-      speechSynthesis.cancel();
-      speechSynthesis.speak(utterance);
-      toast.textContent = '開始朗讀本頁';
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 1200);
+      slideAudio.play().then(() => {
+        if (label) label.textContent = '暫停';
+        toast.textContent = '開始播放真人語音';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 1200);
+      }).catch(() => {
+        if (label) label.textContent = '再點一次';
+        toast.textContent = '瀏覽器需要再點一次才可播放';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 1400);
+      });
     }
     function toggleOverview(force){
       const isOpen = force!==undefined ? force : !overview.classList.contains('open');
