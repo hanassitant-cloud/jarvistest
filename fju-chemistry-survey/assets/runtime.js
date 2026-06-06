@@ -542,7 +542,7 @@
     }
     function toggleVoice(){
       const page = idx + 1;
-      const src = 'audio/slide-' + String(page).padStart(2, '0') + '.m4a';
+      const src = 'audio-neural/slide-' + String(page).padStart(2, '0') + '.mp3';
       const label = voiceBtn?.querySelector('.oc-ppt-remote-small');
       if (slideAudio.getAttribute('src') !== src) {
         slideAudio.pause();
@@ -558,7 +558,7 @@
       }
       slideAudio.play().then(() => {
         if (label) label.textContent = '暫停';
-        toast.textContent = '開始播放真人語音';
+        toast.textContent = '開始播放真人版 neural 語音';
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 1200);
       }).catch(() => {
