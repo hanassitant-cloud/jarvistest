@@ -8,7 +8,7 @@
     "category": "學校/系所",
     "url": "https://hanassitant-cloud.github.io/jarvistest/vnu-food-beverage-survey/",
     "zip_url": "https://hanassitant-cloud.github.io/jarvistest/vnu-food-beverage-survey.zip",
-    "notes": "資料截點為 2026-06-06；教育部統計顯示 114 學年度日間四技 700 人、進修四技 277 人，合計 977 人，教師數欄位日間四技列 22。本版使用 edge_tts zh-TW-HsiaoChenNeural，音檔路徑 audio-neural/slide-xx.m4a。"
+    "notes": "資料截點為 2026-06-06；教育部統計顯示 114 學年度日間四技 700 人、進修四技 277 人，合計 977 人，教師數欄位日間四技列 22。本版使用 edge_tts zh-TW-HsiaoChenNeural，新增 MP3 優先播放與 M4A 備援，音檔路徑為 audio-neural/slide-xx.mp3 與 audio-neural/slide-xx.m4a。"
   },
   {
     "slug": "fju-chemistry-survey",

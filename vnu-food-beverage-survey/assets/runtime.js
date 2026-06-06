@@ -304,7 +304,9 @@
     if (!slideAudio) {
       slideAudio = document.createElement('audio');
       slideAudio.id = 'slide-audio';
-      slideAudio.preload = 'none';
+      slideAudio.preload = 'auto';
+      slideAudio.setAttribute('playsinline', '');
+      slideAudio.setAttribute('webkit-playsinline', '');
       document.body.appendChild(slideAudio);
     }
     prevBtn.addEventListener('click', () => go(idx - 1));
@@ -542,11 +544,15 @@
     }
     function toggleVoice(){
       const page = idx + 1;
-      const src = 'audio-neural/slide-' + String(page).padStart(2, '0') + '.m4a';
+      const base = 'audio-neural/slide-' + String(page).padStart(2, '0');
+      const mp3 = base + '.mp3';
+      const m4a = base + '.m4a';
+      const src = slideAudio.canPlayType('audio/mpeg') ? mp3 : m4a;
       const label = voiceBtn?.querySelector('.oc-ppt-remote-small');
       if (slideAudio.getAttribute('src') !== src) {
         slideAudio.pause();
         slideAudio.setAttribute('src', src);
+        slideAudio.load();
       }
       if (!slideAudio.paused) {
         slideAudio.pause();
@@ -556,18 +562,27 @@
         setTimeout(() => toast.classList.remove('show'), 1200);
         return;
       }
-      slideAudio.load();
       slideAudio.play().then(() => {
         if (label) label.textContent = '暫停';
         toast.textContent = '開始播放真人版 neural 語音';
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 1200);
       }).catch((err) => {
-        if (label) label.textContent = '再點一次';
-        toast.textContent = '瀏覽器未播放，請再點一次語音';
+        if (src !== m4a) {
+          slideAudio.setAttribute('src', m4a);
+          slideAudio.load();
+          return slideAudio.play().then(() => {
+            if (label) label.textContent = '暫停';
+            toast.textContent = '開始播放真人版 neural 語音';
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 1200);
+          });
+        }
+        if (label) label.textContent = '語音';
+        toast.innerHTML = '瀏覽器未播放，<a href="' + m4a + '" target="_blank" rel="noopener">直接開音檔</a>';
         if (window.console) console.warn('slide audio play failed', err);
         toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 1400);
+        setTimeout(() => toast.classList.remove('show'), 3000);
       });
     }
     function toggleOverview(force){
