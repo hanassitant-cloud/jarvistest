@@ -542,7 +542,7 @@
     }
     function toggleVoice(){
       const page = idx + 1;
-      const src = 'audio-neural/slide-' + String(page).padStart(2, '0') + '.mp3';
+      const src = 'audio-neural/slide-' + String(page).padStart(2, '0') + '.m4a';
       const label = voiceBtn?.querySelector('.oc-ppt-remote-small');
       if (slideAudio.getAttribute('src') !== src) {
         slideAudio.pause();
@@ -556,14 +556,16 @@
         setTimeout(() => toast.classList.remove('show'), 1200);
         return;
       }
+      slideAudio.load();
       slideAudio.play().then(() => {
         if (label) label.textContent = '暫停';
         toast.textContent = '開始播放真人版 neural 語音';
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 1200);
-      }).catch(() => {
+      }).catch((err) => {
         if (label) label.textContent = '再點一次';
-        toast.textContent = '瀏覽器需要再點一次才可播放';
+        toast.textContent = '瀏覽器未播放，請再點一次語音';
+        if (window.console) console.warn('slide audio play failed', err);
         toast.classList.add('show');
         setTimeout(() => toast.classList.remove('show'), 1400);
       });

@@ -8,7 +8,7 @@
     "category": "學校/系所",
     "url": "https://hanassitant-cloud.github.io/jarvistest/fju-chemistry-survey/",
     "zip_url": "https://hanassitant-cloud.github.io/jarvistest/fju-chemistry-survey.zip",
-    "notes": "資料截點為 2026-06-06；學生人數、招生名額、課程規則會逐年調整，正式填志願或引用前請再核對輔大與教育部最新公告。本版已改用 edge_tts 的 zh-TW-HsiaoChenNeural 真人版 neural 旁白，按下方「語音」播放當頁音檔。"
+    "notes": "資料截點為 2026-06-06；學生人數、招生名額、課程規則會逐年調整，正式填志願或引用前請再核對輔大與教育部最新公告。本版已改用 edge_tts 的 zh-TW-HsiaoChenNeural 真人版 neural 旁白，輸出為 audio-neural/slide-xx.m4a，按下方「語音」播放當頁音檔。"
   },
   {
     "slug": "avengers-intro-voice-v2",
