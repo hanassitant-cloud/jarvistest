@@ -1,0 +1,1583 @@
+{
+  "project": "塔羅牌計劃",
+  "version": "tarot-card-content-structured-20260608",
+  "generated_at": "2026-06-08T08:20:00+08:00",
+  "core_team": [
+    "@Jason_wenwen_bot",
+    "@Eric_Erica_Bot"
+  ],
+  "source": {
+    "content_author": "Erica / @Eric_Erica_Bot via Level 1 relay, 2026-06-07",
+    "integrator": "文文 / @Jason_wenwen_bot",
+    "source_files": [
+      "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md",
+      "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-cups-mvp-copy-20260607.md",
+      "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-wands-mvp-copy-20260607.md",
+      "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-swords-mvp-copy-20260607.md",
+      "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-pentacles-mvp-copy-20260607.md"
+    ],
+    "notes": "Structured from five MVP copy Markdown files. Entertainment/self-reflection use only; no medical, legal, investment, or guaranteed outcome claims."
+  },
+  "cards": [
+    {
+      "id": "major_00_fool",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 0,
+      "rank": 0,
+      "name_zh": "愚者",
+      "name_en": "The Fool",
+      "upright_free": "你正站在新旅程的入口，先跨出一步，答案會在路上變清楚。",
+      "reversed_free": "現在不是盲衝的時候，先確認方向，再決定要不要出發。",
+      "paid_expansion_points": [
+        "你真正想開始的是什麼，以及你害怕失去什麼。",
+        "這段關係/工作/選擇裡，哪些是自由，哪些是逃避。",
+        "下一步適合「小規模試行」，不要一次押上全部。"
+      ],
+      "tone": "輕盈、鼓勵、帶一點冒險感。",
+      "risk_note": "避免把衝動包裝成勇敢；重大決定仍要查證資訊。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_01_magician",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 1,
+      "rank": 1,
+      "name_zh": "魔術師",
+      "name_en": "The Magician",
+      "upright_free": "你手上其實已有足夠資源，關鍵是把想法變成具體行動。",
+      "reversed_free": "不要只停在說法漂亮，先檢查承諾、能力與現實是否一致。",
+      "paid_expansion_points": [
+        "你目前可用的資源、人脈、技能與時機。",
+        "誰在主導局面，以及是否存在操控或過度包裝。",
+        "把願望拆成可執行的第一步。"
+      ],
+      "tone": "清醒、自信、行動導向。",
+      "risk_note": "警惕話術、畫餅與資訊不透明；不要因對方表現亮眼就忽略驗證。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_02_high_priestess",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 2,
+      "rank": 2,
+      "name_zh": "女祭司",
+      "name_en": "The High Priestess",
+      "upright_free": "答案暫時不在表面，請相信直覺，也給事情一點時間浮現。",
+      "reversed_free": "你可能忽略了心裡早就知道的訊號，別再替不對勁找藉口。",
+      "paid_expansion_points": [
+        "表面資訊與潛在真相之間的落差。",
+        "你內在真正的感受，是否被理性壓住。",
+        "目前適合觀察、等待、保留底牌。"
+      ],
+      "tone": "安靜、神秘、溫柔但銳利。",
+      "risk_note": "直覺不是證據；涉及重大承諾時仍需實際確認。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_03_empress",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 3,
+      "rank": 3,
+      "name_zh": "皇后",
+      "name_en": "The Empress",
+      "upright_free": "這件事有成長空間，適合用滋養、耐心與真實感受來推進。",
+      "reversed_free": "你可能付出太多卻忘了照顧自己，先把能量收回一點。",
+      "paid_expansion_points": [
+        "關係/計畫中正在發芽的機會。",
+        "你是否過度照顧、過度等待或過度消耗。",
+        "如何建立更健康的給予與接收。"
+      ],
+      "tone": "溫暖、豐盛、療癒感。",
+      "risk_note": "不要把「愛」或「善意」變成無限透支。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_04_emperor",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 4,
+      "rank": 4,
+      "name_zh": "皇帝",
+      "name_en": "The Emperor",
+      "upright_free": "現在需要清楚規則與穩定架構，越模糊越容易失控。",
+      "reversed_free": "小心控制慾、僵化或權力不對等，別讓壓力變成服從。",
+      "paid_expansion_points": [
+        "這件事需要建立什麼界線、規則或流程。",
+        "目前誰掌握主導權，是否公平。",
+        "如何用成熟方式談條件，而不是硬碰硬。"
+      ],
+      "tone": "穩重、直接、有安全感。",
+      "risk_note": "避免用權威壓過感受；也不要因害怕衝突而放棄底線。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_05_hierophant",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 5,
+      "rank": 5,
+      "name_zh": "教皇",
+      "name_en": "The Hierophant",
+      "upright_free": "這件事適合回到價值觀、承諾與長期規則來看。",
+      "reversed_free": "你不一定要照著別人的標準走，先問這是不是你真正相信的路。",
+      "paid_expansion_points": [
+        "傳統、制度、家人或團體期待對你的影響。",
+        "承諾是否真誠，還是只是形式正確。",
+        "如何在規範與自我選擇間找到平衡。"
+      ],
+      "tone": "成熟、引導式、像顧問。",
+      "risk_note": "不要把社會期待當成唯一答案；合約、承諾需看清細節。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_06_lovers",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 6,
+      "rank": 6,
+      "name_zh": "戀人",
+      "name_en": "The Lovers",
+      "upright_free": "這是一個關於選擇與真心的時刻，請看清你真正想靠近什麼。",
+      "reversed_free": "如果價值觀不一致，再強的吸引也可能讓你反覆拉扯。",
+      "paid_expansion_points": [
+        "吸引力、承諾與價值觀是否一致。",
+        "你正在選人、選路，還是在逃避選擇。",
+        "如何做出對自己誠實的決定。"
+      ],
+      "tone": "浪漫、真誠、帶選擇感。",
+      "risk_note": "不要把曖昧、依賴或短期激情誤認為穩定承諾。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_07_chariot",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 7,
+      "rank": 7,
+      "name_zh": "戰車",
+      "name_en": "The Chariot",
+      "upright_free": "只要你集中目標並穩住節奏，這件事有機會往前突破。",
+      "reversed_free": "方向不一致會讓你越用力越混亂，先停下來重新校準。",
+      "paid_expansion_points": [
+        "目前真正的目標與阻力來源。",
+        "你需要控制節奏，還是需要放下硬撐。",
+        "下一步如何制定明確行動路線。"
+      ],
+      "tone": "有力、鼓舞、戰略感。",
+      "risk_note": "不要為了贏而忽略代價；強推不代表一定適合。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_08_strength",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 8,
+      "rank": 8,
+      "name_zh": "力量",
+      "name_en": "Strength",
+      "upright_free": "你不需要硬碰硬，溫柔但堅定，反而更能掌握局面。",
+      "reversed_free": "你可能太壓抑自己，或正在被情緒牽著走，先找回內在穩定。",
+      "paid_expansion_points": [
+        "你需要面對的情緒、慾望或恐懼。",
+        "柔軟溝通與堅定界線如何並行。",
+        "這段關係/任務是否正在考驗耐心。"
+      ],
+      "tone": "溫柔、堅定、安撫人心。",
+      "risk_note": "忍耐不是無限承受；若有壓迫或傷害，應優先保護自己。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_09_hermit",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 9,
+      "rank": 9,
+      "name_zh": "隱者",
+      "name_en": "The Hermit",
+      "upright_free": "你需要暫時拉開距離，安靜想清楚自己真正要什麼。",
+      "reversed_free": "別把孤立當成清醒，也別因害怕面對而一直躲起來。",
+      "paid_expansion_points": [
+        "目前適合獨處、復盤、重新找方向。",
+        "你是在沉澱，還是在逃避互動。",
+        "如何從自己的經驗中找到答案。"
+      ],
+      "tone": "沉靜、陪伴、深思。",
+      "risk_note": "長期封閉會放大焦慮；必要時找可信任的人討論。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_10_wheel_of_fortune",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 10,
+      "rank": 10,
+      "name_zh": "命運之輪",
+      "name_en": "Wheel of Fortune",
+      "upright_free": "局勢正在轉動，新的機會或變化可能比你預期更快出現。",
+      "reversed_free": "如果事情反覆卡住，先看清循環模式，而不是只怪運氣不好。",
+      "paid_expansion_points": [
+        "目前局勢的轉折點與外部變數。",
+        "你重複遇到的模式是什麼。",
+        "如何在變動中抓住可控的部分。"
+      ],
+      "tone": "開闊、命運感、提醒把握時機。",
+      "risk_note": "變化不是保證好轉；不要把全部決策交給運氣。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_11_justice",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 11,
+      "rank": 11,
+      "name_zh": "正義",
+      "name_en": "Justice",
+      "upright_free": "事情會回到公平、責任與事實本身，請用清楚標準判斷。",
+      "reversed_free": "若你感到不公平，先整理證據與界線，不要只靠情緒反應。",
+      "paid_expansion_points": [
+        "誰該負責、誰在承擔後果。",
+        "關係或合作中的公平性與透明度。",
+        "如何做出理性、不後悔的選擇。"
+      ],
+      "tone": "客觀、清晰、理性。",
+      "risk_note": "不提供法律結論；涉及法律/合約請諮詢專業人士。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_12_hanged_man",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 12,
+      "rank": 12,
+      "name_zh": "吊人",
+      "name_en": "The Hanged Man",
+      "upright_free": "現在的停頓不是失敗，而是提醒你換個角度看待這件事。",
+      "reversed_free": "如果你一直犧牲卻看不到改變，該問自己值不值得繼續等。",
+      "paid_expansion_points": [
+        "這段卡住背後真正要你看見的事。",
+        "你是主動等待，還是被動消耗。",
+        "如何用新的視角找到突破口。"
+      ],
+      "tone": "安撫、反思、慢下來。",
+      "risk_note": "等待需要期限；不要用「再忍一下」掩蓋長期失衡。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_13_death",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 13,
+      "rank": 13,
+      "name_zh": "死神",
+      "name_en": "Death",
+      "upright_free": "某個階段正在結束，放下舊模式，新的空間才會出現。",
+      "reversed_free": "你可能明知道該結束，卻因不甘心或害怕改變而拖著。",
+      "paid_expansion_points": [
+        "需要結束的是關係、期待、習慣還是身份。",
+        "你抗拒改變的真正原因。",
+        "如何安全地完成告別與轉化。"
+      ],
+      "tone": "深刻、誠實、陪伴式。",
+      "risk_note": "這不是死亡預言；只談階段轉變與心理/關係模式。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_14_temperance",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 14,
+      "rank": 14,
+      "name_zh": "節制",
+      "name_en": "Temperance",
+      "upright_free": "答案在平衡裡，不必急著極端選邊，先調整比例與節奏。",
+      "reversed_free": "目前能量失衡，可能是太急、太滿，或一直在委屈配合。",
+      "paid_expansion_points": [
+        "哪些元素需要重新協調。",
+        "你與對方/環境之間的節奏差異。",
+        "如何用溫和方式修復與整合。"
+      ],
+      "tone": "平和、療癒、調和。",
+      "risk_note": "平衡不是一味妥協；也不是把問題無限延後。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_15_devil",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 15,
+      "rank": 15,
+      "name_zh": "惡魔",
+      "name_en": "The Devil",
+      "upright_free": "這件事有強烈吸引力，但也可能讓你被慾望、依賴或恐懼綁住。",
+      "reversed_free": "你正在看見束縛的來源，現在有機會慢慢鬆開它。",
+      "paid_expansion_points": [
+        "你被什麼誘惑、依賴或不安牽制。",
+        "關係/選擇中是否有控制、沉迷或利益交換。",
+        "如何拿回主導權，建立更清醒的界線。"
+      ],
+      "tone": "直白、性感但克制、警醒。",
+      "risk_note": "不要浪漫化控制、成癮或傷害；必要時尋求可信任支援。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_16_tower",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 16,
+      "rank": 16,
+      "name_zh": "高塔",
+      "name_en": "The Tower",
+      "upright_free": "某個不穩的結構可能被打破，短期震盪是為了讓真相浮出來。",
+      "reversed_free": "你可能已感覺到危機，只是還在努力維持表面和平。",
+      "paid_expansion_points": [
+        "哪個假象、結構或期待正在崩解。",
+        "這場震盪真正暴露的問題。",
+        "如何降低損傷，重建更穩的基礎。"
+      ],
+      "tone": "直接、穩住情緒、危機處理感。",
+      "risk_note": "不要製造恐慌；遇到安全、暴力、財務重大風險時請立即找現實支援。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_17_star",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 17,
+      "rank": 17,
+      "name_zh": "星星",
+      "name_en": "The Star",
+      "upright_free": "你正在慢慢恢復希望，這件事值得用更溫柔的眼光看待。",
+      "reversed_free": "失望讓你看不見可能性，但現在還不是完全否定自己的時候。",
+      "paid_expansion_points": [
+        "你真正渴望被療癒或被看見的地方。",
+        "哪些希望是可培養的，哪些只是幻想。",
+        "如何一步步恢復信任與方向。"
+      ],
+      "tone": "溫柔、希望感、清澈。",
+      "risk_note": "希望需要行動支撐；不要只靠願望忽略現實條件。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_18_moon",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 18,
+      "rank": 18,
+      "name_zh": "月亮",
+      "name_en": "The Moon",
+      "upright_free": "現在資訊不夠清楚，情緒與想像可能放大了不安。",
+      "reversed_free": "迷霧正在散開，你會逐漸看清真正困擾你的原因。",
+      "paid_expansion_points": [
+        "你害怕的是事實，還是自己的想像。",
+        "目前有哪些模糊、隱瞞或誤解。",
+        "如何用溫和方式求證，不被焦慮牽走。"
+      ],
+      "tone": "神秘、安撫、協助辨識情緒。",
+      "risk_note": "不要在資訊混亂時做極端決定；避免用猜測替代溝通。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_19_sun",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 19,
+      "rank": 19,
+      "name_zh": "太陽",
+      "name_en": "The Sun",
+      "upright_free": "這是一張明亮的牌，代表事情有機會變得更清楚、更坦率、更有活力。",
+      "reversed_free": "好消息可能還沒完全到位，先別急著否定，只是需要更多耐心。",
+      "paid_expansion_points": [
+        "這件事中最健康、最真實的能量在哪裡。",
+        "如何讓關係/計畫變得更透明。",
+        "下一步可以放大的優勢與快樂感。"
+      ],
+      "tone": "明亮、正向、乾淨有活力。",
+      "risk_note": "正向不等於保證成功；仍需看實際行動與條件。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_20_judgement",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 20,
+      "rank": 20,
+      "name_zh": "審判",
+      "name_en": "Judgement",
+      "upright_free": "你正來到重新選擇的時刻，過去的經驗會幫你看清下一步。",
+      "reversed_free": "別再用自責困住自己，真正重要的是你願不願意醒來並改變。",
+      "paid_expansion_points": [
+        "過去事件如何影響現在的判斷。",
+        "你需要原諒、修正或重新出發的部分。",
+        "這次選擇能否讓你更接近真正的自己。"
+      ],
+      "tone": "喚醒、成熟、有命運轉折感。",
+      "risk_note": "不要把牌義當成審判他人的工具；重點是自我覺察與負責。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "major_21_world",
+      "arcana": "major_arcana",
+      "suit": null,
+      "suit_zh": null,
+      "number": 21,
+      "rank": 21,
+      "name_zh": "世界",
+      "name_en": "The World",
+      "upright_free": "一個階段正在完成，你有機會看見成果，也準備走向下一圈旅程。",
+      "reversed_free": "事情還差最後整合，先補齊缺口，不要急著宣布結束。",
+      "paid_expansion_points": [
+        "目前已完成的成果與還沒收尾的部分。",
+        "你是否真正準備好進入下一階段。",
+        "如何整合經驗，讓結束成為新的開始。"
+      ],
+      "tone": "完整、祝福、成熟收束。",
+      "risk_note": "完成不代表永遠穩定；下一階段仍需要持續經營。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-major-arcana-mvp-copy-20260607.md"
+    },
+    {
+      "id": "cups_ace",
+      "arcana": "minor_arcana",
+      "suit": "cups",
+      "suit_zh": "聖杯",
+      "number": 1,
+      "rank": "ace",
+      "name_zh": "聖杯 Ace",
+      "name_en": "Ace of Cups",
+      "upright_free": "新的感受正在打開，這是一段真心、療癒或情感流動的開始。",
+      "reversed_free": "你的心可能還沒準備好接住這份感受，先照顧自己的情緒。",
+      "paid_expansion_points": [
+        "新情感、新靈感或和解機會從哪裡出現。",
+        "你是否願意打開心，而不是只用理性防守。",
+        "如何讓情緒流動，但不過度投射期待。"
+      ],
+      "tone": "溫柔、清澈、帶新開始感。",
+      "risk_note": "不要把一時感動直接等同長期承諾。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-cups-mvp-copy-20260607.md"
+    },
+    {
+      "id": "cups_two",
+      "arcana": "minor_arcana",
+      "suit": "cups",
+      "suit_zh": "聖杯",
+      "number": 2,
+      "rank": "two",
+      "name_zh": "聖杯二",
+      "name_en": "Two of Cups",
+      "upright_free": "這段連結有互相靠近的可能，重點是坦誠與平等回應。",
+      "reversed_free": "若只有一方努力靠近，關係容易失衡，需要重新對齊。",
+      "paid_expansion_points": [
+        "雙方是否都有真實互動與回應。",
+        "吸引、信任與合作感是否同步成長。",
+        "如何提出需求，而不把關係推進太快。"
+      ],
+      "tone": "浪漫、真誠、柔和。",
+      "risk_note": "互有好感不代表所有價值觀都一致，仍需觀察。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-cups-mvp-copy-20260607.md"
+    },
+    {
+      "id": "cups_three",
+      "arcana": "minor_arcana",
+      "suit": "cups",
+      "suit_zh": "聖杯",
+      "number": 3,
+      "rank": "three",
+      "name_zh": "聖杯三",
+      "name_en": "Three of Cups",
+      "upright_free": "你會從朋友、團體或輕鬆互動中得到支持與好消息。",
+      "reversed_free": "小心關係裡的雜音、比較或第三方影響，別讓情緒被帶著走。",
+      "paid_expansion_points": [
+        "哪些人是真正支持你的人。",
+        "團體氣氛是否讓事情更輕鬆，還是更複雜。",
+        "如何享受連結，同時保留自己的判斷。"
+      ],
+      "tone": "輕快、社交、愉悅。",
+      "risk_note": "避免聽信八卦或讓第三方過度介入私事。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-cups-mvp-copy-20260607.md"
+    },
+    {
+      "id": "cups_four",
+      "arcana": "minor_arcana",
+      "suit": "cups",
+      "suit_zh": "聖杯",
+      "number": 4,
+      "rank": "four",
+      "name_zh": "聖杯四",
+      "name_en": "Four of Cups",
+      "upright_free": "你可能對眼前選項提不起勁，先問自己真正缺的是什麼。",
+      "reversed_free": "你正在慢慢從停滯裡醒來，新的可能其實已經靠近。",
+      "paid_expansion_points": [
+        "你對現況麻木、失望或不滿的原因。",
+        "是否有被忽略的機會正在身邊。",
+        "如何重新打開感受，而不是被動等待。"
+      ],
+      "tone": "安靜、理解、輕提醒。",
+      "risk_note": "不要因短期低潮就否定所有可能；但也別勉強自己接受不想要的選項。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-cups-mvp-copy-20260607.md"
+    },
+    {
+      "id": "cups_five",
+      "arcana": "minor_arcana",
+      "suit": "cups",
+      "suit_zh": "聖杯",
+      "number": 5,
+      "rank": "five",
+      "name_zh": "聖杯五",
+      "name_en": "Five of Cups",
+      "upright_free": "你正在看見失落，但並不是所有可能都已經結束。",
+      "reversed_free": "你開始從遺憾中回頭，準備重新看見還留下的東西。",
+      "paid_expansion_points": [
+        "真正讓你難過的是失去、後悔還是期待落空。",
+        "現在仍可挽回或保留的是什麼。",
+        "如何把注意力從遺憾移向修復。"
+      ],
+      "tone": "陪伴、溫柔、低調療癒。",
+      "risk_note": "不要長期困在自責裡；必要時找可信任的人陪你整理情緒。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-cups-mvp-copy-20260607.md"
+    },
+    {
+      "id": "cups_six",
+      "arcana": "minor_arcana",
+      "suit": "cups",
+      "suit_zh": "聖杯",
+      "number": 6,
+      "rank": "six",
+      "name_zh": "聖杯六",
+      "name_en": "Six of Cups",
+      "upright_free": "過去的回憶、熟悉的人或單純感受，正在影響你現在的選擇。",
+      "reversed_free": "懷念不一定代表適合回頭，請分清回憶與現實。",
+      "paid_expansion_points": [
+        "過去經驗如何形塑你現在的期待。",
+        "這份熟悉感是滋養，還是讓你停在原地。",
+        "如何帶著溫柔回憶前進，而不是困住自己。"
+      ],
+      "tone": "懷舊、溫暖、柔軟。",
+      "risk_note": "不要因熟悉感忽略現況中的問題。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-cups-mvp-copy-20260607.md"
+    },
+    {
+      "id": "cups_seven",
+      "arcana": "minor_arcana",
+      "suit": "cups",
+      "suit_zh": "聖杯",
+      "number": 7,
+      "rank": "seven",
+      "name_zh": "聖杯七",
+      "name_en": "Seven of Cups",
+      "upright_free": "選項很多，但不是每個都真實可行，先看清你最想要什麼。",
+      "reversed_free": "迷霧正在散開，你可以開始把幻想整理成實際選擇。",
+      "paid_expansion_points": [
+        "哪些選項來自真心，哪些來自逃避或幻想。",
+        "目前最需要釐清的資訊與優先順序。",
+        "如何從眾多可能中選出可執行的一步。"
+      ],
+      "tone": "夢幻但清醒、提醒式。",
+      "risk_note": "不要被過度美化的承諾吸引；先確認現實條件。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-cups-mvp-copy-20260607.md"
+    },
+    {
+      "id": "cups_eight",
+      "arcana": "minor_arcana",
+      "suit": "cups",
+      "suit_zh": "聖杯",
+      "number": 8,
+      "rank": "eight",
+      "name_zh": "聖杯八",
+      "name_en": "Eight of Cups",
+      "upright_free": "你可能已經知道該離開某個不再滋養你的狀態。",
+      "reversed_free": "你想走又捨不得走，先誠實面對自己還在留戀什麼。",
+      "paid_expansion_points": [
+        "目前讓你失去熱情或情感滿足的原因。",
+        "離開是逃避，還是對自己誠實。",
+        "如何為下一段旅程保留尊嚴與力量。"
+      ],
+      "tone": "成熟、安靜、帶告別感。",
+      "risk_note": "離開前先評估現實安排；不要用衝動切斷所有退路。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-cups-mvp-copy-20260607.md"
+    },
+    {
+      "id": "cups_nine",
+      "arcana": "minor_arcana",
+      "suit": "cups",
+      "suit_zh": "聖杯",
+      "number": 9,
+      "rank": "nine",
+      "name_zh": "聖杯九",
+      "name_en": "Nine of Cups",
+      "upright_free": "你正在靠近一個讓自己滿足的答案，請允許自己享受成果。",
+      "reversed_free": "表面看似滿足，但心裡可能仍有一塊空缺需要被看見。",
+      "paid_expansion_points": [
+        "你真正渴望的快樂與安全感是什麼。",
+        "願望實現後，是否仍有更深層需求。",
+        "如何享受當下，而不過度依賴外在肯定。"
+      ],
+      "tone": "甜美、鼓勵、滿足感。",
+      "risk_note": "願望牌不是保證結果；仍需要實際行動與清楚判斷。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-cups-mvp-copy-20260607.md"
+    },
+    {
+      "id": "cups_ten",
+      "arcana": "minor_arcana",
+      "suit": "cups",
+      "suit_zh": "聖杯",
+      "number": 10,
+      "rank": "ten",
+      "name_zh": "聖杯十",
+      "name_en": "Ten of Cups",
+      "upright_free": "這張牌指向情感和諧與歸屬感，你正在靠近更安心的連結。",
+      "reversed_free": "理想畫面與現實感受可能有落差，別只維持表面圓滿。",
+      "paid_expansion_points": [
+        "你心中的幸福藍圖是否符合現實互動。",
+        "家人、伴侶或團體支持對你的影響。",
+        "如何建立更真實、可持續的安全感。"
+      ],
+      "tone": "溫馨、安心、祝福感。",
+      "risk_note": "不要為了維持完美形象而壓抑真實問題。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-cups-mvp-copy-20260607.md"
+    },
+    {
+      "id": "cups_page",
+      "arcana": "minor_arcana",
+      "suit": "cups",
+      "suit_zh": "聖杯",
+      "number": 11,
+      "rank": "page",
+      "name_zh": "聖杯侍者",
+      "name_en": "Page of Cups",
+      "upright_free": "一個柔軟的訊息、好感或靈感正在出現，適合用好奇心接住它。",
+      "reversed_free": "情緒可能還不成熟，先別急著把小訊號放大成大承諾。",
+      "paid_expansion_points": [
+        "新訊息、新曖昧或創意靈感代表什麼。",
+        "你或對方在情感表達上是否仍試探。",
+        "如何用輕鬆方式開啟對話。"
+      ],
+      "tone": "可愛、柔軟、帶一點羞澀。",
+      "risk_note": "小小心動需要時間驗證；不要過度腦補對方意圖。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-cups-mvp-copy-20260607.md"
+    },
+    {
+      "id": "cups_knight",
+      "arcana": "minor_arcana",
+      "suit": "cups",
+      "suit_zh": "聖杯",
+      "number": 12,
+      "rank": "knight",
+      "name_zh": "聖杯騎士",
+      "name_en": "Knight of Cups",
+      "upright_free": "浪漫、邀請或情感表達正在靠近，適合真誠但慢慢確認。",
+      "reversed_free": "小心只說漂亮話卻缺少行動，浪漫也需要現實支撐。",
+      "paid_expansion_points": [
+        "這份靠近是穩定真心，還是一時情緒。",
+        "對方/你如何表達愛、理想與承諾。",
+        "如何保留浪漫，同時觀察實際行動。"
+      ],
+      "tone": "浪漫、詩意、溫柔提醒。",
+      "risk_note": "不要只被氛圍打動；長期關係仍要看一致性。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-cups-mvp-copy-20260607.md"
+    },
+    {
+      "id": "cups_queen",
+      "arcana": "minor_arcana",
+      "suit": "cups",
+      "suit_zh": "聖杯",
+      "number": 13,
+      "rank": "queen",
+      "name_zh": "聖杯皇后",
+      "name_en": "Queen of Cups",
+      "upright_free": "你的感受很重要，溫柔傾聽自己，會讓答案更清楚。",
+      "reversed_free": "你可能吸收了太多別人的情緒，現在需要回到自己的中心。",
+      "paid_expansion_points": [
+        "你的直覺、共感與照顧能力如何影響局面。",
+        "是否有情緒界線模糊或過度承擔。",
+        "如何溫柔表達需求，而不委屈自己。"
+      ],
+      "tone": "療癒、包容、深情。",
+      "risk_note": "共感不是替別人負責；要分清愛與情緒勞動。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-cups-mvp-copy-20260607.md"
+    },
+    {
+      "id": "cups_king",
+      "arcana": "minor_arcana",
+      "suit": "cups",
+      "suit_zh": "聖杯",
+      "number": 14,
+      "rank": "king",
+      "name_zh": "聖杯國王",
+      "name_en": "King of Cups",
+      "upright_free": "成熟的情緒管理會帶來穩定，你可以溫柔，但不必失去界線。",
+      "reversed_free": "表面冷靜不代表真的穩定，壓抑或情緒操控都需要被看見。",
+      "paid_expansion_points": [
+        "你或對方是否能成熟處理情緒與承諾。",
+        "關係中是否存在壓抑、迴避或隱性控制。",
+        "如何用穩定方式溝通深層感受。"
+      ],
+      "tone": "成熟、沉穩、溫柔有界線。",
+      "risk_note": "不要把冷靜誤認為可靠；真正的穩定需要尊重與一致行動。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-cups-mvp-copy-20260607.md"
+    },
+    {
+      "id": "wands_ace",
+      "arcana": "minor_arcana",
+      "suit": "wands",
+      "suit_zh": "權杖",
+      "number": 1,
+      "rank": "ace",
+      "name_zh": "權杖 Ace",
+      "name_en": "Ace of Wands",
+      "upright_free": "新的熱情正在點燃，這是適合開始行動的訊號。",
+      "reversed_free": "你有想法，但火還沒穩，先別急著硬推。",
+      "paid_expansion_points": [
+        "你真正想啟動的新方向是什麼。",
+        "目前最需要的是勇氣、資源還是時機。",
+        "如何把一時靈感變成可執行的第一步。"
+      ],
+      "tone": "熱血、明亮、啟動感。",
+      "risk_note": "熱情不是保證成功；開始前仍要確認基本條件。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-wands-mvp-copy-20260607.md"
+    },
+    {
+      "id": "wands_two",
+      "arcana": "minor_arcana",
+      "suit": "wands",
+      "suit_zh": "權杖",
+      "number": 2,
+      "rank": "two",
+      "name_zh": "權杖二",
+      "name_en": "Two of Wands",
+      "upright_free": "你已經看見更大的可能，現在該規劃下一步怎麼走。",
+      "reversed_free": "想很多卻遲遲不動，可能是害怕選錯而卡住。",
+      "paid_expansion_points": [
+        "眼前選項各自代表的機會與代價。",
+        "你是否準備好離開舒適圈。",
+        "如何先做小範圍測試，再放大投入。"
+      ],
+      "tone": "開闊、策略、帶遠景。",
+      "risk_note": "不要只看遠方機會，忽略眼前責任與限制。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-wands-mvp-copy-20260607.md"
+    },
+    {
+      "id": "wands_three",
+      "arcana": "minor_arcana",
+      "suit": "wands",
+      "suit_zh": "權杖",
+      "number": 3,
+      "rank": "three",
+      "name_zh": "權杖三",
+      "name_en": "Three of Wands",
+      "upright_free": "你過去的行動開始有回應，接下來適合等待成果擴大。",
+      "reversed_free": "進展比預期慢，可能需要調整期待或合作方式。",
+      "paid_expansion_points": [
+        "哪些努力已經開始產生外部回饋。",
+        "是否需要拓展合作、視野或市場。",
+        "等待期間該準備什麼，而不是乾等。"
+      ],
+      "tone": "期待、穩定、看向未來。",
+      "risk_note": "等待成果時仍要追蹤現實進度，不要只靠想像。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-wands-mvp-copy-20260607.md"
+    },
+    {
+      "id": "wands_four",
+      "arcana": "minor_arcana",
+      "suit": "wands",
+      "suit_zh": "權杖",
+      "number": 4,
+      "rank": "four",
+      "name_zh": "權杖四",
+      "name_en": "Four of Wands",
+      "upright_free": "這件事有機會進入穩定、慶祝或被支持的階段。",
+      "reversed_free": "表面看似穩定，但內部可能還有沒整理好的不安。",
+      "paid_expansion_points": [
+        "目前值得肯定與慶祝的成果。",
+        "關係、團隊或家庭支持是否穩固。",
+        "如何把短期成功變成長期安全感。"
+      ],
+      "tone": "溫暖、喜悅、安心。",
+      "risk_note": "不要因一時順利就忽略基礎問題。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-wands-mvp-copy-20260607.md"
+    },
+    {
+      "id": "wands_five",
+      "arcana": "minor_arcana",
+      "suit": "wands",
+      "suit_zh": "權杖",
+      "number": 5,
+      "rank": "five",
+      "name_zh": "權杖五",
+      "name_en": "Five of Wands",
+      "upright_free": "競爭與摩擦正在增加，但這也可能逼出真正的實力。",
+      "reversed_free": "你可能累了，不想再爭；先分清哪些衝突值得投入。",
+      "paid_expansion_points": [
+        "衝突來自目標不同、溝通混亂還是資源競爭。",
+        "你該正面表達，還是暫時退出消耗戰。",
+        "如何把競爭轉成成長，而不是互相拉扯。"
+      ],
+      "tone": "清醒、有力、帶競技感。",
+      "risk_note": "不要為了贏而傷害關係或失去判斷。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-wands-mvp-copy-20260607.md"
+    },
+    {
+      "id": "wands_six",
+      "arcana": "minor_arcana",
+      "suit": "wands",
+      "suit_zh": "權杖",
+      "number": 6,
+      "rank": "six",
+      "name_zh": "權杖六",
+      "name_en": "Six of Wands",
+      "upright_free": "你的努力有機會被看見，這是一張肯定與突破的牌。",
+      "reversed_free": "你可能太在意外界評價，反而忘了自己真正的標準。",
+      "paid_expansion_points": [
+        "哪些成果值得被公開承認。",
+        "你追求的是實際進展，還是他人的掌聲。",
+        "成功後如何維持穩定，而不是只衝高光時刻。"
+      ],
+      "tone": "鼓舞、自信、勝利感。",
+      "risk_note": "肯定不等於永久成功；仍要持續經營與檢查現實。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-wands-mvp-copy-20260607.md"
+    },
+    {
+      "id": "wands_seven",
+      "arcana": "minor_arcana",
+      "suit": "wands",
+      "suit_zh": "權杖",
+      "number": 7,
+      "rank": "seven",
+      "name_zh": "權杖七",
+      "name_en": "Seven of Wands",
+      "upright_free": "你需要守住自己的位置，即使有壓力，也別輕易退讓。",
+      "reversed_free": "如果你已經疲憊，先判斷這場防守是否真的值得。",
+      "paid_expansion_points": [
+        "你目前需要捍衛的立場或界線。",
+        "外部壓力是真挑戰，還是你過度緊繃。",
+        "如何用策略守住重點，而非到處開戰。"
+      ],
+      "tone": "堅定、防守、打氣。",
+      "risk_note": "堅持不是固執；也不要把所有不同意見都當成敵人。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-wands-mvp-copy-20260607.md"
+    },
+    {
+      "id": "wands_eight",
+      "arcana": "minor_arcana",
+      "suit": "wands",
+      "suit_zh": "權杖",
+      "number": 8,
+      "rank": "eight",
+      "name_zh": "權杖八",
+      "name_en": "Eight of Wands",
+      "upright_free": "事情會加速推進，訊息、行動或變化可能很快到來。",
+      "reversed_free": "節奏卡住或訊息混亂，先別急著下結論。",
+      "paid_expansion_points": [
+        "哪些進展正在加速，該如何接住。",
+        "溝通、行程或決策是否需要更清楚。",
+        "快速行動時如何避免漏掉細節。"
+      ],
+      "tone": "快速、明快、推進感。",
+      "risk_note": "速度快不代表方向對；重要訊息要再次確認。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-wands-mvp-copy-20260607.md"
+    },
+    {
+      "id": "wands_nine",
+      "arcana": "minor_arcana",
+      "suit": "wands",
+      "suit_zh": "權杖",
+      "number": 9,
+      "rank": "nine",
+      "name_zh": "權杖九",
+      "name_en": "Nine of Wands",
+      "upright_free": "你已經撐過很多，現在需要保護自己，也要保留最後的力氣。",
+      "reversed_free": "長期戒備讓你很累，也許該分清危險與過去陰影。",
+      "paid_expansion_points": [
+        "你正在防備什麼，以及這份防備是否必要。",
+        "過去經驗如何影響現在的判斷。",
+        "如何在保護自己與重新信任之間取得平衡。"
+      ],
+      "tone": "理解、堅韌、陪伴。",
+      "risk_note": "不要因疲憊做出極端決定；必要時先休息再判斷。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-wands-mvp-copy-20260607.md"
+    },
+    {
+      "id": "wands_ten",
+      "arcana": "minor_arcana",
+      "suit": "wands",
+      "suit_zh": "權杖",
+      "number": 10,
+      "rank": "ten",
+      "name_zh": "權杖十",
+      "name_en": "Ten of Wands",
+      "upright_free": "你背負太多了，現在需要分工、放下或重新排序。",
+      "reversed_free": "你正在意識到不能再什麼都自己扛，這是調整的開始。",
+      "paid_expansion_points": [
+        "哪些責任其實不該全由你承擔。",
+        "壓力來自外界要求，還是你不敢拒絕。",
+        "如何減重、委派或設定期限。"
+      ],
+      "tone": "務實、安撫、減壓。",
+      "risk_note": "長期過度負荷會影響判斷；請優先安排休息與支援。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-wands-mvp-copy-20260607.md"
+    },
+    {
+      "id": "wands_page",
+      "arcana": "minor_arcana",
+      "suit": "wands",
+      "suit_zh": "權杖",
+      "number": 11,
+      "rank": "page",
+      "name_zh": "權杖侍者",
+      "name_en": "Page of Wands",
+      "upright_free": "新的興趣、消息或嘗試正在出現，適合先用好奇心探索。",
+      "reversed_free": "熱情可能三分鐘熱度，先別急著承諾太多。",
+      "paid_expansion_points": [
+        "新機會帶來的興奮點與學習空間。",
+        "你需要補足哪些技能或資訊。",
+        "如何用低風險方式開始嘗試。"
+      ],
+      "tone": "年輕、活潑、探索感。",
+      "risk_note": "不要因一時興奮就忽略成本與時間安排。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-wands-mvp-copy-20260607.md"
+    },
+    {
+      "id": "wands_knight",
+      "arcana": "minor_arcana",
+      "suit": "wands",
+      "suit_zh": "權杖",
+      "number": 12,
+      "rank": "knight",
+      "name_zh": "權杖騎士",
+      "name_en": "Knight of Wands",
+      "upright_free": "行動力很強，適合衝刺，但也要記得控制節奏。",
+      "reversed_free": "衝太快可能帶來反覆、急躁或半途而廢。",
+      "paid_expansion_points": [
+        "你現在最想快速推進的是什麼。",
+        "行動背後是熱情、焦慮還是逃避。",
+        "如何把衝勁轉成穩定成果。"
+      ],
+      "tone": "熱烈、直接、帶速度感。",
+      "risk_note": "不要用速度掩蓋準備不足；承諾前先想清楚能否持續。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-wands-mvp-copy-20260607.md"
+    },
+    {
+      "id": "wands_queen",
+      "arcana": "minor_arcana",
+      "suit": "wands",
+      "suit_zh": "權杖",
+      "number": 13,
+      "rank": "queen",
+      "name_zh": "權杖皇后",
+      "name_en": "Queen of Wands",
+      "upright_free": "你的魅力與主導力正在上升，適合大方展現自己。",
+      "reversed_free": "你可能因比較、嫉妒或自我懷疑而收起光芒。",
+      "paid_expansion_points": [
+        "你最有吸引力與影響力的地方。",
+        "如何把自信用在創造，而不是控制。",
+        "面對比較與不安全感時如何回到自己。"
+      ],
+      "tone": "自信、性感、明亮。",
+      "risk_note": "自信不是壓過別人；也不要讓外界眼光定義你的價值。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-wands-mvp-copy-20260607.md"
+    },
+    {
+      "id": "wands_king",
+      "arcana": "minor_arcana",
+      "suit": "wands",
+      "suit_zh": "權杖",
+      "number": 14,
+      "rank": "king",
+      "name_zh": "權杖國王",
+      "name_en": "King of Wands",
+      "upright_free": "你適合用更大的格局帶領局面，現在需要願景與決斷力。",
+      "reversed_free": "小心變得太強勢或急著掌控，真正的領導需要聽見他人。",
+      "paid_expansion_points": [
+        "你目前可以承擔的領導角色與方向。",
+        "願景是否清楚，行動是否能帶動他人。",
+        "如何在果斷與尊重之間取得平衡。"
+      ],
+      "tone": "成熟、有魄力、領導感。",
+      "risk_note": "不要把自信變成獨斷；重大決策仍需聽取資訊與回饋。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-wands-mvp-copy-20260607.md"
+    },
+    {
+      "id": "swords_ace",
+      "arcana": "minor_arcana",
+      "suit": "swords",
+      "suit_zh": "寶劍",
+      "number": 1,
+      "rank": "ace",
+      "name_zh": "寶劍 Ace",
+      "name_en": "Ace of Swords",
+      "upright_free": "真相正在變清楚，現在適合用清醒的判斷切開混亂。",
+      "reversed_free": "資訊可能不完整，先別急著下結論或說重話。",
+      "paid_expansion_points": [
+        "目前最需要被說清楚的事實是什麼。",
+        "哪些想法是洞察，哪些只是焦慮放大。",
+        "如何用清楚語言開啟關鍵對話。"
+      ],
+      "tone": "清晰、銳利、理性。",
+      "risk_note": "真相需要證據支撐；不要把推測當成定論。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-swords-mvp-copy-20260607.md"
+    },
+    {
+      "id": "swords_two",
+      "arcana": "minor_arcana",
+      "suit": "swords",
+      "suit_zh": "寶劍",
+      "number": 2,
+      "rank": "two",
+      "name_zh": "寶劍二",
+      "name_en": "Two of Swords",
+      "upright_free": "你正在兩難中暫停，真正的選擇需要你願意看見事實。",
+      "reversed_free": "僵局開始鬆動，但逃避越久，壓力只會越明顯。",
+      "paid_expansion_points": [
+        "你不想面對的選項或真相是什麼。",
+        "情緒與理性目前如何互相拉扯。",
+        "如何先做一個小決定，打破停滯。"
+      ],
+      "tone": "冷靜、陪伴、協助釐清。",
+      "risk_note": "不選也是一種選擇；拖延可能讓外部條件改變。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-swords-mvp-copy-20260607.md"
+    },
+    {
+      "id": "swords_three",
+      "arcana": "minor_arcana",
+      "suit": "swords",
+      "suit_zh": "寶劍",
+      "number": 3,
+      "rank": "three",
+      "name_zh": "寶劍三",
+      "name_en": "Three of Swords",
+      "upright_free": "這件事刺痛了你，但看清傷口，是修復的第一步。",
+      "reversed_free": "你正在慢慢走出心痛，雖然還會疼，但已開始恢復。",
+      "paid_expansion_points": [
+        "造成傷害的是失望、背叛、誤會還是說不出口的真相。",
+        "你需要被允許難過，而不是急著假裝沒事。",
+        "如何分辨修復可能與該放手的界線。"
+      ],
+      "tone": "溫柔、誠實、療癒。",
+      "risk_note": "不要用牌義放大痛苦；若情緒長期失控，請找可信任支援。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-swords-mvp-copy-20260607.md"
+    },
+    {
+      "id": "swords_four",
+      "arcana": "minor_arcana",
+      "suit": "swords",
+      "suit_zh": "寶劍",
+      "number": 4,
+      "rank": "four",
+      "name_zh": "寶劍四",
+      "name_en": "Four of Swords",
+      "upright_free": "現在需要暫停與休息，安靜下來後答案會更清楚。",
+      "reversed_free": "你可能休息不夠就急著回到戰場，先把自己穩住。",
+      "paid_expansion_points": [
+        "你需要從哪種消耗中暫時抽離。",
+        "哪些問題適合先冷卻，不必立刻處理。",
+        "如何用短暫停頓換回清晰判斷。"
+      ],
+      "tone": "安靜、安撫、低刺激。",
+      "risk_note": "休息不是逃避；但重要期限仍需妥善安排。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-swords-mvp-copy-20260607.md"
+    },
+    {
+      "id": "swords_five",
+      "arcana": "minor_arcana",
+      "suit": "swords",
+      "suit_zh": "寶劍",
+      "number": 5,
+      "rank": "five",
+      "name_zh": "寶劍五",
+      "name_en": "Five of Swords",
+      "upright_free": "這場爭執就算贏了，也可能讓關係或信任付出代價。",
+      "reversed_free": "你開始不想再消耗，適合放下勝負，回到真正問題。",
+      "paid_expansion_points": [
+        "衝突裡誰在追求勝利，誰在承受損失。",
+        "你真正想保護的是面子、立場還是界線。",
+        "如何停止無效爭辯，保留可修復的空間。"
+      ],
+      "tone": "直接、警醒、止損。",
+      "risk_note": "不要用攻擊解決不安；必要時先退出高張力對話。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-swords-mvp-copy-20260607.md"
+    },
+    {
+      "id": "swords_six",
+      "arcana": "minor_arcana",
+      "suit": "swords",
+      "suit_zh": "寶劍",
+      "number": 6,
+      "rank": "six",
+      "name_zh": "寶劍六",
+      "name_en": "Six of Swords",
+      "upright_free": "你正在離開混亂，雖然還沒完全輕鬆，但方向已經更平穩。",
+      "reversed_free": "你想走向更好的地方，卻可能還被過去拉住。",
+      "paid_expansion_points": [
+        "你正在告別哪段壓力或混亂。",
+        "轉場期需要帶走什麼、放下什麼。",
+        "如何讓自己逐步前進，不必一次痊癒。"
+      ],
+      "tone": "平靜、過渡、陪伴。",
+      "risk_note": "離開困境需要實際規劃；不要只靠情緒衝動搬離問題。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-swords-mvp-copy-20260607.md"
+    },
+    {
+      "id": "swords_seven",
+      "arcana": "minor_arcana",
+      "suit": "swords",
+      "suit_zh": "寶劍",
+      "number": 7,
+      "rank": "seven",
+      "name_zh": "寶劍七",
+      "name_en": "Seven of Swords",
+      "upright_free": "這件事可能有保留、試探或不完全透明的地方，請多留意細節。",
+      "reversed_free": "隱藏的事可能逐漸浮出，現在適合誠實面對。",
+      "paid_expansion_points": [
+        "誰在保留資訊，或你是否也有不想說的事。",
+        "目前需要策略，還是需要坦白。",
+        "如何保護自己，同時避免過度猜疑。"
+      ],
+      "tone": "謹慎、聰明、偵測感。",
+      "risk_note": "不要把懷疑當成證據；重要決策前請查證。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-swords-mvp-copy-20260607.md"
+    },
+    {
+      "id": "swords_eight",
+      "arcana": "minor_arcana",
+      "suit": "swords",
+      "suit_zh": "寶劍",
+      "number": 8,
+      "rank": "eight",
+      "name_zh": "寶劍八",
+      "name_en": "Eight of Swords",
+      "upright_free": "你感覺被困住，但真正的出口可能比你想像中更近。",
+      "reversed_free": "限制正在鬆開，你可以開始拿回選擇權。",
+      "paid_expansion_points": [
+        "哪些限制來自現實，哪些來自害怕或自我否定。",
+        "你現在最不敢承認的選擇是什麼。",
+        "如何先解開一個小束縛，重新行動。"
+      ],
+      "tone": "安撫、鬆綁、鼓勵。",
+      "risk_note": "不要讓恐懼替你做決定；若涉及安全問題，先尋求現實協助。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-swords-mvp-copy-20260607.md"
+    },
+    {
+      "id": "swords_nine",
+      "arcana": "minor_arcana",
+      "suit": "swords",
+      "suit_zh": "寶劍",
+      "number": 9,
+      "rank": "nine",
+      "name_zh": "寶劍九",
+      "name_en": "Nine of Swords",
+      "upright_free": "焦慮可能正在放大問題，先把腦中的恐懼和事實分開。",
+      "reversed_free": "你正在慢慢走出最黑暗的想法，別獨自硬撐。",
+      "paid_expansion_points": [
+        "你反覆擔心的核心是什麼。",
+        "哪些念頭是現實提醒，哪些是焦慮循環。",
+        "如何用具體行動降低不確定感。"
+      ],
+      "tone": "溫柔、鎮定、陪人度過夜晚。",
+      "risk_note": "塔羅不能替代心理或醫療支援；若痛苦嚴重，請尋求專業協助。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-swords-mvp-copy-20260607.md"
+    },
+    {
+      "id": "swords_ten",
+      "arcana": "minor_arcana",
+      "suit": "swords",
+      "suit_zh": "寶劍",
+      "number": 10,
+      "rank": "ten",
+      "name_zh": "寶劍十",
+      "name_en": "Ten of Swords",
+      "upright_free": "最艱難的階段接近尾聲，雖然痛，但也代表不能再照舊下去。",
+      "reversed_free": "你正在從低谷恢復，現在要慢慢把自己扶起來。",
+      "paid_expansion_points": [
+        "哪個局面已經走到不能再硬撐的盡頭。",
+        "你需要承認結束，而不是重複受傷。",
+        "如何從崩潰後重建下一步。"
+      ],
+      "tone": "深刻、止痛、陪伴式。",
+      "risk_note": "這不是災難預言；請把它視為停止消耗與重新整理的訊號。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-swords-mvp-copy-20260607.md"
+    },
+    {
+      "id": "swords_page",
+      "arcana": "minor_arcana",
+      "suit": "swords",
+      "suit_zh": "寶劍",
+      "number": 11,
+      "rank": "page",
+      "name_zh": "寶劍侍者",
+      "name_en": "Page of Swords",
+      "upright_free": "你正在蒐集資訊、觀察細節，適合保持好奇但不要急著判斷。",
+      "reversed_free": "小心訊息混亂、過度猜測，或話說得太快太尖。",
+      "paid_expansion_points": [
+        "目前最值得查清楚的線索是什麼。",
+        "溝通中是否有誤解、試探或防備。",
+        "如何問對問題，而不是只想抓答案。"
+      ],
+      "tone": "敏銳、年輕、輕快但謹慎。",
+      "risk_note": "不要偷看、監控或過度解讀；尊重界線與隱私。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-swords-mvp-copy-20260607.md"
+    },
+    {
+      "id": "swords_knight",
+      "arcana": "minor_arcana",
+      "suit": "swords",
+      "suit_zh": "寶劍",
+      "number": 12,
+      "rank": "knight",
+      "name_zh": "寶劍騎士",
+      "name_en": "Knight of Swords",
+      "upright_free": "行動與決斷很快到來，但速度越快越需要確認方向。",
+      "reversed_free": "急著衝可能造成誤傷，先停一下，別讓情緒替你開口。",
+      "paid_expansion_points": [
+        "你現在急著解決的是什麼。",
+        "快速溝通裡可能忽略的感受與細節。",
+        "如何保留決斷力，同時降低衝突。"
+      ],
+      "tone": "快速、犀利、提醒煞車。",
+      "risk_note": "衝動訊息、公開發言或重大承諾發出前請再讀一次。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-swords-mvp-copy-20260607.md"
+    },
+    {
+      "id": "swords_queen",
+      "arcana": "minor_arcana",
+      "suit": "swords",
+      "suit_zh": "寶劍",
+      "number": 13,
+      "rank": "queen",
+      "name_zh": "寶劍皇后",
+      "name_en": "Queen of Swords",
+      "upright_free": "你可以溫柔，但此刻更需要清楚界線與誠實判斷。",
+      "reversed_free": "若話語變得太冷或太刺，可能是傷口還沒被好好照顧。",
+      "paid_expansion_points": [
+        "你需要說出的真相與設定的界線。",
+        "如何分辨理性清醒與防衛性冷漠。",
+        "在不委屈自己的前提下維持成熟溝通。"
+      ],
+      "tone": "成熟、清醒、冷靜有溫度。",
+      "risk_note": "界線不是懲罰；不要用冷暴力替代清楚表達。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-swords-mvp-copy-20260607.md"
+    },
+    {
+      "id": "swords_king",
+      "arcana": "minor_arcana",
+      "suit": "swords",
+      "suit_zh": "寶劍",
+      "number": 14,
+      "rank": "king",
+      "name_zh": "寶劍國王",
+      "name_en": "King of Swords",
+      "upright_free": "現在需要成熟判斷、清楚規則與理性決策。",
+      "reversed_free": "小心權威、冷酷或話語控制，理性不該變成壓迫。",
+      "paid_expansion_points": [
+        "這件事需要哪些標準、規則或決策框架。",
+        "誰掌握話語權，是否公平透明。",
+        "如何用清楚邏輯做決定，同時保留人性。"
+      ],
+      "tone": "權威、理性、穩定。",
+      "risk_note": "不提供法律或專業結論；重大決策請諮詢相關專家並核實資料。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-swords-mvp-copy-20260607.md"
+    },
+    {
+      "id": "pentacles_ace",
+      "arcana": "minor_arcana",
+      "suit": "pentacles",
+      "suit_zh": "錢幣",
+      "number": 1,
+      "rank": "ace",
+      "name_zh": "錢幣 Ace",
+      "name_en": "Ace of Pentacles",
+      "upright_free": "一個踏實的新機會正在出現，適合從小而穩的第一步開始。",
+      "reversed_free": "機會看似存在，但條件還不夠穩，先別急著投入太多。",
+      "paid_expansion_points": [
+        "眼前機會的現實基礎、資源與可行性。",
+        "你需要補齊的時間、能力或支持。",
+        "如何用低風險方式開始累積成果。"
+      ],
+      "tone": "踏實、穩定、帶新開始感。",
+      "risk_note": "不保證金錢收益；涉及財務決策請保守評估並查證。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-pentacles-mvp-copy-20260607.md"
+    },
+    {
+      "id": "pentacles_two",
+      "arcana": "minor_arcana",
+      "suit": "pentacles",
+      "suit_zh": "錢幣",
+      "number": 2,
+      "rank": "two",
+      "name_zh": "錢幣二",
+      "name_en": "Two of Pentacles",
+      "upright_free": "你正在平衡多件事，重點不是更努力，而是重新安排節奏。",
+      "reversed_free": "事情可能已經超載，先分清哪些必須做、哪些可以放下。",
+      "paid_expansion_points": [
+        "目前最消耗你的兩股壓力是什麼。",
+        "時間、金錢、情緒或責任如何重新分配。",
+        "如何避免一直救火，建立更穩的日常節奏。"
+      ],
+      "tone": "務實、輕快、協助整理。",
+      "risk_note": "不要為了維持表面平衡而長期透支自己。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-pentacles-mvp-copy-20260607.md"
+    },
+    {
+      "id": "pentacles_three",
+      "arcana": "minor_arcana",
+      "suit": "pentacles",
+      "suit_zh": "錢幣",
+      "number": 3,
+      "rank": "three",
+      "name_zh": "錢幣三",
+      "name_en": "Three of Pentacles",
+      "upright_free": "合作與專業會讓事情更穩，現在適合把分工說清楚。",
+      "reversed_free": "若合作卡住，問題可能在溝通、標準或角色不清。",
+      "paid_expansion_points": [
+        "團隊或關係中誰負責什麼。",
+        "目前最需要被看見的專業與貢獻。",
+        "如何建立清楚標準，讓合作更順。"
+      ],
+      "tone": "專業、建設性、合作感。",
+      "risk_note": "不要只靠默契；重要合作需留下清楚紀錄與共識。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-pentacles-mvp-copy-20260607.md"
+    },
+    {
+      "id": "pentacles_four",
+      "arcana": "minor_arcana",
+      "suit": "pentacles",
+      "suit_zh": "錢幣",
+      "number": 4,
+      "rank": "four",
+      "name_zh": "錢幣四",
+      "name_en": "Four of Pentacles",
+      "upright_free": "你正在保護重要資源，但也要小心抓太緊而失去流動。",
+      "reversed_free": "你可能開始學會放鬆控制，重新分辨安全感從哪裡來。",
+      "paid_expansion_points": [
+        "你最害怕失去的是金錢、關係、位置還是掌控感。",
+        "保守與封閉之間的界線在哪裡。",
+        "如何在安全感與開放之間取得平衡。"
+      ],
+      "tone": "謹慎、穩重、溫和提醒。",
+      "risk_note": "保守規劃是好事，但過度控制可能讓機會與關係變僵。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-pentacles-mvp-copy-20260607.md"
+    },
+    {
+      "id": "pentacles_five",
+      "arcana": "minor_arcana",
+      "suit": "pentacles",
+      "suit_zh": "錢幣",
+      "number": 5,
+      "rank": "five",
+      "name_zh": "錢幣五",
+      "name_en": "Five of Pentacles",
+      "upright_free": "你可能感到匱乏或被排除，但支持不一定真的不存在。",
+      "reversed_free": "困難正在慢慢鬆動，請開始看見可用的資源與幫助。",
+      "paid_expansion_points": [
+        "你目前感到缺乏的是資源、陪伴還是安全感。",
+        "哪些支援其實可以主動尋求。",
+        "如何從孤立感中走回現實解法。"
+      ],
+      "tone": "溫柔、陪伴、務實支援。",
+      "risk_note": "這不是財務或健康預言；若有現實困難，請尋求可信任支援與專業協助。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-pentacles-mvp-copy-20260607.md"
+    },
+    {
+      "id": "pentacles_six",
+      "arcana": "minor_arcana",
+      "suit": "pentacles",
+      "suit_zh": "錢幣",
+      "number": 6,
+      "rank": "six",
+      "name_zh": "錢幣六",
+      "name_en": "Six of Pentacles",
+      "upright_free": "給予與接受正在重新平衡，健康的互助會讓關係更穩。",
+      "reversed_free": "小心不對等的付出，或有人用資源換取控制感。",
+      "paid_expansion_points": [
+        "誰在付出，誰在接受，是否公平。",
+        "幫助背後是否有壓力、期待或隱性條件。",
+        "如何建立更清楚的互惠界線。"
+      ],
+      "tone": "公平、溫和、關係修復感。",
+      "risk_note": "接受幫助前要看清條件；給予也不代表必須犧牲自己。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-pentacles-mvp-copy-20260607.md"
+    },
+    {
+      "id": "pentacles_seven",
+      "arcana": "minor_arcana",
+      "suit": "pentacles",
+      "suit_zh": "錢幣",
+      "number": 7,
+      "rank": "seven",
+      "name_zh": "錢幣七",
+      "name_en": "Seven of Pentacles",
+      "upright_free": "你已經投入不少，現在適合評估成果，而不是急著放棄。",
+      "reversed_free": "如果投入一直沒有回報，該重新檢查方向是否值得繼續。",
+      "paid_expansion_points": [
+        "目前累積到哪個階段，哪些成果已可看見。",
+        "等待是必要成長，還是低效消耗。",
+        "如何設定檢查點，決定繼續、調整或停止。"
+      ],
+      "tone": "耐心、務實、復盤感。",
+      "risk_note": "長期投入前要定期檢視；不要因沉沒成本而無限加碼。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-pentacles-mvp-copy-20260607.md"
+    },
+    {
+      "id": "pentacles_eight",
+      "arcana": "minor_arcana",
+      "suit": "pentacles",
+      "suit_zh": "錢幣",
+      "number": 8,
+      "rank": "eight",
+      "name_zh": "錢幣八",
+      "name_en": "Eight of Pentacles",
+      "upright_free": "穩定練習會帶來進步，現在適合專注把基本功做好。",
+      "reversed_free": "努力可能變成重複消耗，請確認你練的是對的方向。",
+      "paid_expansion_points": [
+        "哪項技能、習慣或工作最值得持續打磨。",
+        "你目前的努力是否有清楚回饋。",
+        "如何建立可持續的練習與產出節奏。"
+      ],
+      "tone": "專注、踏實、職人感。",
+      "risk_note": "努力不等於有效；需要方法、回饋與休息並行。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-pentacles-mvp-copy-20260607.md"
+    },
+    {
+      "id": "pentacles_nine",
+      "arcana": "minor_arcana",
+      "suit": "pentacles",
+      "suit_zh": "錢幣",
+      "number": 9,
+      "rank": "nine",
+      "name_zh": "錢幣九",
+      "name_en": "Nine of Pentacles",
+      "upright_free": "你正在累積屬於自己的穩定與自信，值得好好肯定自己。",
+      "reversed_free": "外表看似獨立，但內在可能仍擔心安全感不足。",
+      "paid_expansion_points": [
+        "你已經建立的能力、資源與生活品質。",
+        "獨立是自由，還是不得不撐起一切。",
+        "如何享受成果，同時保留長期穩定。"
+      ],
+      "tone": "優雅、自信、成熟。",
+      "risk_note": "不做收益承諾；任何金錢安排仍需保守規劃。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-pentacles-mvp-copy-20260607.md"
+    },
+    {
+      "id": "pentacles_ten",
+      "arcana": "minor_arcana",
+      "suit": "pentacles",
+      "suit_zh": "錢幣",
+      "number": 10,
+      "rank": "ten",
+      "name_zh": "錢幣十",
+      "name_en": "Ten of Pentacles",
+      "upright_free": "這張牌指向長期穩定、傳承與可靠基礎，適合看更遠的未來。",
+      "reversed_free": "家族、制度或長期安排中，可能有價值觀與資源分配的落差。",
+      "paid_expansion_points": [
+        "這件事是否具備長期穩定與共同願景。",
+        "家庭、團隊、制度或資源結構如何影響你。",
+        "如何讓短期成果變成可延續的基礎。"
+      ],
+      "tone": "穩重、長遠、安心。",
+      "risk_note": "涉及資產、合約或家庭利益時，請查清細節並尋求專業意見。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-pentacles-mvp-copy-20260607.md"
+    },
+    {
+      "id": "pentacles_page",
+      "arcana": "minor_arcana",
+      "suit": "pentacles",
+      "suit_zh": "錢幣",
+      "number": 11,
+      "rank": "page",
+      "name_zh": "錢幣侍者",
+      "name_en": "Page of Pentacles",
+      "upright_free": "新的學習或實際機會正在出現，適合一步一步累積。",
+      "reversed_free": "想法還沒落地，先把計畫變得更具體再開始。",
+      "paid_expansion_points": [
+        "你目前最值得學習或嘗試的現實技能。",
+        "機會是否有足夠資料與可執行路徑。",
+        "如何用小任務建立信心與成果。"
+      ],
+      "tone": "踏實、年輕、學習感。",
+      "risk_note": "不要因看見機會就立刻承諾；先確認時間、成本與能力。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-pentacles-mvp-copy-20260607.md"
+    },
+    {
+      "id": "pentacles_knight",
+      "arcana": "minor_arcana",
+      "suit": "pentacles",
+      "suit_zh": "錢幣",
+      "number": 12,
+      "rank": "knight",
+      "name_zh": "錢幣騎士",
+      "name_en": "Knight of Pentacles",
+      "upright_free": "慢一點沒關係，穩定、負責與持續會讓你走得更遠。",
+      "reversed_free": "你可能陷入拖延、僵化或只顧安全而不敢前進。",
+      "paid_expansion_points": [
+        "哪些事情需要耐心、流程與長期執行。",
+        "你是在穩健推進，還是在用謹慎逃避改變。",
+        "如何把重複工作變成可靠進度。"
+      ],
+      "tone": "可靠、慢穩、務實。",
+      "risk_note": "穩定不等於停滯；該調整時也要願意修正路線。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-pentacles-mvp-copy-20260607.md"
+    },
+    {
+      "id": "pentacles_queen",
+      "arcana": "minor_arcana",
+      "suit": "pentacles",
+      "suit_zh": "錢幣",
+      "number": 13,
+      "rank": "queen",
+      "name_zh": "錢幣皇后",
+      "name_en": "Queen of Pentacles",
+      "upright_free": "你正在建立照顧自己與他人的能力，安全感會從日常累積出來。",
+      "reversed_free": "你可能照顧太多，卻忘了自己的需要與界線。",
+      "paid_expansion_points": [
+        "生活、身體感、資源與情感照顧如何平衡。",
+        "你是否把穩定建立在過度付出上。",
+        "如何讓關係與生活更有滋養感。"
+      ],
+      "tone": "溫暖、務實、照顧感。",
+      "risk_note": "照顧他人前也要照顧自己；不要把責任全部扛下來。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-pentacles-mvp-copy-20260607.md"
+    },
+    {
+      "id": "pentacles_king",
+      "arcana": "minor_arcana",
+      "suit": "pentacles",
+      "suit_zh": "錢幣",
+      "number": 14,
+      "rank": "king",
+      "name_zh": "錢幣國王",
+      "name_en": "King of Pentacles",
+      "upright_free": "成熟的規劃與穩定的資源管理，會讓局面更有安全感。",
+      "reversed_free": "小心過度重視控制、利益或結果，反而忽略真正的價值。",
+      "paid_expansion_points": [
+        "你需要建立的長期策略、秩序與安全基礎。",
+        "權力、資源與責任是否被成熟使用。",
+        "如何在務實成果與人情溫度之間取得平衡。"
+      ],
+      "tone": "成熟、穩定、有掌舵感。",
+      "risk_note": "不提供投資買賣指令或收益保證；重大財務決策請諮詢專業人士。",
+      "source_file": "/Users/jasonchen/.openclaw/workspace/deliverables/tarot-minor-pentacles-mvp-copy-20260607.md"
+    }
+  ]
+}

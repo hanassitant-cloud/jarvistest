@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>塔羅牌計劃 MVP 結果頁原型</title>
+  <title>塔羅牌 MVP 三張牌測試頁</title>
   <style>
     :root {
       color-scheme: light;
       --ink: #17171b;
-      --muted: #666978;
+      --muted: #626674;
       --line: #ddd7cf;
       --paper: #fffaf4;
       --panel: #ffffff;
@@ -16,6 +16,9 @@
       --accent-2: #1d6f7c;
       --gold: #b8872d;
       --soft: #f1ebe2;
+      --dark: #18161d;
+      --good: #236b4e;
+      --warn: #925c00;
     }
     * { box-sizing: border-box; }
     body {
@@ -27,7 +30,7 @@
     main {
       min-height: 100vh;
       display: grid;
-      grid-template-columns: minmax(220px, 320px) 1fr;
+      grid-template-columns: minmax(240px, 330px) 1fr;
     }
     aside {
       border-right: 1px solid var(--line);
@@ -44,8 +47,23 @@
       line-height: 1.15;
       letter-spacing: 0;
     }
+    h2 {
+      margin: 0 0 12px;
+      font-size: clamp(30px, 5vw, 54px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+    p {
+      margin: 0 0 12px;
+      line-height: 1.7;
+    }
     .sub {
-      margin: 0 0 24px;
+      margin: 0 0 22px;
       color: var(--muted);
       line-height: 1.55;
       font-size: 14px;
@@ -54,6 +72,11 @@
       display: grid;
       gap: 8px;
     }
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
     button {
       appearance: none;
       border: 1px solid var(--line);
@@ -61,7 +84,6 @@
       color: var(--ink);
       padding: 11px 12px;
       border-radius: 8px;
-      font: inherit;
       text-align: left;
       cursor: pointer;
     }
@@ -70,16 +92,40 @@
       color: #fff;
       background: var(--accent);
     }
+    button.primary {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: #17171b;
+      font-weight: 700;
+    }
+    button.ghost {
+      background: transparent;
+    }
+    textarea {
+      width: 100%;
+      min-height: 88px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fff;
+      color: var(--ink);
+      line-height: 1.55;
+    }
     .stage {
       padding: 28px clamp(18px, 4vw, 52px);
-      max-width: 1040px;
+      max-width: 1160px;
       width: 100%;
     }
-    .topline {
+    .topline,
+    .draw-actions,
+    .choice-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
+    }
+    .topline {
       color: var(--muted);
       font-size: 13px;
       margin-bottom: 18px;
@@ -90,25 +136,41 @@
       padding: 6px 10px;
       background: var(--soft);
     }
+    .pill.good {
+      border-color: rgba(35, 107, 78, .3);
+      color: var(--good);
+      background: #edf8f1;
+    }
+    .pill.warn {
+      border-color: rgba(146, 92, 0, .28);
+      color: var(--warn);
+      background: #fff5dc;
+    }
     .result-head {
       border-bottom: 1px solid var(--line);
       padding-bottom: 22px;
       margin-bottom: 22px;
     }
-    h2 {
-      margin: 0 0 12px;
-      font-size: clamp(30px, 5vw, 56px);
-      line-height: 1.05;
-      letter-spacing: 0;
-    }
-    .question {
+    .question-grid,
+    .grid,
+    .report-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+      gap: 14px;
+      align-items: start;
+    }
+    .question-grid {
+      grid-template-columns: minmax(0, 1.3fr) minmax(220px, .7fr);
       margin-top: 18px;
     }
-    .question div,
-    .block {
+    .grid {
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .78fr);
+    }
+    .report-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .block,
+    .input-panel,
+    .status-panel {
       border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--panel);
@@ -121,35 +183,45 @@
       font-size: 13px;
       font-weight: 700;
     }
-    .grid {
+    .hint {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .template-list {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      align-items: start;
+      gap: 8px;
+    }
+    .template-list button {
+      padding: 9px 10px;
+      color: var(--muted);
     }
     .draw-panel {
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: #19151d;
+      background: var(--dark);
       color: #fff;
       padding: 18px;
       margin-bottom: 16px;
     }
-    .draw-row {
+    .three-card-row {
       display: grid;
-      grid-template-columns: minmax(140px, 220px) 1fr;
-      gap: 16px;
-      align-items: stretch;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
     }
     .card-face {
-      min-height: 220px;
+      min-height: 210px;
       border: 1px solid rgba(255,255,255,.35);
       border-radius: 8px;
       background: linear-gradient(160deg, #402038, #163b45);
       display: grid;
       place-items: center;
       text-align: center;
-      padding: 18px;
+      padding: 16px;
+    }
+    .card-face.empty {
+      background: #23202a;
     }
     .card-face strong {
       display: block;
@@ -162,42 +234,60 @@
       margin-top: 10px;
       color: rgba(255,255,255,.78);
     }
-    .draw-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 14px 0 0;
+    .position {
+      display: block;
+      margin-bottom: 10px;
+      color: rgba(255,255,255,.68);
+      font-size: 13px;
     }
     .draw-actions button {
       background: #fff;
       color: #17171b;
     }
-    .draw-actions button.active {
+    .draw-actions button.active,
+    .draw-actions button.primary {
       background: var(--gold);
       border-color: var(--gold);
       color: #17171b;
     }
-    .free-list {
+    .free-list,
+    .action-list {
       display: grid;
       gap: 10px;
       margin: 0;
       padding: 0;
       list-style: none;
     }
-    .free-list li {
+    .free-list li,
+    .action-list li {
       border-left: 3px solid var(--accent-2);
       background: #f5fbfc;
       padding: 12px 14px;
       line-height: 1.65;
     }
+    .action-list li {
+      border-left-color: var(--gold);
+      background: #fff8df;
+    }
     .unlock {
       border-color: #d6bf82;
       background: #fff8df;
     }
-    .unlock .label { color: var(--gold); }
+    .payment-box {
+      border: 1px solid #d6bf82;
+      border-radius: 8px;
+      background: #fffdf4;
+      padding: 14px;
+      margin-top: 12px;
+    }
     .note {
       color: var(--muted);
       line-height: 1.65;
+    }
+    .divider {
+      height: 1px;
+      background: var(--line);
+      margin: 14px 0;
     }
     footer {
       margin-top: 22px;
@@ -205,7 +295,7 @@
       font-size: 13px;
       line-height: 1.6;
     }
-    @media (max-width: 760px) {
+    @media (max-width: 860px) {
       main { display: block; }
       aside {
         position: static;
@@ -218,9 +308,15 @@
       }
       .stage { padding: 22px 16px; }
       .grid,
-      .question,
-      .draw-row {
+      .question-grid,
+      .report-grid {
         grid-template-columns: 1fr;
+      }
+      .three-card-row {
+        grid-template-columns: 1fr;
+      }
+      .card-face {
+        min-height: 170px;
       }
     }
   </style>
@@ -229,191 +325,271 @@
   <main>
     <aside>
       <h1>塔羅牌 MVP</h1>
-      <p class="sub">第一版結果頁原型。固定 6 類，先驗證免費短句與付費解鎖文案的產品感。</p>
+      <p class="sub">78 張牌、三張牌牌陣、免費摘要、付費報告預覽。付款目前只做 MVP 狀態，不接真實帳戶。</p>
       <nav class="nav" id="nav"></nav>
     </aside>
     <section class="stage">
       <div class="topline">
-        <span class="pill">MVP Result Page</span>
-        <span class="pill">Free + Unlock Copy</span>
-        <span class="pill">WenWen + Erica</span>
+        <span class="pill good" id="deckStatus">牌庫載入中</span>
+        <span class="pill">三張牌 MVP</span>
+        <span class="pill">Free + Unlock Preview</span>
+        <span class="pill warn">未接真金流</span>
       </div>
       <article id="content"></article>
-      <footer>提醒：塔羅內容定位為娛樂與自我探索參考；金錢與身心類別不得取代專業投資、醫療或法律建議。</footer>
+      <footer>提醒：塔羅內容定位為娛樂與自我探索參考；金錢、身心與法律相關問題不得取代專業投資、醫療或法律建議。</footer>
     </section>
   </main>
   <script>
-    const deck = [
-      "愚者", "魔術師", "女祭司", "皇后", "皇帝", "教皇", "戀人", "戰車",
-      "力量", "隱者", "命運之輪", "正義", "吊人", "死神", "節制", "惡魔",
-      "高塔", "星星", "月亮", "太陽", "審判", "世界"
-    ];
+    let deck = [];
     let selected = null;
-    let drawn = null;
+    let drawn = [];
     let paidOpen = false;
+    let userQuestion = "";
+    let lastReportId = "";
 
-    const data = [
+    const categories = [
       {
-            "id": "love_relationship",
-            "name": "愛情感情",
-            "questions": [
-                  "他/她現在對我是什麼感覺？",
-                  "這段關係接下來會怎麼發展？"
-            ],
-            "tone": "溫柔、陪伴、給情緒安定感，但不做絕對承諾。",
-            "unlock": "解鎖完整感情牌面，看看對方真實想法、關係阻礙，以及下一步最適合怎麼做。",
-            "paid": "這組牌顯示，你在這段感情裡其實很想得到明確回應，但目前對方的狀態可能還沒有完全穩定。牌面不是否定你們之間的連結，而是提醒你，不要只用對方一時的冷淡或熱情來判斷全部。你需要觀察的是：對方是否願意在關鍵時刻給出實際行動，而不只是情緒上的靠近。接下來更適合放慢腳步，把注意力拉回自己的感受。若你一直委屈自己去換取關係的延續，這段感情會讓你越來越不安。牌面建議你先確認自己的底線，再決定要不要繼續投入。",
-            "note": "避免承諾復合、結婚、對方一定愛或不愛；重點放在互動線索、界線與下一步行動。",
-            "examples": [
-                  "這張牌顯示你在感情裡很在意對方回應，但目前更重要的是先看清自己的期待，不要急著用猜測替對方下結論。",
-                  "你們之間仍有互相牽動的能量，只是溝通方式可能卡住了。現在適合放慢一點，觀察對方實際行動。",
-                  "牌面提醒你，感情不是只看對方有沒有靠近，也要看這段關係是否讓你感到安心、被尊重與被理解。"
-            ]
+        id: "love_relationship",
+        name: "愛情感情",
+        questions: ["他/她現在對我是什麼感覺？", "這段關係接下來會怎麼發展？"],
+        tone: "溫柔、陪伴、給情緒安定感，但不做絕對承諾。",
+        unlock: "解鎖完整感情牌面，查看對方或關係互動、主要阻礙，以及下一步最適合怎麼做。",
+        safety: "不保證復合、結婚、對方一定愛或不愛；重點放在互動線索、界線與下一步行動。",
+        actions: ["寫下你最需要的三個關係條件。", "用不施壓的方式確認一次需求。", "設定觀察期限，看對方是否用行動回應。"]
       },
       {
-            "id": "career_workplace",
-            "name": "工作職場",
-            "questions": [
-                  "我現在適合換工作嗎？",
-                  "主管或同事怎麼看我？"
-            ],
-            "tone": "務實、清楚、偏行動建議，幫使用者看見職場局勢。",
-            "unlock": "解鎖完整職場解析，了解目前工作局勢、潛在風險，以及最有利的下一步選擇。",
-            "paid": "這組牌顯示，你目前在職場上不是完全沒有機會，而是正處在需要重新整理位置的階段。你可能已經累積了一些能力，但還沒有被完整看見，或是你的付出被視為理所當然。牌面建議你不要急著用離開或衝突來解決問題，先釐清目前最卡的是工作內容、人際溝通，還是未來發展性。如果你能更明確地表達自己的價值與界線，局勢會比現在更好掌握。接下來適合整理成果、保留紀錄，並觀察是否有更適合發揮的位置出現。",
-            "note": "避免代替使用者做重大職涯決策；提供觀察點、準備事項與低風險下一步。",
-            "examples": [
-                  "目前工作狀態偏向需要穩住節奏，不適合衝動做大決定。先整理手上的任務與人際位置，會更有判斷力。",
-                  "這張牌暗示職場上有可調整的空間，但突破點不一定來自硬碰硬，而是來自更清楚地表達你的價值。",
-                  "你可能正在承受一些隱形壓力，牌面提醒你先分清楚哪些是責任，哪些其實是別人丟過來的情緒。"
-            ]
+        id: "career_workplace",
+        name: "工作職場",
+        questions: ["我現在適合換工作嗎？", "主管或同事怎麼看我？"],
+        tone: "務實、清楚、偏行動建議，幫使用者看見職場局勢。",
+        unlock: "解鎖完整職場解析，了解目前工作局勢、潛在風險，以及最有利的下一步選擇。",
+        safety: "不代替使用者做重大職涯決策；提供觀察點、準備事項與低風險下一步。",
+        actions: ["整理目前任務、成果與卡點。", "釐清權責與溝通紀錄。", "先做一個可逆的小步測試。"]
       },
       {
-            "id": "business_fortune",
-            "name": "事業運勢",
-            "questions": [
-                  "我目前的事業方向對嗎？",
-                  "接下來適合擴張、轉型或創業嗎？"
-            ],
-            "tone": "策略感、長線視角，重點放在趨勢與階段判斷。",
-            "unlock": "解鎖完整事業運勢，看清你的發展階段、機會窗口，以及未來一段時間的關鍵突破點。",
-            "paid": "這組牌顯示，你的事業正處在累積與轉折交界的位置。短期內可能還看不到非常明顯的爆發，但現在做的選擇會影響下一階段的高度。牌面提醒你，不要因為一時進展緩慢就否定整個方向，真正需要檢查的是資源配置、合作對象與執行節奏。若你想擴張或轉型，現在適合先做小規模測試，而不是一次投入全部籌碼。你的優勢在於能看見長線機會，但也要避免想太多、做太慢。接下來的關鍵是把方向具體化，讓計劃開始落地。",
-            "note": "比工作職場更長線，適合創業、品牌、接案、副業與方向選擇。",
-            "examples": [
-                  "你的事業能量正在累積，不一定立刻看到成果，但目前做的準備會影響下一階段能不能順利展開。",
-                  "牌面顯示你需要從短期得失拉回長線判斷，現在適合確認方向，而不是被一兩次挫折推著走。",
-                  "這段時間的重點是建立穩定基礎。與其急著擴張，不如先確認資源、人脈與執行節奏是否到位。"
-            ]
+        id: "business_fortune",
+        name: "事業運勢",
+        questions: ["我目前的事業方向對嗎？", "接下來適合擴張、轉型或創業嗎？"],
+        tone: "策略感、長線視角，重點放在趨勢與階段判斷。",
+        unlock: "解鎖完整事業運勢，看清發展階段、機會窗口，以及未來一段時間的關鍵突破點。",
+        safety: "適合創業、品牌、接案、副業與方向選擇；不承諾必然成功或收入成長。",
+        actions: ["把方向拆成一個可驗證假設。", "先檢查資源、人脈與執行節奏。", "用小規模測試確認市場反應。"]
       },
       {
-            "id": "money_wealth",
-            "name": "金錢財運",
-            "questions": [
-                  "我近期財運如何？",
-                  "這筆投資、支出或合作適合嗎？"
-            ],
-            "tone": "保守、風險提醒優先，不保證獲利。",
-            "unlock": "解鎖完整財運牌面，查看近期金錢流向、容易失血的位置，以及該守財還是進攻。",
-            "paid": "這組牌顯示，近期財務重點不是追求快速增加，而是先穩住現有資源。你可能會遇到一些看起來有吸引力的支出、投資或合作邀請，但牌面提醒你，不要只看表面收益，也要看清楚風險、條件與退出機制。這段時間適合檢查金流，減少情緒性消費，特別是因為壓力、人情或想犒賞自己而產生的開銷。牌面並不代表不能前進，而是建議你用更保守的方式評估。若能先守住基本盤，後續才有更穩定的財務選擇空間。",
-            "note": "必須加上非投資建議提醒；不得保證收益、不得給明確買賣指令。",
-            "examples": [
-                  "近期財務牌面提醒你要多留意支出節奏，尤其是因為情緒、人情或一時衝動產生的消費，需要更謹慎。",
-                  "這張牌不代表一定會有大進帳，而是提醒你先守住現有資源。穩定現金流會比冒險追高更重要。",
-                  "金錢能量目前偏向保守觀察，若有投資或合作計劃，建議先看清風險與條件，不要只被想像收益吸引。"
-            ]
+        id: "money_wealth",
+        name: "金錢財運",
+        questions: ["我近期財運如何？", "這筆投資、支出或合作適合嗎？"],
+        tone: "保守、風險提醒優先，不保證獲利。",
+        unlock: "解鎖完整財運牌面，查看近期金錢流向、容易失血的位置，以及該守財還是進攻。",
+        safety: "必須加上非投資建議提醒；不得保證收益、不得給明確買賣指令。",
+        actions: ["先盤點固定支出與現金流。", "查清楚投資或合作條件與退出機制。", "避免因壓力、人情或想像收益衝動投入。"]
       },
       {
-            "id": "social_relationship",
-            "name": "人際關係",
-            "questions": [
-                  "這個朋友、家人或合作對象怎麼看我？",
-                  "這段關係該繼續靠近還是保持距離？"
-            ],
-            "tone": "中立、洞察互動盲點，避免煽動對立。",
-            "unlock": "解鎖完整人際解析，了解對方態度、你們之間的誤會來源，以及最適合的相處界線。",
-            "paid": "這組牌顯示，你在人際關係裡可能正在承擔過多理解與配合。對方未必有明顯惡意，但你們對界線、責任或互動頻率的期待不同，因此容易產生誤會。牌面提醒你，不要一直用猜測來補足對方沒有說出口的部分，這會讓你越來越疲憊。接下來更適合用平穩但清楚的方式表達自己的感受，而不是忍到最後一次爆發。真正健康的人際關係，不需要你一直壓低自己來維持和平。你可以保有善意，同時也保有距離與選擇權。",
-            "note": "重點放在界線、溝通與互動模式；避免鼓勵衝突或操控對方。",
-            "examples": [
-                  "牌面顯示這段人際關係裡可能有話沒有說清楚，與其反覆猜測對方想法，不如先釐清自己的界線。",
-                  "對方未必帶著惡意，但你們對距離、責任或期待的理解可能不同。現在適合用更平穩的方式溝通。",
-                  "這張牌提醒你，人際互動不是一味配合就會變好。你需要看見自己的感受，並選擇舒服的相處方式。"
-            ]
+        id: "social_relationship",
+        name: "人際關係",
+        questions: ["這個朋友、家人或合作對象怎麼看我？", "這段關係該繼續靠近還是保持距離？"],
+        tone: "中立、洞察互動盲點，避免煽動對立。",
+        unlock: "解鎖完整人際解析，了解對方態度、誤會來源，以及最適合的相處界線。",
+        safety: "重點放在界線、溝通與互動模式；避免鼓勵衝突或操控對方。",
+        actions: ["先確認自己的界線與底線。", "把猜測改成一次清楚溝通。", "保留善意，但不要用壓低自己維持和平。"]
       },
       {
-            "id": "wellbeing_reminder",
-            "name": "身心狀態與提醒",
-            "questions": [
-                  "我最近狀態為什麼這麼卡？",
-                  "現在最需要注意什麼？"
-            ],
-            "tone": "療癒、穩定、低壓提醒，不做醫療診斷。",
-            "unlock": "解鎖完整身心提醒，看看你目前的能量狀態、壓力來源，以及牌面給你的調整建議。",
-            "paid": "這組牌顯示，你最近的內在能量可能有些分散，像是同時被很多事情拉著走，卻很難真正停下來整理自己。牌面提醒你，現在不是逼自己更快、更強的時候，而是先回到穩定節奏。你需要給自己一點空間，分辨哪些壓力是真正需要處理的，哪些只是外界期待或自我責備累積出來的。這不是醫療判斷，而是一個生活層面的提醒：先照顧睡眠、作息、情緒出口與專注力。當基本狀態穩住後，你會更容易看清下一步該怎麼走。",
-            "note": "不得提供醫療診斷或治療建議；必要時提醒尋求專業協助。",
-            "examples": [
-                  "你最近的能量可能有些分散，牌面提醒你先把生活節奏放慢，給自己一點整理情緒與恢復專注的空間。",
-                  "這張牌像是在提醒你，不需要一直逼自己更快。現在更重要的是回到穩定作息，重新找回內在安全感。",
-                  "目前狀態適合降低外界雜訊，少一點自責，多一點覺察。先照顧好基本節奏，再談下一步也不遲。"
-            ]
+        id: "wellbeing_reminder",
+        name: "身心狀態與提醒",
+        questions: ["我最近狀態為什麼這麼卡？", "現在最需要注意什麼？"],
+        tone: "療癒、穩定、低壓提醒，不做醫療診斷。",
+        unlock: "解鎖完整身心提醒，看看目前能量狀態、壓力來源，以及牌面給你的調整建議。",
+        safety: "不得提供醫療診斷或治療建議；若有危機或症狀，請尋求專業協助。",
+        actions: ["先把睡眠、飲食、作息拉回基本盤。", "分辨哪些壓力真的需要處理。", "降低外界雜訊，給自己恢復空間。"]
       }
-];
+    ];
+
+    const spreadPositions = {
+      love_relationship: ["你的真實感受", "對方/關係能量", "最適合的行動"],
+      career_workplace: ["目前職場局勢", "阻力或資源", "低風險下一步"],
+      money_wealth: ["近期金錢流向", "失血或誤判位置", "守財或行動建議"],
+      business_fortune: ["發展階段", "機會窗口", "關鍵突破點"],
+      social_relationship: ["你的界線", "對方/互動模式", "相處距離建議"],
+      wellbeing_reminder: ["目前能量", "壓力來源", "調整建議"]
+    };
 
     const nav = document.querySelector("#nav");
     const content = document.querySelector("#content");
+    const deckStatus = document.querySelector("#deckStatus");
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function currentQuestion(item) {
+      return userQuestion.trim() || item.questions[0];
+    }
+
+    function drawThreeCards() {
+      const pool = [...deck];
+      const cards = [];
+      for (let i = 0; i < 3 && pool.length; i += 1) {
+        const index = Math.floor(Math.random() * pool.length);
+        const card = pool.splice(index, 1)[0];
+        cards.push({
+          ...card,
+          orientation: Math.random() > 0.5 ? "正位" : "逆位"
+        });
+      }
+      lastReportId = `TAROT-${new Date().toISOString().slice(0, 10).replaceAll("-", "")}-${Math.floor(1000 + Math.random() * 9000)}`;
+      return cards;
+    }
+
+    function cardSentence(card) {
+      if (!card) return "尚未抽牌。";
+      return card.orientation === "正位" ? card.upright_free : card.reversed_free;
+    }
+
+    function makeSummary(item) {
+      if (!drawn.length) {
+        return `請先輸入問題並抽三張牌。MVP 會使用 ${deck.length || 78} 張 structured content 產生免費摘要與付費報告預覽。`;
+      }
+      const first = drawn[0];
+      const second = drawn[1];
+      const third = drawn[2];
+      return `針對「${escapeHtml(currentQuestion(item))}」，這組牌先把重點放在「${escapeHtml(cardSentence(first))}」；中段提醒你留意「${escapeHtml(cardSentence(second))}」。最後的方向是「${escapeHtml(cardSentence(third))}」。整體來看，現在最適合先看清局勢，再做低風險下一步。`;
+    }
+
+    function renderCards(item) {
+      const positions = spreadPositions[item.id] || ["第一張", "第二張", "第三張"];
+      const cards = drawn.length ? drawn : [null, null, null];
+      return `
+        <div class="three-card-row">
+          ${cards.map((card, index) => `
+            <div class="card-face ${card ? "" : "empty"}">
+              <div>
+                <span class="position">${positions[index]}</span>
+                <strong>${card ? escapeHtml(card.name_zh) : "尚未抽牌"}</strong>
+                <span>${card ? `${escapeHtml(card.name_en)}｜${card.orientation}` : "輸入問題後抽牌"}</span>
+              </div>
+            </div>
+          `).join("")}
+        </div>`;
+    }
+
+    function renderFreeResult(item) {
+      if (!drawn.length) {
+        return `<p class="note">目前尚未抽牌。輸入問題後，系統會從 78 張牌中抽出三張不重複牌，並依正逆位產生免費短解。</p>`;
+      }
+      const positions = spreadPositions[item.id] || ["第一張", "第二張", "第三張"];
+      return `
+        <p>${makeSummary(item)}</p>
+        <ul class="free-list">
+          ${drawn.map((card, index) => `
+            <li><strong>${positions[index]}｜${escapeHtml(card.name_zh)} ${card.orientation}</strong><br>${escapeHtml(cardSentence(card))}</li>
+          `).join("")}
+        </ul>`;
+    }
+
+    function renderPaidResult(item) {
+      if (!drawn.length) {
+        return `<p class="note">抽牌後可在此預覽完整報告格式。MVP 目前只展示解鎖狀態，不處理真實付款。</p>`;
+      }
+      const positions = spreadPositions[item.id] || ["第一張", "第二張", "第三張"];
+      return `
+        <p><strong>報告編號：${lastReportId}</strong></p>
+        <p>${makeSummary(item)}</p>
+        ${drawn.map((card, index) => `
+          <div class="divider"></div>
+          <p><strong>${positions[index]}｜${escapeHtml(card.name_zh)} ${card.orientation}</strong><br>${escapeHtml(cardSentence(card))}</p>
+          <ul class="action-list">
+            ${card.paid_expansion_points.map(point => `<li>${escapeHtml(point)}</li>`).join("")}
+          </ul>
+        `).join("")}
+        <div class="divider"></div>
+        <h3>下一步行動</h3>
+        <ul class="action-list">
+          ${item.actions.map(action => `<li>${escapeHtml(action)}</li>`).join("")}
+        </ul>
+        <p class="note">${escapeHtml(item.safety)}</p>`;
+    }
+
+    function renderTemplates(item) {
+      return item.questions.map(question => `
+        <button type="button" class="templateBtn" data-question="${escapeHtml(question)}">${escapeHtml(question)}</button>
+      `).join("");
+    }
 
     function render(item) {
       selected = item;
-      document.querySelectorAll("button").forEach(btn => {
+      document.querySelectorAll(".nav button").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.id === item.id);
       });
-      const sampleIndex = drawn ? Math.abs(drawn.index) % item.examples.length : 0;
       content.innerHTML = `
         <div class="result-head">
-          <h2>${item.name}</h2>
-          <p class="note">${item.tone}</p>
-          <div class="question">
-            ${item.questions.map(q => `<div><span class="label">問題模板</span>${q}</div>`).join("")}
+          <h2>${escapeHtml(item.name)}</h2>
+          <p class="note">${escapeHtml(item.tone)}</p>
+          <div class="question-grid">
+            <section class="input-panel">
+              <span class="label">你的問題</span>
+              <textarea id="questionInput" placeholder="請輸入想問的問題。例：這段關係接下來適合怎麼做？">${escapeHtml(userQuestion)}</textarea>
+              <p class="hint">問題會帶入免費摘要與付費報告預覽。MVP 不會保存個資，也不接真實付款。</p>
+            </section>
+            <section class="input-panel">
+              <span class="label">快速問題模板</span>
+              <div class="template-list">${renderTemplates(item)}</div>
+            </section>
           </div>
         </div>
         <section class="draw-panel">
-          <div class="draw-row">
-            <div class="card-face">
-              <div>
-                <strong>${drawn ? drawn.card : "尚未抽牌"}</strong>
-                <span>${drawn ? drawn.orientation : "選擇類別後抽一張牌"}</span>
-              </div>
-            </div>
-            <div>
-              <span class="label">抽牌狀態</span>
-              <p>${drawn ? "已抽出一張牌。免費版先顯示短句；切換付費版可看完整報告樣本。" : "目前是 MVP 原型，先用大阿爾克那 22 張驗證流程，後續再擴完整 78 張。"}</p>
-              <div class="draw-actions">
-                <button type="button" id="drawBtn">抽牌</button>
-                <button type="button" id="freeBtn" class="${paidOpen ? "" : "active"}">免費</button>
-                <button type="button" id="paidBtn" class="${paidOpen ? "active" : ""}">付費</button>
-              </div>
-            </div>
+          ${renderCards(item)}
+          <p>${drawn.length ? `已從 ${deck.length} 張牌抽出三張不重複牌。` : `牌庫已準備 ${deck.length || 0} 張，請輸入問題後抽牌。`}</p>
+          <div class="draw-actions">
+            <button type="button" id="drawBtn" class="primary">抽三張牌</button>
+            <button type="button" id="freeBtn" class="${paidOpen ? "" : "active"}">免費摘要</button>
+            <button type="button" id="paidBtn" class="${paidOpen ? "active" : ""}">付費報告預覽</button>
+            <button type="button" id="resetBtn" class="ghost">重置</button>
           </div>
         </section>
         <div class="grid">
           <section class="block">
-            <span class="label">${paidOpen ? "付費完整報告樣本" : "免費版結果"}</span>
-            ${paidOpen ? `<p>${item.paid}</p>` : `<ul class="free-list"><li>${item.examples[sampleIndex]}</li></ul>`}
+            <span class="label">${paidOpen ? "付費完整報告預覽" : "免費版結果"}</span>
+            ${paidOpen ? renderPaidResult(item) : renderFreeResult(item)}
           </section>
           <section class="block unlock">
-            <span class="label">付費解鎖文案</span>
-            <p>${item.unlock}</p>
-            <span class="label">付費完整報告樣本</span>
-            <p>${item.paid}</p>
-            <span class="label">結果頁限制</span>
-            <p class="note">${item.note}</p>
+            <span class="label">解鎖設計</span>
+            <p>${escapeHtml(item.unlock)}</p>
+            <div class="payment-box">
+              <span class="label">付款狀態</span>
+              <p><strong>候補收集 / 金流未接</strong></p>
+              <p class="note">下一階段才接綠界、藍新、TapPay、PayPal 或 Gumroad。未經 Jason 同意前，不綁定真實付款帳戶。</p>
+            </div>
+            <div class="divider"></div>
+            <span class="label">安全限制</span>
+            <p class="note">${escapeHtml(item.safety)}</p>
           </section>
-        </div>`;
+        </div>
+        <section class="block" style="margin-top:14px">
+          <span class="label">MVP 驗收點</span>
+          <div class="report-grid">
+            <p><strong>內容</strong><br><span class="note">78 張 structured JSON、正逆位短解、每張 3 個付費展開點。</span></p>
+            <p><strong>流程</strong><br><span class="note">問題輸入、情境切換、三張牌抽牌、免費/付費切換。</span></p>
+            <p><strong>缺口</strong><br><span class="note">尚未接後端、會員、訂單保存與真實金流。</span></p>
+          </div>
+        </section>`;
+
+      document.querySelector("#questionInput").addEventListener("input", event => {
+        userQuestion = event.target.value;
+      });
+      document.querySelectorAll(".templateBtn").forEach(button => {
+        button.addEventListener("click", () => {
+          userQuestion = button.dataset.question;
+          render(selected);
+        });
+      });
       document.querySelector("#drawBtn").addEventListener("click", () => {
-        const index = Math.floor(Math.random() * deck.length);
-        drawn = {
-          index,
-          card: deck[index],
-          orientation: Math.random() > 0.5 ? "正位" : "逆位"
-        };
+        userQuestion = document.querySelector("#questionInput").value;
+        drawn = drawThreeCards();
         paidOpen = false;
         render(selected);
       });
@@ -425,17 +601,49 @@
         paidOpen = true;
         render(selected);
       });
+      document.querySelector("#resetBtn").addEventListener("click", () => {
+        drawn = [];
+        paidOpen = false;
+        lastReportId = "";
+        render(selected);
+      });
     }
 
-    data.forEach((item, index) => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.dataset.id = item.id;
-      btn.textContent = item.name;
-      btn.addEventListener("click", () => render(item));
-      nav.appendChild(btn);
-      if (index === 0) render(item);
-    });
+    function initNav() {
+      nav.innerHTML = "";
+      categories.forEach((item, index) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.dataset.id = item.id;
+        btn.textContent = item.name;
+        btn.addEventListener("click", () => {
+          paidOpen = false;
+          render(item);
+        });
+        nav.appendChild(btn);
+        if (index === 0) render(item);
+      });
+    }
+
+    fetch("tarot-card-content-structured-20260608.json")
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then(payload => {
+        deck = Array.isArray(payload.cards) ? payload.cards : [];
+        deckStatus.textContent = `牌庫 ${deck.length} 張`;
+        deckStatus.classList.add("good");
+        initNav();
+      })
+      .catch(error => {
+        deck = [];
+        deckStatus.textContent = "牌庫載入失敗";
+        deckStatus.classList.remove("good");
+        deckStatus.classList.add("warn");
+        initNav();
+        content.insertAdjacentHTML("afterbegin", `<p class="note">牌庫 JSON 載入失敗：${escapeHtml(error.message)}。請用本地 server 或 GitHub Pages 開啟此頁。</p>`);
+      });
   </script>
 </body>
 </html>
