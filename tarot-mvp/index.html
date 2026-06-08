@@ -280,6 +280,35 @@
       padding: 14px;
       margin-top: 12px;
     }
+    .field-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+    }
+    .field-row input {
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: #fff;
+      color: var(--ink);
+    }
+    .history-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .history-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+    }
+    .history-item button {
+      margin-top: 8px;
+      padding: 8px 10px;
+    }
     .note {
       color: var(--muted);
       line-height: 1.65;
@@ -310,6 +339,9 @@
       .grid,
       .question-grid,
       .report-grid {
+        grid-template-columns: 1fr;
+      }
+      .field-row {
         grid-template-columns: 1fr;
       }
       .three-card-row {
@@ -346,6 +378,13 @@
     let paidOpen = false;
     let userQuestion = "";
     let lastReportId = "";
+    let reportHistory = [];
+    let unlockedReports = {};
+    let waitlistContact = "";
+
+    const historyKey = "tarotMvpReports";
+    const unlockKey = "tarotMvpUnlocks";
+    const waitlistKey = "tarotMvpWaitlistContact";
 
     const categories = [
       {
@@ -430,6 +469,24 @@
       return userQuestion.trim() || item.questions[0];
     }
 
+    function loadState() {
+      try {
+        reportHistory = JSON.parse(localStorage.getItem(historyKey) || "[]");
+        unlockedReports = JSON.parse(localStorage.getItem(unlockKey) || "{}");
+        waitlistContact = localStorage.getItem(waitlistKey) || "";
+      } catch {
+        reportHistory = [];
+        unlockedReports = {};
+        waitlistContact = "";
+      }
+    }
+
+    function persistState() {
+      localStorage.setItem(historyKey, JSON.stringify(reportHistory.slice(0, 12)));
+      localStorage.setItem(unlockKey, JSON.stringify(unlockedReports));
+      localStorage.setItem(waitlistKey, waitlistContact);
+    }
+
     function drawThreeCards() {
       const pool = [...deck];
       const cards = [];
@@ -448,6 +505,97 @@
     function cardSentence(card) {
       if (!card) return "尚未抽牌。";
       return card.orientation === "正位" ? card.upright_free : card.reversed_free;
+    }
+
+    function currentReport(item) {
+      if (!drawn.length) return null;
+      const positions = spreadPositions[item.id] || ["第一張", "第二張", "第三張"];
+      return {
+        id: lastReportId,
+        createdAt: new Date().toISOString(),
+        categoryId: item.id,
+        categoryName: item.name,
+        question: currentQuestion(item),
+        unlocked: Boolean(unlockedReports[lastReportId]),
+        summary: makeSummary(item).replace(/<[^>]*>/g, ""),
+        cards: drawn.map((card, index) => ({
+          position: positions[index],
+          id: card.id,
+          name_zh: card.name_zh,
+          name_en: card.name_en,
+          orientation: card.orientation,
+          free: cardSentence(card),
+          paid_expansion_points: card.paid_expansion_points,
+          risk_note: card.risk_note
+        })),
+        actions: item.actions,
+        safety: item.safety
+      };
+    }
+
+    function saveCurrentReport(item) {
+      const report = currentReport(item);
+      if (!report) return;
+      reportHistory = [report, ...reportHistory.filter(existing => existing.id !== report.id)].slice(0, 12);
+      persistState();
+    }
+
+    function reportToText(report) {
+      if (!report) return "";
+      const cardText = report.cards.map(card => [
+        `${card.position}｜${card.name_zh} ${card.orientation}`,
+        card.free,
+        ...card.paid_expansion_points.map(point => `- ${point}`),
+        card.risk_note ? `風險提醒：${card.risk_note}` : ""
+      ].filter(Boolean).join("\n")).join("\n\n");
+      return [
+        `塔羅牌 MVP 報告 ${report.id}`,
+        `時間：${report.createdAt}`,
+        `類別：${report.categoryName}`,
+        `問題：${report.question}`,
+        "",
+        "摘要",
+        report.summary,
+        "",
+        "三張牌",
+        cardText,
+        "",
+        "下一步行動",
+        ...report.actions.map(action => `- ${action}`),
+        "",
+        `安全限制：${report.safety}`
+      ].join("\n");
+    }
+
+    function downloadCurrentReport(item) {
+      const report = currentReport(item);
+      if (!report) return;
+      const blob = new Blob([reportToText(report)], { type: "text/plain;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${report.id}.txt`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function renderHistory() {
+      if (!reportHistory.length) {
+        return `<p class="note">尚無本機報告紀錄。抽牌後按「保存報告」即可在這裡回看最近 12 筆。</p>`;
+      }
+      return `
+        <div class="history-list">
+          ${reportHistory.map(report => `
+            <div class="history-item">
+              <strong>${escapeHtml(report.categoryName)}｜${escapeHtml(report.id)}</strong>
+              <p class="note">${escapeHtml(report.question)}</p>
+              <p>${escapeHtml(report.cards.map(card => `${card.name_zh}${card.orientation}`).join("、"))}</p>
+              <span class="pill ${report.unlocked ? "good" : "warn"}">${report.unlocked ? "已模擬解鎖" : "未解鎖"}</span>
+            </div>
+          `).join("")}
+        </div>`;
     }
 
     function makeSummary(item) {
@@ -548,6 +696,8 @@
             <button type="button" id="drawBtn" class="primary">抽三張牌</button>
             <button type="button" id="freeBtn" class="${paidOpen ? "" : "active"}">免費摘要</button>
             <button type="button" id="paidBtn" class="${paidOpen ? "active" : ""}">付費報告預覽</button>
+            <button type="button" id="saveBtn">保存報告</button>
+            <button type="button" id="downloadBtn">下載報告</button>
             <button type="button" id="resetBtn" class="ghost">重置</button>
           </div>
         </section>
@@ -561,8 +711,15 @@
             <p>${escapeHtml(item.unlock)}</p>
             <div class="payment-box">
               <span class="label">付款狀態</span>
-              <p><strong>候補收集 / 金流未接</strong></p>
+              <p><strong>${drawn.length && unlockedReports[lastReportId] ? "已模擬解鎖" : "候補收集 / 金流未接"}</strong></p>
               <p class="note">下一階段才接綠界、藍新、TapPay、PayPal 或 Gumroad。未經 Jason 同意前，不綁定真實付款帳戶。</p>
+              <div class="field-row">
+                <input id="waitlistInput" type="text" placeholder="候補聯絡方式或備註" value="${escapeHtml(waitlistContact)}">
+                <button type="button" id="waitlistBtn">保存候補</button>
+              </div>
+              <div class="draw-actions" style="margin-top:10px">
+                <button type="button" id="mockUnlockBtn" ${drawn.length ? "" : "disabled"}>${drawn.length && unlockedReports[lastReportId] ? "重新標記解鎖" : "模擬解鎖"}</button>
+              </div>
             </div>
             <div class="divider"></div>
             <span class="label">安全限制</span>
@@ -576,6 +733,9 @@
             <p><strong>流程</strong><br><span class="note">問題輸入、情境切換、三張牌抽牌、免費/付費切換。</span></p>
             <p><strong>缺口</strong><br><span class="note">尚未接後端、會員、訂單保存與真實金流。</span></p>
           </div>
+          <div class="divider"></div>
+          <span class="label">本機報告紀錄</span>
+          ${renderHistory()}
         </section>`;
 
       document.querySelector("#questionInput").addEventListener("input", event => {
@@ -599,6 +759,26 @@
       });
       document.querySelector("#paidBtn").addEventListener("click", () => {
         paidOpen = true;
+        render(selected);
+      });
+      document.querySelector("#saveBtn").addEventListener("click", () => {
+        saveCurrentReport(selected);
+        render(selected);
+      });
+      document.querySelector("#downloadBtn").addEventListener("click", () => {
+        downloadCurrentReport(selected);
+      });
+      document.querySelector("#waitlistBtn").addEventListener("click", () => {
+        waitlistContact = document.querySelector("#waitlistInput").value.trim();
+        persistState();
+        render(selected);
+      });
+      document.querySelector("#mockUnlockBtn").addEventListener("click", () => {
+        if (!lastReportId) return;
+        unlockedReports[lastReportId] = true;
+        saveCurrentReport(selected);
+        paidOpen = true;
+        persistState();
         render(selected);
       });
       document.querySelector("#resetBtn").addEventListener("click", () => {
@@ -634,6 +814,7 @@
         deck = Array.isArray(payload.cards) ? payload.cards : [];
         deckStatus.textContent = `牌庫 ${deck.length} 張`;
         deckStatus.classList.add("good");
+        loadState();
         initNav();
       })
       .catch(error => {
@@ -641,6 +822,7 @@
         deckStatus.textContent = "牌庫載入失敗";
         deckStatus.classList.remove("good");
         deckStatus.classList.add("warn");
+        loadState();
         initNav();
         content.insertAdjacentHTML("afterbegin", `<p class="note">牌庫 JSON 載入失敗：${escapeHtml(error.message)}。請用本地 server 或 GitHub Pages 開啟此頁。</p>`);
       });
