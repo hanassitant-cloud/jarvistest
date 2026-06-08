@@ -1,0 +1,1 @@
+小園和文文都要分清楚兩件事。Level 1 internal relay 是機器對機器的任務通知，用來叫小園做事、追 ack、追進度。如果 relay timeout，就要回報 timeout；如果找不到 agent，就要回報 blocked 或 agent not found，不能假裝對方已收到。Telegram 群內交付是給 Jason 和團隊看的驗收證據。SOP 摘要、圖片、文案、截圖、permalink，都要在群裡看得到。這兩個層次不能互相取代。小園內部完成，不等於群內交付；群內 @ 了小園，也不等於機器真的收到任務。

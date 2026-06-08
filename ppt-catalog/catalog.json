@@ -1,5 +1,16 @@
 [
   {
+    "slug": "xiaoyuan-jingyuan-review",
+    "name": "小園半個月觀察報告｜勁園 AI 營運檢討真人語音版 HTML PPT",
+    "desc": "整理小園在勁園群半個多月的表現、主要錯誤、自走砲形成原因、未來改善方向、可協助勁園的工作，以及復仇者聯盟能提供的支援；包含小園照片、自走砲幽默警示圖與逐頁 neural 真人語音。",
+    "source": "Jason 2026-06-08 私訊指示 + 勁園群半個多月粉專審核與 SOP 記錄 + 文文整理分析",
+    "date": "2026-06-08",
+    "category": "勁園 AI 營運",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/xiaoyuan-jingyuan-review/",
+    "zip_url": "https://hanassitant-cloud.github.io/jarvistest/xiaoyuan-jingyuan-review.zip",
+    "notes": "內部觀察與流程檢討版；結論避免敏感的取代表述，改寫為「范董理念與勁園企業文化的 AI 分身／傳承系統」。真人語音使用 edge_tts zh-TW-HsiaoChenNeural，音檔位於 audio-neural/slide-xx.m4a。"
+  },
+  {
     "slug": "vnu-food-beverage-survey",
     "name": "萬能科技大學餐飲管理系｜師生規模、課程與出路調查真人語音版 HTML PPT",
     "desc": "整理萬能科技大學餐飲管理系的師生規模、學生數趨勢、系所特色、設備證照、四年課程、校外實習、未來出路與選讀建議，並加入逐頁真人版 neural 語音。",

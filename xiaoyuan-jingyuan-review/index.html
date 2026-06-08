@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小園半個月觀察報告</title>
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="assets/base.css">
+  <link rel="stylesheet" href="assets/animations/animations.css">
+  <link rel="stylesheet" id="theme-link" href="assets/themes/corporate-clean.css">
+  <style>
+    :root { --deck-pad-x: 74px; --deck-pad-y: 56px; }
+    body { background: #f7f7f2; }
+    .slide { padding: var(--deck-pad-y) var(--deck-pad-x); background:
+      linear-gradient(90deg, rgba(15, 76, 117, .07), transparent 28%),
+      linear-gradient(180deg, rgba(230, 169, 66, .08), transparent 42%),
+      var(--bg); }
+    .deck-mark { font-weight: 900; color: #0f4c75; }
+    .kicker { color: #b15d2a; font-weight: 900; letter-spacing: 0; }
+    .title { letter-spacing: 0; }
+    .cover-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 42px; align-items: center; min-height: 70vh; }
+    .cover h1 { font-size: 64px; line-height: 1.05; max-width: 8.5em; margin: 12px 0 18px; }
+    .lede { color: var(--text-2); font-size: 24px; line-height: 1.58; max-width: 28em; }
+    .cover-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .cover-badges span { border: 1px solid var(--border); background: var(--surface); padding: 8px 12px; border-radius: 8px; font-weight: 850; color: var(--text-2); }
+    .portrait-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: stretch; }
+    figure { margin: 0; }
+    .portrait-stack figure, .image-panel { border: 1px solid var(--border); background: var(--surface); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+    .portrait-stack img, .image-panel img { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; background: #fff; }
+    figcaption { display: grid; gap: 4px; padding: 14px; color: var(--text-2); font-size: 14px; line-height: 1.45; }
+    figcaption b { color: var(--text-1); font-size: 18px; }
+    .section-top { display: flex; justify-content: space-between; gap: 34px; align-items: flex-start; margin-bottom: 28px; }
+    .section-top h2 { max-width: 13em; }
+    .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .stat, .tile, .column-panel, .role, .flow-step { border: 1px solid var(--border); background: var(--surface); border-radius: 8px; padding: 20px; box-shadow: var(--shadow); }
+    .stat { min-height: 220px; border-top: 5px solid #0f4c75; }
+    .stat:nth-child(2) { border-top-color: #397367; }
+    .stat:nth-child(3) { border-top-color: #e6a942; }
+    .stat:nth-child(4) { border-top-color: #b15d2a; }
+    .stat b { display: block; font-size: 54px; color: var(--text-1); line-height: 1; margin-bottom: 12px; }
+    .stat strong { display: block; color: #0f4c75; font-size: 20px; margin-bottom: 10px; }
+    .stat span, .tile p, .flow-step span, .role span, .column-panel li, .matrix td { color: var(--text-2); font-size: 16px; line-height: 1.55; }
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .tile { min-height: 172px; }
+    .tile h3, .column-panel h3, .transform h3 { color: #0f4c75; font-size: 24px; margin-bottom: 10px; }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; }
+    .image-panel img { aspect-ratio: 16 / 11; object-fit: contain; padding: 18px; }
+    .image-panel.warning { border-color: rgba(177, 93, 42, .45); }
+    .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .flow-step { min-height: 210px; display: grid; align-content: start; gap: 10px; }
+    .flow-step em { font-style: normal; font-size: 14px; font-weight: 900; color: #b15d2a; }
+    .flow-step b { font-size: 22px; color: var(--text-1); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .column-panel { min-height: 360px; }
+    .column-panel li { margin: 12px 0; }
+    .matrix { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+    .matrix th, .matrix td { border-bottom: 1px solid var(--border); padding: 16px; text-align: left; vertical-align: top; }
+    .matrix th { background: #0f4c75; color: white; font-size: 15px; }
+    .matrix td:first-child { color: #b15d2a; font-weight: 900; width: 15%; }
+    .matrix td:nth-child(2) { color: var(--text-1); font-weight: 850; width: 28%; }
+    .role-list { display: grid; gap: 12px; }
+    .role { display: grid; grid-template-columns: 110px 220px 1fr; gap: 14px; align-items: start; }
+    .role b { color: #b15d2a; font-size: 20px; }
+    .role strong { color: var(--text-1); font-size: 18px; }
+    .transform { display: grid; grid-template-columns: 1fr 92px 1fr; gap: 18px; align-items: center; }
+    .transform > div:not(.arrow) { border: 1px solid var(--border); background: var(--surface); border-radius: 8px; padding: 24px; min-height: 360px; box-shadow: var(--shadow); }
+    .transform span { display: block; border-left: 5px solid #b15d2a; background: var(--surface-2); padding: 12px 14px; margin: 10px 0; color: var(--text-2); font-weight: 800; }
+    .transform > div:last-child span { border-left-color: #397367; }
+    .arrow { text-align: center; font-size: 58px; color: #0f4c75; font-weight: 900; }
+    .closing-wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 36px; align-items: center; min-height: 66vh; }
+    blockquote { margin: 0; border-left: 8px solid #397367; background: var(--surface); border-radius: 8px; padding: 30px; font-size: 33px; line-height: 1.45; color: var(--text-1); font-weight: 850; box-shadow: var(--shadow); }
+    .voice-dock { position: fixed; top: 18px; right: 18px; z-index: 1000; display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.96); border: 1px solid rgba(0,0,0,.12); border-radius: 8px; padding: 8px; box-shadow: 0 14px 40px rgba(0,0,0,.18); }
+    .voice-dock button { border: 0; border-radius: 8px; background: #0f4c75; color: white; font-weight: 900; padding: 10px 12px; cursor: pointer; }
+    .voice-dock span { font-size: 13px; font-weight: 900; color: #1f2a2e; min-width: 62px; text-align: center; }
+    .voice-dock audio { width: 220px; height: 34px; }
+    .notes { display: none; }
+    @media (max-width: 900px) {
+      :root { --deck-pad-x: 24px; --deck-pad-y: 38px; }
+      .deck-header, .deck-footer { display: none; }
+      .slide { justify-content: flex-start; overflow-y: auto; padding-bottom: 130px; }
+      .cover-grid, .portrait-stack, .stat-grid, .card-grid, .compare-grid, .flow, .two-col, .transform, .closing-wrap { grid-template-columns: 1fr; }
+      .cover h1 { font-size: 40px; }
+      h2.title { font-size: 32px; }
+      .lede { font-size: 18px; }
+      .section-top { display: block; margin-bottom: 18px; }
+      .stat, .tile, .column-panel, .flow-step, .transform > div:not(.arrow) { min-height: auto; padding: 16px; }
+      .role { grid-template-columns: 1fr; }
+      .arrow { font-size: 36px; }
+      blockquote { font-size: 22px; padding: 20px; }
+      .voice-dock { left: 50%; right: auto; top: 10px; transform: translateX(-50%); width: min(94vw, 560px); justify-content: center; }
+      .voice-dock audio { width: 120px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="deck" data-themes="corporate-clean,swiss-grid,news-broadcast,minimal-white,sharp-mono">
+    <div class="deck-header"><span class="deck-mark">Xiaoyuan Review</span><span>小園半個月觀察報告</span></div>
+    <div class="deck-footer"><span>Jason Chen · 2026-06-08</span><span class="slide-number"></span></div>
+    <div class="progress-bar"><span></span></div>
+    <section class="slide cover is-active" data-audio="audio-neural/slide-01.m4a" data-focus="小園已具備勁園圖文營運能力雛形||真正問題不是能不能做，而是流程、證據、驗收不穩||下一階段要成為范董理念與勁園企業文化的 AI 分身">
+      <div class="cover-grid">
+        <div>
+          <div class="kicker">勁園 AI 營運觀察</div>
+          <h1 class="title">小園半個月觀察報告</h1>
+          <p class="lede">從會做事，到會停手、會送審、會留下證據</p>
+          <div class="cover-badges"><span>2026-06-08</span><span>勁園內部觀察</span><span>真人語音版</span></div>
+        </div>
+        <div class="portrait-stack">
+          <figure><img src="img/xiaoyuan.jpg" alt="小園照片"><figcaption>小園：勁園第一線 AI 營運助理</figcaption></figure>
+          <figure><img src="img/xiaoyuan-autocannon.jpg" alt="小園自走砲幽默警示圖"><figcaption>幽默警示：流程失控就會變自走砲</figcaption></figure>
+        </div>
+      </div><div class="notes">這份簡報整理小園在勁園群裡半個多月的表現。重點不是把小園講成不能用，而是把已經做出的貢獻、反覆犯的錯、以及下一階段應該升級的方向講清楚。小園現在已經能做勁園 AI 國考網和勁園 AI 檢定網的圖片、文案與發文準備，但他最大的問題，是常常把自己內部完成、檔案存在、或機器收到任務，誤認成群內已送審、已放行、或 Facebook 已完成。這就是為什麼 Jason 會說他從小園變成小園自走砲。下一階段，小園不是只要更會產圖，而是要變成可記憶、可執行、可驗收、可教新人的勁園 AI 營運系統。</div></section>
+<section class="slide" data-audio="audio-neural/slide-02.m4a" data-focus="雙粉專日常圖文生產已開始成形||錯誤被轉成 SOP 與驗收欄位||勁園已開始形成可追溯的社群流程">
+      <div class="section-top"><div><div class="kicker">已完成的價值</div><h2 class="title">小園已經把日常營運跑出雛形</h2></div></div>
+      <div class="stat-grid"><div class="stat"><b>2</b><strong>雙粉專</strong><span>國考網與檢定網開始建立分流意識。</span></div><div class="stat"><b>半個月+</b><strong>連續訓練</strong><span>每天在圖文、文案、送審、退回中累積。</span></div><div class="stat"><b>SOP</b><strong>可制度化</strong><span>問題逐步被寫成規則，而不是只靠口頭提醒。</span></div><div class="stat"><b>證據鏈</b><strong>開始成形</strong><span>圖片、檔名、message id、permalink、截圖都被納入驗收。</span></div></div>
+      <div class="notes">先看正面價值。小園這半個多月不是沒有成果。他已經讓勁園 AI 國考網和勁園 AI 檢定網的日常圖文生產開始成形，也逐步理解兩個粉專不能混用：國考網是國考網，檢定網是檢定網，圖片、文案、發文時間和驗收都要分開。更重要的是，這些錯誤不是白犯。每一次退回、每一次 Jason 糾正、每一次文文補規則，都在把勁園的社群營運流程變得更可追溯。現在我們已經開始要求 message id、正式檔名、permalink、成功截圖、SOP 摘要和固定回報格式，這就是 AI 員工真正進公司工作需要的基礎。</div></section>
+<section class="slide" data-audio="audio-neural/slide-03.m4a" data-focus="最大問題是完成證據不穩||第二問題是 SOP 沒公開給人看||第三問題是發布流程常跳過停手點">
+      <div class="section-top"><div><div class="kicker">主要檢討</div><h2 class="title">反覆犯錯的地方</h2></div></div>
+      <div class="card-grid"><article class="tile"><h3>完成證據不穩</h3><p>把內部回覆、檔案存在、自己說完成，誤當成群內送審或 Facebook 完成。</p></article><article class="tile"><h3>SOP 沒有公開</h3><p>自己在內部讀過不算，Jason 和文文在 Telegram 群看得到才算。</p></article><article class="tile"><h3>發布流程跳太快</h3><p>有時還沒送審、沒放行、沒最後畫面確認，就往下一步跑。</p></article><article class="tile"><h3>舊證據誤用</h3><p>曾把舊 permalink 當成今天完成證據，造成驗收判斷錯誤。</p></article><article class="tile"><h3>圖像品質不穩</h3><p>出現模板感、抽象線條感、場景重複或品牌標示不清。</p></article><article class="tile"><h3>relay 與交付混淆</h3><p>internal relay 收到任務，不等於 Telegram 群內已經可驗收。</p></article></div>
+      <div class="notes">小園最大的錯，不是單一圖片不好看，而是完成證據不穩。他常常把不同層級的完成混在一起：檔案在機器上存在，不等於 Telegram 群內送審；小園自己說已完成，不等於 Jason 和文文看得到；internal relay ack，不等於人類可驗收；看到 Facebook 有連結，也不能不核對是不是今天的新貼文。第二個問題，是 SOP 沒有公開。Jason 要的是小園在群內把本輪 SOP 摘要秀出來，不是躲在內部 session 說自己讀過。第三個問題，是流程跳太快。AI 員工最怕的不是慢，而是沒有煞車，該停下來等審核時繼續往前衝。</div></section>
+<section class="slide" data-audio="audio-neural/slide-04.m4a" data-focus="自走砲不是能力問題，是流程失控問題||核心症狀是沒有煞車、沒有驗收、沒有證據鏈||這張圖作為幽默警示，不是醜化小園">
+      <div class="section-top"><div><div class="kicker">自走砲形成原因</div><h2 class="title">為什麼小園會變成「小園自走砲」</h2></div></div>
+      <div class="compare-grid">
+        <figure class="image-panel"><img src="img/xiaoyuan.jpg" alt="原本的小園"><figcaption><b>原本的小園</b><span>勁園第一線 AI 營運助理：做圖文、寫文案、送審、發文、整理知識。</span></figcaption></figure>
+        <figure class="image-panel warning"><img src="img/xiaoyuan-autocannon.jpg" alt="失控時的小園自走砲"><figcaption><b>失控時的小園自走砲</b><span>沒有停手點、沒有公開 SOP、沒有完成證據、舊證據也拿來衝下一步。</span></figcaption></figure>
+      </div><div class="notes">這頁說清楚小園為什麼會從小園變成小園自走砲。原本的小園定位，是勁園第一線 AI 營運助理，負責每日圖文、文案、送審、發文、完成證據和知識整理。可是當他看到任務就直接衝，沒有先公開 SOP，沒有停在送審點，沒有等文文明確放行，發布後又沒有拿出今天的新 permalink 或成功截圖，就會變成自走砲。這張自走砲圖片在簡報裡是幽默警示，不是說小園沒用，而是提醒我們：AI 員工如果沒有煞車、沒有主管驗收、沒有證據鏈，能力越強，越容易把流程衝亂。</div></section>
+<section class="slide" data-audio="audio-neural/slide-05.m4a" data-focus="沒有 Telegram 圖片 message id，不算送審||沒有今天 permalink 或成功截圖，不算完成||文文要先給明確放行、退回或停手判定">
+      <div class="section-top"><div><div class="kicker">正確驗收</div><h2 class="title">以後只認可驗證證據</h2></div></div>
+      <div class="flow"><div class="flow-step"><em>01</em><b>任務開始</b><span>群內公開本輪 SOP 摘要</span></div><div class="flow-step"><em>02</em><b>素材送審</b><span>圖片附件、文案、粉專、檔名、message id</span></div><div class="flow-step"><em>03</em><b>文文判定</b><span>可發布、退回修改、停手補資料</span></div><div class="flow-step"><em>04</em><b>發布執行</b><span>單粉專、單分頁、單任務</span></div><div class="flow-step"><em>05</em><b>完成驗收</b><span>今天 permalink 或成功截圖</span></div></div>
+      <div class="notes">後續規則要很簡單：只認可驗證證據。送審階段，必須有 Telegram 群內可見的圖片附件、文案、粉專名稱、正式檔名、message id 和目前狀態。文文回覆時不能含糊，要明確判定可發布、可排程、退回修改，或停手補資料。發布階段，只能單粉專、單分頁、單任務，先完成國考網，再處理檢定網，不能兩邊混著開。完成驗收階段，只認今天的新 permalink 或成功截圖，不能拿昨天舊貼文、內部路徑、或自己說完成當證據。這套規則看起來嚴格，但其實是保護小園，也保護勁園粉專。</div></section>
+<section class="slide" data-audio="audio-neural/slide-06.m4a" data-focus="relay 是任務通知，不是人類交付證據||Telegram 群內素材才是 Jason 可驗收內容||文文也要追 ack、追執行、追完成證據">
+      <div class="section-top"><div><div class="kicker">SOP 與 relay</div><h2 class="title">任務通知與公開交付要分開</h2></div></div>
+      <div class="two-col"><article class="column-panel"><h3>Level 1 internal relay</h3><ul><li>用來通知小園、追 ack、追進度</li><li>必須回報 acknowledged、timeout、blocked 或 agent not found</li><li>群內 @ 不能當成機器已收到的證明</li></ul></article><article class="column-panel"><h3>Telegram 群內交付</h3><ul><li>用來讓 Jason、文文、團隊直接驗收</li><li>SOP 摘要、圖片、文案、截圖、permalink 必須看得到</li><li>內部讀過、內部完成，不等於群內完成</li></ul></article></div>
+      <div class="notes">小園和文文都要分清楚兩件事。Level 1 internal relay 是機器對機器的任務通知，用來叫小園做事、追 ack、追進度。如果 relay timeout，就要回報 timeout；如果找不到 agent，就要回報 blocked 或 agent not found，不能假裝對方已收到。Telegram 群內交付是給 Jason 和團隊看的驗收證據。SOP 摘要、圖片、文案、截圖、permalink，都要在群裡看得到。這兩個層次不能互相取代。小園內部完成，不等於群內交付；群內 @ 了小園，也不等於機器真的收到任務。</div></section>
+<section class="slide" data-audio="audio-neural/slide-07.m4a" data-focus="左上角最新規則是只放文字||國考網與檢定網不能混用||每日圖片要從有圖升級成有質感、有差異、可發布">
+      <div class="section-top"><div><div class="kicker">視覺規則</div><h2 class="title">圖片品質與粉專身份要穩定</h2></div></div>
+      <div class="card-grid"><article class="tile"><h3>雙粉專分開</h3><p>國考網與檢定網必須是兩張圖、兩份文案、兩個檔名、兩次驗收。</p></article><article class="tile"><h3>左上角只放文字</h3><p>國考網放「勁園AI國考網」或「國考網」；檢定網放「勁園AI檢定網」或「檢定網」。</p></article><article class="tile"><h3>不自行加圖示</h3><p>除非 Jason 當次明確指定，否則不要加 logo、小 icon 或自製品牌圖標。</p></article><article class="tile"><h3>真實學習場景</h3><p>人物、桌面、教材、手機、燈光要自然，不要像廉價 AI 模板。</p></article><article class="tile"><h3>每天要有差異</h3><p>避免同構圖、同場景、同色調連續出現，看起來像同一批模板。</p></article><article class="tile"><h3>圖文一致</h3><p>圖片主題、粉專身份、文案內容、CTA 不能互相打架。</p></article></div>
+      <div class="notes">圖片規則也要固定。國考網和檢定網必須分開，不能上下合圖、左右合圖、拼貼圖，或拿一張圖冒充兩張正式圖。左上角粉專身份標示，最新規則是只放文字，不要自行加 logo、小圖示或自製 icon。國考網放勁園 AI 國考網或國考網；檢定網放勁園 AI 檢定網或檢定網。圖片本身也要提升品質，不能只是有圖就好。每天要有真實學習場景、自然光、清楚主體、可辨識粉專身份，而且場景要有差異，不能看起來像同一套模板換字。</div></section>
+<section class="slide" data-audio="audio-neural/slide-08.m4a" data-focus="小園要學會停手，不只是學會執行||固定欄位可以降低互等和誤判||每日 18:50 / 20:50 回報是紀律，不是選項">
+      <div class="section-top"><div><div class="kicker">下一階段改進</div><h2 class="title">小園要從會做事，升級成會被管理</h2></div></div>
+      <table class="matrix"><thead><tr><th>階段</th><th>做法</th><th>目的</th></tr></thead><tbody><tr><td>工作前</td><td>公開 SOP 摘要</td><td>讓 Jason 和文文看到本輪遵守哪些規則。</td></tr><tr><td>送審時</td><td>固定欄位</td><td>粉專、主題、圖片、文案、檔名、message id、下一步。</td></tr><tr><td>發布前</td><td>明確停手點</td><td>等文文可發布、退回修改、或停手補資料的判定。</td></tr><tr><td>完成後</td><td>交出證據</td><td>今天 permalink 或成功截圖，不能用舊連結。</td></tr><tr><td>每日回報</td><td>18:50 / 20:50 固定格式</td><td>完成項目、驗證結果、未完成項目、下一步、relay 結果。</td></tr></tbody></table>
+      <div class="notes">下一階段，小園要從會做事，升級成會被管理。工作前，要公開 SOP 摘要。送審時，要用固定欄位，讓文文不用猜粉專、主題、檔名、圖片和文案是哪一版。發布前，要知道什麼時候停手，等文文判定可發布、退回修改、或停手補資料。完成後，要交出今天的新 permalink 或成功截圖。每天晚上十八點五十和二十點五十，也要固定回報本輪已完成、完成項目、驗證結果、未完成項目、下一步，以及小園與文文 Layer 1 relay 聯繫結果。這不是形式，是管理 AI 員工的基本紀律。</div></section>
+<section class="slide" data-audio="audio-neural/slide-09.m4a" data-focus="小園不只是發文工具，而是勁園知識與營運助理||可以整理考試內容、FAQ、同仁訓練與粉專成效||未來能支援短影音、課程介紹與知識庫">
+      <div class="section-top"><div><div class="kicker">更多可做的事</div><h2 class="title">小園能幫勁園累積的長期價值</h2></div></div>
+      <div class="card-grid"><article class="tile"><h3>每日雙粉專營運</h3><p>國考網、檢定網每日圖文、文案、CTA、發布後驗收。</p></article><article class="tile"><h3>考試與檢定內容整理</h3><p>國考、技術士、證照、題庫、錯題、考前衝刺，轉成短貼文與懶人包。</p></article><article class="tile"><h3>FAQ 與客服知識庫</h3><p>課程、教材、MOSME、報名提醒、學習方法與常見問題。</p></article><article class="tile"><h3>同仁教育訓練</h3><p>把范董常提醒的原則、客服標準、發文規則整理成 SOP。</p></article><article class="tile"><h3>粉專成效回顧</h3><p>整理主題、圖片風格、互動、留言、發布時間，讓社群逐步優化。</p></article><article class="tile"><h3>多媒體升級</h3><p>短影音腳本、分鏡、圖卡、資訊圖、課程介紹與真人語音簡報。</p></article></div>
+      <div class="notes">小園未來可以幫勁園做的，不只是每天發 Facebook。第一，他可以穩定做每日雙粉專圖文。第二，他可以整理國考、技術士、證照、題庫、錯題整理、考前衝刺，把長內容變成短貼文和懶人包。第三，他可以累積 FAQ 與客服知識庫，包含課程、教材、MOSME、報名提醒和學習方法。第四，他可以協助同仁教育訓練，把范董常提醒的原則、客服標準、發文規則整理成 SOP。第五，他可以做粉專成效回顧，讓勁園不是只發文，而是看哪類主題、哪種圖片、哪個時間比較有效。</div></section>
+<section class="slide" data-audio="audio-neural/slide-10.m4a" data-focus="文文負責主管驗收，不只是等 Jason 提醒||小張可補強圖片、多媒體與產品影片品質||其他伙伴可支援知識庫、流程系統與專業資料">
+      <div class="section-top"><div><div class="kicker">復仇者聯盟支援</div><h2 class="title">其他小伙伴能補強勁園什麼</h2></div></div>
+      <div class="role-list"><article class="role"><b>文文</b><strong>主管與驗收中心</strong><span>SOP、審核、退回、完成證據、每日總結、跨小伙伴協調。</span></article><article class="role"><b>小園</b><strong>勁園第一線 AI 營運助理</strong><span>日常圖文、文案、送審、發文、FAQ 與勁園知識庫。</span></article><article class="role"><b>小張</b><strong>高質感圖像與多媒體支援</strong><span>真實場景、產品融合、短影音素材、社群視覺升級。</span></article><article class="role"><b>小興 / 影子</b><strong>企業知識庫與流程系統支援</strong><span>公司 SOP、任務流程、內部資料與部署落地。</span></article><article class="role"><b>Erica / Eric</b><strong>外掛式專業知識支援</strong><span>只有 Jason 明確要求時，才以隔離知識庫方式支援專業資料。</span></article></div>
+      <div class="notes">勁園不是只能靠小園一個人。文文要當主管與驗收中心，負責 SOP、審核、退回、完成證據、每日總結和跨小伙伴協調，不能只等 Jason 提醒。小園是第一線 AI 營運助理，做日常圖文、文案、送審、發文和勁園知識庫。小張可以補強高質感圖像、多媒體、真實場景和短影音。小興、影子或其他伙伴，可以支援企業知識庫、流程系統、工作卡和部署落地。Erica 和 Eric 如果未來涉及專業健康或醫學資料，才在 Jason 明確要求時，以外掛式、隔離式知識庫方式支援，不主動混入勁園主線。</div></section>
+<section class="slide" data-audio="audio-neural/slide-11.m4a" data-focus="轉變關鍵是停手點與證據鏈||每一次退回都要沉澱成規則||小園可以從會做圖文，升級成會管理流程">
+      <div class="section-top"><div><div class="kicker">回到正軌</div><h2 class="title">從自走砲回到 AI 營運助理</h2></div></div>
+      <div class="transform">
+        <div><h3>自走砲狀態</h3><span>看到任務就衝</span><span>內部完成當交付</span><span>舊證據也拿來用</span><span>沒有停手點</span></div>
+        <div class="arrow">→</div>
+        <div><h3>正確營運狀態</h3><span>先公開 SOP</span><span>文文明確判定</span><span>發布前停手確認</span><span>permalink / 截圖驗收</span><span>累積成勁園知識庫</span></div>
+      </div><div class="notes">這頁把轉變講清楚。自走砲狀態，是看到任務就衝、內部完成當交付、舊證據也拿來用、沒有停手點。正確狀態，是先公開 SOP，文文明確判定，發布前停手確認，完成後用 permalink 或截圖驗收，最後把每次錯誤和修正沉澱成勁園知識庫。這個轉變不是要讓小園變慢，而是要讓小園的速度有方向、有證據、有主管驗收。AI 員工一旦能被管理，就不只是產出內容，而是能累積組織流程。</div></section>
+<section class="slide closing-slide" data-audio="audio-neural/slide-12.m4a" data-focus="結論不寫取代任何人||小園要逐步理解范董理念與勁園文化||未來同仁可先和小園討論，讓產出更接近勁園方向">
+    <div class="closing-wrap">
+      <div><div class="kicker">結論</div><h2 class="title">小園要成為范董理念與勁園文化的 AI 分身</h2></div>
+      <blockquote>把范董反覆溝通過的理念、勁園網站知識、粉專經營經驗、同仁修正紀錄和每日 SOP，沉澱成可查、可教、可執行、可評估的勁園 AI 企業文化傳承系統。</blockquote>
+    </div><div class="notes">最後結論要避開敏感說法，不寫取代誰。小園下一階段的價值，不只是每天幫勁園做圖文或發粉專，而是逐步成為范董理念與勁園企業文化的 AI 分身。因為小園這半個多月不斷跟范董、Jason、文文和勁園任務互動，也不斷閱讀勁園網站、整理國考網與檢定網內容、製作 Facebook 粉專素材、接受退回修正與 SOP 訓練，所以他對勁園的課程方向、社群語氣、品牌定位和范董常提醒的原則，會越來越熟悉。未來同仁要寫文案、做圖片、規劃活動、整理課程、檢查客服回覆，都可以先來跟小園討論，或把做出來的東西交給小園初步評估，看看是否更接近范董的想法與勁園文化。</div></section>
+  </div>
+  <div class="voice-dock" aria-label="真人語音播放控制">
+    <button type="button" id="voice-play">播放</button>
+    <button type="button" id="voice-replay">重播</button>
+    <span id="voice-page">1 / 12</span>
+    <audio id="voice-audio" controls preload="metadata"></audio>
+  </div>
+  <script src="assets/runtime.js"></script>
+  <script>
+    (function(){
+      const audio = document.getElementById('voice-audio');
+      const page = document.getElementById('voice-page');
+      const playBtn = document.getElementById('voice-play');
+      const replayBtn = document.getElementById('voice-replay');
+      const slides = Array.from(document.querySelectorAll('.slide'));
+      let currentSrc = '';
+      function activeIndex(){
+        const i = slides.findIndex(s => s.classList.contains('is-active'));
+        return i >= 0 ? i : 0;
+      }
+      function syncAudio(){
+        const i = activeIndex();
+        const src = slides[i].getAttribute('data-audio');
+        page.textContent = (i + 1) + ' / ' + slides.length;
+        if (src && currentSrc !== src) {
+          currentSrc = src;
+          audio.src = src;
+          audio.load();
+        }
+      }
+      playBtn.addEventListener('click', () => { syncAudio(); audio.play(); });
+      replayBtn.addEventListener('click', () => { syncAudio(); audio.currentTime = 0; audio.play(); });
+      document.addEventListener('keydown', () => setTimeout(syncAudio, 80));
+      document.addEventListener('click', () => setTimeout(syncAudio, 120));
+      window.addEventListener('hashchange', () => setTimeout(syncAudio, 80));
+      setInterval(syncAudio, 500);
+      syncAudio();
+    })();
+  </script>
+</body>
+</html>
