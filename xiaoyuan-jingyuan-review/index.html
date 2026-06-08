@@ -59,9 +59,10 @@
     .matrix td:first-child { color: #b15d2a; font-weight: 900; width: 15%; }
     .matrix td:nth-child(2) { color: var(--text-1); font-weight: 850; width: 28%; }
     .role-list { display: grid; gap: 12px; }
-    .role { display: grid; grid-template-columns: 110px 220px 1fr; gap: 14px; align-items: start; }
+    .role { display: grid; grid-template-columns: 110px 220px 1fr; gap: 14px; align-items: start; min-width: 0; box-sizing: border-box; }
     .role b { color: #b15d2a; font-size: 20px; }
     .role strong { color: var(--text-1); font-size: 18px; }
+    .role b, .role strong, .role span { min-width: 0; overflow-wrap: anywhere; }
     .transform { display: grid; grid-template-columns: 1fr 92px 1fr; gap: 18px; align-items: center; }
     .transform > div:not(.arrow) { border: 1px solid var(--border); background: var(--surface); border-radius: 8px; padding: 24px; min-height: 360px; box-shadow: var(--shadow); }
     .transform span { display: block; border-left: 5px solid #b15d2a; background: var(--surface-2); padding: 12px 14px; margin: 10px 0; color: var(--text-2); font-weight: 800; }
@@ -77,17 +78,17 @@
     @media (max-width: 900px) {
       :root { --deck-pad-x: 24px; --deck-pad-y: 38px; }
       .deck-header, .deck-footer { display: none; }
-      .slide { justify-content: flex-start; overflow-y: auto; padding-bottom: 130px; }
+      .slide { justify-content: flex-start; overflow-y: auto; padding-top: 112px; padding-bottom: 130px; box-sizing: border-box; }
       .cover-grid, .portrait-stack, .stat-grid, .card-grid, .compare-grid, .flow, .two-col, .transform, .closing-wrap { grid-template-columns: 1fr; }
       .cover h1 { font-size: 40px; }
       h2.title { font-size: 32px; }
       .lede { font-size: 18px; }
       .section-top { display: block; margin-bottom: 18px; }
       .stat, .tile, .column-panel, .flow-step, .transform > div:not(.arrow) { min-height: auto; padding: 16px; }
-      .role { grid-template-columns: 1fr; }
+      .role { grid-template-columns: minmax(0, 1fr); width: 100%; gap: 8px; }
       .arrow { font-size: 36px; }
       blockquote { font-size: 22px; padding: 20px; }
-      .voice-dock { left: 50%; right: auto; top: 10px; transform: translateX(-50%); width: min(94vw, 560px); justify-content: center; }
+      .voice-dock { left: 50%; right: auto; top: 10px; transform: translateX(-50%); width: min(94vw, 560px); justify-content: center; box-sizing: border-box; }
       .voice-dock audio { width: 120px; }
     }
   </style>
