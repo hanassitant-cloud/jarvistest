@@ -199,12 +199,15 @@
   },
   {
     "slug": "spec-kit-visual",
-    "name": "GitHub Spec Kit｜規格驅動開發與 OpenClaw 整合圖文簡報",
-    "desc": "介紹 GitHub Spec Kit、Spec-Driven Development 流程，並研究如何整合進 OpenClaw / 文文 AI 顧問流程。",
-    "source": "https://github.com/github/spec-kit README、spec-driven.md、installation.md、integrations.md",
+    "name": "GitHub Spec Kit｜規格驅動開發與 OpenClaw 整合真人語音版 HTML PPT",
+    "desc": "介紹 GitHub Spec Kit、Spec-Driven Development 流程，並整理成可整合 OpenClaw / 文文 AI 顧問與小伙伴工作卡的規格驅動流程；本版已加入逐頁 neural 真人語音。",
+    "source": "https://github.com/github/spec-kit README、spec-driven.md、installation.md、integrations.md + Jason 2026-06-09 指示 + 文文試用整理",
     "date": "2026-05-15",
     "category": "開發流程",
-    "zip_url": "https://drive.google.com/open?id=1W60nHJeYVKrRPAwh_rnCBS6QkoQuV1ff"
+    "zip_url": "https://hanassitant-cloud.github.io/jarvistest/spec-kit-visual.zip",
+    "updated": "2026-06-09",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/spec-kit-visual/",
+    "notes": "2026-06-09 更新為真人語音版；音檔使用 edge_tts zh-TW-HsiaoChenNeural，位於 audio-neural/slide-xx.m4a；主軸為先 Spec / Plan / Tasks，再執行與驗收。"
   },
   {
     "slug": "school-trade-visual",
