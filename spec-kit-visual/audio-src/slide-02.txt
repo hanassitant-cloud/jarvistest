@@ -1,0 +1,1 @@
+Spec Kit 的流程可以拆成五個主要步驟，再加上一個檢查循環。第一步 constitution，先訂專案原則和品質標準。第二步 specify，描述要做什麼、為什麼做。第三步 plan，才決定技術路線。第四步 tasks，把工作拆成可執行任務。第五步 implement，依照任務實作。中間再用 clarify、analyze、checklist，把模糊需求和矛盾點找出來。

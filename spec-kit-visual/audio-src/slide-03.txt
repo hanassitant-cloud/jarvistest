@@ -1,0 +1,1 @@
+我試看的重點不是追版本號，而是確認官方建議的使用方式。Spec Kit 目前透過 GitHub repository 安裝與初始化，讓 AI coding agent 取得 speckit 指令。Codex skills 模式也可以把它轉成技能使用。這裡要注意，正式導入不能隨便安裝不明來源的同名套件，尤其客戶案要保守處理，先看官方 repo，再決定工具化範圍。

@@ -60,7 +60,7 @@
 - LINE / Telegram / Google Drive / GitHub Pages 常用架構
 - 資安與隱私條款
 - 醫療、法務、投資等免責提醒
-- Jason 的交付與安全歸檔規則
+- Jason 的交付與 B21 備份規則
 
 ## 建議角色分工
 
