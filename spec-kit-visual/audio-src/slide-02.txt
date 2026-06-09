@@ -1,1 +1,1 @@
-Spec Kit 的流程可以拆成五個主要步驟，再加上一個檢查循環。第一步 constitution，先訂專案原則和品質標準。第二步 specify，描述要做什麼、為什麼做。第三步 plan，才決定技術路線。第四步 tasks，把工作拆成可執行任務。第五步 implement，依照任務實作。中間再用 clarify、analyze、checklist，把模糊需求和矛盾點找出來。
+Spec-Driven Development 的核心反轉，是讓程式碼服務規格，而不是讓規格服務程式碼。過去很多規格文件寫完就被丟到旁邊，真正寫 code 時又回到憑感覺。Spec Kit 的設計，是把規格變成主要產物，讓 AI agent 依規格生成計畫、任務、測試與實作。這對小伙伴很重要，因為它能降低自走砲和漏驗收的風險。

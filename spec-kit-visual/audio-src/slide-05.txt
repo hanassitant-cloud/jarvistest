@@ -1,1 +1,1 @@
-文文版流程會把 Spec Kit 改成 Telegram 和工作卡能用的格式。先做需求訪談，確認角色、場景、資料來源、權限和不可做事項。再整理規格文件，把模糊處標出來。接著做技術計畫，選 LINE、Telegram、Google Drive、GitHub Pages 或資料庫。最後拆任務、執行、驗證、備份和交付。這樣每一步都能回查，不靠口頭記憶。
+Spec Kit 支援多種 AI coding agent，包含 Codex、Copilot、Claude、Gemini 和 opencode。這代表它不是單一模型技巧，而是一套把需求交給 agent 前的前置工程。對 OpenClaw 來說，最合理的做法是先用 Codex 或 generic integration 試跑，再包成文文自己的 SOP 和 skill，讓小伙伴不用每次從零開始猜流程。
