@@ -1,5 +1,16 @@
 [
   {
+    "slug": "fsmlab-ai-growth-proposal",
+    "name": "FSMLAB 飛創美｜AI 成長規劃 HTML PPT",
+    "desc": "依黃鳳美 Nina / FSMLAB 飛創美近兩年公開資料，整理品牌定位、產業方向、AI 肌膚檢測、LINE AI 顧問、內容行銷、訓練招商與 90 天落地路線圖。",
+    "source": "Jason 2026-06-14 指示 + FSMLAB 官網、公開新聞、公開體驗文、公司登記與產業資料整理",
+    "date": "2026-06-14",
+    "category": "品牌分析",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/fsmlab-ai-growth-proposal/",
+    "zip_url": "https://hanassitant-cloud.github.io/jarvistest/fsmlab-ai-growth-proposal.zip",
+    "notes": "公開資料顧問提案版；量子、非侵入、改善效果等字眼均作為品牌宣傳與市場定位分析，不作醫療或臨床功效承諾。已保留逐頁真人語音稿與 audio/slide-xx.m4a 播放結構；目前待 Jason 核准真人音源後再切入正式音檔，不使用機器感 TTS 充數。"
+  },
+  {
     "slug": "xiaoyuan-jingyuan-review",
     "name": "小園半個月觀察報告｜勁園 AI 營運檢討真人語音版 HTML PPT",
     "desc": "整理小園在勁園群半個多月的表現、主要錯誤、自走砲形成原因、未來改善方向、可協助勁園的工作，以及復仇者聯盟能提供的支援；包含小園照片、自走砲幽默警示圖與逐頁 neural 真人語音。",
