@@ -1,5 +1,16 @@
 [
   {
+    "slug": "chaoyulaw-private-legal-ai",
+    "name": "兆宇國際法律事務所｜私有化法律 AI 系統公開提案",
+    "desc": "依兆宇國際法律事務所公開網站資料，整理林冠佑律師適合切入的私有化法律 AI 知識庫、案件工作區、官網諮詢分流、隱私防護與 30 天 MVP。",
+    "source": "兆宇國際法律事務所官網、專業團隊、專業領域、律師陪偵與兆宇觀點公開資料 + Jason 2026-06-18 指示 + 文文分析",
+    "date": "2026-06-18",
+    "category": "顧問提案",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/chaoyulaw-private-legal-ai/",
+    "zip_url": "https://hanassitant-cloud.github.io/jarvistest/chaoyulaw-private-legal-ai.zip",
+    "notes": "公開提案版；不含任何客戶機密或未公開案件資料。逐頁語音使用 edge_tts zh-TW-HsiaoChenNeural 台灣中文 neural 真人感語音，音檔位於 audio/slide-xx.mp3。"
+  },
+  {
     "slug": "fsmlab-ai-growth-proposal",
     "name": "FSMLAB 飛創美｜AI 成長規劃 HTML PPT",
     "desc": "依黃鳳美 Nina / FSMLAB 飛創美近兩年公開資料，整理品牌定位、產業方向、AI 肌膚檢測、LINE AI 顧問、內容行銷、訓練招商與 90 天落地路線圖。",

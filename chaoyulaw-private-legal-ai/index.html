@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-themes="corporate-clean,engineering-whiteprint" data-theme-base="assets/themes/">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>兆宇國際法律事務所｜私有化法律 AI 系統提案</title>
+<meta name="description" content="公開版提案：為兆宇國際法律事務所規劃私有化法律 AI 知識庫、案件工作區、隱私防護與 30 天 MVP。">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" id="theme-link" href="assets/themes/corporate-clean.css">
+<link rel="stylesheet" href="assets/animations/animations.css">
+<style>
+:root{--ink:#14213d;--muted:#5d6b82;--gold:#b99656;--line:#dfe5ef;--soft:#f6f8fb;--green:#1f7a5b;--red:#9d3b3b}
+*{box-sizing:border-box}body{margin:0;background:#eef2f7;color:var(--ink);font-family:Inter,"Noto Sans TC",system-ui,sans-serif}.deck{position:relative;width:100vw;height:100vh;overflow:hidden}.slide{position:absolute!important;inset:0!important;display:none!important;opacity:1!important;visibility:visible!important;transform:none!important;padding:54px 64px 96px;z-index:1}.slide.active,.slide.is-active{display:block!important}.canvas{position:relative!important;z-index:2!important;width:min(1160px,calc(100vw - 96px));height:min(650px,calc(100vh - 150px));margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 24px 70px rgba(20,33,61,.14);padding:42px;overflow:hidden}.canvas *{opacity:1!important;visibility:visible!important}.kicker{font-weight:900;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;font-size:14px}.h1{font-size:58px;line-height:1.04;margin:24px 0 22px;letter-spacing:0}.h2{font-size:38px;line-height:1.12;margin:10px 0 24px;letter-spacing:0}.lead{font-size:22px;line-height:1.55;color:var(--muted);max-width:840px}.source{position:absolute;left:64px;bottom:72px;font-size:12px;color:#728096;max-width:980px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{border:1px solid var(--line);border-radius:8px;background:var(--soft);padding:20px;min-height:142px}.card b{display:block;font-size:20px;margin-bottom:10px}.card p,.card li{font-size:16px;line-height:1.5;color:var(--muted);margin:.35rem 0}.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid #e3d3ad;color:#7b5d25;background:#fff9ea;border-radius:999px;padding:8px 12px;font-weight:900;margin:5px 6px 0 0}.metric{font-size:42px;font-weight:950;color:var(--green)}.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:stretch}.flow .step{border:1px solid var(--line);border-radius:8px;background:#fff;padding:18px;min-height:150px}.step small{display:block;color:var(--gold);font-weight:900;margin-bottom:8px}.matrix{display:grid;grid-template-columns:.8fr 1.45fr 1.45fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}.matrix div{background:#fff;padding:15px;font-size:16px;line-height:1.4}.matrix .head{background:#14213d;color:#fff;font-weight:900}.warn{border-left:5px solid var(--red)}.ok{border-left:5px solid var(--green)}.quote{font-size:27px;line-height:1.45;font-weight:900;background:#f8f5ed;border-left:6px solid var(--gold);padding:24px}.ppt-nav.oc-ppt-remote{position:fixed!important;left:50%!important;bottom:calc(env(safe-area-inset-bottom,0px) + 18px)!important;transform:translateX(-50%) scale(.94)!important;z-index:2147483647!important;width:min(96vw,980px)!important;display:flex!important;align-items:center!important;gap:8px!important;padding:10px!important;border-radius:22px!important;background:rgba(255,255,255,.98)!important;border:2px solid rgba(0,0,0,.1)!important;box-shadow:0 18px 60px rgba(0,0,0,.28)!important;backdrop-filter:blur(18px)!important}.oc-ppt-remote-title{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#102033!important;font-weight:900!important;font-size:14px!important}.oc-ppt-remote button{border:0!important;border-radius:14px!important;background:#102033!important;color:white!important;min-width:56px!important;height:46px!important;padding:0 10px!important;font-size:15px!important;font-weight:900!important;cursor:pointer!important}.oc-ppt-remote button:nth-of-type(3),.oc-ppt-remote button:nth-of-type(4),.oc-ppt-remote button:nth-of-type(5){background:#0ea5e9!important}.oc-ppt-remote .voice-button{background:#1f7a5b!important}.oc-ppt-remote-small{font-size:11px!important;display:block!important;margin-top:2px!important}.modal{position:fixed;inset:0;background:rgba(12,18,32,.86);z-index:50;display:none;padding:28px;overflow:auto}.modal.show{display:block}.modal-card{max-width:1000px;margin:auto;background:#fff;border-radius:12px;padding:26px}.overview-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.overview-grid button{text-align:left;border:1px solid var(--line);border-radius:8px;background:#f8fafc;padding:14px;font-weight:900;color:var(--ink)}.toast{position:fixed;right:18px;bottom:94px;background:#102033;color:#fff;border-radius:999px;padding:10px 14px;z-index:60;display:none}.toast.show{display:block}@media(max-width:820px){.slide{padding:18px 0 108px}.canvas{width:calc(100vw - 28px);height:calc(100vh - 138px);padding:22px;overflow:auto}.h1{font-size:36px}.h2{font-size:27px}.lead{font-size:17px}.grid2,.grid3,.grid4,.flow{grid-template-columns:1fr}.matrix{grid-template-columns:1fr}.source{position:static;margin:12px 20px 0;font-size:11px}.ppt-nav.oc-ppt-remote{width:98vw!important;transform:translateX(-50%) scale(.84)!important;padding:8px!important;gap:5px!important}.oc-ppt-remote-title{flex:0 1 54px!important;font-size:10px!important;line-height:1.05!important}.oc-ppt-remote button{min-width:44px!important;width:44px!important;height:48px!important;padding:0 4px!important;font-size:14px!important;line-height:1.05!important}.oc-ppt-remote-small{font-size:9px!important}}
+</style>
+</head>
+<body>
+<audio id="slide-audio" preload="none"></audio>
+<main class="deck">
+  <section class="slide active is-active"><div class="canvas">
+    <p class="kicker">Public Proposal · Private Legal AI</p>
+    <h1 class="h1">兆宇國際法律事務所<br>私有化法律 AI 系統提案</h1>
+    <p class="lead">為高機密法律工作建立不上公開雲端的 AI 知識庫、案件工作區與官網諮詢分流，讓律師更快查法、整理案件、保護客戶資料。</p>
+    <span class="pill">公開版</span><span class="pill">不含客戶機密</span><span class="pill">私有部署</span>
+  </div><div class="source">資料來源：兆宇官網公開資訊、專業團隊、專業領域、律師陪偵與兆宇觀點頁面；本簡報不使用任何未公開案件資料。</div></section>
+
+  <section class="slide"><div class="canvas">
+    <p class="kicker">01 / Why Now</p>
+    <h2 class="h2">法律 AI 的重點不是聊天，是機密資料能不能放心用</h2>
+    <div class="grid3">
+      <div class="card warn"><b>公開雲端風險</b><p>客戶資料、案情、書狀草稿、證據與內部策略不適合貼進公開 AI 服務。</p></div>
+      <div class="card warn"><b>知識分散</b><p>法條、判決、內部範本、過去案件經驗分散在不同人和資料夾中。</p></div>
+      <div class="card ok"><b>私有 AI 機會</b><p>在 VPN、權限與私有主機內查找、摘要、比對與產出草稿，降低外洩風險。</p></div>
+    </div>
+  </div></section>
+
+  <section class="slide"><div class="canvas">
+    <p class="kicker">02 / Firm Fit</p>
+    <h2 class="h2">兆宇的公開定位很適合先做私有法律 AI</h2>
+    <div class="grid2">
+      <div class="card"><b>林冠佑律師切入點</b><p>公開團隊頁顯示其背景包含檢察官經驗、電腦犯罪、智慧財產、金融犯罪、金融科技與公司治理。這些案型通常資料敏感、文件多、查找成本高。</p></div>
+      <div class="card"><b>網站內容資產</b><p>兆宇觀點文章更新穩定，已有法律時事、日常普法、金融法律、法規動態等內容，可作為第一批公開知識庫素材。</p></div>
+    </div>
+    <div class="quote">第一個訴求不是「AI 取代律師」，而是讓律師在私有環境內更快找到資料、整理爭點、保護客戶機密。</div>
+  </div></section>
+
+  <section class="slide"><div class="canvas">
+    <p class="kicker">03 / System Layers</p>
+    <h2 class="h2">建議架構：對外分流，對內私有知識，案件獨立隔離</h2>
+    <div class="flow">
+      <div class="step"><small>Layer 1</small><b>官網 AI 分流</b><p>一般問題、服務分類、LINE/電話/表單導流。</p></div>
+      <div class="step"><small>Layer 2</small><b>法律知識庫</b><p>法條、判決、函釋、文章、內部範本。</p></div>
+      <div class="step"><small>Layer 3</small><b>案件工作區</b><p>每案獨立資料夾、權限、摘要與時間軸。</p></div>
+      <div class="step"><small>Layer 4</small><b>權限審計</b><p>角色控管、查詢紀錄、下載紀錄、敏感遮罩。</p></div>
+      <div class="step"><small>Layer 5</small><b>私有部署</b><p>VPN、防火牆、本地模型、本地向量庫。</p></div>
+    </div>
+  </div></section>
+
+  <section class="slide"><div class="canvas">
+    <p class="kicker">04 / Daily Work</p>
+    <h2 class="h2">律師與助理每天能感覺到的效率差異</h2>
+    <div class="grid3">
+      <div class="card"><b>查法更快</b><p>輸入案情要點，回傳可能法條、相關判決方向與來源連結。</p></div>
+      <div class="card"><b>案件更清楚</b><p>自動整理時間軸、爭點表、證據清單、待補資料與風險問題。</p></div>
+      <div class="card"><b>書狀更好起稿</b><p>依內部模板產生架構與段落草稿，由律師審核修改，不自動送出。</p></div>
+      <div class="card"><b>契約審閱</b><p>標出付款、終止、違約、管轄、保密、個資等風險條款。</p></div>
+      <div class="card"><b>客戶來信摘要</b><p>整理來信重點、問題清單與回覆待確認事項。</p></div>
+      <div class="card"><b>類案檢索</b><p>從所內過去去識別案件與模板中找相似案型。</p></div>
+    </div>
+  </div></section>
+
+  <section class="slide"><div class="canvas">
+    <p class="kicker">05 / Privacy Design</p>
+    <h2 class="h2">隱私防範：不是一句「不外洩」，而是系統設計</h2>
+    <div class="matrix">
+      <div class="head">風險</div><div class="head">防護做法</div><div class="head">兆宇能得到的好處</div>
+      <div>公開 AI 上傳</div><div>本地模型 / 私有 RAG / 本地 embedding，不把案件內容送公開雲端。</div><div>降低客戶機密、營業秘密與攻防策略外洩風險。</div>
+      <div>案件互相污染</div><div>每案 matter workspace，文件、索引、權限與查詢範圍獨立。</div><div>A 客戶資料不會被 B 客戶案件查到。</div>
+      <div>人員權限過大</div><div>合夥人、律師、助理、實習生分級權限，操作留 audit log。</div><div>責任可追蹤，離職或換案時可快速收權。</div>
+      <div>資料遺失</div><div>加密備份、版本保留、異地備援與還原演練。</div><div>降低單機損壞或誤刪造成的營運中斷。</div>
+    </div>
+  </div></section>
+
+  <section class="slide"><div class="canvas">
+    <p class="kicker">06 / Knowledge Base</p>
+    <h2 class="h2">資料範圍：從公開法律資料到所內案件經驗</h2>
+    <div class="grid4">
+      <div class="card"><b>公開法規</b><p>全國法規、主管機關公告、行政函釋。</p></div>
+      <div class="card"><b>裁判資料</b><p>司法院裁判書、類案判決、重要見解。</p></div>
+      <div class="card"><b>兆宇內容</b><p>官網文章、專業領域、律師陪偵與 FAQ。</p></div>
+      <div class="card"><b>所內資料</b><p>書狀模板、契約模板、去識別案例與辦案 SOP。</p></div>
+    </div>
+    <p class="lead">所有內部資料應先做分級：公開、內部、案件機密、合夥人限定。AI 只能在授權範圍內檢索。</p>
+  </div></section>
+
+  <section class="slide"><div class="canvas">
+    <p class="kicker">07 / Website Assistant</p>
+    <h2 class="h2">官網 AI：只做前置分流，不碰內部案件庫</h2>
+    <div class="grid2">
+      <div class="card ok"><b>可以做</b><ul><li>服務分類與急迫性判斷</li><li>收集姓名、聯絡方式、案由、地點、時間</li><li>推薦公開文章</li><li>導 LINE、電話、預約表單</li></ul></div>
+      <div class="card warn"><b>不應該做</b><ul><li>直接判斷勝訴機率</li><li>承諾案件結果</li><li>讀取內部案件資料</li><li>要求訪客上傳高度機密證據到公開端</li></ul></div>
+    </div>
+  </div></section>
+
+  <section class="slide"><div class="canvas">
+    <p class="kicker">08 / 30-Day MVP</p>
+    <h2 class="h2">30 天 MVP：先做可展示、可驗證、低風險版本</h2>
+    <div class="flow">
+      <div class="step"><small>Week 1</small><b>需求盤點</b><p>訪談林律師與 1–2 位助理，確認案型與禁區。</p></div>
+      <div class="step"><small>Week 2</small><b>公開知識庫</b><p>匯入官網文章、專業領域、公開法規與測試判決。</p></div>
+      <div class="step"><small>Week 3</small><b>測試案件區</b><p>使用假資料或去識別資料驗證摘要、爭點、時間軸。</p></div>
+      <div class="step"><small>Week 4</small><b>安全驗收</b><p>測試權限、查詢紀錄、不可跨案查詢、備份還原。</p></div>
+      <div class="step"><small>Demo</small><b>合夥人展示</b><p>展示官網分流、內部查法、案件整理三個場景。</p></div>
+    </div>
+  </div></section>
+
+  <section class="slide"><div class="canvas">
+    <p class="kicker">09 / Conversation Starter</p>
+    <h2 class="h2">對林律師的切入話術</h2>
+    <div class="quote">「林律師，您們處理科技犯罪、智財、金融犯罪與公司治理案件，資料敏感且文件量大。一般雲端 AI 不能直接放客戶資料。我們可以協助兆宇建立私有法律 AI 系統：法條、判決、內部範本與去識別案件經驗都留在 VPN 與私有主機內，讓律師查法、整理爭點、建立時間軸與準備草稿更快，同時保留權限與操作紀錄。」</div>
+  </div></section>
+
+  <section class="slide"><div class="canvas">
+    <p class="kicker">10 / Next Step</p>
+    <h2 class="h2">下一步：先做一場 45 分鐘需求訪談</h2>
+    <div class="grid3">
+      <div class="card"><b>確認禁區</b><p>哪些資料絕對不能進 AI、哪些可去識別測試、哪些可公開使用。</p></div>
+      <div class="card"><b>選第一案型</b><p>建議從科技犯罪、智財、金融犯罪或刑事陪偵擇一做 MVP。</p></div>
+      <div class="card"><b>定義 Demo</b><p>用 3 個場景驗收：查法、案件時間軸、官網分流。</p></div>
+    </div>
+    <p class="lead">建議提案名稱：兆宇私有化法律 AI 知識系統與案件工作區 PoC。</p>
+  </div></section>
+</main>
+
+<div class="ppt-nav oc-ppt-remote" role="navigation" aria-label="投影片控制列">
+  <div class="oc-ppt-remote-title">兆宇法律 AI 私有化提案</div>
+  <button onclick="go(-1)">←<span class="oc-ppt-remote-small">上一頁</span></button>
+  <button onclick="go(1)">→<span class="oc-ppt-remote-small">下一頁</span></button>
+  <button onclick="toggleOverview()">O<span class="oc-ppt-remote-small">總覽</span></button>
+  <button onclick="toggleFocus()">T<span class="oc-ppt-remote-small">重點</span></button>
+  <button onclick="toggleImmersive()">F<span class="oc-ppt-remote-small">沉浸</span></button>
+  <button class="voice-button" type="button" data-audio>V<span class="oc-ppt-remote-small" data-audio-label>語音</span></button>
+</div>
+<div class="modal" id="overview"><div class="modal-card"><h2>投影片總覽</h2><div class="overview-grid" id="overviewList"></div></div></div>
+<div class="modal" id="focus"><div class="modal-card"><h2>簡報重點</h2><ul><li>主軸是私有化法律 AI，不是一般聊天機器人。</li><li>對外 AI 與內部案件庫必須隔離。</li><li>內部 RAG 必須附來源、控權限、留紀錄。</li><li>30 天 MVP 先用公開與去識別資料驗證。</li></ul></div></div>
+<div class="toast" id="toast"></div>
+<script src="assets/runtime.js"></script>
+<script>
+const slides=[...document.querySelectorAll('.slide')],overview=document.getElementById('overview'),focus=document.getElementById('focus'),overviewList=document.getElementById('overviewList'),toast=document.getElementById('toast'),audio=document.getElementById('slide-audio'),audioBtn=document.querySelector('[data-audio]');let idx=0;
+function notify(t){toast.textContent=t;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200)}
+function audioLabel(t){audioBtn.querySelector('[data-audio-label]').textContent=t}
+function show(i){idx=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,n)=>{const active=n===idx;s.classList.toggle('active',active);s.classList.toggle('is-active',active)});location.hash='/' + (idx+1);audio.pause();audioLabel('語音')}
+function go(d){show(idx+d)}function toggleOverview(){overview.classList.toggle('show')}function toggleFocus(){focus.classList.toggle('show')}function toggleImmersive(){document.body.classList.toggle('ppt-immersive-on');notify(document.body.classList.contains('ppt-immersive-on')?'沉浸模式':'一般模式')}
+overviewList.innerHTML=slides.map((_,i)=>`<button onclick="show(${i});toggleOverview()">${String(i+1).padStart(2,'0')} / ${document.querySelectorAll('.h2,.h1')[i]?.textContent?.slice(0,28)||'Slide'}</button>`).join('');
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')go(1);if(e.key==='ArrowLeft')go(-1);if(e.key.toLowerCase()==='o')toggleOverview();if(e.key.toLowerCase()==='t')toggleFocus();if(e.key.toLowerCase()==='f')toggleImmersive();if(e.key==='Escape'){overview.classList.remove('show');focus.classList.remove('show')}});
+audioBtn.addEventListener('click',()=>{const src='audio/slide-' + String(idx+1).padStart(2,'0') + '.mp3';if(audio.getAttribute('src')!==src){audio.pause();audio.setAttribute('src',src)}if(audio.paused){audio.play().then(()=>audioLabel('暫停')).catch(()=>{audioLabel('語音');notify('此頁語音待載入')})}else{audio.pause();audioLabel('語音')}});audio.addEventListener('ended',()=>audioLabel('語音'));
+if(location.hash.startsWith('#/'))show(Number(location.hash.slice(2))-1);
+</script>
+</body>
+</html>
