@@ -6,14 +6,14 @@ const jsonPath = path.join(root, 'catalog.json');
 const entries = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 
 const next = {
-  slug: 'fsmlab-ai-growth-proposal-owner-voice-20260624',
-  name: 'FSMLAB 飛創美｜AI 成長規劃老闆聲線 AI 語音導覽版 HTML PPT',
-  desc: '以原飛創美 AI 成長規劃簡報為基礎，另開新版本使用 Jason 提供的飛創美粉衣老闆影片作為聲音樣本，逐頁生成 AI 語音講解，並保留 no-ghost 與控制列安全區修正。',
+  slug: 'fsmlab-business-future-owner-voice-20260624',
+  name: 'FSMLAB 飛創美｜事業與未來藍圖老闆聲線 AI 語音導覽版 HTML PPT',
+  desc: '重新定義為飛創美事業與未來主題，整理科技美容定位、肌膚管理服務、AI 會員經營、內容與招商工具、90 天落地藍圖；使用 Jason 提供的飛創美粉衣老闆影片作為聲音樣本，逐頁生成 AI 語音講解。',
   source: 'Jason 2026-06-24 提供飛創美老闆訪談影片 + 原 FSMLAB 飛創美 AI 成長規劃簡報公開資料整理',
   date: '2026-06-24',
   category: '品牌分析',
-  url: 'https://hanassitant-cloud.github.io/jarvistest/fsmlab-ai-growth-proposal-owner-voice-20260624/',
-  zip_url: 'https://hanassitant-cloud.github.io/jarvistest/fsmlab-ai-growth-proposal-owner-voice-20260624.zip',
+  url: 'https://hanassitant-cloud.github.io/jarvistest/fsmlab-business-future-owner-voice-20260624/',
+  zip_url: 'https://hanassitant-cloud.github.io/jarvistest/fsmlab-business-future-owner-voice-20260624.zip',
   notes: '新版本，不覆蓋原版。僅用 Jason 提供影片中粉色衣服老闆段落作為授權聲音樣本，透過本機 F5-TTS 依每頁講稿生成 audio/slide-xx.m4a；不是影片原聲切片，也不包含影片後段白色衣服講者。'
 };
 
