@@ -6,15 +6,15 @@ const jsonPath = path.join(root, 'catalog.json');
 const entries = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 
 const next = {
-  slug: 'fsmlab-ai-growth-proposal',
-  name: 'FSMLAB 飛創美｜AI 成長規劃 HTML PPT',
-  desc: '依黃鳳美 Nina / FSMLAB 飛創美近兩年公開資料，整理品牌定位、產業方向、AI 肌膚檢測、LINE AI 顧問、內容行銷、訓練招商與 90 天落地路線圖。',
-  source: 'Jason 2026-06-14 指示 + FSMLAB 官網、公開新聞、公開體驗文、公司登記與產業資料整理',
-  date: '2026-06-14',
+  slug: 'fsmlab-ai-growth-proposal-owner-voice-20260624',
+  name: 'FSMLAB 飛創美｜AI 成長規劃老闆真人語音版 HTML PPT',
+  desc: '以原飛創美 AI 成長規劃簡報為基礎，另開新版本加入 Jason 提供的飛創美老闆直式訪談影片原聲、老闆影片截圖、逐頁真人語音按鈕，並保留 no-ghost 與控制列安全區修正。',
+  source: 'Jason 2026-06-24 提供飛創美老闆訪談影片 + 原 FSMLAB 飛創美 AI 成長規劃簡報公開資料整理',
+  date: '2026-06-24',
   category: '品牌分析',
-  url: 'https://hanassitant-cloud.github.io/jarvistest/fsmlab-ai-growth-proposal/',
-  zip_url: 'https://hanassitant-cloud.github.io/jarvistest/fsmlab-ai-growth-proposal.zip',
-  notes: '公開資料顧問提案版；量子、非侵入、改善效果等字眼均作為品牌宣傳與市場定位分析，不作醫療或臨床功效承諾。已保留逐頁真人語音稿與 audio/slide-xx.m4a 播放結構；目前待 Jason 核准真人音源後再切入正式音檔，不使用機器感 TTS 充數。'
+  url: 'https://hanassitant-cloud.github.io/jarvistest/fsmlab-ai-growth-proposal-owner-voice-20260624/',
+  zip_url: 'https://hanassitant-cloud.github.io/jarvistest/fsmlab-ai-growth-proposal-owner-voice-20260624.zip',
+  notes: '新版本，不覆蓋原版。語音來源為 Jason 提供的飛創美老闆影片原聲，已切成 audio/slide-xx.m4a；因來源影片約 83 秒，本版採逐頁真人原聲片段，不是重新仿聲生成完整逐字稿。'
 };
 
 const idx = entries.findIndex(e => e.slug === next.slug);
