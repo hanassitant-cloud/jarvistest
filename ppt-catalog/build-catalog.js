@@ -14,7 +14,7 @@ const next = {
   category: '品牌分析',
   url: 'https://hanassitant-cloud.github.io/jarvistest/fsmlab-ai-growth-proposal-owner-voice-20260624/',
   zip_url: 'https://hanassitant-cloud.github.io/jarvistest/fsmlab-ai-growth-proposal-owner-voice-20260624.zip',
-  notes: '新版本，不覆蓋原版。語音來源為 Jason 提供的飛創美老闆影片原聲，已切成 audio/slide-xx.m4a；因來源影片約 83 秒，本版採逐頁真人原聲片段，不是重新仿聲生成完整逐字稿。'
+  notes: '新版本，不覆蓋原版。語音來源只取 Jason 提供影片中粉色衣服老闆的 0-76 秒原聲，已切成 audio/slide-xx.m4a；不包含影片後段白色衣服講者，也不是重新仿聲生成完整逐字稿。'
 };
 
 const idx = entries.findIndex(e => e.slug === next.slug);
