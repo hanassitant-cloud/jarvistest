@@ -19,6 +19,7 @@
       --dark: #18161d;
       --good: #236b4e;
       --warn: #925c00;
+      --danger: #8a2d2d;
     }
     * { box-sizing: border-box; }
     body {
@@ -26,11 +27,14 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
       background: var(--paper);
       color: var(--ink);
+      overflow-x: hidden;
     }
     main {
       min-height: 100vh;
       display: grid;
       grid-template-columns: minmax(240px, 330px) 1fr;
+      max-width: 100%;
+      min-width: 0;
     }
     aside {
       border-right: 1px solid var(--line);
@@ -40,6 +44,8 @@
       top: 0;
       height: 100vh;
       overflow: auto;
+      max-width: 100%;
+      min-width: 0;
     }
     h1 {
       margin: 0 0 8px;
@@ -68,6 +74,16 @@
       line-height: 1.55;
       font-size: 14px;
     }
+    .side-note {
+      border: 1px solid rgba(124, 63, 88, .22);
+      border-radius: 8px;
+      background: #fffaf4;
+      padding: 12px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
     .nav {
       display: grid;
       gap: 8px;
@@ -86,6 +102,8 @@
       border-radius: 8px;
       text-align: left;
       cursor: pointer;
+      min-width: 0;
+      overflow-wrap: anywhere;
     }
     button.active {
       border-color: var(--accent);
@@ -116,6 +134,7 @@
       padding: 28px clamp(18px, 4vw, 52px);
       max-width: 1160px;
       width: 100%;
+      min-width: 0;
     }
     .topline,
     .draw-actions,
@@ -135,6 +154,8 @@
       border-radius: 999px;
       padding: 6px 10px;
       background: var(--soft);
+      max-width: 100%;
+      overflow-wrap: anywhere;
     }
     .pill.good {
       border-color: rgba(35, 107, 78, .3);
@@ -146,10 +167,39 @@
       color: var(--warn);
       background: #fff5dc;
     }
+    .pill.owner {
+      border-color: rgba(124, 63, 88, .28);
+      color: var(--accent);
+      background: #fff0f6;
+    }
     .result-head {
       border-bottom: 1px solid var(--line);
       padding-bottom: 22px;
       margin-bottom: 22px;
+    }
+    .hero-copy {
+      max-width: 820px;
+    }
+    .hero-copy p {
+      color: var(--muted);
+      font-size: 17px;
+    }
+    .value-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .value-item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+      min-width: 0;
+    }
+    .value-item strong {
+      display: block;
+      margin-bottom: 5px;
     }
     .question-grid,
     .grid,
@@ -157,6 +207,7 @@
       display: grid;
       gap: 14px;
       align-items: start;
+      min-width: 0;
     }
     .question-grid {
       grid-template-columns: minmax(0, 1.3fr) minmax(220px, .7fr);
@@ -175,6 +226,7 @@
       border-radius: 8px;
       background: var(--panel);
       padding: 16px;
+      min-width: 0;
     }
     .label {
       display: block;
@@ -203,12 +255,14 @@
       color: #fff;
       padding: 18px;
       margin-bottom: 16px;
+      min-width: 0;
     }
     .three-card-row {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
       margin-bottom: 16px;
+      min-width: 0;
     }
     .card-face {
       min-height: 210px;
@@ -280,6 +334,50 @@
       padding: 14px;
       margin-top: 12px;
     }
+    .account-box {
+      border: 1px solid rgba(124, 63, 88, .22);
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px;
+      margin-top: 12px;
+    }
+    .account-status {
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin: 10px 0;
+      color: var(--muted);
+      background: var(--soft);
+      line-height: 1.6;
+    }
+    .account-status.active {
+      color: var(--good);
+      background: #edf8f1;
+    }
+    .price-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px;
+      margin: 8px 0 10px;
+    }
+    .price-line strong {
+      font-size: 26px;
+      color: var(--accent);
+    }
+    .report-title {
+      border-left: 4px solid var(--gold);
+      background: #fff8df;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+    }
+    .risk-note {
+      border: 1px solid rgba(138, 45, 45, .25);
+      border-radius: 8px;
+      background: #fff4f1;
+      color: var(--danger);
+      padding: 12px 14px;
+      line-height: 1.65;
+    }
     .field-row {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
@@ -335,10 +433,15 @@
       .nav {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+      .nav button {
+        width: 100%;
+        min-height: 46px;
+      }
       .stage { padding: 22px 16px; }
       .grid,
       .question-grid,
-      .report-grid {
+      .report-grid,
+      .value-list {
         grid-template-columns: 1fr;
       }
       .field-row {
@@ -351,14 +454,33 @@
         min-height: 170px;
       }
     }
+    @media (max-width: 640px) {
+      aside { padding: 22px 16px; }
+      .nav {
+        grid-template-columns: 1fr;
+      }
+      .topline,
+      .draw-actions,
+      .choice-row {
+        align-items: stretch;
+      }
+      .topline {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .topline .pill {
+        border-radius: 8px;
+      }
+    }
   </style>
 </head>
 <body>
   <main>
     <aside>
       <h1>塔羅牌 MVP</h1>
-      <p class="sub">78 張牌、三張牌牌陣、免費摘要、付費報告預覽。付款目前只做 MVP 狀態，不接真實帳戶。</p>
+      <p class="sub">輸入問題、選擇情境、抽三張牌。免費看方向，完整報告預覽下一步行動與風險提醒。</p>
       <nav class="nav" id="nav"></nav>
+      <div class="side-note">目前是公開 Vercel MVP：可體驗流程與內容語氣，但尚未接會員、後端或真實付款。</div>
     </aside>
     <section class="stage">
       <div class="topline">
@@ -381,10 +503,19 @@
     let reportHistory = [];
     let unlockedReports = {};
     let waitlistContact = "";
+    let accountEmail = "";
 
     const historyKey = "tarotMvpReports";
     const unlockKey = "tarotMvpUnlocks";
     const waitlistKey = "tarotMvpWaitlistContact";
+    const accountKey = "tarotMvpAccountEmail";
+    const unlimitedAccounts = [
+      {
+        emailHash: "c3e84b2e13684b2d",
+        name: "William 小主人",
+        plan: "無限使用"
+      }
+    ];
 
     const categories = [
       {
@@ -469,15 +600,48 @@
       return userQuestion.trim() || item.questions[0];
     }
 
+    function normalizeEmail(value) {
+      return String(value || "").trim().toLowerCase();
+    }
+
+    function hashEmail(value) {
+      let h1 = 0xdeadbeef;
+      let h2 = 0x41c6ce57;
+      const text = normalizeEmail(value);
+      for (let i = 0; i < text.length; i += 1) {
+        const ch = text.charCodeAt(i);
+        h1 = Math.imul(h1 ^ ch, 2654435761);
+        h2 = Math.imul(h2 ^ ch, 1597334677);
+      }
+      h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+      h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+      return `${(h2 >>> 0).toString(16).padStart(8, "0")}${(h1 >>> 0).toString(16).padStart(8, "0")}`;
+    }
+
+    function activeUnlimitedAccount() {
+      const emailHash = hashEmail(accountEmail);
+      return unlimitedAccounts.find(account => account.emailHash === emailHash) || null;
+    }
+
+    function hasUnlimitedAccess() {
+      return Boolean(activeUnlimitedAccount());
+    }
+
+    function reportUnlocked() {
+      return hasUnlimitedAccess() || Boolean(lastReportId && unlockedReports[lastReportId]);
+    }
+
     function loadState() {
       try {
         reportHistory = JSON.parse(localStorage.getItem(historyKey) || "[]");
         unlockedReports = JSON.parse(localStorage.getItem(unlockKey) || "{}");
         waitlistContact = localStorage.getItem(waitlistKey) || "";
+        accountEmail = localStorage.getItem(accountKey) || "";
       } catch {
         reportHistory = [];
         unlockedReports = {};
         waitlistContact = "";
+        accountEmail = "";
       }
     }
 
@@ -485,6 +649,7 @@
       localStorage.setItem(historyKey, JSON.stringify(reportHistory.slice(0, 12)));
       localStorage.setItem(unlockKey, JSON.stringify(unlockedReports));
       localStorage.setItem(waitlistKey, waitlistContact);
+      localStorage.setItem(accountKey, accountEmail);
     }
 
     function drawThreeCards() {
@@ -499,6 +664,10 @@
         });
       }
       lastReportId = `TAROT-${new Date().toISOString().slice(0, 10).replaceAll("-", "")}-${Math.floor(1000 + Math.random() * 9000)}`;
+      if (hasUnlimitedAccess()) {
+        unlockedReports[lastReportId] = true;
+        persistState();
+      }
       return cards;
     }
 
@@ -516,7 +685,7 @@
         categoryId: item.id,
         categoryName: item.name,
         question: currentQuestion(item),
-        unlocked: Boolean(unlockedReports[lastReportId]),
+        unlocked: reportUnlocked(),
         summary: makeSummary(item).replace(/<[^>]*>/g, ""),
         cards: drawn.map((card, index) => ({
           position: positions[index],
@@ -645,6 +814,10 @@
       }
       const positions = spreadPositions[item.id] || ["第一張", "第二張", "第三張"];
       return `
+        <div class="report-title">
+          <strong>${escapeHtml(item.name)}完整三張牌報告</strong>
+          <p class="note">這份預覽示範解鎖後的閱讀深度：不只列牌義，也把三張牌串成可執行的下一步。</p>
+        </div>
         <p><strong>報告編號：${lastReportId}</strong></p>
         <p>${makeSummary(item)}</p>
         ${drawn.map((card, index) => `
@@ -659,7 +832,24 @@
         <ul class="action-list">
           ${item.actions.map(action => `<li>${escapeHtml(action)}</li>`).join("")}
         </ul>
-        <p class="note">${escapeHtml(item.safety)}</p>`;
+        <div class="divider"></div>
+        <h3>風險與界線</h3>
+        <p class="risk-note">${escapeHtml(item.safety)} 塔羅不保證結果，也不替你做不可逆的現實決定；若涉及安全、醫療、法律或投資，請優先找合格專業人士。</p>`;
+    }
+
+    function renderAccountStatus() {
+      const account = activeUnlimitedAccount();
+      if (account) {
+        return `
+          <div class="account-status active">
+            <strong>${escapeHtml(account.name)}</strong> 已啟用 ${escapeHtml(account.plan)}。
+            這個裝置已通過白名單 Gmail 驗證，所有抽牌報告都會自動標記為已解鎖。
+          </div>`;
+      }
+      return `
+        <div class="account-status">
+          尚未啟用無限使用帳號。請輸入 Jason 指定的白名單 Gmail。
+        </div>`;
     }
 
     function renderTemplates(item) {
@@ -670,17 +860,26 @@
 
     function render(item) {
       selected = item;
+      const account = activeUnlimitedAccount();
       document.querySelectorAll(".nav button").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.id === item.id);
       });
       content.innerHTML = `
         <div class="result-head">
-          <h2>${escapeHtml(item.name)}</h2>
-          <p class="note">${escapeHtml(item.tone)}</p>
+          <div class="hero-copy">
+            <h2>${escapeHtml(item.name)}</h2>
+            <p>把你的問題放進三張牌牌陣：第一張看現況，第二張看阻力或關係能量，第三張給低風險下一步。</p>
+          </div>
+          <div class="value-list">
+            <div class="value-item"><strong>免費摘要</strong><span class="note">立即看三張牌短解與整體方向。</span></div>
+            <div class="value-item"><strong>完整報告預覽</strong><span class="note">示範逐張展開、串連重點與行動建議。</span></div>
+            <div class="value-item"><strong>安全界線</strong><span class="note">不做復合、獲利、醫療或法律保證。</span></div>
+          </div>
+          <p class="note" style="margin-top:14px">${escapeHtml(item.tone)}</p>
           <div class="question-grid">
             <section class="input-panel">
               <span class="label">你的問題</span>
-              <textarea id="questionInput" placeholder="請輸入想問的問題。例：這段關係接下來適合怎麼做？">${escapeHtml(userQuestion)}</textarea>
+              <textarea id="questionInput" placeholder="請輸入想問的問題">${escapeHtml(userQuestion)}</textarea>
               <p class="hint">問題會帶入免費摘要與付費報告預覽。MVP 不會保存個資，也不接真實付款。</p>
             </section>
             <section class="input-panel">
@@ -711,14 +910,23 @@
             <p>${escapeHtml(item.unlock)}</p>
             <div class="payment-box">
               <span class="label">付款狀態</span>
-              <p><strong>${drawn.length && unlockedReports[lastReportId] ? "已模擬解鎖" : "候補收集 / 金流未接"}</strong></p>
-              <p class="note">下一階段才接綠界、藍新、TapPay、PayPal 或 Gumroad。未經 Jason 同意前，不綁定真實付款帳戶。</p>
+              <p><strong>${drawn.length && reportUnlocked() ? (account ? `${account.name} 無限使用中` : "已模擬解鎖") : "候補收集 / 金流未接"}</strong></p>
+              <div class="price-line"><strong>NT$ 49</strong><span class="note">MVP 測試價，占位文案，尚未啟用真實付款。</span></div>
+              <p class="note">下一階段才接綠界、藍新、TapPay、PayPal 或 Gumroad。未經 Jason 同意前，不綁定真實付款帳戶，也不收信用卡資料。</p>
+              <div class="account-box">
+                <span class="label">白名單帳號</span>
+                ${renderAccountStatus()}
+                <div class="field-row">
+                  <input id="accountInput" type="email" inputmode="email" autocomplete="email" placeholder="輸入 Gmail 啟用無限使用" value="${escapeHtml(accountEmail)}">
+                  <button type="button" id="accountBtn">啟用帳號</button>
+                </div>
+              </div>
               <div class="field-row">
                 <input id="waitlistInput" type="text" placeholder="候補聯絡方式或備註" value="${escapeHtml(waitlistContact)}">
                 <button type="button" id="waitlistBtn">保存候補</button>
               </div>
               <div class="draw-actions" style="margin-top:10px">
-                <button type="button" id="mockUnlockBtn" ${drawn.length ? "" : "disabled"}>${drawn.length && unlockedReports[lastReportId] ? "重新標記解鎖" : "模擬解鎖"}</button>
+                <button type="button" id="mockUnlockBtn" ${drawn.length && !account ? "" : "disabled"}>${account ? "無限帳號已啟用" : drawn.length && unlockedReports[lastReportId] ? "重新標記解鎖" : "模擬解鎖"}</button>
               </div>
             </div>
             <div class="divider"></div>
@@ -767,6 +975,14 @@
       });
       document.querySelector("#downloadBtn").addEventListener("click", () => {
         downloadCurrentReport(selected);
+      });
+      document.querySelector("#accountBtn").addEventListener("click", () => {
+        accountEmail = document.querySelector("#accountInput").value.trim();
+        if (hasUnlimitedAccess() && lastReportId) {
+          unlockedReports[lastReportId] = true;
+        }
+        persistState();
+        render(selected);
       });
       document.querySelector("#waitlistBtn").addEventListener("click", () => {
         waitlistContact = document.querySelector("#waitlistInput").value.trim();
