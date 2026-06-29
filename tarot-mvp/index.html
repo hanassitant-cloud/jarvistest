@@ -504,11 +504,13 @@
     let unlockedReports = {};
     let waitlistContact = "";
     let accountEmail = "";
+    let restoredCategoryId = "";
 
     const historyKey = "tarotMvpReports";
     const unlockKey = "tarotMvpUnlocks";
     const waitlistKey = "tarotMvpWaitlistContact";
     const accountKey = "tarotMvpAccountEmail";
+    const currentReadingKey = "tarotMvpCurrentReading";
     const unlimitedAccounts = [
       {
         emailHash: "c3e84b2e13684b2d",
@@ -652,6 +654,52 @@
       localStorage.setItem(accountKey, accountEmail);
     }
 
+    function persistCurrentReading() {
+      const payload = {
+        categoryId: selected?.id || restoredCategoryId || categories[0]?.id || "",
+        question: userQuestion,
+        reportId: lastReportId,
+        paidOpen,
+        cards: drawn.map(card => ({
+          id: card.id,
+          orientation: card.orientation
+        }))
+      };
+      localStorage.setItem(currentReadingKey, JSON.stringify(payload));
+    }
+
+    function clearCurrentReading() {
+      localStorage.removeItem(currentReadingKey);
+    }
+
+    function loadCurrentReading() {
+      try {
+        const saved = JSON.parse(localStorage.getItem(currentReadingKey) || "null");
+        if (!saved || typeof saved !== "object") return;
+        restoredCategoryId = saved.categoryId || "";
+        userQuestion = saved.question || "";
+        lastReportId = saved.reportId || "";
+        paidOpen = Boolean(saved.paidOpen);
+        const cards = Array.isArray(saved.cards) ? saved.cards : [];
+        drawn = cards
+          .map(savedCard => {
+            const card = deck.find(item => item.id === savedCard.id);
+            if (!card) return null;
+            return {
+              ...card,
+              orientation: savedCard.orientation === "逆位" ? "逆位" : "正位"
+            };
+          })
+          .filter(Boolean);
+      } catch {
+        restoredCategoryId = "";
+        userQuestion = "";
+        lastReportId = "";
+        paidOpen = false;
+        drawn = [];
+      }
+    }
+
     function drawThreeCards() {
       const pool = [...deck];
       const cards = [];
@@ -668,6 +716,7 @@
         unlockedReports[lastReportId] = true;
         persistState();
       }
+      persistCurrentReading();
       return cards;
     }
 
@@ -948,6 +997,7 @@
 
       document.querySelector("#questionInput").addEventListener("input", event => {
         userQuestion = event.target.value;
+        persistCurrentReading();
       });
       document.querySelectorAll(".templateBtn").forEach(button => {
         button.addEventListener("click", () => {
@@ -959,18 +1009,22 @@
         userQuestion = document.querySelector("#questionInput").value;
         drawn = drawThreeCards();
         paidOpen = false;
+        persistCurrentReading();
         render(selected);
       });
       document.querySelector("#freeBtn").addEventListener("click", () => {
         paidOpen = false;
+        persistCurrentReading();
         render(selected);
       });
       document.querySelector("#paidBtn").addEventListener("click", () => {
         paidOpen = true;
+        persistCurrentReading();
         render(selected);
       });
       document.querySelector("#saveBtn").addEventListener("click", () => {
         saveCurrentReport(selected);
+        persistCurrentReading();
         render(selected);
       });
       document.querySelector("#downloadBtn").addEventListener("click", () => {
@@ -982,6 +1036,7 @@
           unlockedReports[lastReportId] = true;
         }
         persistState();
+        persistCurrentReading();
         render(selected);
       });
       document.querySelector("#waitlistBtn").addEventListener("click", () => {
@@ -995,19 +1050,22 @@
         saveCurrentReport(selected);
         paidOpen = true;
         persistState();
+        persistCurrentReading();
         render(selected);
       });
       document.querySelector("#resetBtn").addEventListener("click", () => {
         drawn = [];
         paidOpen = false;
         lastReportId = "";
+        clearCurrentReading();
         render(selected);
       });
+      persistCurrentReading();
     }
 
     function initNav() {
       nav.innerHTML = "";
-      categories.forEach((item, index) => {
+      categories.forEach(item => {
         const btn = document.createElement("button");
         btn.type = "button";
         btn.dataset.id = item.id;
@@ -1017,8 +1075,9 @@
           render(item);
         });
         nav.appendChild(btn);
-        if (index === 0) render(item);
       });
+      const initial = categories.find(item => item.id === restoredCategoryId) || categories[0];
+      render(initial);
     }
 
     fetch("tarot-card-content-structured-20260608.json")
@@ -1031,6 +1090,7 @@
         deckStatus.textContent = `牌庫 ${deck.length} 張`;
         deckStatus.classList.add("good");
         loadState();
+        loadCurrentReading();
         initNav();
       })
       .catch(error => {
