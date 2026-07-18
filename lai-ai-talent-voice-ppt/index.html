@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 時代的人才與組織轉型｜賴總 AI 語音導覽版</title>
+<style>
+:root{--paper:#f2eadf;--ink:#171717;--muted:#5d5a55;--line:#c9bfb0;--rust:#b5392a;--rust2:#8f2d23;--cream:#fffaf2;--blue:#294c60;--green:#41644a}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;overflow:hidden}
+.deck{width:100vw;height:100vh}.slide{display:none;position:relative;width:100vw;height:100vh;padding:48px 80px 128px;background:var(--paper);overflow:hidden}.slide.active{display:block}
+.slide:before{content:"";position:absolute;inset:0;opacity:.35;background-image:linear-gradient(rgba(20,20,20,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(20,20,20,.055) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at center,#000 42%,transparent 85%)}
+	.slide>*{position:relative;z-index:1}.kicker{font-size:13px;font-weight:900;letter-spacing:4px;color:var(--rust);text-transform:uppercase;margin-bottom:14px}.h1{font-size:68px;line-height:1.05;letter-spacing:-.02em;margin:0 0 18px;font-weight:950}.rust{color:var(--rust)}.sub{font-size:22px;line-height:1.55;color:var(--muted);max-width:880px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--cream);border:2px solid var(--ink);border-radius:10px;padding:22px 24px;box-shadow:8px 8px 0 rgba(0,0,0,.08)}.card h3{font-size:25px;margin:0 0 10px}.card p,.card li{font-size:17px;line-height:1.55;color:var(--muted)}.card ul{margin:8px 0 0;padding-left:22px}.hero{background:var(--rust);color:white;border-color:var(--rust)}.hero p,.hero li{color:rgba(255,255,255,.88)}.pill{display:inline-block;border:2px solid var(--ink);background:var(--cream);border-radius:999px;padding:9px 14px;margin:6px 8px 0 0;font-size:15px;font-weight:800}.num{font-family:Georgia,serif;font-size:118px;line-height:.9;color:var(--rust);font-weight:900}.footer{position:absolute;left:80px;right:80px;bottom:94px;border-top:1px solid var(--line);padding-top:14px;display:flex;justify-content:space-between;color:#8f887d;font-size:12px;letter-spacing:.14em;text-transform:uppercase}.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:24px}.step{min-height:160px;background:var(--cream);border:2px solid var(--ink);border-radius:10px;padding:16px;display:flex;flex-direction:column}.step b{font-size:20px}.step small{color:var(--rust);font-weight:900;letter-spacing:2px}.step span{margin-top:auto;color:var(--muted);line-height:1.45}.quote{border-left:8px solid var(--rust);background:rgba(255,250,242,.8);padding:22px 28px;font-size:28px;line-height:1.35;font-weight:900;max-width:880px}.voice-panel{margin-top:20px;background:#fffaf2;border:2px solid var(--ink);border-radius:12px;padding:16px 18px;box-shadow:8px 8px 0 rgba(0,0,0,.08);max-width:980px}.voice-panel h3{margin:0 0 8px;font-size:22px}.voice-panel p{margin:0;color:var(--muted);font-size:15px;line-height:1.45}.notice{font-size:12px;color:#7d7367;margin-top:10px}.diagram{width:100%;height:400px}.controls{position:fixed;z-index:5;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;background:rgba(255,250,242,.94);border:1px solid var(--line);border-radius:999px;padding:8px 10px;box-shadow:0 8px 30px rgba(0,0,0,.12)}.controls button{appearance:none;border:1px solid var(--line);background:var(--cream);color:var(--ink);border-radius:999px;min-width:42px;height:34px;padding:0 12px;font-size:14px;font-weight:900;cursor:pointer}.controls button:hover,.controls button:focus-visible{border-color:var(--rust);outline:none}.controls .count{min-width:58px;text-align:center;color:#5d5a55;font-size:13px;font-weight:900}.voice-control{min-width:82px;color:white!important;background:var(--rust)!important;border-color:var(--rust2)!important}.voice-status{min-width:92px;color:#6f665c;font-size:12px;font-weight:800;white-space:nowrap}.overview{position:fixed;inset:0;z-index:4;display:none;background:rgba(23,23,23,.88);padding:28px;overflow:auto}.overview.open{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.thumb{background:var(--paper);border:2px solid var(--cream);border-radius:8px;min-height:130px;padding:18px;color:var(--ink);cursor:pointer;text-align:left}.thumb b{display:block;color:var(--rust);margin-bottom:8px}.thumb span{font-weight:900;line-height:1.35}
+	@media(max-width:760px){.slide{padding:36px 28px 136px;overflow-y:auto;overflow-x:hidden}.slide>*{max-width:100%}.kicker{overflow-wrap:anywhere}.h1{font-size:38px}.sub{font-size:18px}.grid2,.grid3,.timeline{grid-template-columns:1fr}.card,.step,.voice-panel{max-width:100%}.footer{left:28px;right:28px;bottom:92px}.num{font-size:78px}.controls{width:calc(100vw - 24px);justify-content:center;gap:6px}.controls button{min-width:38px;padding:0 10px}.voice-control{min-width:72px}.voice-status{display:none}#fullBtn{display:none}}
+</style>
+</head>
+<body>
+<div class="deck">
+	  <section class="slide active">
+	    <div class="kicker">YouTube Brief · NotebookLM Source</div>
+    <h1 class="h1">AI 時代的人才<br><span class="rust">與組織轉型</span></h1>
+	    <p class="sub">整理自 Ben桑日本漫談影片：落合陽一對白領工作、實體 AI、日本產業機會與未來人才的預測。此版加入賴總授權聲音樣本生成的逐頁 AI 語音導覽。</p>
+    <div class="voice-panel">
+	      <h3>賴總聲音素材與 AI 旁白</h3>
+	      <p>本版使用 Jason 提供、標記為賴總聲音的 LINE 音訊素材，以本機 F5-TTS 生成逐頁 AI 語音導覽。語音播放統一放在下方控制列，不宣稱為真人現場錄製。</p>
+      <div class="notice">對外使用建議標示：依賴總交辦之公開 YouTube 影片整理，並使用授權聲音樣本製作 AI 語音示範。</div>
+    </div>
+    <div class="timeline">
+      <div class="step"><small>00:00</small><b>開場</b><span>AI 第一次讓人類外包思考</span></div>
+      <div class="step"><small>02:30</small><b>白領終結</b><span>文書與控制型工作被壓縮</span></div>
+      <div class="step"><small>08:23</small><b>AI 與戰爭</b><span>實體 AI 進入國防主戰場</span></div>
+      <div class="step"><small>11:29</small><b>日本機會</b><span>少子化與缺工反成轉機</span></div>
+      <div class="step"><small>16:19</small><b>再見智人</b><span>從 KPI 控制轉向共生體驗</span></div>
+    </div>
+    <div class="footer"><span>LiangHsing AI brief</span><span>01 / 09</span></div>
+  </section>
+	  <section class="slide">
+	    <div class="kicker">Core Thesis</div>
+    <h1 class="h1">AI 的差異：<span class="rust">不是更快的工具</span></h1>
+    <div class="grid2">
+      <div class="card"><h3>過去技術革命</h3><p>火、文字、印刷、蒸汽機、網路，多半是在擴張肌肉、記憶、傳播與計算能力。</p></div>
+      <div class="card hero"><h3>這次 AI 革命</h3><p>生成式 AI 讓人類第一次把「解讀資訊、抓重點、邏輯分析、部分決策」外包出去。</p></div>
+    </div>
+    <p class="sub" style="margin-top:30px">所以衝擊最大的不是單一職務，而是所有靠整理、判斷、控制流程創造價值的白領工作。</p>
+    <div class="footer"><span>AI changes cognition</span><span>02 / 09</span></div>
+  </section>
+	  <section class="slide">
+	    <div class="kicker">Prediction 01</div>
+    <h1 class="h1">白領工作會被<br><span class="rust">重新拆解</span></h1>
+    <div class="grid3">
+      <div class="card"><div class="num">1</div><h3>文書</h3><p>規格書、合約、報告、表格整理會先被 AI 壓縮。</p></div>
+      <div class="card"><div class="num">2</div><h3>控制</h3><p>SOP、打卡、KPI 的管理邏輯不再是唯一有效模式。</p></div>
+      <div class="card"><div class="num">3</div><h3>判斷</h3><p>人類價值轉向定義問題、看出異常、做出取捨。</p></div>
+    </div>
+    <div class="footer"><span>White collar compression</span><span>03 / 09</span></div>
+  </section>
+	  <section class="slide">
+	    <div class="kicker">Prediction 02</div>
+    <h1 class="h1">下一波核心：<span class="rust">實體 AI</span></h1>
+    <svg class="diagram" viewBox="0 0 1100 430" xmlns="http://www.w3.org/2000/svg">
+      <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#171717"/></marker></defs>
+      <rect x="35" y="145" width="230" height="130" rx="12" fill="#fffaf2" stroke="#171717" stroke-width="3"/><text x="150" y="202" text-anchor="middle" font-size="28" font-weight="900">螢幕內 AI</text><text x="150" y="238" text-anchor="middle" font-size="18" fill="#5d5a55">文字、圖像、分析</text>
+      <line x1="275" y1="210" x2="395" y2="210" stroke="#171717" stroke-width="3" marker-end="url(#a)"/>
+      <rect x="410" y="105" width="280" height="210" rx="12" fill="#b5392a" stroke="#b5392a" stroke-width="3"/><text x="550" y="185" text-anchor="middle" font-size="34" font-weight="900" fill="white">實體 AI</text><text x="550" y="228" text-anchor="middle" font-size="18" fill="rgba(255,255,255,.85)">機器人 · 物流 · 藥物 · 國防</text>
+      <line x1="700" y1="210" x2="820" y2="210" stroke="#171717" stroke-width="3" marker-end="url(#a)"/>
+      <rect x="835" y="145" width="230" height="130" rx="12" fill="#fffaf2" stroke="#171717" stroke-width="3"/><text x="950" y="202" text-anchor="middle" font-size="28" font-weight="900">成本重構</text><text x="950" y="238" text-anchor="middle" font-size="18" fill="#5d5a55">自動化武器與供應鏈</text>
+    </svg>
+    <p class="sub">影片把國防視為實體 AI 最快推進的場域，因為廉價自動化武器會改變非對稱戰爭的成本結構。</p>
+    <div class="footer"><span>Physical AI</span><span>04 / 09</span></div>
+  </section>
+	  <section class="slide">
+	    <div class="kicker">Prediction 03</div>
+    <h1 class="h1">日本的少子化<br><span class="rust">可能變成祝福</span></h1>
+    <div class="grid2">
+      <div class="card hero"><h3>人口減少 × AI 自動化</h3><p>對缺工國家，AI 不是單純取代勞工，而是填補 entry-level 與基礎工作缺口。</p></div>
+      <div class="card"><h3>兩個產業位置</h3><ul><li>重工業與可信供應鏈製造</li><li>文化 IP、角色、故事與世界觀</li></ul></div>
+    </div>
+    <p class="sub" style="margin-top:28px">對良興的啟發：AI 可先補足重複作業與知識檢索，把人的時間釋放到商品判斷、客戶互動與品牌信任。</p>
+    <div class="footer"><span>Japan opportunity</span><span>05 / 09</span></div>
+  </section>
+	  <section class="slide">
+	    <div class="kicker">Organization Shift</div>
+    <h1 class="h1">從 KPI 控制<br>到 <span class="rust">數位發酵</span></h1>
+    <div class="grid2">
+      <div class="card"><h3>工業時代</h3><p>管理像控制機器：上司/下屬、企劃/執行、成本/利潤，以 SOP 和 KPI 確保每個齒輪穩定。</p></div>
+      <div class="card hero"><h3>AI 時代</h3><p>AI 像微生物。人類不必監看每一步，而是設計環境、設定方向、觀察氣味、調整條件。</p></div>
+    </div>
+    <div class="quote" style="margin-top:32px">人類角色從「下命令」轉向「調律」：給 AI 好材料、好環境、好方向。</div>
+    <div class="footer"><span>Digital fermentation</span><span>06 / 09</span></div>
+  </section>
+	  <section class="slide">
+	    <div class="kicker">Future Talent</div>
+    <h1 class="h1">未來最吃香的<br><span class="rust">兩種人才</span></h1>
+    <div class="grid2">
+      <div class="card hero"><h3>唱針型人才</h3><p>本身不發聲，但能讀懂刻痕，還原作品的味道。關鍵能力是品味、直覺、敏銳感、看出不對勁。</p></div>
+      <div class="card"><h3>村長型人才</h3><p>不一定最會種田或打獵，但懂得設計環境、聚集人、讓大家願意一起做事。</p></div>
+    </div>
+    <p class="sub" style="margin-top:30px">良興人才培育不只教流程，也要培養「判斷什麼像良興」與「讓跨部門一起動起來」的能力。</p>
+    <div class="footer"><span>Needle + village chief</span><span>07 / 09</span></div>
+  </section>
+	  <section class="slide">
+	    <div class="kicker">LiangHsing Implications</div>
+    <h1 class="h1">對良興的<br><span class="rust">四個落地點</span></h1>
+    <div class="grid2">
+      <div class="card"><h3>AI 員工</h3><p>把報表、異常、客服知識、商品知識變成可追蹤的工作流。</p></div>
+      <div class="card"><h3>HR AI</h3><p>履歷篩選只是入口，真正價值在人才庫、面試紀錄與新人訓練。</p></div>
+      <div class="card"><h3>教育訓練</h3><p>從 SOP 記憶轉成案例判斷、品牌語氣、例外處理能力。</p></div>
+      <div class="card hero"><h3>管理方式</h3><p>主管設計規則與環境，AI 放大執行，人負責品味、信任與關係。</p></div>
+    </div>
+    <div class="footer"><span>Action layer</span><span>08 / 09</span></div>
+  </section>
+	  <section class="slide">
+	    <div class="kicker">Recommended Next Step</div>
+    <h1 class="h1">先做一件事：<br><span class="rust">把 AI 變成工作系統</span></h1>
+    <p class="sub">不要只把 AI 當問答工具。每個流程都要有來源、判斷、輸出、回饋、沉澱，讓它逐步發酵成公司的第二套工作能力。</p>
+    <div>
+      <span class="pill">來源資料</span><span class="pill">AI 分析</span><span class="pill">人工裁示</span><span class="pill">結果回寫</span><span class="pill">知識沉澱</span>
+    </div>
+    <div class="quote" style="margin-top:30px">不是讓 AI 取代人，而是讓人從表格與控制中抽身，回到品味、關係與創造。</div>
+    <div class="voice-panel" style="margin-top:24px">
+      <h3>完整賴總聲音素材</h3>
+	      <p>保留作為授權 AI 語音生成測試與旁白比對素材。</p>
+      <p class="notice">完整素材保留在專案中作比對；正式播放只使用下方控制列的逐頁 AI 旁白。</p>
+    </div>
+    <div class="footer"><span>End</span><span>09 / 09</span></div>
+  </section>
+</div>
+<div class="overview" id="overview" aria-label="簡報總覽"></div>
+<div class="controls" aria-label="簡報控制列">
+  <button type="button" id="prev" title="上一頁">‹</button>
+  <span class="count" id="count">1 / 9</span>
+  <button type="button" id="next" title="下一頁">›</button>
+  <button class="voice-control" type="button" id="voiceBtn" title="播放本頁語音">語音</button>
+  <span class="voice-status" id="voiceStatus">第 1 頁旁白</span>
+  <button type="button" id="overviewBtn" title="總覽">總覽</button>
+  <button type="button" id="fullBtn" title="全螢幕">全</button>
+</div>
+<audio id="slideAudio" preload="none"></audio>
+<script>
+const slides=[...document.querySelectorAll('.slide')];let i=0;const count=document.getElementById('count');const overview=document.getElementById('overview');const audio=document.getElementById('slideAudio');const voiceBtn=document.getElementById('voiceBtn');const voiceStatus=document.getElementById('voiceStatus');
+function voiceSrc(n){return `assets/voice/slide-${String(n+1).padStart(2,'0')}.mp3`}
+function setVoiceLabel(state='語音'){voiceBtn.textContent=state;voiceStatus.textContent=`第 ${i+1} 頁旁白`}
+function stopVoice(){audio.pause();audio.currentTime=0;setVoiceLabel('語音')}
+function loadVoice(){const src=voiceSrc(i);if(audio.getAttribute('src')!==src){audio.pause();audio.setAttribute('src',src);audio.load()}setVoiceLabel('語音')}
+function show(n){i=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,k)=>s.classList.toggle('active',k===i));count.textContent=`${i+1} / ${slides.length}`;location.hash=i+1;overview.classList.remove('open');loadVoice()}
+overview.innerHTML=slides.map((s,k)=>`<button class="thumb" type="button" data-i="${k}"><b>${String(k+1).padStart(2,'0')}</b><span>${s.querySelector('.h1')?.textContent.trim()||'Slide'}</span></button>`).join('');
+overview.addEventListener('click',e=>{const t=e.target.closest('.thumb');if(t)show(Number(t.dataset.i))});
+document.getElementById('prev').onclick=()=>show(i-1);
+document.getElementById('next').onclick=()=>show(i+1);
+document.getElementById('overviewBtn').onclick=()=>overview.classList.toggle('open');
+document.getElementById('fullBtn').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();
+voiceBtn.onclick=()=>{if(audio.paused){audio.play().then(()=>setVoiceLabel('暫停')).catch(()=>setVoiceLabel('錯誤'))}else{audio.pause();setVoiceLabel('語音')}};
+audio.addEventListener('ended',()=>setVoiceLabel('語音'));
+audio.addEventListener('error',()=>setVoiceLabel('錯誤'));
+addEventListener('keydown',e=>{if(['ArrowRight',' ','PageDown'].includes(e.key))show(i+1);if(['ArrowLeft','PageUp'].includes(e.key))show(i-1);if(e.key==='Home')show(0);if(e.key==='End')show(slides.length-1);if(e.key==='Escape')overview.classList.remove('open')})
+if(location.hash){const n=parseInt(location.hash.replace(/^#\/?/,'').trim(),10);if(n)show(n-1)}
+else show(0);
+</script>
+</body>
+</html>
