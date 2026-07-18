@@ -1,5 +1,16 @@
 [
   {
+    "slug": "lai-divergent-successor-voice-ppt",
+    "name": "企業接班人之「分歧者」｜賴總 AI 語音導覽版 HTML PPT",
+    "desc": "依賴志達〈企業接班人之「分歧者」〉整理為 8 頁自動播放簡報，呈現跨部門全局觀、挑戰 SOP、責任與接班人培養方法，搭配賴總影像與逐頁 AI 語音。",
+    "source": "Jason 2026-07-18 提供文章 PDF、賴總照片與授權聲音樣本",
+    "date": "2026-07-18",
+    "category": "企業轉型",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/lai-divergent-successor-voice-ppt/",
+    "zip_url": "https://hanassitant-cloud.github.io/jarvistest/lai-divergent-successor-voice-ppt.zip",
+    "notes": "逐頁旁白以授權聲音樣本及本機 F5-TTS 生成，屬 AI 語音導覽，非真人現場錄音。"
+  },
+  {
     "slug": "fsmlab-business-future-owner-voice-20260624",
     "name": "FSMLAB 飛創美｜事業與未來藍圖老闆聲線 AI 語音導覽版 HTML PPT",
     "desc": "重新定義為飛創美事業與未來主題，整理科技美容定位、肌膚管理服務、AI 會員經營、內容與招商工具、90 天落地藍圖；使用 Jason 提供的飛創美粉衣老闆影片作為聲音樣本，逐頁生成 AI 語音講解。",
