@@ -14,7 +14,7 @@
 </main><div class="overview" id="overview"></div><nav class="ppt-nav oc-ppt-remote"><div class="deck-title">企業接班人之「分歧者」</div><button id="prev">← 上一頁</button><button id="next">→ 下一頁</button><button class="voice" id="voice">▶ 語音</button><span class="status" id="status">1 / 8</span><button class="blue" id="overviewBtn">O 總覽</button><button class="blue" id="autoBtn">T 重點</button><button class="blue" id="fullBtn">F 沉浸</button></nav><audio id="audio" preload="auto"></audio>
 <script>
 const slides=[...document.querySelectorAll('.slide')],audio=document.getElementById('audio'),status=document.getElementById('status'),overview=document.getElementById('overview');let i=0,auto=false;
-audio.playbackRate=0.9;audio.defaultPlaybackRate=0.9;audio.preservesPitch=true;
+audio.playbackRate=0.85;audio.defaultPlaybackRate=0.85;audio.preservesPitch=true;
 const src=n=>`assets/voice/slide-${String(n+1).padStart(2,'0')}.mp3`;
 function show(n,play=false){i=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,k)=>s.classList.toggle('is-active',k===i));status.textContent=`${i+1} / ${slides.length}`;location.hash=i+1;audio.src=src(i);overview.classList.remove('open');if(play)audio.play()}
 function begin(){auto=true;show(i,true);document.getElementById('autoBtn').textContent='T 自動中'}
