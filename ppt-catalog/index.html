@@ -17,9 +17,17 @@
       <div class="eyebrow">HTML PPT Catalog</div>
       <h1>文文 HTML PPT 作品總表</h1>
       <p class="lead">這裡整理已發布的 HTML PPT、圖文簡報與提案頁面，依日期由新到舊排序。每個項目包含展示連結、ZIP 下載、資料來源與分類，方便 Jason 快速查找與交付。</p>
-      <div class="stats"><div class="stat"><b>37</b><span>已登錄作品</span></div><div class="stat"><b>19</b><span>分類</span></div><div class="stat"><b>GitHub Pages</b><span>公開展示層</span></div></div>
+      <div class="stats"><div class="stat"><b>38</b><span>已登錄作品</span></div><div class="stat"><b>19</b><span>分類</span></div><div class="stat"><b>GitHub Pages</b><span>公開展示層</span></div></div>
     </section>
     <section class="tools"><input id="q" class="search" placeholder="搜尋名稱、描述或資料來源"><div class="chips" id="chips"><button class="chip active" data-cat="全部">全部</button><button class="chip" data-cat="品牌分析">品牌分析</button><button class="chip" data-cat="勁園 AI 營運">勁園 AI 營運</button><button class="chip" data-cat="學校/系所">學校/系所</button><button class="chip" data-cat="AI 團隊">AI 團隊</button><button class="chip" data-cat="能源/市場研究">能源/市場研究</button><button class="chip" data-cat="AI 趨勢">AI 趨勢</button><button class="chip" data-cat="留學/行前準備">留學/行前準備</button><button class="chip" data-cat="品牌/網站分析">品牌/網站分析</button><button class="chip" data-cat="宗教/赴約前理解">宗教/赴約前理解</button><button class="chip" data-cat="顧問提案">顧問提案</button><button class="chip" data-cat="投資分析">投資分析</button><button class="chip" data-cat="AI 平台">AI 平台</button><button class="chip" data-cat="企業個案">企業個案</button><button class="chip" data-cat="開發流程">開發流程</button><button class="chip" data-cat="創業提案">創業提案</button><button class="chip" data-cat="教學">教學</button><button class="chip" data-cat="診所分析">診所分析</button><button class="chip" data-cat="教學/報告">教學/報告</button><button class="chip" data-cat="文學導讀">文學導讀</button></div></section>
+    <article id="lai-voice-card" class="card" data-name="AI 時代的人才與組織轉型｜賴總真人語音導覽版 HTML PPT 良興賴總 AI 人才與組織轉型簡報，包含 9 頁逐頁真人語音導覽，可在瀏覽器直接播放。 Jason 2026-06-22 指示 + 賴總授權語音素材 + 文文製作 AI 團隊" data-cat="AI 團隊" style="display:none">
+      <div class="meta"><span>AI 團隊</span><time>2026-06-22</time></div>
+      <h2>AI 時代的人才與組織轉型｜賴總真人語音導覽版 HTML PPT</h2>
+      <p class="desc">良興賴總 AI 人才與組織轉型簡報，包含 9 頁逐頁真人語音導覽，可在瀏覽器直接播放。</p>
+      <p class="source"><b>資料來源：</b>Jason 2026-06-22 指示 + 賴總授權語音素材 + 文文製作</p>
+      <p class="source"><b>備註：</b>公開觀看版；點擊簡報下方「語音」按鈕可播放每一頁旁白。</p>
+      <div class="actions"><a class="open" href="https://hanassitant-cloud.github.io/jarvistest/lai-ai-talent-voice-ppt/#1" target="_blank" rel="noopener">打開 HTML PPT</a><code>/lai-ai-talent-voice-ppt/</code></div>
+    </article>
     <section class="grid" id="grid"><article class="card" data-name="FSMLAB 飛創美｜事業與未來藍圖老闆聲線 AI 語音導覽版 HTML PPT 重新定義為飛創美事業與未來主題，整理科技美容定位、肌膚管理服務、AI 會員經營、內容與招商工具、90 天落地藍圖；使用 Jason 提供的飛創美粉衣老闆影片作為聲音樣本，逐頁生成 AI 語音講解。 Jason 2026-06-24 提供飛創美老闆訪談影片 + 原 FSMLAB 飛創美 AI 成長規劃簡報公開資料整理 新版本，不覆蓋原版。僅用 Jason 提供影片中粉色衣服老闆段落作為授權聲音樣本，透過本機 F5-TTS 依每頁講稿生成 audio/slide-xx.m4a；不是影片原聲切片，也不包含影片後段白色衣服講者。 品牌分析" data-cat="品牌分析">
   <div class="meta"><span>品牌分析</span><time>2026-06-24</time></div>
   <h2>FSMLAB 飛創美｜事業與未來藍圖老闆聲線 AI 語音導覽版 HTML PPT</h2>
@@ -318,6 +326,7 @@
 </article></section>
   </main>
   <script>
+    document.getElementById('grid').prepend(document.getElementById('lai-voice-card'));
     const q=document.getElementById('q'), cards=[...document.querySelectorAll('.card')], chips=[...document.querySelectorAll('.chip')]; let cat='全部';
     function apply(){const term=(q.value||'').trim().toLowerCase(); cards.forEach(c=>{const okCat=cat==='全部'||c.dataset.cat===cat; const okTerm=!term||c.dataset.name.toLowerCase().includes(term); c.style.display=okCat&&okTerm?'block':'none';})}
     q.addEventListener('input',apply); chips.forEach(b=>b.addEventListener('click',()=>{chips.forEach(x=>x.classList.remove('active')); b.classList.add('active'); cat=b.dataset.cat; apply();}));
