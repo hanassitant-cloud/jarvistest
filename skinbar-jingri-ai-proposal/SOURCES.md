@@ -10,5 +10,7 @@
   - `https://skinbar.tw/wp-content/uploads/2025/08/新品文宣_工作區域-1-複本.png`
   - `https://skinbar.tw/wp-content/uploads/2024/11/水光面膜.png`
   - `https://skinbar.tw/wp-content/uploads/2025/01/保水乳-1448x2048.png`
+- 台灣本島輪廓：Natural Earth 1:10m Admin 0 Countries 公開領域資料。
+  - `https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/`
 
 本簡報為公開資料研究與顧問提案，非淨日生技或 SkinBar 淨膚寶官方文件。官方品牌圖片與宣稱僅作來源呈現，不等於第三方功效驗證。
