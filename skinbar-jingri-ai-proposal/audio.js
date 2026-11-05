@@ -17,13 +17,13 @@
     index=n;
     audio.src=sourceFor(n);
     audio.load();
-    play.textContent='▶ 播放講解';
+    play.innerHTML='▶<span class="oc-ppt-remote-small">講解</span>';
     status.textContent=pageLabel(n);
     dialog.querySelector('p').textContent=slides[n].querySelector('.notes')?.textContent?.trim()||'';
   }
   async function start(){
     try{await audio.play();}
-    catch(e){status.textContent='請再點一次播放講解以啟動聲音';}
+    catch(e){status.textContent='請再點一次「講解」以啟動聲音';}
   }
   function advance(){
     if(auto.checked&&index<slides.length-1){
@@ -33,8 +33,8 @@
   }
 
   play.addEventListener('click',()=>audio.paused?start():audio.pause());
-  audio.addEventListener('play',()=>play.textContent='Ⅱ 暫停講解');
-  audio.addEventListener('pause',()=>play.textContent='▶ 播放講解');
+  audio.addEventListener('play',()=>play.innerHTML='Ⅱ<span class="oc-ppt-remote-small">暫停</span>');
+  audio.addEventListener('pause',()=>play.innerHTML='▶<span class="oc-ppt-remote-small">講解</span>');
   audio.addEventListener('error',()=>status.textContent='音檔載入失敗，請重試或閱讀講稿');
   audio.addEventListener('ended',advance);
   document.getElementById('script').addEventListener('click',()=>{sync(true);dialog.showModal();});

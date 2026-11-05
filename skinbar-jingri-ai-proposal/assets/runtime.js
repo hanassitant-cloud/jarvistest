@@ -62,7 +62,7 @@
       }
       showSlide(previewOnlyIdx);
       /* Hide chrome that the presenter shouldn't see in preview */
-      const hideSel = '.progress-bar, .notes-overlay, .overview, .notes, aside.notes, .speaker-notes';
+      const hideSel = '.ppt-nav, .progress-bar, .notes-overlay, .overview, .notes, aside.notes, .speaker-notes';
       document.querySelectorAll(hideSel).forEach(el => { el.style.display = 'none'; });
       document.documentElement.setAttribute('data-preview', '1');
       document.body.setAttribute('data-preview', '1');
@@ -126,9 +126,10 @@
     }
     const barFill = bar.querySelector('span');
 
-    /* ===== OpenClaw standard bottom control bar =====
-     * This is Jason's preferred HTML PPT control style. Keep it visually
-     * consistent across decks: title + previous/next/overview/focus/immersive.
+    /* ===== Compact bottom control bar =====
+     * One persistent row only: page count + previous + narration + next + script.
+     * Secondary presentation tools remain available by keyboard without covering
+     * mobile slide content.
      */
     const navStyle = document.createElement('style');
     navStyle.textContent = `
@@ -138,48 +139,49 @@
         bottom: calc(env(safe-area-inset-bottom, 0px) + 18px) !important;
         transform: translateX(-50%) !important;
         z-index: 2147483647 !important;
-        width: min(94vw, 820px) !important;
+        width: min(92vw, 520px) !important;
         display: flex !important;
         align-items: center !important;
-        gap: 8px !important;
-        padding: 10px !important;
-        border-radius: 22px !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        padding: 7px !important;
+        border-radius: 16px !important;
         background: rgba(255,255,255,.98) !important;
-        border: 2px solid rgba(0,0,0,.1) !important;
-        box-shadow: 0 18px 60px rgba(0,0,0,.34) !important;
+        border: 1px solid rgba(16,32,51,.16) !important;
+        box-shadow: 0 4px 8px rgba(16,32,51,.18) !important;
         backdrop-filter: blur(18px) !important;
         -webkit-backdrop-filter: blur(18px) !important;
         font-family: var(--font-sans) !important;
       }
-      .oc-ppt-remote-title {
-        flex: 1;
-        min-width: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+      .ppt-page-indicator {
+        min-width: 64px;
+        padding: 0 8px;
+        text-align: center;
         color: #102033 !important;
         font-weight: 900 !important;
         font-size: 14px !important;
-        letter-spacing: 0 !important;
+        font-variant-numeric: tabular-nums;
       }
       .ppt-nav.oc-ppt-remote button {
         border: 0 !important;
         border-radius: 14px !important;
         background: #102033 !important;
         color: white !important;
-        min-width: 76px !important;
-        height: 46px !important;
-        padding: 0 10px !important;
+        min-width: 48px !important;
+        height: 44px !important;
+        padding: 0 8px !important;
         font-size: 15px !important;
         font-weight: 900 !important;
         line-height: 1.05 !important;
         cursor: pointer !important;
         touch-action: manipulation !important;
       }
-      .ppt-nav.oc-ppt-remote button:nth-of-type(3),
-      .ppt-nav.oc-ppt-remote button:nth-of-type(4),
-      .ppt-nav.oc-ppt-remote button:nth-of-type(5) {
-        background: #0ea5e9 !important;
+      .ppt-nav.oc-ppt-remote .ppt-play {
+        min-width: 88px !important;
+        background: #0e7fac !important;
+      }
+      .ppt-nav.oc-ppt-remote .ppt-script {
+        background: #487bab !important;
       }
       .ppt-nav.oc-ppt-remote button:disabled {
         opacity: .45 !important;
@@ -254,24 +256,15 @@
       @media (max-width: 900px) {
         .ppt-nav.oc-ppt-remote {
           bottom: calc(env(safe-area-inset-bottom, 0px) + 14px) !important;
-          width: 96vw !important;
-          transform: translateX(-50%) scale(.88) !important;
-          padding: 8px !important;
-          gap: 6px !important;
-        }
-        .oc-ppt-remote-title {
-          display: block !important;
-          flex: 0 1 58px !important;
-          font-size: 10px !important;
-          line-height: 1.05 !important;
-          white-space: nowrap !important;
-          overflow: hidden !important;
-          text-overflow: ellipsis !important;
+          width: calc(100vw - 24px) !important;
+          max-width: 440px !important;
+          padding: 6px !important;
+          gap: 5px !important;
         }
         .ppt-nav.oc-ppt-remote button {
-          min-width: 48px !important;
-          width: 48px !important;
-          height: 48px !important;
+          min-width: 44px !important;
+          width: 44px !important;
+          height: 44px !important;
           padding: 0 5px !important;
           font-size: 14px !important;
         }
@@ -279,6 +272,8 @@
           font-size: 9px !important;
           margin-top: 2px !important;
         }
+        .ppt-page-indicator { min-width: 54px !important; padding: 0 4px !important; font-size: 13px !important; }
+        .ppt-nav.oc-ppt-remote .ppt-play { min-width: 76px !important; width: 76px !important; }
       }
     `;
     document.head.appendChild(navStyle);
@@ -289,17 +284,16 @@
       nav.className = 'ppt-nav oc-ppt-remote';
       nav.setAttribute('aria-label', '投影片控制列');
       nav.innerHTML = [
-        '<div class="oc-ppt-remote-title"></div>',
+        '<span class="ppt-page-indicator" aria-live="polite">1 / ' + total + '</span>',
         '<button type="button" class="ppt-prev" aria-label="上一頁">←<span class="oc-ppt-remote-small">上一頁</span></button>',
+        '<button type="button" class="ppt-play" aria-label="播放本頁女聲">▶<span class="oc-ppt-remote-small">講解</span></button>',
         '<button type="button" class="ppt-next" aria-label="下一頁">→<span class="oc-ppt-remote-small">下一頁</span></button>',
-        '<button type="button" class="ppt-overview-btn" aria-label="總覽">O<span class="oc-ppt-remote-small">總覽</span></button>',
-        '<button type="button" class="ppt-focus-btn" aria-label="重點">T<span class="oc-ppt-remote-small">重點</span></button>',
-        '<button type="button" class="ppt-immersive-btn" aria-label="沉浸">F<span class="oc-ppt-remote-small">沉浸</span></button>'
+        '<button type="button" class="ppt-script" aria-label="查看本頁講稿">稿<span class="oc-ppt-remote-small">講稿</span></button>'
       ].join('');
       document.body.appendChild(nav);
     }
     nav.classList.add('oc-ppt-remote');
-    const navTitle = nav.querySelector('.oc-ppt-remote-title');
+    const pageIndicator = nav.querySelector('.ppt-page-indicator');
     const prevBtn = nav.querySelector('.ppt-prev');
     const nextBtn = nav.querySelector('.ppt-next');
     prevBtn.addEventListener('click', () => go(idx - 1));
@@ -426,7 +420,7 @@
       barFill.style.width = ((n+1)/total*100)+'%';
       const numEl = document.querySelector('.slide-number');
       if (numEl) { numEl.setAttribute('data-current', n+1); numEl.setAttribute('data-total', total); }
-      if (navTitle) navTitle.textContent = document.title || 'HTML PPT';
+      if (pageIndicator) pageIndicator.textContent = (n + 1) + ' / ' + total;
       if (prevBtn) prevBtn.disabled = n === 0;
       if (nextBtn) nextBtn.disabled = n === total - 1;
 

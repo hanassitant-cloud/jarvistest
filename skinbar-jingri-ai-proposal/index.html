@@ -11,14 +11,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="tpl-pitch-deck skinbar-deck">
-  <header class="audio-bar" aria-label="女聲講解控制列">
-    <div class="audio-brand"><img src="assets/images/skinbar-logo-alt2.png" alt="SkinBar 淨膚寶標誌"><b>公司情報 × AI 提案</b></div>
-    <button id="play" type="button" aria-label="播放本頁女聲">▶ 播放講解</button>
-    <label><input id="autoplay" type="checkbox"> 連續講解</label>
-    <button id="script" type="button">逐頁講稿</button>
-    <span id="audio-status" role="status">真人感合成女聲</span>
-  </header>
-
   <main class="deck">
     <section class="slide cover" data-title="淨日生技 × SkinBar｜公司情報與 AI 成長提案">
       <div class="cover-bg"></div><div class="cover-blob"></div>
@@ -173,18 +165,25 @@
       <aside class="notes">建議用九十天完成第一個可驗收試點。前三十天先選店點、窗口和資料，建立人工基線。中間三十天讓 AI 協助客服草稿與預約分流，但保留真人覆核。最後三十天比較正確率、轉人工率、回覆時間和營運結果，再決定擴大、修正或停止。第一案建議聚焦總部營運中台和多店客服預約。</aside>
     </section>
 
-    <section class="slide control-source" data-title="來源、限制與操作方式">
-      <p class="num-tag">SOURCES · LIMITS · CONTROLS</p><h2>來源、限制與操作方式</h2>
+    <section class="slide control-source" data-title="來源與資料邊界">
+      <p class="num-tag">SOURCES · LIMITS</p><h2>來源與資料邊界</h2>
       <div class="source-layout">
         <div class="source-list"><a href="https://findit.sme.gov.tw/tw/Startup/UE1wUlZnYnl5K0Q4blZUb1ErTjJqZz09/Basic" target="_blank" rel="noopener">經濟部 FINDIT 公司頁 ↗</a><a href="https://twincn.com/item.aspx?no=93797951" target="_blank" rel="noopener">工商資料交叉查核 ↗</a><a href="https://skinbar.tw/" target="_blank" rel="noopener">SkinBar 淨膚寶官方網站 ↗</a><a href="https://skinbar.tw/join-skinbar/" target="_blank" rel="noopener">官方加盟頁 ↗</a><a href="https://skinbar.tw/elementor-6056/" target="_blank" rel="noopener">官方保養產品頁 ↗</a><a href="https://www.104.com.tw/company/1a2x6bml2z" target="_blank" rel="noopener">104 公司與招募頁 ↗</a></div>
-        <div><div class="control-demo"><div class="fake-title">簡報標題</div><span>←<small>上一頁</small></span><span>→<small>下一頁</small></span><span class="blue">O<small>總覽</small></span><span class="blue">T<small>重點</small></span><span class="blue">F<small>沉浸</small></span></div><ul class="control-notes"><li>上方「播放講解」可收聽本頁女聲；切頁會停在該頁範圍。</li><li>勾選「連續講解」後，旁白結束會自動換頁。</li><li>圖片均取自官方網站公開素材；品牌宣稱不等於第三方功效證明。</li><li>本簡報為公開資料研究與顧問提案，非淨日生技官方文件。</li></ul></div>
+        <div><ul class="control-notes"><li>底部單一控制列整合頁次、翻頁、女聲講解與本頁講稿。</li><li>圖片均取自官方網站公開素材；品牌宣稱不等於第三方功效證明。</li><li>門市數是官網列出的店名，不等於淨日生技名下正式分公司數。</li><li>本簡報為公開資料研究與顧問提案，非淨日生技官方文件。</li></ul></div>
       </div>
       <p class="closing-line">先讓資訊可信，再讓流程可量化，最後才讓 AI 放大成長。</p>
-      <aside class="notes">最後列出主要來源、限制和觀看方式。下方控制列可以上一頁、下一頁、開啟總覽、查看本頁重點與進入沉浸模式；上方可以播放真人感合成女聲。所有圖片取自淨膚寶官方網站的公開素材，但品牌文案不等於第三方功效證明。這份簡報是公開資料研究與顧問提案，不是淨日生技官方文件。</aside>
+      <aside class="notes">最後列出主要來源與資料邊界。底部只有一條控制列，固定顯示目前頁次，並整合上一頁、女聲講解、下一頁與本頁講稿。所有圖片取自淨膚寶官方網站的公開素材，但品牌文案不等於第三方功效證明。這份簡報是公開資料研究與顧問提案，不是淨日生技官方文件。</aside>
     </section>
   </main>
 
-  <dialog id="transcript"><button id="close-script" type="button">關閉</button><h2>本頁講稿</h2><p></p></dialog>
+  <nav class="ppt-nav oc-ppt-remote" aria-label="投影片與女聲講解控制列">
+    <span class="ppt-page-indicator" aria-live="polite">1 / 14</span>
+    <button type="button" class="ppt-prev" aria-label="上一頁">←<span class="oc-ppt-remote-small">上一頁</span></button>
+    <button id="play" type="button" class="ppt-play" aria-label="播放本頁女聲">▶<span class="oc-ppt-remote-small">講解</span></button>
+    <button type="button" class="ppt-next" aria-label="下一頁">→<span class="oc-ppt-remote-small">下一頁</span></button>
+    <button id="script" type="button" class="ppt-script" aria-label="查看本頁講稿">稿<span class="oc-ppt-remote-small">講稿</span></button>
+  </nav>
+  <dialog id="transcript"><button id="close-script" type="button">關閉</button><h2>本頁講稿</h2><p></p><div class="transcript-options"><label><input id="autoplay" type="checkbox"> 本頁講完後自動播放下一頁</label><span id="audio-status" role="status">台灣繁中自然女聲</span></div></dialog>
   <audio id="narration" preload="metadata" src="audio/slide-01.m4a"></audio>
   <script src="assets/runtime.js"></script>
   <script src="audio.js"></script>
