@@ -1,5 +1,15 @@
 [
   {
+    "slug": "meow-party-cafe-business-insight",
+    "name": "Meow Party Café｜會前商業洞察（14 頁自然女聲）",
+    "desc": "14 頁圖文商業簡報，整理成立時間、店面體驗、Google 口碑、經營摩擦、蘇敏惠跨產業版圖、焦糖楓、台東季澄太空艙、合規邊界與 14 天 AI 小試點。",
+    "source": "Meow Party Café／焦糖楓官方公開頁面、Google Maps 公開商家資訊、經濟部商工登記、台東縣政府旅宿檔案及公開訪店資料；核對日 2026-11-08。",
+    "date": "2026-11-08",
+    "category": "顧問提案",
+    "url": "https://hanassitant-cloud.github.io/jarvistest/meow-party-cafe-business-insight/",
+    "notes": "非 Meow Party Café、焦糖楓或季澄太空艙官方簡報；評分與評論量為動態資料。旅宿頁僅呈現截至 2026-10-08 的官方列管狀態並要求核對最新文件。旁白使用 zh-TW-HsiaoChenNeural 自然合成女聲，非真人錄音。"
+  },
+  {
     "slug": "skinbar-jingri-ai-proposal",
     "name": "淨日生技 × SkinBar｜公司情報與 AI 成長提案（逐頁自然女聲）",
     "desc": "14 頁美容科技商務簡報，整合公司登記、辦公據點、產品服務、門市版圖、主要客群、營收資訊邊界、未來願景與 AI 復仇者聯盟 90 天導入建議。",
