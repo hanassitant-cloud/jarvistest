@@ -37,7 +37,7 @@
   function stopAudio() {
     audio.pause();
     audio.currentTime = 0;
-    narrate.innerHTML = '▶ <span>講解</span>';
+    narrate.innerHTML = '▶ <span>語音播放</span>';
     narrate.setAttribute('aria-label', '播放女性講解');
   }
 
@@ -60,14 +60,14 @@
   function toggleNarration() {
     if (!audio.paused) {
       audio.pause();
-      narrate.innerHTML = '▶ <span>講解</span>';
+      narrate.innerHTML = '▶ <span>語音播放</span>';
       return;
     }
     const src = slides[index].dataset.audio;
     if (!src) return say('本頁沒有旁白音檔');
     if (!audio.src.endsWith(src)) audio.src = src;
     audio.play().then(() => {
-      narrate.innerHTML = 'Ⅱ <span>暫停</span>';
+      narrate.innerHTML = 'Ⅱ <span>語音暫停</span>';
       narrate.setAttribute('aria-label', '暫停女性講解');
     }).catch(() => say('瀏覽器阻擋播放，請再按一次講解'));
   }
@@ -75,7 +75,7 @@
   prev.addEventListener('click', () => show(index - 1));
   next.addEventListener('click', () => show(index + 1));
   narrate.addEventListener('click', toggleNarration);
-  audio.addEventListener('ended', () => { narrate.innerHTML = '↻ <span>重播</span>'; });
+  audio.addEventListener('ended', () => { narrate.innerHTML = '↻ <span>重新播放</span>'; });
   document.getElementById('listBtn').addEventListener('click', () => listDialog.showModal());
   document.getElementById('transcriptBtn').addEventListener('click', () => transcriptDialog.showModal());
   document.querySelectorAll('.close').forEach(button => button.addEventListener('click', () => button.closest('dialog').close()));
